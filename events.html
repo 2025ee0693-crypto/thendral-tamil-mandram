@@ -192,7 +192,8 @@
 
             z-index: 100;
 
-            background: greenyellow;
+            background:
+                rgba(36, 22, 16, 0.76);
 
             backdrop-filter:
                 blur(12px);
@@ -201,7 +202,8 @@
                 blur(12px);
 
             border-bottom:
-                1px solid var(--line);
+                1px solid
+                rgba(238, 217, 183, 0.12);
 
         }
 
@@ -225,7 +227,9 @@
         }
 
 
-        /* Brand */
+        /* =========================================
+           BRAND
+           ========================================= */
 
         .brand {
 
@@ -237,7 +241,7 @@
 
             text-decoration: none;
 
-            color: var(--brown);
+            color: #f8ead2;
 
             flex-shrink: 0;
 
@@ -289,12 +293,14 @@
 
             text-transform: uppercase;
 
-            color: var(--brown-soft);
+            color: #c99732;
 
         }
 
 
-        /* Links */
+        /* =========================================
+           LINKS
+           ========================================= */
 
         .nav-right {
 
@@ -324,7 +330,7 @@
 
             text-decoration: none;
 
-            color: var(--brown-soft);
+            color: #f8ead2;
 
             font-size: 13px;
 
@@ -367,56 +373,53 @@
         }
 
 
-        /* Language */
-
-        .language-switch {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 4px;
-
-            padding: 4px;
-
-            border:
-                1px solid var(--line);
-
-            border-radius: 999px;
-
-            background:
-                rgba(255,255,255,0.55);
-
-        }
-
+        /* =========================================
+           LANGUAGE BUTTON
+           ========================================= */
 
         .lang-btn {
 
-            border: none;
+            border:
+                1px solid rgba(248, 234, 210, 0.55);
 
-            background: transparent;
+            background:
+                transparent;
 
-            color: var(--brown-soft);
+            color: #f8ead2;
 
-            padding: 6px 9px;
+            padding:
+                8px 15px;
 
-            border-radius: 999px;
+            border-radius:
+                4px;
 
-            font-size: 10px;
+            font-size:
+                10px;
 
-            cursor: pointer;
+            font-weight:
+                700;
+
+            letter-spacing:
+                0.08em;
+
+            cursor:
+                pointer;
 
             transition:
-                all 0.25s ease;
+                background 0.25s ease,
+                color 0.25s ease,
+                border-color 0.25s ease;
 
         }
 
 
-        .lang-btn.active {
+        .lang-btn:hover {
 
-            background: var(--brown);
+            background:
+                var(--brown);
 
-            color: white;
+            color:
+                white;
 
         }
 
@@ -552,8 +555,6 @@
         }
 
 
-        /* Decorative line */
-
         .hero-line {
 
             width: 70px;
@@ -570,10 +571,10 @@
 
 
         /* =========================================
-           ARCHIVE
+           FEATURED EVENTS SECTION
            ========================================= */
 
-        .archive {
+        .events-section {
 
             position: relative;
 
@@ -581,7 +582,7 @@
                 120px 20px;
 
             background:
-                rgba(255, 253, 247, 0.94);
+                rgba(255, 253, 247, 0.82);
 
             border-top:
                 1px solid var(--line);
@@ -589,10 +590,10 @@
         }
 
 
-        .archive-inner {
+        .events-inner {
 
             width:
-                min(1050px, 92%);
+                min(1180px, 92%);
 
             margin: auto;
 
@@ -614,7 +615,7 @@
         }
 
 
-        .archive-heading {
+        .events-heading {
 
             font-family:
                 Georgia,
@@ -622,7 +623,7 @@
                 serif;
 
             font-size:
-                clamp(38px, 6vw, 72px);
+                clamp(42px, 6vw, 76px);
 
             font-weight: 400;
 
@@ -630,12 +631,12 @@
 
             color: var(--brown);
 
-            max-width: 700px;
+            max-width: 800px;
 
         }
 
 
-        .archive-description {
+        .events-description {
 
             max-width: 620px;
 
@@ -651,62 +652,197 @@
 
 
         /* =========================================
-           EVENTS
+           EVENT HERO CARDS
            ========================================= */
 
-        .event-list {
+        .event-cards {
 
             margin-top: 75px;
-
-            border-top:
-                1px solid var(--line);
-
-        }
-
-
-        .event {
 
             display: grid;
 
             grid-template-columns:
-                120px 1fr 110px;
+                repeat(3, 1fr);
 
-            gap: 35px;
-
-            align-items: center;
-
-            padding:
-                30px 0;
-
-            border-bottom:
-                1px solid var(--line);
-
-            transition:
-                padding 0.3s ease;
+            gap: 22px;
 
         }
 
 
-        .event:hover {
+        .event-card {
 
-            padding-left: 12px;
-            padding-right: 12px;
+            position: relative;
+
+            min-height: 390px;
+
+            padding: 32px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-between;
+
+            overflow: hidden;
+
+            border-radius: 4px;
+
+            color: white;
+
+            box-shadow:
+                0 18px 45px
+                rgba(67, 39, 29, 0.18);
+
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease;
+
+        }
+
+
+        .event-card:hover {
+
+            transform:
+                translateY(-8px);
+
+            box-shadow:
+                0 28px 55px
+                rgba(67, 39, 29, 0.25);
+
+        }
+
+
+        /* Card backgrounds */
+
+        .event-card:nth-child(1) {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #7d321c 0%,
+                    #b94d17 55%,
+                    #d86d27 100%
+                );
+
+        }
+
+
+        .event-card:nth-child(2) {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #3d2923 0%,
+                    #684438 55%,
+                    #956047 100%
+                );
+
+        }
+
+
+        .event-card:nth-child(3) {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #72530d 0%,
+                    #a97a1e 55%,
+                    #c99732 100%
+                );
+
+        }
+
+
+        /* Decorative circle */
+
+        .event-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 260px;
+            height: 260px;
+
+            right: -100px;
+            bottom: -100px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.28);
+
+            border-radius: 50%;
+
+        }
+
+
+        /* Tamil watermark */
+
+        .event-card::after {
+
+            content: "தமிழ்";
+
+            position: absolute;
+
+            right: -18px;
+            bottom: 15px;
+
+            font-family:
+                "Noto Serif Tamil",
+                "Noto Sans Tamil",
+                Latha,
+                serif;
+
+            font-size: 82px;
+
+            font-weight: 700;
+
+            color:
+                rgba(255,255,255,0.08);
+
+            transform:
+                rotate(-8deg);
+
+            pointer-events: none;
+
+        }
+
+
+        .event-card-content {
+
+            position: relative;
+
+            z-index: 2;
 
         }
 
 
         .event-date {
 
-            font-size: 11px;
+            display: inline-block;
+
+            padding-bottom: 9px;
+
+            margin-bottom: 24px;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.45);
+
+            font-size: 10px;
 
             letter-spacing: 0.18em;
 
-            color: var(--orange-dark);
+            text-transform: uppercase;
+
+            font-weight: 700;
 
         }
 
 
-        .event-name {
+        .event-card h3 {
+
+            max-width: 350px;
 
             font-family:
                 Georgia,
@@ -714,78 +850,65 @@
                 serif;
 
             font-size:
-                clamp(22px, 3vw, 34px);
+                clamp(30px, 3vw, 42px);
 
             font-weight: 400;
 
-            color: var(--brown);
+            line-height: 1.05;
+
+            letter-spacing: -0.025em;
+
+        }
+
+
+        .event-card-description {
+
+            max-width: 340px;
+
+            margin-top: 18px;
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 13px;
+
+            line-height: 1.75;
+
+            opacity: 0.90;
+
+        }
+
+
+        .event-card-bottom {
+
+            position: relative;
+
+            z-index: 2;
 
         }
 
 
         .event-type {
 
-            text-align: right;
+            display: inline-block;
 
-            font-size: 10px;
+            padding:
+                7px 11px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.45);
+
+            border-radius: 3px;
+
+            font-size: 9px;
 
             letter-spacing: 0.15em;
 
             text-transform: uppercase;
 
-            color: var(--brown-soft);
-
-        }
-
-
-        /* =========================================
-           CLOSING NOTE
-           ========================================= */
-
-        .archive-note {
-
-            margin-top: 90px;
-
-            padding:
-                55px 35px;
-
-            text-align: center;
-
-            border:
-                1px solid var(--line);
-
-            background:
-                rgba(255, 248, 233, 0.75);
-
-        }
-
-
-        .archive-note h3 {
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size:
-                clamp(30px, 5vw, 52px);
-
-            font-weight: 400;
-
-            color: var(--brown);
-
-        }
-
-
-        .archive-note p {
-
-            margin-top: 15px;
-
-            color: var(--brown-soft);
-
-            font-size: 14px;
-
-            line-height: 1.8;
+            font-weight: 700;
 
         }
 
@@ -860,6 +983,25 @@
            MOBILE
            ========================================= */
 
+        @media (max-width: 900px) {
+
+            .event-cards {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .event-card {
+
+                min-height: 350px;
+
+            }
+
+        }
+
+
         @media (max-width: 760px) {
 
 
@@ -894,7 +1036,7 @@
 
             .nav-right {
 
-                gap: 10px;
+                gap: 12px;
 
             }
 
@@ -909,13 +1051,6 @@
             .nav-links a {
 
                 font-size: 11px;
-
-            }
-
-
-            .language-switch {
-
-                display: none;
 
             }
 
@@ -955,7 +1090,7 @@
             }
 
 
-            .archive {
+            .events-section {
 
                 padding:
                     85px 20px;
@@ -963,28 +1098,25 @@
             }
 
 
-            .event {
+            .events-inner {
 
-                grid-template-columns:
-                    80px 1fr;
-
-                gap: 15px;
+                width: 92%;
 
             }
 
 
-            .event-type {
+            .event-card {
 
-                grid-column: 2;
+                min-height: 330px;
 
-                text-align: left;
+                padding: 27px;
 
             }
 
 
-            .event-name {
+            .event-card h3 {
 
-                font-size: 23px;
+                font-size: 31px;
 
             }
 
@@ -1018,7 +1150,7 @@
 
             }
 
-            .event {
+            .event-card {
 
                 transition: none;
 
@@ -1057,6 +1189,7 @@
                     alt="Thendral Tamizh Mandram emblem"
                 >
 
+
                 <div class="brand-text">
 
                     <div
@@ -1066,6 +1199,7 @@
                     >
                         தென்றல் தமிழ்மன்றம்
                     </div>
+
 
                     <div class="brand-english">
                         Sri Venkateswara College of Engineering
@@ -1111,24 +1245,15 @@
                 </div>
 
 
-                <div class="language-switch">
+                <!-- SINGLE LANGUAGE BUTTON -->
 
-                    <button
-                        class="lang-btn"
-                        data-lang="en"
-                    >
-                        EN
-                    </button>
-
-
-                    <button
-                        class="lang-btn active"
-                        data-lang="ta"
-                    >
-                        தமிழ்
-                    </button>
-
-                </div>
+                <button
+                    class="lang-btn"
+                    id="languageButton"
+                    type="button"
+                >
+                    EN
+                </button>
 
 
             </div>
@@ -1146,7 +1271,9 @@
     <main>
 
 
-        <!-- HERO -->
+        <!-- =========================================
+             HERO
+             ========================================= -->
 
         <section class="hero">
 
@@ -1194,24 +1321,26 @@
 
 
 
-        <!-- ARCHIVE -->
+        <!-- =========================================
+             FEATURED EVENTS
+             ========================================= -->
 
-        <section class="archive">
+        <section class="events-section">
 
-            <div class="archive-inner">
+            <div class="events-inner">
 
 
                 <div
                     class="section-label"
-                    data-en="The Archive"
-                    data-ta="நிகழ்வுப் பதிவு"
+                    data-en="Featured Events"
+                    data-ta="முக்கிய நிகழ்வுகள்"
                 >
-                    நிகழ்வுப் பதிவு
+                    முக்கிய நிகழ்வுகள்
                 </div>
 
 
                 <h2
-                    class="archive-heading"
+                    class="events-heading"
                     data-en="Moments worth remembering."
                     data-ta="நினைவில் நிற்கும் தருணங்கள்."
                 >
@@ -1220,51 +1349,70 @@
 
 
                 <p
-                    class="archive-description"
-                    data-en="Every gathering becomes part of the story. This space will grow with the events, celebrations and activities of Thendral Tamizh Mandram."
-                    data-ta="ஒவ்வொரு கூடுகையும் நமது பயணத்தின் ஒரு பகுதியாகிறது. தென்றல் தமிழ்மன்றத்தின் நிகழ்வுகள், கொண்டாட்டங்கள் மற்றும் செயல்பாடுகளுடன் இந்தப் பதிவு தொடர்ந்து வளர்ந்து கொண்டே இருக்கும்."
+                    class="events-description"
+                    data-en="Every gathering becomes part of the story. These are the moments that shape the journey of Thendral Tamizh Mandram."
+                    data-ta="ஒவ்வொரு கூடுகையும் நமது பயணத்தின் ஒரு பகுதியாகிறது. தென்றல் தமிழ்மன்றத்தின் பயணத்தை உருவாக்கும் தருணங்கள் இவை."
                 >
                     ஒவ்வொரு கூடுகையும் நமது பயணத்தின் ஒரு பகுதியாகிறது.
-                    தென்றல் தமிழ்மன்றத்தின் நிகழ்வுகள், கொண்டாட்டங்கள்
-                    மற்றும் செயல்பாடுகளுடன் இந்தப் பதிவு தொடர்ந்து
-                    வளர்ந்து கொண்டே இருக்கும்.
+                    தென்றல் தமிழ்மன்றத்தின் பயணத்தை உருவாக்கும் தருணங்கள் இவை.
                 </p>
 
 
 
-                <!-- EVENT LIST -->
+                <!-- =========================================
+                     THREE EVENT HERO CARDS
+                     ========================================= -->
 
-                <div class="event-list">
+                <div class="event-cards">
 
 
                     <!-- EVENT 1 -->
 
-                    <article class="event">
+                    <article class="event-card">
 
-                        <div
-                            class="event-date"
-                            data-en="SEP 2026"
-                            data-ta="செப் 2026"
-                        >
-                            செப் 2026
+                        <div class="event-card-content">
+
+
+                            <div
+                                class="event-date"
+                                data-en="SEP 2026"
+                                data-ta="செப் 2026"
+                            >
+                                செப் 2026
+                            </div>
+
+
+                            <h3
+                                data-en="Tamil Literary Gathering"
+                                data-ta="தமிழ் இலக்கியக் கூடுகை"
+                            >
+                                தமிழ் இலக்கியக் கூடுகை
+                            </h3>
+
+
+                            <p
+                                class="event-card-description"
+                                data-en="An evening of poetry, literature, conversation and the many ways Tamil finds its voice."
+                                data-ta="கவிதை, இலக்கியம், உரையாடல் மற்றும் தமிழ் தனது குரலை வெளிப்படுத்தும் பல்வேறு வடிவங்களின் ஒரு மாலை."
+                            >
+                                கவிதை, இலக்கியம், உரையாடல் மற்றும் தமிழ்
+                                தனது குரலை வெளிப்படுத்தும் பல்வேறு
+                                வடிவங்களின் ஒரு மாலை.
+                            </p>
+
                         </div>
 
 
-                        <div
-                            class="event-name"
-                            data-en="Tamil Literary Gathering"
-                            data-ta="தமிழ் இலக்கியக் கூடுகை"
-                        >
-                            தமிழ் இலக்கியக் கூடுகை
-                        </div>
+                        <div class="event-card-bottom">
 
+                            <div
+                                class="event-type"
+                                data-en="Literary"
+                                data-ta="இலக்கியம்"
+                            >
+                                இலக்கியம்
+                            </div>
 
-                        <div
-                            class="event-type"
-                            data-en="Literary"
-                            data-ta="இலக்கியம்"
-                        >
-                            இலக்கியம்
                         </div>
 
                     </article>
@@ -1273,32 +1421,50 @@
 
                     <!-- EVENT 2 -->
 
-                    <article class="event">
+                    <article class="event-card">
 
-                        <div
-                            class="event-date"
-                            data-en="AUG 2026"
-                            data-ta="ஆக 2026"
-                        >
-                            ஆக 2026
+                        <div class="event-card-content">
+
+
+                            <div
+                                class="event-date"
+                                data-en="AUG 2026"
+                                data-ta="ஆக 2026"
+                            >
+                                ஆக 2026
+                            </div>
+
+
+                            <h3
+                                data-en="Tamil Language & Culture Festival"
+                                data-ta="தமிழ் மொழி மற்றும் பண்பாட்டு விழா"
+                            >
+                                தமிழ் மொழி மற்றும் பண்பாட்டு விழா
+                            </h3>
+
+
+                            <p
+                                class="event-card-description"
+                                data-en="A celebration of language, heritage, art and the culture that continues to connect generations."
+                                data-ta="மொழி, மரபு, கலை மற்றும் தலைமுறைகளை தொடர்ந்து இணைக்கும் பண்பாட்டின் கொண்டாட்டம்."
+                            >
+                                மொழி, மரபு, கலை மற்றும் தலைமுறைகளை
+                                தொடர்ந்து இணைக்கும் பண்பாட்டின் கொண்டாட்டம்.
+                            </p>
+
                         </div>
 
 
-                        <div
-                            class="event-name"
-                            data-en="Tamil Language & Culture Festival"
-                            data-ta="தமிழ் மொழி மற்றும் பண்பாட்டு விழா"
-                        >
-                            தமிழ் மொழி மற்றும் பண்பாட்டு விழா
-                        </div>
+                        <div class="event-card-bottom">
 
+                            <div
+                                class="event-type"
+                                data-en="Cultural"
+                                data-ta="பண்பாடு"
+                            >
+                                பண்பாடு
+                            </div>
 
-                        <div
-                            class="event-type"
-                            data-en="Cultural"
-                            data-ta="பண்பாடு"
-                        >
-                            பண்பாடு
                         </div>
 
                     </article>
@@ -1307,65 +1473,56 @@
 
                     <!-- EVENT 3 -->
 
-                    <article class="event">
+                    <article class="event-card">
 
-                        <div
-                            class="event-date"
-                            data-en="JUL 2026"
-                            data-ta="ஜூலை 2026"
-                        >
-                            ஜூலை 2026
+                        <div class="event-card-content">
+
+
+                            <div
+                                class="event-date"
+                                data-en="JUL 2026"
+                                data-ta="ஜூலை 2026"
+                            >
+                                ஜூலை 2026
+                            </div>
+
+
+                            <h3
+                                data-en="Club Inauguration"
+                                data-ta="மன்ற தொடக்க விழா"
+                            >
+                                மன்ற தொடக்க விழா
+                            </h3>
+
+
+                            <p
+                                class="event-card-description"
+                                data-en="The beginning of a new chapter for Thendral Tamizh Mandram and its 2026—27 office bearers."
+                                data-ta="தென்றல் தமிழ்மன்றத்தின் 2026—27 அலுவலகப் பொறுப்பாளர்களுடன் தொடங்கிய புதிய அத்தியாயம்."
+                            >
+                                தென்றல் தமிழ்மன்றத்தின் 2026—27 அலுவலகப்
+                                பொறுப்பாளர்களுடன் தொடங்கிய புதிய அத்தியாயம்.
+                            </p>
+
                         </div>
 
 
-                        <div
-                            class="event-name"
-                            data-en="Club Inauguration"
-                            data-ta="மன்ற தொடக்க விழா"
-                        >
-                            மன்ற தொடக்க விழா
-                        </div>
+                        <div class="event-card-bottom">
 
+                            <div
+                                class="event-type"
+                                data-en="Inauguration"
+                                data-ta="தொடக்கம்"
+                            >
+                                தொடக்கம்
+                            </div>
 
-                        <div
-                            class="event-type"
-                            data-en="Inauguration"
-                            data-ta="தொடக்கம்"
-                        >
-                            தொடக்கம்
                         </div>
 
                     </article>
 
 
                 </div>
-
-
-
-                <!-- CLOSING -->
-
-                <div class="archive-note">
-
-
-                    <h3
-                        data-en="More chapters are coming."
-                        data-ta="இன்னும் பல அத்தியாயங்கள் வரவிருக்கின்றன."
-                    >
-                        இன்னும் பல அத்தியாயங்கள் வரவிருக்கின்றன.
-                    </h3>
-
-
-                    <p
-                        data-en="The archive will continue to grow with every new memory made by the Mandram."
-                        data-ta="மன்றம் உருவாக்கும் ஒவ்வொரு புதிய நினைவுடனும் இந்தப் பதிவு தொடர்ந்து விரிவடையும்."
-                    >
-                        மன்றம் உருவாக்கும் ஒவ்வொரு புதிய நினைவுடனும்
-                        இந்தப் பதிவு தொடர்ந்து விரிவடையும்.
-                    </p>
-
-
-                </div>
-
 
             </div>
 
@@ -1420,8 +1577,10 @@
            LANGUAGE SWITCHING
            ========================================= */
 
-        const languageButtons =
-            document.querySelectorAll(".lang-btn");
+        const languageButton =
+            document.getElementById(
+                "languageButton"
+            );
 
 
         const translatedElements =
@@ -1430,7 +1589,14 @@
             );
 
 
+        let currentLanguage = "ta";
+
+
         function setLanguage(language) {
+
+
+            currentLanguage =
+                language;
 
 
             translatedElements.forEach(element => {
@@ -1441,36 +1607,35 @@
             });
 
 
-            languageButtons.forEach(button => {
-
-                button.classList.toggle(
-                    "active",
-                    button.dataset.lang === language
-                );
-
-            });
-
-
             document.documentElement.lang =
                 language;
+
+
+            /*
+                Button shows the language
+                that can be switched TO.
+            */
+
+            languageButton.textContent =
+                language === "ta"
+                    ? "EN"
+                    : "தமிழ்";
 
         }
 
 
-        languageButtons.forEach(button => {
+        languageButton.addEventListener(
+            "click",
+            () => {
 
-            button.addEventListener(
-                "click",
-                () => {
+                setLanguage(
+                    currentLanguage === "ta"
+                        ? "en"
+                        : "ta"
+                );
 
-                    setLanguage(
-                        button.dataset.lang
-                    );
-
-                }
-            );
-
-        });
+            }
+        );
 
 
         /* =========================================
@@ -1483,10 +1648,15 @@
 
         /* =========================================
            TAMIL LETTER RAIN
+           
+           THIS IS COPIED FROM YOUR
+           ORIGINAL WORKING VERSION.
            ========================================= */
 
         const tamilRain =
-            document.getElementById("tamilRain");
+            document.getElementById(
+                "tamilRain"
+            );
 
 
         const tamilCharacters = [
