@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+<html lang="ta">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>தென்றல் தமிழ் மன்றம் | SVCE</title>
+
+
+    <!-- =========================================================
+         GOOGLE FONTS
+    ========================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        /* =========================================================
+           ROOT
+        ========================================================== */
+
+        :root {
+
+            --orange: #F47B20;
+            --orange-bright: #FF9A3D;
+
+            --brick: #A94728;
+            --brick-dark: #7E321F;
+            --terracotta: #C85D32;
+
+            --brown: #603522;
+            --brown-dark: #40251A;
+            --brown-deep: #241610;
+            --cocoa: #513020;
+
+            --blue: #315C72;
+            --blue-dark: #234555;
+            --blue-light: #668B9B;
+
+            --parchment: #EED9B7;
+            --cream: #F6E8CF;
+            --ivory: #FFF7E7;
+
+            --gold: #D49A43;
+        }
+
+
+        /* =========================================================
+           RESET
+        ========================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family: "Noto Sans Tamil", sans-serif;
+
+            background: var(--brown-dark);
+
+            color: var(--ivory);
+
+            overflow-x: hidden;
+        }
+
+
+        /* Lock scrolling while boot screen is active */
+
+        body.booting {
+            overflow: hidden;
+
+            height: 100vh;
+            height: 100svh;
+        }
+
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        button {
+            font-family: inherit;
+        }
+
+
+        /* =========================================================
+           BOOT / INTRO SCREEN
+        ========================================================== */
+
+        .intro-screen {
+
+            position: fixed;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100vh;
+            height: 100svh;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background:
+
+                radial-gradient(
+                    circle at center,
+                    rgba(126, 50, 31, 0.18),
+                    transparent 42%
+                ),
+
+                var(--brown-deep);
+
+            z-index: 9999;
+
+            opacity: 1;
+
+            visibility: visible;
+
+            transition:
+                opacity 0.8s ease,
+                visibility 0.8s ease;
+        }
+
+
+        .intro-screen.hide {
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            pointer-events: none;
+        }
+
+
+        .intro-content {
+
+            width: min(90vw, 600px);
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            animation:
+                introAppear 1.1s ease forwards;
+        }
+
+
+        .intro-emblem-wrap {
+
+            position: relative;
+
+            width: 170px;
+            height: 170px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 28px;
+        }
+
+
+        .intro-emblem {
+
+            position: relative;
+
+            z-index: 2;
+
+            width: 115px;
+            height: 115px;
+
+            object-fit: contain;
+
+            opacity: 0;
+
+            animation:
+                emblemAppear 0.9s ease 0.15s forwards,
+                emblemFloat 3s ease-in-out 1.1s infinite;
+        }
+
+
+        /* Ring around emblem */
+
+        .intro-ring {
+
+            position: absolute;
+
+            inset: 5px;
+
+            border:
+
+                1px solid
+                rgba(212, 154, 67, 0.6);
+
+            border-radius: 50%;
+
+            transform: rotate(-45deg);
+
+            opacity: 0;
+
+            animation:
+                ringDraw 1.2s ease 0.25s forwards;
+        }
+
+
+        .intro-ring::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 7px;
+            height: 7px;
+
+            top: -4px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            background: var(--orange);
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 14px
+                rgba(244, 123, 32, 0.7);
+        }
+
+
+        .intro-title {
+
+            font-size:
+                clamp(1.8rem, 4vw, 2.7rem);
+
+            font-weight: 600;
+
+            letter-spacing: 0.02em;
+
+            color: var(--parchment);
+
+            opacity: 0;
+
+            animation:
+                textAppear 0.8s ease 0.75s forwards;
+        }
+
+
+        .intro-subtitle {
+
+            margin-top: 8px;
+
+            font-family:
+                "Playfair Display", serif;
+
+            font-size:
+                clamp(0.75rem, 2vw, 0.95rem);
+
+            letter-spacing: 0.22em;
+
+            text-transform: uppercase;
+
+            color: var(--orange-bright);
+
+            opacity: 0;
+
+            animation:
+                textAppear 0.8s ease 0.95s forwards;
+        }
+
+
+        .intro-line {
+
+            width: 0;
+
+            height: 1px;
+
+            margin-top: 22px;
+
+            background: var(--gold);
+
+            opacity: 0.7;
+
+            animation:
+                lineExpand 0.8s ease 1.15s forwards;
+        }
+
+
+        /* =========================================================
+           BOOT ANIMATIONS
+        ========================================================== */
+
+        @keyframes introAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(10px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        @keyframes emblemAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    scale(0.75);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    scale(1);
+            }
+        }
+
+
+        @keyframes emblemFloat {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-4px);
+            }
+        }
+
+
+        @keyframes ringDraw {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    rotate(-45deg)
+                    scale(0.75);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    rotate(0deg)
+                    scale(1);
+            }
+        }
+
+
+        @keyframes textAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(12px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        @keyframes lineExpand {
+
+            from {
+
+                width: 0;
+            }
+
+            to {
+
+                width: 90px;
+            }
+        }
+
+
+        /* =========================================================
+           NAVBAR
+        ========================================================== */
+
+        .navbar {
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding:
+                18px 5vw;
+
+            background:
+                rgba(36, 22, 16, 0.76);
+
+            border-bottom:
+                1px solid
+                rgba(238, 217, 183, 0.12);
+
+            backdrop-filter:
+                blur(12px);
+
+            -webkit-backdrop-filter:
+                blur(12px);
+
+            z-index: 1000;
+        }
+
+
+        .brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+        }
+
+
+        .brand img {
+
+            width: 43px;
+            height: 43px;
+
+            object-fit: contain;
+        }
+
+
+        .brand-text {
+
+            display: flex;
+
+            flex-direction: column;
+
+            line-height: 1.2;
+        }
+
+
+        .brand-tamil {
+
+            font-size: 1rem;
+
+            font-weight: 600;
+
+            color: var(--parchment);
+        }
+
+
+        .brand-english {
+
+            font-family:
+                "Playfair Display", serif;
+
+            font-size: 0.62rem;
+
+            letter-spacing: 0.08em;
+
+            color: var(--orange-bright);
+        }
+
+
+        .nav-right {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 32px;
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            gap: 27px;
+        }
+
+
+        .nav-links a {
+
+            position: relative;
+
+            font-size: 0.9rem;
+
+            color: var(--parchment);
+
+            transition:
+                color 0.25s ease,
+                transform 0.25s ease;
+        }
+
+
+        .nav-links a::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: -6px;
+
+            width: 0;
+            height: 1px;
+
+            background:
+                var(--orange);
+
+            transition:
+                width 0.25s ease;
+        }
+
+
+        .nav-links a:hover {
+
+            color:
+                var(--orange-bright);
+
+            transform:
+                translateY(-1px);
+        }
+
+
+        .nav-links a:hover::after {
+
+            width: 100%;
+        }
+
+
+        .language-toggle {
+
+            cursor: pointer;
+
+            font-size: 0.75rem;
+
+            font-weight: 600;
+
+            color:
+                var(--orange-bright);
+
+            background: transparent;
+
+            border:
+                1px solid
+                rgba(244, 123, 32, 0.45);
+
+            padding:
+                6px 10px;
+
+            border-radius: 20px;
+
+            transition:
+                background 0.25s ease,
+                color 0.25s ease;
+        }
+
+
+        .language-toggle:hover {
+
+            background:
+                var(--orange);
+
+            color:
+                var(--brown-deep);
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================== */
+
+        .hero {
+
+            position: relative;
+
+            min-height: 100vh;
+            min-height: 150svh;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            background:
+
+                linear-gradient(
+                    to bottom,
+                    rgba(36, 22, 16, 0.48),
+                    rgba(36, 22, 16, 0.65)
+                ),
+
+                url("images/office-bearers.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            isolation: isolate;
+        }
+
+
+        .hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+
+                linear-gradient(
+                    to top,
+                    rgba(36, 22, 16, 0.92),
+                    transparent 35%
+                );
+
+            z-index: -1;
+        }
+
+
+        .hero-content {
+
+            width:
+                min(900px, 90vw);
+
+            padding-top: 65px;
+        }
+
+
+        .hero-emblem {
+
+            width: 105px;
+            height: 105px;
+
+            object-fit: contain;
+
+            margin-bottom: 25px;
+
+            filter:
+                drop-shadow(
+                    0 8px 20px
+                    rgba(36, 22, 16, 0.45)
+                );
+        }
+
+
+        .hero-title {
+
+            font-size:
+                clamp(2.3rem, 6vw, 5.2rem);
+
+            line-height: 1.08;
+
+            font-weight: 700;
+
+            color:
+                var(--ivory);
+
+            text-shadow:
+                0 4px 25px
+                rgba(36, 22, 16, 0.6);
+        }
+
+
+        .hero-subtitle {
+
+            margin-top: 16px;
+
+            font-family:
+                "Playfair Display", serif;
+
+            font-size:
+                clamp(0.85rem, 2vw, 1.1rem);
+
+            letter-spacing: 0.15em;
+
+            text-transform: uppercase;
+
+            color:
+                var(--orange-bright);
+        }
+
+
+        .hero-year {
+
+            margin-top: 9px;
+
+            font-size: 0.95rem;
+
+            color:
+                var(--parchment);
+
+            opacity: 0.9;
+        }
+
+
+        .hero-scroll {
+
+            position: absolute;
+
+            bottom: 28px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            font-size: 0.7rem;
+
+            letter-spacing: 0.18em;
+
+            text-transform: uppercase;
+
+            color:
+                var(--parchment);
+
+            opacity: 0.65;
+        }
+
+
+        .hero-scroll::after {
+
+            content: "";
+
+            display: block;
+
+            width: 1px;
+
+            height: 35px;
+
+            margin:
+                9px auto 0;
+
+            background:
+                var(--orange);
+        }
+
+
+        /* =========================================================
+           GENERAL SECTIONS
+        ========================================================== */
+
+        section {
+
+            position: relative;
+
+            padding:
+                110px 7vw;
+        }
+
+
+        .section-inner {
+
+            max-width:
+                1150px;
+
+            margin:
+                0 auto;
+        }
+
+
+        .section-label {
+
+            font-family:
+                "Playfair Display", serif;
+
+            font-size: 0.8rem;
+
+            letter-spacing: 0.2em;
+
+            text-transform: uppercase;
+
+            color:
+                var(--orange-bright);
+
+            margin-bottom: 15px;
+        }
+
+
+        .section-title {
+
+            font-size:
+                clamp(2rem, 4vw, 3.5rem);
+
+            line-height: 1.15;
+
+            margin-bottom: 25px;
+        }
+
+
+        .section-text {
+
+            max-width:
+                750px;
+
+            font-size: 1rem;
+
+            line-height: 1.9;
+
+            opacity: 0.9;
+        }
+
+
+        /* =========================================================
+           ABOUT PREVIEW
+        ========================================================== */
+
+        .about-preview {
+
+            background:
+                var(--parchment);
+
+            color:
+                var(--brown-dark);
+        }
+
+
+        .about-preview .section-label {
+
+            color:
+                var(--brick);
+        }
+
+
+        .about-preview .section-title {
+
+            color:
+                var(--brown-dark);
+        }
+
+
+        .about-preview .section-text {
+
+            color:
+                var(--cocoa);
+        }
+
+
+        .about-link {
+
+            display: inline-block;
+
+            margin-top: 28px;
+
+            padding-bottom: 6px;
+
+            border-bottom:
+                1px solid
+                var(--brick);
+
+            color:
+                var(--brick);
+
+            font-weight: 600;
+
+            transition:
+                color 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+
+        .about-link:hover {
+
+            color:
+                var(--orange);
+
+            border-color:
+                var(--orange);
+        }
+
+
+        /* =========================================================
+           IDENTITY
+        ========================================================== */
+
+        .identity {
+
+            background:
+                var(--blue-dark);
+
+            overflow: hidden;
+        }
+
+
+        .identity::before,
+        .identity::after {
+
+            content: "";
+
+            position: absolute;
+
+            border:
+                1px solid
+                rgba(238, 217, 183, 0.08);
+
+            transform:
+                rotate(45deg);
+        }
+
+
+        .identity::before {
+
+            width: 280px;
+            height: 280px;
+
+            top: -130px;
+            right: -80px;
+        }
+
+
+        .identity::after {
+
+            width: 180px;
+            height: 180px;
+
+            bottom: -90px;
+            left: -60px;
+        }
+
+
+        .identity-content {
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .identity-quote {
+
+            max-width:
+                850px;
+
+            font-size:
+                clamp(1.5rem, 3vw, 2.7rem);
+
+            line-height: 1.45;
+
+            color:
+                var(--ivory);
+        }
+
+
+        .identity-accent {
+
+            color:
+                var(--orange-bright);
+        }
+
+
+        /* =========================================================
+           OUR YEAR
+        ========================================================== */
+
+        .our-year {
+
+            background:
+                var(--brick-dark);
+        }
+
+
+        .year-layout {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 80px;
+
+            align-items: center;
+        }
+
+
+        .year-heading .section-title {
+
+            max-width:
+                500px;
+
+            color:
+                var(--ivory);
+        }
+
+
+        .year-description {
+
+            max-width:
+                520px;
+        }
+
+
+        .year-description p {
+
+            font-size:
+                1.05rem;
+
+            line-height:
+                1.9;
+
+            color:
+                var(--parchment);
+
+            opacity: 0.9;
+        }
+
+
+        .year-description .about-link {
+
+            color:
+                var(--orange-bright);
+
+            border-color:
+                rgba(255, 154, 61, 0.55);
+        }
+
+
+        .year-description .about-link:hover {
+
+            color:
+                var(--ivory);
+
+            border-color:
+                var(--ivory);
+        }
+
+
+        /* =========================================================
+           FIND US
+        ========================================================== */
+
+        .find-us {
+
+            background:
+                var(--brown);
+        }
+
+
+        .social-links {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 28px;
+
+            margin-top: 35px;
+        }
+
+
+        .social-links a {
+
+            padding-bottom: 5px;
+
+            border-bottom:
+                1px solid
+                rgba(255, 154, 61, 0.55);
+
+            color:
+                var(--parchment);
+
+            transition:
+                color 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+
+        .social-links a:hover {
+
+            color:
+                var(--orange-bright);
+
+            border-color:
+                var(--orange-bright);
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================== */
+
+        footer {
+
+            padding:
+                45px 7vw;
+
+            background:
+                var(--brown-deep);
+
+            border-top:
+                1px solid
+                rgba(238, 217, 183, 0.1);
+
+            text-align:
+                center;
+        }
+
+
+        .footer-brand {
+
+            font-size: 1rem;
+
+            color:
+                var(--parchment);
+        }
+
+
+        .footer-sub {
+
+            margin-top: 8px;
+
+            font-family:
+                "Playfair Display", serif;
+
+            font-size: 0.7rem;
+
+            letter-spacing: 0.12em;
+
+            color:
+                var(--orange-bright);
+        }
+
+
+        .footer-copy {
+
+            margin-top: 22px;
+
+            font-size: 0.7rem;
+
+            color:
+                var(--blue-light);
+
+            opacity: 0.75;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================== */
+
+        @media (max-width: 800px) {
+
+            .navbar {
+
+                padding:
+                    14px 5vw;
+            }
+
+
+            .brand img {
+
+                width: 38px;
+                height: 38px;
+            }
+
+
+            .brand-tamil {
+
+                font-size:
+                    0.9rem;
+            }
+
+
+            .brand-english {
+
+                font-size:
+                    0.52rem;
+            }
+
+
+            .nav-links {
+
+                display:
+                    none;
+            }
+
+
+            .nav-right {
+
+                gap:
+                    12px;
+            }
+
+
+            .hero-content {
+
+                padding-top:
+                    75px;
+            }
+
+
+            .hero-emblem {
+
+                width: 85px;
+                height: 85px;
+            }
+
+
+            section {
+
+                padding:
+                    80px 7vw;
+            }
+
+
+            .year-layout {
+
+                grid-template-columns:
+                    1fr;
+
+                gap:
+                    30px;
+            }
+
+
+            .social-links {
+
+                flex-direction:
+                    column;
+
+                gap:
+                    18px;
+
+                align-items:
+                    flex-start;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .intro-emblem-wrap {
+
+                width: 145px;
+                height: 145px;
+            }
+
+
+            .intro-emblem {
+
+                width: 95px;
+                height: 95px;
+            }
+
+
+            .intro-title {
+
+                font-size:
+                    1.65rem;
+            }
+
+
+            .intro-subtitle {
+
+                font-size:
+                    0.62rem;
+
+                letter-spacing:
+                    0.16em;
+            }
+
+
+            .hero-title {
+
+                font-size:
+                    2.15rem;
+            }
+
+
+            .hero-subtitle {
+
+                font-size:
+                    0.72rem;
+
+                letter-spacing:
+                    0.11em;
+            }
+
+
+            .hero-year {
+
+                font-size:
+                    0.82rem;
+            }
+
+
+            .section-title {
+
+                font-size:
+                    2rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="booting">
+
+
+    <!-- =========================================================
+         BOOT SCREEN
+    ========================================================== -->
+
+    <div
+        class="intro-screen"
+        id="introScreen"
+    >
+
+        <div class="intro-content">
+
+            <div class="intro-emblem-wrap">
+
+                <div class="intro-ring"></div>
+
+                <img
+                    src="images/embelm.png"
+                    alt="Thendral Tamizh Mandram emblem"
+                    class="intro-emblem"
+                >
+
+            </div>
+
+
+            <h1
+                class="intro-title"
+                data-ta="தென்றல் தமிழ் மன்றம்"
+                data-en="தென்றல் தமிழ் மன்றம்"
+            >
+                தென்றல் தமிழ் மன்றம்
+            </h1>
+
+
+            <p
+                class="intro-subtitle"
+                data-ta="ஸ்ரீ வெங்கடேஸ்வரா பொறியியல் கல்லூரி"
+                data-en="Sri Venkateswara College of Engineering"
+            >
+                ஸ்ரீ வெங்கடேஸ்வரா பொறியியல் கல்லூரி
+            </p>
+
+
+            <div class="intro-line"></div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================== -->
+
+    <nav class="navbar">
+
+        <a
+            href="index.html"
+            class="brand"
+        >
+
+            <img
+                src="images/embelm.png"
+                alt="Thendral Tamizh Mandram"
+            >
+
+
+            <div class="brand-text">
+
+                <span
+                    class="brand-tamil"
+                    data-ta="தென்றல் தமிழ் மன்றம்"
+                    data-en="தென்றல் தமிழ் மன்றம்"
+                >
+                    தென்றல் தமிழ் மன்றம்
+                </span>
+
+
+                <span class="brand-english">
+                    THENDRAL TAMIZH MANDRAM
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <div class="nav-right">
+
+
+            <div class="nav-links">
+
+                <a
+                    href="index.html"
+                    data-ta="முகப்பு"
+                    data-en="Home"
+                >
+                    முகப்பு
+                </a>
+
+
+                <a
+                    href="about.html"
+                    data-ta="எங்களைப் பற்றி"
+                    data-en="About"
+                >
+                    எங்களைப் பற்றி
+                </a>
+
+
+                <a
+                    href="events.html"
+                    data-ta="நிகழ்வுகள்"
+                    data-en="Events"
+                >
+                    நிகழ்வுகள்
+                </a>
+
+            </div>
+
+
+            <button
+                class="language-toggle"
+                id="languageToggle"
+                onclick="toggleLanguage()"
+            >
+                EN
+            </button>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================================================
+         MAIN
+    ========================================================== -->
+
+    <main>
+
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+
+                <img
+                    src="images/embelm.png"
+                    alt="Thendral Tamizh Mandram emblem"
+                    class="hero-emblem"
+                >
+
+
+                <h1
+                    class="hero-title"
+                    data-ta="தென்றல் தமிழ் மன்றம்"
+                    data-en="தென்றல் தமிழ் மன்றம்"
+                >
+                    தென்றல் தமிழ் மன்றம்
+                </h1>
+
+
+                <p
+                    class="hero-subtitle"
+                    data-ta="ஸ்ரீ வெங்கடேஸ்வரா பொறியியல் கல்லூரி"
+                    data-en="Sri Venkateswara College of Engineering"
+                >
+                    ஸ்ரீ வெங்கடேஸ்வரா பொறியியல் கல்லூரி
+                </p>
+
+
+                <p
+                    class="hero-year"
+                    data-ta="அலுவலர் குழு — 2026–27"
+                    data-en="Office Bearers — 2026–27"
+                >
+                    அலுவலர் குழு — 2026–27
+                </p>
+
+            </div>
+
+
+            <div
+                class="hero-scroll"
+                data-ta="கீழே தொடர்க"
+                data-en="Scroll"
+            >
+                கீழே தொடர்க
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             ABOUT PREVIEW
+        ====================================================== -->
+
+        <section class="about-preview">
+
+            <div class="section-inner">
+
+
+                <p
+                    class="section-label"
+                    data-ta="நாங்கள் யார்?"
+                    data-en="Who we are"
+                >
+                    நாங்கள் யார்?
+                </p>
+
+
+                <h2
+                    class="section-title"
+                    data-ta="தமிழை வாழ்வில் கொண்டாடும் ஒரு மாணவர் சமூகமாம்."
+                    data-en="A student community that celebrates Tamil."
+                >
+                    தமிழை வாழ்வில் கொண்டாடும்
+                    ஒரு மாணவர் சமூகமாம்.
+                </h2>
+
+
+                <p
+                    class="section-text"
+                    data-ta="தென்றல் தமிழ் மன்றம் என்பது மொழியை மட்டும் கொண்டாடும் இடமல்ல. இலக்கியம், கலை, இசை, பாரம்பரியம் மற்றும் மாணவர்களின் படைப்பாற்றல் ஆகியவற்றை ஒன்றிணைக்கும் ஒரு சமூகமாகும்."
+                    data-en="Thendral Tamizh Mandram is more than a space for language. It brings together literature, art, music, heritage and the creativity of students."
+                >
+                    தென்றல் தமிழ் மன்றம் என்பது மொழியை மட்டும்
+                    கொண்டாடும் இடமல்ல. இலக்கியம், கலை, இசை,
+                    பாரம்பரியம் மற்றும் மாணவர்களின் படைப்பாற்றல்
+                    ஆகியவற்றை ஒன்றிணைக்கும் ஒரு சமூகமாகும்.
+                </p>
+
+
+                <a
+                    href="about.html"
+                    class="about-link"
+                    data-ta="மேலும் அறிய →"
+                    data-en="Discover more →"
+                >
+                    மேலும் அறிய →
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             IDENTITY
+        ====================================================== -->
+
+        <section class="identity">
+
+            <div class="section-inner identity-content">
+
+
+                <p
+                    class="section-label"
+                    data-ta="எங்கள் அடையாளம்"
+                    data-en="Our identity"
+                >
+                    எங்கள் அடையாளம்
+                </p>
+
+
+                <p class="identity-quote">
+
+                    <span
+                        data-ta="மொழி என்பது "
+                        data-en="Language is "
+                    >
+                        மொழி என்பது
+                    </span>
+
+
+                    <span
+                        class="identity-accent"
+                        data-ta="வார்த்தைகள் மட்டும் அல்ல."
+                        data-en="more than words."
+                    >
+                        வார்த்தைகள் மட்டும் அல்ல.
+                    </span>
+
+
+                    <br>
+
+
+                    <span
+                        data-ta="அது நினைவுகள், கலை, மக்கள் மற்றும் நாம்."
+                        data-en="It is memory, art, people, and us."
+                    >
+                        அது நினைவுகள், கலை, மக்கள் மற்றும் நாம்.
+                    </span>
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             OUR YEAR
+        ====================================================== -->
+
+        <section class="our-year">
+
+            <div class="section-inner year-layout">
+
+
+                <div class="year-heading">
+
+                    <p
+                        class="section-label"
+                        data-ta="2026–27"
+                        data-en="2026–27"
+                    >
+                        2026–27
+                    </p>
+
+
+                    <h2
+                        class="section-title"
+                        data-ta="ஒரு புதிய அத்தியாயம்."
+                        data-en="A new chapter."
+                    >
+                        ஒரு புதிய அத்தியாயம்.
+                    </h2>
+
+                </div>
+
+
+                <div class="year-description">
+
+                    <p
+                        data-ta="தென்றல் தமிழ் மன்றத்தின் 2026–27 பயணம் இங்கிருந்து தொடங்குகிறது — மொழி, கலை, கலாச்சாரம் மற்றும் மாணவர் சமூகத்தை ஒன்றிணைக்கும் ஒரு வருடம்."
+                        data-en="The 2026–27 journey of Thendral Tamizh Mandram begins here — a year bringing together language, art, culture and student community."
+                    >
+                        தென்றல் தமிழ் மன்றத்தின் 2026–27 பயணம்
+                        இங்கிருந்து தொடங்குகிறது — மொழி, கலை,
+                        கலாச்சாரம் மற்றும் மாணவர் சமூகத்தை
+                        ஒன்றிணைக்கும் ஒரு வருடம்.
+                    </p>
+
+
+                    <a
+                        href="events.html"
+                        class="about-link"
+                        data-ta="இந்த ஆண்டின் நிகழ்வுகளைப் பார்க்க →"
+                        data-en="Explore this year's events →"
+                    >
+                        இந்த ஆண்டின் நிகழ்வுகளைப் பார்க்க →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             FIND US
+        ====================================================== -->
+
+        <section class="find-us">
+
+            <div class="section-inner">
+
+
+                <p
+                    class="section-label"
+                    data-ta="எங்களைக் கண்டுபிடிக்க"
+                    data-en="Find us"
+                >
+                    எங்களைக் கண்டுபிடிக்க
+                </p>
+
+
+                <h2
+                    class="section-title"
+                    data-ta="இணைந்திருங்கள்."
+                    data-en="Stay connected."
+                >
+                    இணைந்திருங்கள்.
+                </h2>
+
+
+                <p
+                    class="section-text"
+                    data-ta="நிகழ்வுகள், அறிவிப்புகள் மற்றும் எங்கள் பயணத்தின் தருணங்களைத் தொடர்ந்து அறிந்துகொள்ளுங்கள்."
+                    data-en="Follow our events, announcements and moments from the journey."
+                >
+                    நிகழ்வுகள், அறிவிப்புகள் மற்றும் எங்கள்
+                    பயணத்தின் தருணங்களைத் தொடர்ந்து அறிந்துகொள்ளுங்கள்.
+                </p>
+
+
+                <div class="social-links">
+
+
+                    <!-- Replace # with actual links later -->
+
+
+                    <a
+                        href="https://www.instagram.com/svce_tamil_mandram/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Instagram →
+                    </a>
+
+
+                    <a
+                        href="https://www.linkedin.com/company/thendral-tamil-mandram/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        LinkedIn →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+
+        <div
+            class="footer-brand"
+            data-ta="தென்றல் தமிழ் மன்றம்"
+            data-en="தென்றல் தமிழ் மன்றம்"
+        >
+            தென்றல் தமிழ் மன்றம்
+        </div>
+
+
+        <div class="footer-sub">
+            SRI VENKATESWARA COLLEGE OF ENGINEERING
+        </div>
+
+
+        <div
+            class="footer-copy"
+            data-ta="2026–27 அலுவலர் குழு"
+            data-en="2026–27 Office Bearers"
+        >
+            2026–27 அலுவலர் குழு
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+
+        /* =========================================================
+           BOOT SCREEN
+        ========================================================== */
+
+        window.addEventListener("load", () => {
+
+            const intro =
+                document.getElementById("introScreen");
+
+
+            /*
+             * Keep the page completely locked while
+             * the intro is visible.
+             */
+
+            document.body.classList.add("booting");
+
+
+            /*
+             * Let the animation breathe for 2.4 seconds.
+             */
+
+            setTimeout(() => {
+
+                intro.classList.add("hide");
+
+
+                /*
+                 * Wait for the fade-out before
+                 * unlocking the page.
+                 */
+
+                setTimeout(() => {
+
+                    document.body.classList.remove("booting");
+
+                }, 800);
+
+            }, 2400);
+
+        });
+
+
+
+        /* =========================================================
+           LANGUAGE TOGGLE
+        ========================================================== */
+
+        let currentLanguage = "ta";
+
+
+        function toggleLanguage() {
+
+
+            currentLanguage =
+                currentLanguage === "ta"
+                    ? "en"
+                    : "ta";
+
+
+            document.documentElement.lang =
+                currentLanguage;
+
+
+            document
+                .querySelectorAll("[data-ta]")
+                .forEach(element => {
+
+
+                    element.textContent =
+                        element.getAttribute(
+                            `data-${currentLanguage}`
+                        );
+
+                });
+
+
+            const toggle =
+                document.getElementById(
+                    "languageToggle"
+                );
+
+
+            toggle.textContent =
+                currentLanguage === "ta"
+                    ? "EN"
+                    : "தமிழ்";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

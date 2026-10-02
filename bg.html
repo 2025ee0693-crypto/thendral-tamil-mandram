@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Falling Notes</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html, body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #050509;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        position: relative;
+        background:
+            radial-gradient(circle at 50% 45%, #151526 0%, #080811 45%, #020204 100%);
+    }
+
+    /* Ambient glow */
+    .ambient {
+        position: absolute;
+        width: 45vw;
+        height: 45vw;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        background: radial-gradient(
+            circle,
+            rgba(120, 80, 255, 0.10),
+            transparent 65%
+        );
+        filter: blur(20px);
+        animation: breathe 5s ease-in-out infinite alternate;
+    }
+
+    @keyframes breathe {
+        from {
+            transform: translate(-50%, -50%) scale(0.85);
+            opacity: 0.5;
+        }
+        to {
+            transform: translate(-50%, -50%) scale(1.15);
+            opacity: 1;
+        }
+    }
+
+    /* Notes container */
+    #notes {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+    }
+
+    .note {
+        position: absolute;
+        top: -100px;
+        left: 0;
+
+        font-size: var(--size);
+        color: var(--color);
+
+        text-shadow:
+            0 0 5px var(--color),
+            0 0 15px var(--color),
+            0 0 30px var(--color);
+
+        opacity: 0;
+        user-select: none;
+        pointer-events: none;
+
+        animation:
+            fall var(--duration) linear forwards,
+            sway var(--sway) ease-in-out infinite alternate;
+    }
+
+    @keyframes fall {
+        0% {
+            transform: translateY(-120px) rotate(0deg);
+            opacity: 0;
+        }
+
+        8% {
+            opacity: var(--opacity);
+        }
+
+        85% {
+            opacity: var(--opacity);
+        }
+
+        100% {
+            transform: translateY(calc(100vh + 150px)) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    @keyframes sway {
+        0% {
+            margin-left: -35px;
+        }
+
+        100% {
+            margin-left: 35px;
+        }
+    }
+
+    /* Center title */
+    .center {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        pointer-events: none;
+        z-index: 5;
+    }
+
+    .center h1 {
+        font-size: clamp(28px, 5vw, 72px);
+        font-weight: 300;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+
+        text-shadow:
+            0 0 10px rgba(255,255,255,.25),
+            0 0 30px rgba(150,100,255,.2);
+    }
+
+    .center p {
+        margin-top: 12px;
+        font-size: 12px;
+        letter-spacing: 0.45em;
+        opacity: 0.35;
+    }
+
+    /* Tiny particles */
+    .particle {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        border-radius: 50%;
+        background: white;
+        opacity: 0.2;
+        animation: particleMove linear infinite;
+    }
+
+    @keyframes particleMove {
+        from {
+            transform: translateY(100vh);
+        }
+
+        to {
+            transform: translateY(-20px);
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="ambient"></div>
+
+<div id="notes"></div>
+
+<script>
+
+const notesContainer = document.getElementById("notes");
+
+/* Musical symbols */
+const symbols = [
+    "♪",
+    "♫",
+    "♬",
+    "♩",
+    "𝅘𝅥𝅮",
+    "𝅘𝅥𝅯",
+    "𝄞"
+];
+
+/* Random neon-ish colors */
+const colors = [
+    "#ff4d6d",
+    "#ff7b00",
+    "#ffd166",
+    "#06d6a0",
+    "#00bbf9",
+    "#4361ee",
+    "#7209b7",
+    "#f72585",
+    "#ffffff"
+];
+
+/* Random number helper */
+function random(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+/* Create falling note */
+function createNote() {
+
+    const note = document.createElement("div");
+
+    note.className = "note";
+
+    /* Random musical symbol */
+    note.textContent =
+        symbols[Math.floor(Math.random() * symbols.length)];
+
+    /* Random properties */
+    const size = random(20, 65);
+    const duration = random(7, 16);
+    const sway = random(2, 5);
+    const opacity = random(0.45, 0.95);
+    const left = random(-5, 105);
+    const color =
+        colors[Math.floor(Math.random() * colors.length)];
+
+    note.style.left = left + "vw";
+    note.style.setProperty("--size", size + "px");
+    note.style.setProperty("--duration", duration + "s");
+    note.style.setProperty("--sway", sway + "s");
+    note.style.setProperty("--opacity", opacity);
+    note.style.setProperty("--color", color);
+
+    notesContainer.appendChild(note);
+
+    /* Remove after animation */
+    setTimeout(() => {
+        note.remove();
+    }, duration * 1000 + 500);
+}
+
+
+/* Continuously spawn notes */
+setInterval(() => {
+
+    /* Sometimes spawn multiple notes */
+    const amount = Math.random() < 0.15 ? 2 : 1;
+
+    for (let i = 0; i < amount; i++) {
+        createNote();
+    }
+
+}, 250);
+
+
+/* Background particles */
+function createParticle() {
+
+    const particle = document.createElement("div");
+
+    particle.className = "particle";
+
+    particle.style.left = random(0, 100) + "vw";
+    particle.style.animationDuration = random(8, 20) + "s";
+    particle.style.animationDelay = random(0, 10) + "s";
+
+    document.body.appendChild(particle);
+
+    setTimeout(() => {
+        particle.remove();
+    }, 30000);
+}
+
+
+/* Generate particles */
+for (let i = 0; i < 40; i++) {
+    createParticle();
+}
+
+</script>
+
+</body>
+</html>
