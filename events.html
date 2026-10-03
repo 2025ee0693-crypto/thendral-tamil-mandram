@@ -4,46 +4,20 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>நிகழ்வுகள் · தென்றல் தமிழ்மன்றம்</title>
 
+
     <style>
 
-        /* =========================================
-           RESET
-           ========================================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-
-        body {
-            width: 100%;
-            min-height: 100vh;
-
-            background: #fff8e9;
-            color: #43271d;
-
-            font-family:
-                Arial,
-                sans-serif;
-
-            overflow-x: hidden;
-        }
-
-
-        /* =========================================
-           VARIABLES
-           ========================================= */
+        /* =========================================================
+           ROOT
+        ========================================================= */
 
         :root {
 
@@ -55,18 +29,128 @@
 
             --brown: #43271d;
             --brown-soft: #765447;
+            --brown-deep: #241610;
 
             --gold: #c99732;
 
             --line:
                 rgba(67, 39, 29, 0.14);
 
+            --page-pad:
+                clamp(18px, 4vw, 64px);
+
+            --max-width:
+                1440px;
+
+            --section-space:
+                clamp(75px, 8vw, 140px);
+
         }
 
 
-        /* =========================================
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        *,
+        *::before,
+        *::after {
+
+            margin: 0;
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+
+        html {
+
+            width: 100%;
+
+            scroll-behavior: smooth;
+
+        }
+
+
+        body {
+
+            width: 100%;
+            min-width: 0;
+            min-height: 100vh;
+
+            background:
+                var(--cream);
+
+            color:
+                var(--brown);
+
+            font-family:
+                "Noto Sans Tamil",
+                "Noto Serif Tamil",
+                Latha,
+                Arial,
+                sans-serif;
+
+            line-height: 1.7;
+
+            overflow-x: hidden;
+
+        }
+
+
+        img,
+        video,
+        svg,
+        canvas {
+
+            display: block;
+
+            max-width: 100%;
+
+        }
+
+
+        button {
+
+            font-family: inherit;
+
+        }
+
+
+        a {
+
+            color: inherit;
+
+            text-decoration: none;
+
+        }
+
+
+        /* =========================================================
+           COMMON CONTAINER
+        ========================================================= */
+
+        .nav-inner,
+        .events-inner,
+        .footer-inner {
+
+            width:
+                min(
+                    calc(100% - (var(--page-pad) * 2)),
+                    var(--max-width)
+                );
+
+            min-width: 0;
+
+            margin-inline: auto;
+
+        }
+
+
+        /* =========================================================
            TAMIL LETTER RAIN
-           ========================================= */
+        ========================================================= */
 
         #tamilRain {
 
@@ -91,6 +175,7 @@
             position: absolute;
 
             top: -100px;
+
             left: 0;
 
             font-family:
@@ -99,9 +184,11 @@
                 Latha,
                 sans-serif;
 
-            font-size: var(--size);
+            font-size:
+                var(--size);
 
-            color: var(--color);
+            color:
+                var(--color);
 
             text-shadow:
                 0 0 2px var(--color),
@@ -132,20 +219,19 @@
 
             }
 
-
             8% {
 
-                opacity: var(--opacity);
+                opacity:
+                    var(--opacity);
 
             }
-
 
             85% {
 
-                opacity: var(--opacity);
+                opacity:
+                    var(--opacity);
 
             }
-
 
             100% {
 
@@ -164,23 +250,24 @@
 
             0% {
 
-                margin-left: -35px;
+                margin-left:
+                    -35px;
 
             }
 
-
             100% {
 
-                margin-left: 35px;
+                margin-left:
+                    35px;
 
             }
 
         }
 
 
-        /* =========================================
+        /* =========================================================
            NAVIGATION
-           ========================================= */
+        ========================================================= */
 
         nav {
 
@@ -193,13 +280,13 @@
             z-index: 100;
 
             background:
-                rgba(36, 22, 16, 0.76);
+                rgba(36, 22, 16, 0.82);
 
             backdrop-filter:
-                blur(12px);
+                blur(14px);
 
             -webkit-backdrop-filter:
-                blur(12px);
+                blur(14px);
 
             border-bottom:
                 1px solid
@@ -210,11 +297,8 @@
 
         .nav-inner {
 
-            width: min(1180px, 92%);
-
-            margin: auto;
-
-            min-height: 78px;
+            min-height:
+                clamp(68px, 5vw, 82px);
 
             display: flex;
 
@@ -222,14 +306,15 @@
 
             justify-content: space-between;
 
-            gap: 30px;
+            gap:
+                30px;
 
         }
 
 
-        /* =========================================
+        /* =========================================================
            BRAND
-           ========================================= */
+        ========================================================= */
 
         .brand {
 
@@ -237,24 +322,27 @@
 
             align-items: center;
 
-            gap: 12px;
-
-            text-decoration: none;
-
-            color: #f8ead2;
+            gap:
+                clamp(9px, 1vw, 14px);
 
             flex-shrink: 0;
+
+            color:
+                #f8ead2;
 
         }
 
 
         .brand img {
 
-            width: 48px;
+            width:
+                clamp(38px, 3vw, 50px);
 
-            height: 48px;
+            height:
+                clamp(38px, 3vw, 50px);
 
-            object-fit: contain;
+            object-fit:
+                contain;
 
         }
 
@@ -267,6 +355,8 @@
 
             gap: 2px;
 
+            min-width: 0;
+
         }
 
 
@@ -278,29 +368,41 @@
                 Latha,
                 serif;
 
-            font-size: 17px;
+            font-size:
+                clamp(14px, 1.2vw, 18px);
 
-            font-weight: 700;
+            font-weight:
+                700;
+
+            white-space:
+                nowrap;
 
         }
 
 
         .brand-english {
 
-            font-size: 9px;
+            font-size:
+                clamp(7px, 0.55vw, 10px);
 
-            letter-spacing: 0.16em;
+            letter-spacing:
+                0.16em;
 
-            text-transform: uppercase;
+            text-transform:
+                uppercase;
 
-            color: #c99732;
+            color:
+                var(--gold);
+
+            white-space:
+                nowrap;
 
         }
 
 
-        /* =========================================
-           LINKS
-           ========================================= */
+        /* =========================================================
+           DESKTOP NAV
+        ========================================================= */
 
         .nav-right {
 
@@ -308,7 +410,8 @@
 
             align-items: center;
 
-            gap: 28px;
+            gap:
+                clamp(14px, 2vw, 32px);
 
         }
 
@@ -319,7 +422,8 @@
 
             align-items: center;
 
-            gap: 25px;
+            gap:
+                clamp(16px, 2vw, 28px);
 
         }
 
@@ -328,28 +432,34 @@
 
             position: relative;
 
-            text-decoration: none;
+            color:
+                #f8ead2;
 
-            color: #f8ead2;
-
-            font-size: 13px;
+            font-size:
+                clamp(11px, 0.8vw, 14px);
 
             transition:
-                color 0.25s ease;
+                color 0.25s ease,
+                transform 0.25s ease;
 
         }
 
 
         .nav-links a:hover {
 
-            color: var(--orange);
+            color:
+                var(--orange);
+
+            transform:
+                translateY(-1px);
 
         }
 
 
         .nav-links a.active {
 
-            color: var(--orange-dark);
+            color:
+                var(--orange);
 
         }
 
@@ -373,25 +483,27 @@
         }
 
 
-        /* =========================================
+        /* =========================================================
            LANGUAGE BUTTON
-           ========================================= */
+        ========================================================= */
 
         .lang-btn {
 
             border:
-                1px solid rgba(248, 234, 210, 0.55);
+                1px solid
+                rgba(248, 234, 210, 0.55);
 
             background:
                 transparent;
 
-            color: #f8ead2;
+            color:
+                #f8ead2;
 
             padding:
-                8px 15px;
+                7px 13px;
 
             border-radius:
-                4px;
+                5px;
 
             font-size:
                 10px;
@@ -421,77 +533,275 @@
             color:
                 white;
 
-        }
-
-
-        /* =========================================
-           MAIN
-           ========================================= */
-
-        main {
-
-            position: relative;
-
-            z-index: 2;
+            border-color:
+                var(--orange);
 
         }
 
 
-        /* =========================================
-           HERO
-           ========================================= */
+        /* =========================================================
+           HAMBURGER
+        ========================================================= */
 
-        .hero {
+        .hamburger {
 
-            min-height: 72vh;
+            display: none;
+
+            width: 42px;
+            height: 42px;
+
+            border: 1px solid
+                rgba(248, 234, 210, 0.35);
+
+            background:
+                transparent;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            align-items: center;
+            justify-content: center;
+
+            flex-direction: column;
+
+            gap: 5px;
+
+        }
+
+
+        .hamburger span {
+
+            width: 18px;
+            height: 1.5px;
+
+            background:
+                #f8ead2;
+
+            transition:
+                transform 0.25s ease,
+                opacity 0.25s ease;
+
+        }
+
+
+        .hamburger.open span:nth-child(1) {
+
+            transform:
+                translateY(6.5px)
+                rotate(45deg);
+
+        }
+
+
+        .hamburger.open span:nth-child(2) {
+
+            opacity: 0;
+
+        }
+
+
+        .hamburger.open span:nth-child(3) {
+
+            transform:
+                translateY(-6.5px)
+                rotate(-45deg);
+
+        }
+
+
+        /* =========================================================
+           MOBILE MENU
+        ========================================================= */
+
+        .mobile-menu {
+
+            display: none;
+
+            position: absolute;
+
+            top: 100%;
+            left: 0;
 
             width: 100%;
 
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            text-align: center;
-
             padding:
-                100px 20px 80px;
-
-            position: relative;
-
-            overflow: hidden;
+                10px var(--page-pad) 18px;
 
             background:
-                rgba(255, 248, 233, 0.78);
+                rgba(36, 22, 16, 0.97);
+
+            border-bottom:
+                1px solid
+                rgba(238, 217, 183, 0.12);
+
+            backdrop-filter:
+                blur(15px);
+
+            -webkit-backdrop-filter:
+                blur(15px);
+
+        }
+
+
+        .mobile-menu.open {
+
+            display: block;
+
+        }
+
+
+        .mobile-menu a {
+
+            display: block;
+
+            padding:
+                13px 0;
+
+            color:
+                #f8ead2;
+
+            border-bottom:
+                1px solid
+                rgba(238, 217, 183, 0.08);
+
+            font-size:
+                14px;
+
+        }
+
+
+        .mobile-menu a:last-child {
+
+            border-bottom:
+                none;
+
+        }
+
+
+        .mobile-menu a.active {
+
+            color:
+                var(--orange);
+
+        }
+
+
+        /* =========================================================
+           MAIN
+        ========================================================= */
+
+        main {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+
+            position:
+                relative;
+
+            width:
+                100%;
+
+            min-height:
+                max(600px, 76dvh);
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            text-align:
+                center;
+
+            padding:
+                clamp(90px, 11vh, 160px)
+                var(--page-pad)
+                clamp(70px, 9vh, 130px);
+
+            overflow:
+                hidden;
+
+            isolation:
+                isolate;
+
+            background:
+                rgba(255, 248, 233, 0.86);
+
+        }
+
+
+        .hero::before {
+
+            content: "";
+
+            position:
+                absolute;
+
+            inset:
+                0;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(229, 111, 34, 0.055),
+                    transparent 60%
+                );
+
+            pointer-events:
+                none;
 
         }
 
 
         .hero-content {
 
-            max-width: 900px;
+            width:
+                min(900px, 100%);
 
-            position: relative;
+            position:
+                relative;
 
-            z-index: 3;
+            z-index:
+                3;
 
         }
 
 
         .eyebrow {
 
-            display: inline-block;
+            display:
+                inline-block;
 
-            margin-bottom: 24px;
+            margin-bottom:
+                clamp(18px, 2vw, 28px);
 
-            font-size: 10px;
+            font-size:
+                clamp(8px, 0.7vw, 11px);
 
-            letter-spacing: 0.28em;
+            letter-spacing:
+                0.28em;
 
-            text-transform: uppercase;
+            text-transform:
+                uppercase;
 
-            color: var(--orange-dark);
+            color:
+                var(--orange-dark);
 
         }
 
@@ -504,22 +814,31 @@
                 serif;
 
             font-size:
-                clamp(70px, 14vw, 190px);
+                clamp(
+                    58px,
+                    10vw,
+                    150px
+                );
 
-            line-height: 0.85;
+            line-height:
+                0.88;
 
-            font-weight: 400;
+            font-weight:
+                400;
 
-            letter-spacing: -0.055em;
+            letter-spacing:
+                -0.055em;
 
-            color: var(--brown);
+            color:
+                var(--brown);
 
         }
 
 
         .hero h1 span {
 
-            display: block;
+            display:
+                block;
 
             font-family:
                 "Noto Serif Tamil",
@@ -528,94 +847,110 @@
                 serif;
 
             font-size:
-                clamp(42px, 8vw, 100px);
+                clamp(
+                    40px,
+                    6.5vw,
+                    95px
+                );
 
-            color: var(--orange);
+            color:
+                var(--orange);
 
-            margin-top: 18px;
+            margin-top:
+                clamp(12px, 1.5vw, 20px);
 
-            letter-spacing: -0.04em;
+            letter-spacing:
+                -0.04em;
 
         }
 
 
         .hero-description {
 
-            max-width: 600px;
+            width:
+                min(600px, 100%);
 
             margin:
-                35px auto 0;
+                clamp(25px, 3vw, 38px)
+                auto 0;
 
-            color: var(--brown-soft);
+            color:
+                var(--brown-soft);
 
-            font-size: 15px;
+            font-size:
+                clamp(13px, 1.1vw, 16px);
 
-            line-height: 1.9;
+            line-height:
+                1.9;
 
         }
 
 
         .hero-line {
 
-            width: 70px;
+            width:
+                clamp(55px, 5vw, 75px);
 
-            height: 1px;
+            height:
+                1px;
 
             background:
                 var(--gold);
 
             margin:
-                35px auto 0;
+                clamp(25px, 3vw, 38px)
+                auto 0;
 
         }
 
 
-        /* =========================================
-           FEATURED EVENTS SECTION
-           ========================================= */
+        /* =========================================================
+           EVENTS SECTION
+        ========================================================= */
 
         .events-section {
 
-            position: relative;
+            position:
+                relative;
 
             padding:
-                120px 20px;
+                var(--section-space)
+                0;
 
             background:
-                rgba(255, 253, 247, 0.82);
+                rgba(255, 253, 247, 0.9);
 
             border-top:
-                1px solid var(--line);
-
-        }
-
-
-        .events-inner {
-
-            width:
-                min(1180px, 92%);
-
-            margin: auto;
+                1px solid
+                var(--line);
 
         }
 
 
         .section-label {
 
-            font-size: 10px;
+            font-size:
+                clamp(8px, 0.7vw, 11px);
 
-            letter-spacing: 0.28em;
+            letter-spacing:
+                0.28em;
 
-            text-transform: uppercase;
+            text-transform:
+                uppercase;
 
-            color: var(--orange-dark);
+            color:
+                var(--orange-dark);
 
-            margin-bottom: 18px;
+            margin-bottom:
+                clamp(14px, 1.5vw, 20px);
 
         }
 
 
         .events-heading {
+
+            width:
+                min(850px, 100%);
 
             font-family:
                 Georgia,
@@ -623,71 +958,99 @@
                 serif;
 
             font-size:
-                clamp(42px, 6vw, 76px);
+                clamp(
+                    40px,
+                    5vw,
+                    76px
+                );
 
-            font-weight: 400;
+            font-weight:
+                400;
 
-            line-height: 1;
+            line-height:
+                1;
 
-            color: var(--brown);
-
-            max-width: 800px;
+            color:
+                var(--brown);
 
         }
 
 
         .events-description {
 
-            max-width: 620px;
+            width:
+                min(620px, 100%);
 
-            margin-top: 25px;
+            margin-top:
+                clamp(20px, 2vw, 28px);
 
-            font-size: 15px;
+            font-size:
+                clamp(13px, 1vw, 16px);
 
-            line-height: 1.9;
+            line-height:
+                1.9;
 
-            color: var(--brown-soft);
+            color:
+                var(--brown-soft);
 
         }
 
 
-        /* =========================================
-           EVENT HERO CARDS
-           ========================================= */
+        /* =========================================================
+           EVENT CARDS
+        ========================================================= */
 
         .event-cards {
 
-            margin-top: 75px;
+            margin-top:
+                clamp(45px, 5vw, 78px);
 
-            display: grid;
+            display:
+                grid;
 
             grid-template-columns:
-                repeat(3, 1fr);
+                repeat(
+                    auto-fit,
+                    minmax(
+                        min(100%, 300px),
+                        1fr
+                    )
+                );
 
-            gap: 22px;
+            gap:
+                clamp(16px, 1.5vw, 24px);
 
         }
 
 
         .event-card {
 
-            position: relative;
+            position:
+                relative;
 
-            min-height: 390px;
+            min-height:
+                clamp(350px, 30vw, 470px);
 
-            padding: 32px;
+            padding:
+                clamp(25px, 2.5vw, 38px);
 
-            display: flex;
+            display:
+                flex;
 
-            flex-direction: column;
+            flex-direction:
+                column;
 
-            justify-content: space-between;
+            justify-content:
+                space-between;
 
-            overflow: hidden;
+            overflow:
+                hidden;
 
-            border-radius: 4px;
+            border-radius:
+                5px;
 
-            color: white;
+            color:
+                white;
 
             box-shadow:
                 0 18px 45px
@@ -712,7 +1075,9 @@
         }
 
 
-        /* Card backgrounds */
+        /* =========================================================
+           CARD BACKGROUNDS
+        ========================================================= */
 
         .event-card:nth-child(1) {
 
@@ -753,39 +1118,53 @@
         }
 
 
-        /* Decorative circle */
+        /* =========================================================
+           CARD DECORATION
+        ========================================================= */
 
         .event-card::before {
 
-            content: "";
+            content:
+                "";
 
-            position: absolute;
+            position:
+                absolute;
 
-            width: 260px;
-            height: 260px;
+            width:
+                clamp(200px, 18vw, 280px);
 
-            right: -100px;
-            bottom: -100px;
+            height:
+                clamp(200px, 18vw, 280px);
+
+            right:
+                clamp(-110px, -7vw, -80px);
+
+            bottom:
+                clamp(-110px, -7vw, -80px);
 
             border:
                 1px solid
                 rgba(255,255,255,0.28);
 
-            border-radius: 50%;
+            border-radius:
+                50%;
 
         }
 
 
-        /* Tamil watermark */
-
         .event-card::after {
 
-            content: "தமிழ்";
+            content:
+                "தமிழ்";
 
-            position: absolute;
+            position:
+                absolute;
 
-            right: -18px;
-            bottom: 15px;
+            right:
+                -18px;
+
+            bottom:
+                15px;
 
             font-family:
                 "Noto Serif Tamil",
@@ -793,9 +1172,11 @@
                 Latha,
                 serif;
 
-            font-size: 82px;
+            font-size:
+                clamp(65px, 7vw, 95px);
 
-            font-weight: 700;
+            font-weight:
+                700;
 
             color:
                 rgba(255,255,255,0.08);
@@ -803,46 +1184,57 @@
             transform:
                 rotate(-8deg);
 
-            pointer-events: none;
+            pointer-events:
+                none;
 
         }
 
 
         .event-card-content {
 
-            position: relative;
+            position:
+                relative;
 
-            z-index: 2;
+            z-index:
+                2;
 
         }
 
 
         .event-date {
 
-            display: inline-block;
+            display:
+                inline-block;
 
-            padding-bottom: 9px;
+            padding-bottom:
+                9px;
 
-            margin-bottom: 24px;
+            margin-bottom:
+                clamp(18px, 2vw, 26px);
 
             border-bottom:
                 1px solid
                 rgba(255,255,255,0.45);
 
-            font-size: 10px;
+            font-size:
+                clamp(8px, 0.65vw, 10px);
 
-            letter-spacing: 0.18em;
+            letter-spacing:
+                0.18em;
 
-            text-transform: uppercase;
+            text-transform:
+                uppercase;
 
-            font-weight: 700;
+            font-weight:
+                700;
 
         }
 
 
         .event-card h3 {
 
-            max-width: 350px;
+            width:
+                min(350px, 100%);
 
             font-family:
                 Georgia,
@@ -850,48 +1242,63 @@
                 serif;
 
             font-size:
-                clamp(30px, 3vw, 42px);
+                clamp(
+                    27px,
+                    2.5vw,
+                    43px
+                );
 
-            font-weight: 400;
+            font-weight:
+                400;
 
-            line-height: 1.05;
+            line-height:
+                1.08;
 
-            letter-spacing: -0.025em;
+            letter-spacing:
+                -0.025em;
 
         }
 
 
         .event-card-description {
 
-            max-width: 340px;
+            width:
+                min(340px, 100%);
 
-            margin-top: 18px;
+            margin-top:
+                18px;
 
             font-family:
                 Arial,
                 sans-serif;
 
-            font-size: 13px;
+            font-size:
+                clamp(12px, 0.9vw, 14px);
 
-            line-height: 1.75;
+            line-height:
+                1.75;
 
-            opacity: 0.90;
+            opacity:
+                0.90;
 
         }
 
 
         .event-card-bottom {
 
-            position: relative;
+            position:
+                relative;
 
-            z-index: 2;
+            z-index:
+                2;
 
         }
 
 
         .event-type {
 
-            display: inline-block;
+            display:
+                inline-block;
 
             padding:
                 7px 11px;
@@ -900,31 +1307,39 @@
                 1px solid
                 rgba(255,255,255,0.45);
 
-            border-radius: 3px;
+            border-radius:
+                3px;
 
-            font-size: 9px;
+            font-size:
+                9px;
 
-            letter-spacing: 0.15em;
+            letter-spacing:
+                0.15em;
 
-            text-transform: uppercase;
+            text-transform:
+                uppercase;
 
-            font-weight: 700;
+            font-weight:
+                700;
 
         }
 
 
-        /* =========================================
+        /* =========================================================
            FOOTER
-           ========================================= */
+        ========================================================= */
 
         footer {
 
-            position: relative;
+            position:
+                relative;
 
-            z-index: 2;
+            z-index:
+                2;
 
             padding:
-                40px 20px;
+                clamp(32px, 4vw, 50px)
+                0;
 
             background:
                 var(--brown);
@@ -937,18 +1352,17 @@
 
         .footer-inner {
 
-            width:
-                min(1180px, 92%);
+            display:
+                flex;
 
-            margin: auto;
+            justify-content:
+                space-between;
 
-            display: flex;
+            align-items:
+                center;
 
-            justify-content: space-between;
-
-            align-items: center;
-
-            gap: 20px;
+            gap:
+                20px;
 
         }
 
@@ -961,29 +1375,192 @@
                 Latha,
                 serif;
 
-            color: white;
+            color:
+                white;
 
-            font-size: 16px;
+            font-size:
+                clamp(14px, 1vw, 17px);
 
         }
 
 
         .footer-copy {
 
-            font-size: 10px;
+            font-size:
+                clamp(8px, 0.65vw, 10px);
 
-            letter-spacing: 0.1em;
+            letter-spacing:
+                0.1em;
 
-            opacity: 0.55;
+            opacity:
+                0.55;
+
+            text-align:
+                right;
 
         }
 
 
-        /* =========================================
-           MOBILE
-           ========================================= */
+        /* =========================================================
+           TABLET
+        ========================================================= */
 
-        @media (max-width: 900px) {
+        @media (max-width: 1050px) {
+
+            :root {
+
+                --page-pad:
+                    clamp(20px, 4vw, 40px);
+
+            }
+
+
+            .event-cards {
+
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(0, 1fr)
+                    );
+
+            }
+
+
+            .event-card:last-child {
+
+                grid-column:
+                    1 / -1;
+
+            }
+
+        }
+
+
+        /* =========================================================
+           MOBILE NAV
+        ========================================================= */
+
+        @media (max-width: 760px) {
+
+            .nav-inner {
+
+                min-height:
+                    68px;
+
+            }
+
+
+            .brand-english {
+
+                display:
+                    none;
+
+            }
+
+
+            .brand-tamil {
+
+                font-size:
+                    15px;
+
+            }
+
+
+            .brand img {
+
+                width:
+                    40px;
+
+                height:
+                    40px;
+
+            }
+
+
+            .nav-links {
+
+                display:
+                    none;
+
+            }
+
+
+            .hamburger {
+
+                display:
+                    flex;
+
+            }
+
+
+            .nav-right {
+
+                gap:
+                    8px;
+
+            }
+
+
+            .lang-btn {
+
+                padding:
+                    7px 11px;
+
+            }
+
+
+            .hero {
+
+                min-height:
+                    max(560px, 76dvh);
+
+                padding:
+                    95px
+                    var(--page-pad)
+                    70px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    clamp(
+                        54px,
+                        18vw,
+                        100px
+                    );
+
+            }
+
+
+            .hero h1 span {
+
+                font-size:
+                    clamp(
+                        35px,
+                        11vw,
+                        70px
+                    );
+
+            }
+
+
+            .hero-description {
+
+                font-size:
+                    13px;
+
+            }
+
+
+            .events-section {
+
+                padding:
+                    80px 0;
+
+            }
+
 
             .event-cards {
 
@@ -993,74 +1570,132 @@
             }
 
 
+            .event-card:last-child {
+
+                grid-column:
+                    auto;
+
+            }
+
+
             .event-card {
 
-                min-height: 350px;
+                min-height:
+                    340px;
+
+                padding:
+                    27px;
+
+            }
+
+
+            .event-card h3 {
+
+                font-size:
+                    31px;
+
+            }
+
+
+            .footer-inner {
+
+                flex-direction:
+                    column;
+
+                text-align:
+                    center;
+
+            }
+
+
+            .footer-copy {
+
+                text-align:
+                    center;
 
             }
 
         }
 
 
-        @media (max-width: 760px) {
+        /* =========================================================
+           SMALL PHONES
+        ========================================================= */
+
+        @media (max-width: 420px) {
+
+            :root {
+
+                --page-pad:
+                    16px;
+
+            }
 
 
             .nav-inner {
 
-                min-height: 70px;
+                min-height:
+                    64px;
 
             }
 
 
-            .brand-english {
+            .brand {
 
-                display: none;
-
-            }
-
-
-            .brand-tamil {
-
-                font-size: 15px;
+                gap:
+                    8px;
 
             }
 
 
             .brand img {
 
-                width: 40px;
-                height: 40px;
+                width:
+                    36px;
+
+                height:
+                    36px;
 
             }
 
 
-            .nav-right {
+            .brand-tamil {
 
-                gap: 12px;
-
-            }
-
-
-            .nav-links {
-
-                gap: 12px;
+                font-size:
+                    13px;
 
             }
 
 
-            .nav-links a {
+            .hamburger {
 
-                font-size: 11px;
+                width:
+                    38px;
+
+                height:
+                    38px;
 
             }
 
 
             .hero {
 
-                min-height: 75vh;
+                min-height:
+                    540px;
 
-                padding:
-                    80px 20px;
+                padding-top:
+                    85px;
+
+            }
+
+
+            .eyebrow {
+
+                font-size:
+                    8px;
+
+                letter-spacing:
+                    0.2em;
 
             }
 
@@ -1068,7 +1703,11 @@
             .hero h1 {
 
                 font-size:
-                    clamp(62px, 19vw, 110px);
+                    clamp(
+                        48px,
+                        18vw,
+                        76px
+                    );
 
             }
 
@@ -1076,83 +1715,331 @@
             .hero h1 span {
 
                 font-size:
-                    clamp(38px, 12vw, 70px);
+                    clamp(
+                        31px,
+                        11vw,
+                        52px
+                    );
 
             }
 
 
             .hero-description {
 
-                font-size: 13px;
+                font-size:
+                    12.5px;
 
-                max-width: 90%;
-
-            }
-
-
-            .events-section {
-
-                padding:
-                    85px 20px;
+                line-height:
+                    1.8;
 
             }
 
 
-            .events-inner {
+            .events-heading {
 
-                width: 92%;
+                font-size:
+                    39px;
+
+            }
+
+
+            .events-description {
+
+                font-size:
+                    13px;
 
             }
 
 
             .event-card {
 
-                min-height: 330px;
+                min-height:
+                    320px;
 
-                padding: 27px;
+                padding:
+                    24px;
 
             }
 
 
             .event-card h3 {
 
-                font-size: 31px;
+                font-size:
+                    28px;
 
             }
 
 
-            .footer-inner {
+            .event-card-description {
 
-                flex-direction: column;
+                font-size:
+                    12px;
 
-                text-align: center;
+            }
+
+
+            /* Less visual noise on tiny displays */
+
+            .tamil-letter {
+
+                text-shadow:
+                    0 0 3px var(--color);
 
             }
 
         }
 
 
-        /* =========================================
+        /* =========================================================
+           LANDSCAPE PHONES
+        ========================================================= */
+
+        @media (max-height: 500px) and (orientation: landscape) {
+
+            .hero {
+
+                min-height:
+                    650px;
+
+            }
+
+
+            .hero-content {
+
+                padding-top:
+                    50px;
+
+            }
+
+        }
+
+
+        /* =========================================================
+           LARGE DISPLAYS
+        ========================================================= */
+
+        @media (min-width: 1600px) {
+
+            :root {
+
+                --max-width:
+                    1600px;
+
+            }
+
+
+            .event-cards {
+
+                grid-template-columns:
+                    repeat(
+                        3,
+                        minmax(0, 1fr)
+                    );
+
+            }
+
+
+            .event-card {
+
+                min-height:
+                    500px;
+
+            }
+
+
+            .events-heading {
+
+                font-size:
+                    clamp(
+                        60px,
+                        4vw,
+                        82px
+                    );
+
+            }
+
+        }
+
+
+        /* =========================================================
+           VERY LARGE DISPLAYS / TV
+        ========================================================= */
+
+        @media (min-width: 2200px) {
+
+            :root {
+
+                --max-width:
+                    1850px;
+
+            }
+
+
+            .nav-inner {
+
+                min-height:
+                    94px;
+
+            }
+
+
+            .brand img {
+
+                width:
+                    58px;
+
+                height:
+                    58px;
+
+            }
+
+
+            .brand-tamil {
+
+                font-size:
+                    21px;
+
+            }
+
+
+            .nav-links a {
+
+                font-size:
+                    15px;
+
+            }
+
+
+            .hero {
+
+                min-height:
+                    78dvh;
+
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    clamp(
+                        100px,
+                        8vw,
+                        180px
+                    );
+
+            }
+
+
+            .hero h1 span {
+
+                font-size:
+                    clamp(
+                        65px,
+                        5vw,
+                        110px
+                    );
+
+            }
+
+
+            .hero-description {
+
+                font-size:
+                    18px;
+
+            }
+
+
+            .event-card {
+
+                min-height:
+                    560px;
+
+                padding:
+                    48px;
+
+            }
+
+
+            .event-card h3 {
+
+                font-size:
+                    clamp(
+                        38px,
+                        2.3vw,
+                        52px
+                    );
+
+            }
+
+
+            .event-card-description {
+
+                font-size:
+                    15px;
+
+            }
+
+        }
+
+
+        /* =========================================================
+           TOUCH DEVICES
+        ========================================================= */
+
+        @media (hover: none) {
+
+            .event-card:hover {
+
+                transform:
+                    none;
+
+                box-shadow:
+                    0 18px 45px
+                    rgba(67, 39, 29, 0.18);
+
+            }
+
+
+            .nav-links a:hover {
+
+                transform:
+                    none;
+
+            }
+
+        }
+
+
+        /* =========================================================
            REDUCED MOTION
-           ========================================= */
+        ========================================================= */
 
         @media (prefers-reduced-motion: reduce) {
 
             html {
 
-                scroll-behavior: auto;
+                scroll-behavior:
+                    auto;
 
             }
+
 
             #tamilRain {
 
-                display: none;
+                display:
+                    none;
 
             }
 
-            .event-card {
 
-                transition: none;
+            .event-card,
+            .nav-links a,
+            .lang-btn,
+            .hamburger span {
+
+                transition:
+                    none;
 
             }
 
@@ -1166,23 +2053,26 @@
 <body>
 
 
-    <!-- =========================================
-         FALLING TAMIL LETTERS
-         ========================================= -->
+    <!-- =========================================================
+         TAMIL LETTER RAIN
+    ========================================================= -->
 
     <div id="tamilRain"></div>
 
 
-    <!-- =========================================
+    <!-- =========================================================
          NAVIGATION
-         ========================================= -->
+    ========================================================= -->
 
     <nav>
 
         <div class="nav-inner">
 
 
-            <a href="index.html" class="brand">
+            <a
+                href="index.html"
+                class="brand"
+            >
 
                 <img
                     src="images/embelm.png"
@@ -1245,8 +2135,6 @@
                 </div>
 
 
-                <!-- SINGLE LANGUAGE BUTTON -->
-
                 <button
                     class="lang-btn"
                     id="languageButton"
@@ -1256,7 +2144,62 @@
                 </button>
 
 
+                <button
+                    class="hamburger"
+                    id="hamburger"
+                    type="button"
+                    aria-label="Open navigation"
+                    aria-expanded="false"
+                    aria-controls="mobileMenu"
+                >
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
             </div>
+
+
+        </div>
+
+
+        <!-- =====================================================
+             MOBILE MENU
+        ====================================================== -->
+
+        <div
+            class="mobile-menu"
+            id="mobileMenu"
+        >
+
+            <a
+                href="index.html"
+                data-en="Home"
+                data-ta="முகப்பு"
+            >
+                முகப்பு
+            </a>
+
+
+            <a
+                href="about.html"
+                data-en="About"
+                data-ta="எங்களைப் பற்றி"
+            >
+                எங்களைப் பற்றி
+            </a>
+
+
+            <a
+                href="events.html"
+                class="active"
+                data-en="Events"
+                data-ta="நிகழ்வுகள்"
+            >
+                நிகழ்வுகள்
+            </a>
 
         </div>
 
@@ -1264,16 +2207,16 @@
 
 
 
-    <!-- =========================================
+    <!-- =========================================================
          MAIN
-         ========================================= -->
+    ========================================================= -->
 
     <main>
 
 
-        <!-- =========================================
+        <!-- =====================================================
              HERO
-             ========================================= -->
+        ====================================================== -->
 
         <section class="hero">
 
@@ -1321,9 +2264,9 @@
 
 
 
-        <!-- =========================================
+        <!-- =====================================================
              FEATURED EVENTS
-             ========================================= -->
+        ====================================================== -->
 
         <section class="events-section">
 
@@ -1359,10 +2302,6 @@
 
 
 
-                <!-- =========================================
-                     THREE EVENT HERO CARDS
-                     ========================================= -->
-
                 <div class="event-cards">
 
 
@@ -1371,7 +2310,6 @@
                     <article class="event-card">
 
                         <div class="event-card-content">
-
 
                             <div
                                 class="event-date"
@@ -1425,7 +2363,6 @@
 
                         <div class="event-card-content">
 
-
                             <div
                                 class="event-date"
                                 data-en="AUG 2026"
@@ -1476,7 +2413,6 @@
                     <article class="event-card">
 
                         <div class="event-card-content">
-
 
                             <div
                                 class="event-date"
@@ -1533,9 +2469,9 @@
 
 
 
-    <!-- =========================================
+    <!-- =========================================================
          FOOTER
-         ========================================= -->
+    ========================================================== -->
 
     <footer>
 
@@ -1566,16 +2502,16 @@
 
 
 
-    <!-- =========================================
+    <!-- =========================================================
          JAVASCRIPT
-         ========================================= -->
+    ========================================================== -->
 
     <script>
 
 
-        /* =========================================
-           LANGUAGE SWITCHING
-           ========================================= */
+        /* =========================================================
+           LANGUAGE
+        ========================================================= */
 
         const languageButton =
             document.getElementById(
@@ -1594,27 +2530,23 @@
 
         function setLanguage(language) {
 
-
             currentLanguage =
                 language;
 
 
-            translatedElements.forEach(element => {
+            translatedElements.forEach(
+                element => {
 
-                element.textContent =
-                    element.dataset[language];
+                    element.textContent =
+                        element.dataset[language];
 
-            });
+                }
+            );
 
 
             document.documentElement.lang =
                 language;
 
-
-            /*
-                Button shows the language
-                that can be switched TO.
-            */
 
             languageButton.textContent =
                 language === "ta"
@@ -1638,20 +2570,178 @@
         );
 
 
-        /* =========================================
-           DEFAULT LANGUAGE = TAMIL
-           ========================================= */
-
         setLanguage("ta");
 
 
 
-        /* =========================================
+        /* =========================================================
+           MOBILE MENU
+        ========================================================== */
+
+        const hamburger =
+            document.getElementById(
+                "hamburger"
+            );
+
+
+        const mobileMenu =
+            document.getElementById(
+                "mobileMenu"
+            );
+
+
+        function closeMenu() {
+
+            mobileMenu.classList.remove(
+                "open"
+            );
+
+            hamburger.classList.remove(
+                "open"
+            );
+
+            hamburger.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            hamburger.setAttribute(
+                "aria-label",
+                "Open navigation"
+            );
+
+        }
+
+
+        hamburger.addEventListener(
+            "click",
+            event => {
+
+                event.stopPropagation();
+
+                const isOpen =
+                    mobileMenu.classList.toggle(
+                        "open"
+                    );
+
+
+                hamburger.classList.toggle(
+                    "open",
+                    isOpen
+                );
+
+
+                hamburger.setAttribute(
+                    "aria-expanded",
+                    String(isOpen)
+                );
+
+
+                hamburger.setAttribute(
+                    "aria-label",
+                    isOpen
+                        ? "Close navigation"
+                        : "Open navigation"
+                );
+
+            }
+        );
+
+
+        document
+            .querySelectorAll(
+                ".mobile-menu a"
+            )
+            .forEach(link => {
+
+                link.addEventListener(
+                    "click",
+                    closeMenu
+                );
+
+            });
+
+
+        document.addEventListener(
+            "click",
+            event => {
+
+                if (
+                    !mobileMenu.classList.contains(
+                        "open"
+                    )
+                ) {
+
+                    return;
+
+                }
+
+
+                if (
+                    !hamburger.contains(
+                        event.target
+                    ) &&
+                    !mobileMenu.contains(
+                        event.target
+                    )
+                ) {
+
+                    closeMenu();
+
+                }
+
+            }
+        );
+
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key === "Escape"
+                ) {
+
+                    closeMenu();
+
+                }
+
+            }
+        );
+
+
+        let lastMobileState =
+            window.innerWidth <= 760;
+
+
+        window.addEventListener(
+            "resize",
+            () => {
+
+                const isMobile =
+                    window.innerWidth <= 760;
+
+
+                if (
+                    isMobile !==
+                    lastMobileState
+                ) {
+
+                    closeMenu();
+
+                    lastMobileState =
+                        isMobile;
+
+                }
+
+            }
+        );
+
+
+
+        /* =========================================================
            TAMIL LETTER RAIN
-           
-           THIS IS COPIED FROM YOUR
-           ORIGINAL WORKING VERSION.
-           ========================================= */
+        ========================================================== */
 
         const tamilRain =
             document.getElementById(
@@ -1753,22 +2843,17 @@
         }
 
 
-        /* =========================================
-           CREATE FALLING LETTER
-           ========================================= */
-
         function createTamilLetter() {
 
-
             const letter =
-                document.createElement("span");
+                document.createElement(
+                    "span"
+                );
 
 
             letter.className =
                 "tamil-letter";
 
-
-            /* Pick character */
 
             letter.textContent =
                 tamilCharacters[
@@ -1778,8 +2863,6 @@
                     )
                 ];
 
-
-            /* Random values */
 
             const size =
                 random(18, 38);
@@ -1809,8 +2892,6 @@
                     )
                 ];
 
-
-            /* Apply */
 
             letter.style.left =
                 left + "vw";
@@ -1846,57 +2927,47 @@
             );
 
 
-            /* Insert */
-
             tamilRain.appendChild(
                 letter
             );
 
 
-            /* Remove */
+            setTimeout(
+                () => {
 
-            setTimeout(() => {
+                    letter.remove();
 
-                letter.remove();
-
-            }, duration * 1000 + 500);
-
-        }
-
-
-
-        /* =========================================
-           INITIAL LETTERS
-           ========================================= */
-
-        for (
-            let i = 0;
-            i < 28;
-            i++
-        ) {
-
-            createTamilLetter();
+                },
+                duration * 1000 + 500
+            );
 
         }
 
 
 
-        /* =========================================
-           CONTINUOUS SPAWNING
-           ========================================= */
+        /* =========================================================
+           RAIN INITIALIZATION
+        ========================================================== */
 
-        setInterval(() => {
+        const isReducedMotion =
+            window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            ).matches;
 
 
-            const amount =
-                Math.random() < 0.12
-                    ? 2
-                    : 1;
+        if (!isReducedMotion) {
+
+            const initialAmount =
+                window.innerWidth <= 500
+                    ? 14
+                    : window.innerWidth <= 900
+                        ? 20
+                        : 28;
 
 
             for (
                 let i = 0;
-                i < amount;
+                i < initialAmount;
                 i++
             ) {
 
@@ -1905,7 +2976,38 @@
             }
 
 
-        }, 350);
+            const spawnInterval =
+                window.innerWidth <= 500
+                    ? 600
+                    : window.innerWidth <= 900
+                        ? 450
+                        : 350;
+
+
+            setInterval(
+                () => {
+
+                    const amount =
+                        Math.random() < 0.12
+                            ? 2
+                            : 1;
+
+
+                    for (
+                        let i = 0;
+                        i < amount;
+                        i++
+                    ) {
+
+                        createTamilLetter();
+
+                    }
+
+                },
+                spawnInterval
+            );
+
+        }
 
 
     </script>
