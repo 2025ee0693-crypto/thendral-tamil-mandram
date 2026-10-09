@@ -1,0 +1,1863 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lost Frame — Thendral Tamizh Mandram</title>
+
+    <link rel="icon" type="image/png" href="images/embelm.png">
+
+    <style>
+        :root {
+            --black: #000000;
+            --deep: #050505;
+            --white: #f4f1ea;
+            --muted: rgba(244, 241, 234, .58);
+            --faint: rgba(244, 241, 234, .28);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+            background: #000;
+            overflow: hidden;
+        }
+
+        body {
+            font-family:
+                "Helvetica Neue",
+                Helvetica,
+                Arial,
+                sans-serif;
+            color: var(--white);
+        }
+
+        /* =========================================
+           UNIVERSE
+        ========================================= */
+
+        .universe {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            min-height: 100svh;
+            overflow: hidden;
+            background:
+                radial-gradient(
+                    circle at 50% 48%,
+                    #0a0a0a 0%,
+                    #030303 42%,
+                    #000 78%
+                );
+        }
+
+        /* =========================================
+           STARS
+        ========================================= */
+
+        .stars {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .65);
+            animation: starPulse var(--duration) ease-in-out infinite;
+            animation-delay: var(--delay);
+        }
+
+        @keyframes starPulse {
+
+            0%,
+            100% {
+                opacity: .12;
+                transform: scale(.7);
+            }
+
+            50% {
+                opacity: .8;
+                transform: scale(1.3);
+            }
+        }
+
+        /* =========================================
+           PLANETS
+        ========================================= */
+
+        .planets {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .planet-one {
+            position: absolute;
+            width: clamp(280px, 34vw, 560px);
+            height: clamp(280px, 34vw, 560px);
+            left: clamp(-250px, -8vw, -90px);
+            top: 5%;
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle at 31% 27%,
+                    rgba(255, 255, 255, .34),
+                    rgba(194, 190, 181, .16) 24%,
+                    rgba(88, 84, 78, .15) 46%,
+                    rgba(20, 20, 20, .95) 76%
+                );
+
+            box-shadow:
+                inset -65px -45px 100px rgba(0, 0, 0, .9),
+                inset 20px 12px 35px rgba(255, 255, 255, .06);
+
+            opacity: .78;
+
+            animation:
+                planetFloat 19s ease-in-out infinite alternate;
+        }
+
+        .planet-one::before {
+            content: "";
+            position: absolute;
+            width: 30%;
+            height: 8%;
+            left: 27%;
+            top: 38%;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .05);
+            transform: rotate(-16deg);
+
+            box-shadow:
+                80px 35px 0 rgba(255, 255, 255, .035),
+                15px 70px 0 rgba(0, 0, 0, .22),
+                100px -40px 0 rgba(0, 0, 0, .18);
+        }
+
+        .planet-two {
+            position: absolute;
+            width: clamp(120px, 13vw, 205px);
+            height: clamp(120px, 13vw, 205px);
+            right: clamp(28px, 7vw, 145px);
+            top: 9%;
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle at 34% 27%,
+                    #aaa092,
+                    #62594f 38%,
+                    #292521 65%,
+                    #090909 88%
+                );
+
+            box-shadow:
+                inset -30px -24px 50px rgba(0, 0, 0, .88),
+                inset 8px 6px 20px rgba(255, 255, 255, .08);
+
+            opacity: .9;
+
+            animation:
+                planetFloat 15s ease-in-out infinite alternate-reverse;
+        }
+
+        .planet-two::before {
+            content: "·  ·";
+            position: absolute;
+            left: 22%;
+            top: 38%;
+
+            font-family: Georgia, serif;
+            font-size: 14px;
+            letter-spacing: 15px;
+
+            color: rgba(255, 255, 255, .1);
+
+            transform: rotate(-8deg);
+        }
+
+        .planet-ring {
+            position: absolute;
+            width: 178%;
+            height: 40%;
+            left: -39%;
+            top: 31%;
+
+            border: 2px solid rgba(181, 165, 140, .5);
+            border-radius: 50%;
+
+            transform: rotate(-18deg);
+
+            box-shadow:
+                0 0 0 6px rgba(100, 90, 80, .07),
+                0 0 0 13px rgba(100, 90, 80, .035);
+
+            z-index: -1;
+        }
+
+        .planet-three {
+            position: absolute;
+            width: clamp(190px, 21vw, 340px);
+            height: clamp(190px, 21vw, 340px);
+            right: clamp(-125px, -3vw, -20px);
+            bottom: 1%;
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle at 29% 25%,
+                    #a45f4b,
+                    #6d3930 34%,
+                    #3b211c 55%,
+                    #100b09 82%
+                );
+
+            box-shadow:
+                inset -45px -40px 75px rgba(0, 0, 0, .92),
+                inset 15px 10px 30px rgba(255, 255, 255, .05);
+
+            opacity: .82;
+        }
+
+        .planet-three::before {
+            content: "";
+            position: absolute;
+            width: 38%;
+            height: 13%;
+            left: 21%;
+            top: 34%;
+            border-radius: 50%;
+
+            background: rgba(15, 7, 5, .28);
+
+            transform: rotate(21deg);
+
+            box-shadow:
+                45px 42px 0 rgba(0, 0, 0, .15),
+                85px -12px 0 rgba(255, 255, 255, .035);
+        }
+
+        .planet-four {
+            position: absolute;
+            width: 58px;
+            height: 58px;
+            left: 18%;
+            bottom: 13%;
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle at 33% 28%,
+                    #c1bbb1,
+                    #6b665e 48%,
+                    #292724 75%,
+                    #080808 100%
+                );
+
+            box-shadow:
+                inset -13px -11px 21px rgba(0, 0, 0, .85);
+
+            opacity: .72;
+
+            animation:
+                moonDrift 12s ease-in-out infinite alternate;
+        }
+
+        .tiny-moon {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            right: 27%;
+            bottom: 28%;
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle at 35% 30%,
+                    #e0d9cf,
+                    #656057 60%,
+                    #111 100%
+                );
+
+            opacity: .78;
+
+            animation:
+                moonOrbit 19s linear infinite;
+        }
+
+        @keyframes planetFloat {
+
+            from {
+                transform: translate3d(0, 0, 0);
+            }
+
+            to {
+                transform: translate3d(8px, -10px, 0);
+            }
+        }
+
+        @keyframes moonDrift {
+
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(18px, -12px);
+            }
+        }
+
+        @keyframes moonOrbit {
+
+            from {
+                transform: rotate(0deg) translateX(30px) rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg) translateX(30px) rotate(-360deg);
+            }
+        }
+
+        /* =========================================
+           TAMIL GLYPHS
+        ========================================= */
+
+        .cosmic-glyphs {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .cosmic-glyphs span {
+            position: absolute;
+
+            font-family:
+                "Noto Sans Tamil",
+                "Latha",
+                sans-serif;
+
+            font-size: 11px;
+            color: rgba(255, 255, 255, .055);
+
+            animation:
+                glyphDrift 18s ease-in-out infinite alternate;
+        }
+
+        .cosmic-glyphs span:nth-child(1) {
+            left: 41%;
+            top: 17%;
+        }
+
+        .cosmic-glyphs span:nth-child(2) {
+            right: 32%;
+            top: 61%;
+            animation-delay: -4s;
+        }
+
+        .cosmic-glyphs span:nth-child(3) {
+            left: 69%;
+            top: 37%;
+            animation-delay: -8s;
+        }
+
+        .cosmic-glyphs span:nth-child(4) {
+            left: 25%;
+            bottom: 28%;
+            animation-delay: -12s;
+        }
+
+        @keyframes glyphDrift {
+
+            from {
+                opacity: .025;
+                transform: translate(0, 0);
+            }
+
+            to {
+                opacity: .09;
+                transform: translate(5px, -8px);
+            }
+        }
+
+        /* =========================================
+           SHOOTING STAR
+        ========================================= */
+
+        .shooting-stars {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 4;
+        }
+
+        .shooting-star {
+            position: absolute;
+            width: 70px;
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 255, 255, .5),
+                    transparent
+                );
+
+            opacity: 0;
+
+            transform: rotate(-35deg);
+
+            animation:
+                shootingStar 17s linear infinite;
+        }
+
+        @keyframes shootingStar {
+
+            0%,
+            83% {
+                opacity: 0;
+                left: 72%;
+                top: 14%;
+            }
+
+            85% {
+                opacity: .6;
+            }
+
+            90% {
+                opacity: 0;
+                left: 52%;
+                top: 40%;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* =========================================
+           CENTER CONTENT
+        ========================================= */
+
+        .center-stage {
+            position: relative;
+            z-index: 8;
+
+            width: 100%;
+            height: 100%;
+
+            display: grid;
+            place-items: center;
+
+            pointer-events: none;
+        }
+
+        .content {
+            position: relative;
+
+            width: min(90vw, 650px);
+
+            text-align: center;
+
+            pointer-events: auto;
+
+            transition:
+                opacity 2s ease,
+                transform 2s ease;
+        }
+
+        /* =========================================
+           EMBLEM
+        ========================================= */
+
+        .emblem-wrap {
+            position: relative;
+
+            width: 100px;
+            height: 100px;
+
+            margin: 0 auto 30px;
+
+            display: grid;
+            place-items: center;
+
+            transition:
+                transform 2s cubic-bezier(.2, .7, .2, 1);
+        }
+
+        .emblem-wrap::before {
+            display: none;
+        }
+
+        .emblem {
+            position: relative;
+
+            width: 100px;
+            height: 100px;
+
+            object-fit: contain;
+
+            opacity: .9;
+
+            filter: none;
+
+            transition:
+                width 2s ease,
+                height 2s ease;
+        }
+
+        /* =========================================
+           ERROR TEXT
+        ========================================= */
+
+        .error-code {
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: .4em;
+
+            color: rgba(255, 255, 255, .24);
+
+            margin-bottom: 27px;
+
+            transition:
+                opacity 1.6s ease;
+        }
+
+        .lead {
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(23px, 3vw, 38px);
+
+            font-weight: 400;
+
+            letter-spacing: -.02em;
+
+            color: rgba(255, 255, 255, .9);
+
+            margin-bottom: 19px;
+
+            transition:
+                opacity 1.6s ease;
+        }
+
+        .secondary {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 10px;
+
+            line-height: 1.8;
+
+            letter-spacing: .04em;
+
+            color: rgba(255, 255, 255, .37);
+
+            transition:
+                opacity 1.6s ease;
+        }
+
+        .secondary span:not(:last-child)::after {
+            content: "·";
+            margin-left: 10px;
+            color: rgba(255, 255, 255, .2);
+        }
+
+        /* =========================================
+           HOME LINK
+        ========================================= */
+
+        .home-link {
+            display: inline-flex;
+
+            align-items: center;
+            gap: 9px;
+
+            margin-top: 38px;
+
+            color: rgba(255, 255, 255, .65);
+
+            text-decoration: none;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 10px;
+
+            letter-spacing: .16em;
+
+            transition:
+                color .3s ease,
+                transform .3s ease,
+                opacity 1.6s ease;
+        }
+
+        .home-link:hover {
+            color: rgba(255, 255, 255, .95);
+
+            transform:
+                translateY(-2px);
+        }
+
+        .home-arrow {
+            font-size: 15px;
+            line-height: 1;
+        }
+
+        /* =========================================
+           METADATA
+        ========================================= */
+
+        .metadata {
+            position: absolute;
+
+            left: 30px;
+            right: 30px;
+            bottom: 25px;
+
+            display: flex;
+            justify-content: space-between;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 8px;
+
+            letter-spacing: .28em;
+
+            color: rgba(255, 255, 255, .18);
+
+            z-index: 8;
+
+            transition:
+                opacity 1.6s ease;
+        }
+
+        /* =========================================
+           VIGNETTE
+        ========================================= */
+
+        .vignette {
+            position: absolute;
+            inset: 0;
+
+            pointer-events: none;
+
+            z-index: 9;
+
+            background:
+                radial-gradient(
+                    ellipse at center,
+                    transparent 40%,
+                    rgba(0, 0, 0, .45) 100%
+                );
+        }
+
+        /* =========================================
+           EASTER EGGS
+        ========================================= */
+
+        .easter-eggs {
+            position: absolute;
+            inset: 0;
+
+            pointer-events: none;
+
+            z-index: 7;
+        }
+
+        .cinema-easter-egg {
+            position: absolute;
+
+            left: 13%;
+            top: 68%;
+
+            width: 30px;
+            height: 20px;
+
+            opacity: 0;
+
+            animation:
+                cinemaAppear 31s linear infinite;
+
+            pointer-events: none;
+        }
+
+        .camera-object {
+            position: absolute;
+
+            font-size: 13px;
+
+            filter: grayscale(1);
+
+            opacity: .35;
+        }
+
+        .camera-trail {
+            position: absolute;
+
+            width: 65px;
+            height: 1px;
+
+            left: -58px;
+            top: 10px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 255, 255, .12)
+                );
+        }
+
+        @keyframes cinemaAppear {
+
+            0%,
+            72% {
+                opacity: 0;
+            }
+
+            74% {
+                opacity: .35;
+            }
+
+            76% {
+                opacity: 0;
+            }
+
+            78% {
+                opacity: .18;
+            }
+
+            81% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .film-strip {
+            position: absolute;
+
+            right: 9%;
+            top: 30%;
+
+            width: 2px;
+            height: 100px;
+
+            opacity: .08;
+
+            background:
+                repeating-linear-gradient(
+                    to bottom,
+                    rgba(255, 255, 255, .7) 0 5px,
+                    transparent 5px 13px
+                );
+
+            animation:
+                filmFloat 23s ease-in-out infinite;
+        }
+
+        @keyframes filmFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+                opacity: .04;
+            }
+
+            50% {
+                transform: translateY(-20px);
+                opacity: .1;
+            }
+        }
+
+        .micro-egg {
+            position: absolute;
+
+            left: 62%;
+            top: 22%;
+
+            width: 3px;
+            height: 3px;
+
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, .45);
+
+            opacity: .1;
+
+            animation:
+                microBlink 11s ease-in-out infinite;
+        }
+
+        @keyframes microBlink {
+
+            0%,
+            91%,
+            100% {
+                opacity: .05;
+            }
+
+            94% {
+                opacity: .6;
+            }
+
+            96% {
+                opacity: .03;
+            }
+        }
+
+        .orbital {
+            position: absolute;
+
+            left: 50%;
+            top: 50%;
+
+            width: 2px;
+            height: 2px;
+
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, .55);
+
+            opacity: .2;
+
+            animation:
+                orbitalMove 29s linear infinite;
+        }
+
+        @keyframes orbitalMove {
+
+            from {
+                transform:
+                    rotate(0deg)
+                    translateX(145px)
+                    rotate(0deg);
+            }
+
+            to {
+                transform:
+                    rotate(360deg)
+                    translateX(145px)
+                    rotate(-360deg);
+            }
+        }
+
+        .signal-glitch {
+            position: absolute;
+
+            right: 14%;
+            bottom: 19%;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 7px;
+
+            letter-spacing: .3em;
+
+            color: rgba(255, 255, 255, .16);
+
+            opacity: 0;
+
+            animation:
+                signalFlash 41s linear infinite;
+        }
+
+        @keyframes signalFlash {
+
+            0%,
+            73% {
+                opacity: 0;
+            }
+
+            74% {
+                opacity: .35;
+            }
+
+            75% {
+                opacity: 0;
+            }
+
+            76% {
+                opacity: .18;
+            }
+
+            77% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .symbol {
+            position: absolute;
+
+            left: 8%;
+            top: 38%;
+
+            width: 8px;
+            height: 8px;
+
+            border: 1px solid rgba(255, 255, 255, .08);
+
+            transform: rotate(45deg);
+
+            opacity: .15;
+        }
+
+        .silence {
+            position: absolute;
+
+            left: 50%;
+            bottom: 10%;
+
+            transform:
+                translateX(-50%);
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 6px;
+
+            letter-spacing: .45em;
+
+            color: rgba(255, 255, 255, .08);
+
+            opacity: 0;
+
+            animation:
+                silenceFlash 37s linear infinite;
+        }
+
+        @keyframes silenceFlash {
+
+            0%,
+            80% {
+                opacity: 0;
+            }
+
+            81%,
+            83% {
+                opacity: .3;
+            }
+
+            84%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* =========================================
+           GIFT REVEAL
+        ========================================= */
+
+        .gift-reveal {
+            position: absolute;
+
+            inset: 0;
+
+            display: grid;
+            place-items: center;
+
+            padding: 25px;
+
+            background:
+                rgba(0, 0, 0, .93);
+
+            z-index: 50;
+
+            opacity: 0;
+            visibility: hidden;
+
+            transition:
+                opacity .7s ease,
+                visibility .7s ease;
+        }
+
+        .gift-reveal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .gift-card {
+            width: min(92vw, 620px);
+
+            padding:
+                clamp(28px, 5vw, 55px);
+
+            text-align: center;
+
+            border:
+                1px solid rgba(255, 255, 255, .09);
+
+            background:
+                rgba(8, 8, 8, .96);
+
+            box-shadow:
+                0 30px 100px rgba(0, 0, 0, .8);
+        }
+
+        .gift-code {
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: .35em;
+
+            color: rgba(255, 255, 255, .3);
+
+            margin-bottom: 24px;
+        }
+
+        .gift-image {
+            display: block;
+
+            width: min(100%, 500px);
+            max-height: 48vh;
+
+            object-fit: contain;
+
+            margin:
+                0 auto 26px;
+
+            border:
+                1px solid rgba(255, 255, 255, .08);
+        }
+
+        .gift-text {
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+            letter-spacing: .06em;
+
+            color: rgba(255, 255, 255, .78);
+
+            max-width: 430px;
+
+            margin:
+                0 auto;
+        }
+
+        .gift-sub {
+            margin-top: 16px;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 9px;
+
+            letter-spacing: .3em;
+
+            color: rgba(255, 255, 255, .25);
+
+            text-transform: uppercase;
+        }
+
+        .gift-close {
+            margin-top: 28px;
+
+            padding: 9px 0;
+
+            border: 0;
+            background: transparent;
+
+            color: rgba(255, 255, 255, .4);
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 10px;
+
+            letter-spacing: .1em;
+
+            cursor: pointer;
+
+            transition:
+                color .3s ease;
+        }
+
+        .gift-close:hover {
+            color: rgba(255, 255, 255, .9);
+        }
+
+        /* =========================================
+           SCREENSAVER
+        ========================================= */
+
+        .universe.screensaver
+        .error-code,
+
+        .universe.screensaver
+        .lead,
+
+        .universe.screensaver
+        .secondary,
+
+        .universe.screensaver
+        .metadata {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /*
+         * EMBLEM IS LOCKED AT THE TOP
+         * once screensaver starts.
+         */
+
+        .universe.screensaver
+        .emblem-wrap {
+            position: fixed;
+
+            top: 45px;
+            left: 50%;
+
+            width: 120px;
+            height: 120px;
+
+            margin: 0;
+
+            transform:
+                translateX(-50%);
+
+            z-index: 20;
+        }
+
+        .universe.screensaver
+        .emblem {
+            width: 120px;
+            height: 120px;
+        }
+
+        /*
+         * HOME LINK STAYS AT BOTTOM
+         */
+
+        .universe.screensaver
+        .home-link {
+            position: fixed;
+
+            left: 50%;
+            bottom: 55px;
+
+            top: auto;
+
+            margin: 0;
+
+            opacity: 1;
+
+            transform:
+                translateX(-50%);
+
+            white-space: nowrap;
+
+            z-index: 20;
+        }
+
+        .universe.screensaver
+        .home-link:hover {
+            transform:
+                translateX(-50%)
+                translateY(-2px);
+        }
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 760px) {
+
+            .planet-one {
+                width: 290px;
+                height: 290px;
+
+                left: -190px;
+                top: 7%;
+            }
+
+            .planet-two {
+                width: 125px;
+                height: 125px;
+
+                right: -15px;
+                top: 11%;
+            }
+
+            .planet-three {
+                width: 205px;
+                height: 205px;
+
+                right: -100px;
+                bottom: 3%;
+            }
+
+            .planet-four {
+                width: 45px;
+                height: 45px;
+
+                left: 12%;
+                bottom: 18%;
+            }
+
+            .secondary {
+                max-width: 330px;
+                margin-inline: auto;
+                gap: 5px;
+            }
+
+            .secondary span:not(:last-child)::after {
+                margin-left: 5px;
+            }
+
+            .metadata {
+                left: 18px;
+                right: 18px;
+                bottom: 18px;
+
+                font-size: 7px;
+
+                letter-spacing: .2em;
+            }
+
+            .gift-card {
+                padding:
+                    28px 20px;
+            }
+
+            .gift-text {
+                font-size: 12px;
+                line-height: 1.7;
+            }
+
+            .gift-image {
+                max-height: 42vh;
+            }
+
+            /*
+             * MOBILE SCREENSAVER
+             */
+
+            .universe.screensaver
+            .emblem-wrap {
+                top: 30px;
+
+                width: 105px;
+                height: 105px;
+            }
+
+            .universe.screensaver
+            .emblem {
+                width: 105px;
+                height: 105px;
+            }
+
+            .universe.screensaver
+            .home-link {
+                bottom: 38px;
+
+                font-size: 9px;
+            }
+        }
+
+        @media (max-width: 420px) {
+
+            .content {
+                width: 88vw;
+            }
+
+            .emblem-wrap {
+                width: 85px;
+                height: 85px;
+
+                margin-bottom: 25px;
+            }
+
+            .emblem {
+                width: 85px;
+                height: 85px;
+            }
+
+            .lead {
+                font-size: 22px;
+            }
+
+            .secondary {
+                font-size: 9px;
+                line-height: 1.9;
+            }
+
+            .home-link {
+                font-size: 9px;
+            }
+
+            .universe.screensaver
+            .emblem-wrap {
+                width: 100px;
+                height: 100px;
+            }
+
+            .universe.screensaver
+            .emblem {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        /* =========================================
+           REDUCED MOTION
+        ========================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="universe" id="universe">
+
+        <!-- =====================================
+             PLANETS
+        ====================================== -->
+
+        <div class="planets" aria-hidden="true">
+
+            <div class="planet-one"></div>
+
+            <div class="planet-two">
+                <div class="planet-ring"></div>
+            </div>
+
+            <div class="planet-three"></div>
+
+            <div class="planet-four"></div>
+
+            <div class="tiny-moon"></div>
+
+        </div>
+
+
+        <!-- =====================================
+             STARS
+        ====================================== -->
+
+        <div class="stars" id="stars"></div>
+
+
+        <!-- =====================================
+             TAMIL GLYPHS
+        ====================================== -->
+
+        <div class="cosmic-glyphs" aria-hidden="true">
+
+            <span>தெ</span>
+            <span>ன்</span>
+            <span>ழ</span>
+            <span>ம்</span>
+
+        </div>
+
+
+        <!-- =====================================
+             SHOOTING STAR
+        ====================================== -->
+
+        <div class="shooting-stars">
+
+            <div
+                class="shooting-star"
+                id="shootingStar">
+            </div>
+
+        </div>
+
+
+        <!-- =====================================
+             EASTER EGGS
+        ====================================== -->
+
+        <div
+            class="easter-eggs"
+            id="easterEggs">
+
+            <div
+                class="cinema-easter-egg"
+                id="cinemaEasterEgg"
+                aria-hidden="true">
+
+                <span class="camera-trail"></span>
+
+                <span class="camera-object">
+                    🎥
+                </span>
+
+            </div>
+
+            <div
+                class="film-strip"
+                id="filmStrip"
+                aria-hidden="true">
+            </div>
+
+            <div
+                class="micro-egg"
+                id="microEgg">
+            </div>
+
+            <div
+                class="orbital"
+                id="orbital">
+            </div>
+
+            <div
+                class="signal-glitch"
+                id="signalGlitch">
+
+                SIGNAL LOST
+
+            </div>
+
+            <div
+                class="symbol"
+                id="symbolEgg">
+            </div>
+
+            <div
+                class="silence"
+                id="silenceEgg">
+
+                SILENCE.
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================
+             MAIN CONTENT
+        ====================================== -->
+
+        <section class="center-stage">
+
+            <div
+                class="content"
+                id="content">
+
+                <div class="emblem-wrap">
+
+                    <img
+                        src="images/embelm.png"
+                        class="emblem"
+                        alt="Thendral Tamizh Mandram emblem">
+
+                </div>
+
+
+                <div class="error-code">
+
+                    ERR_04.04
+
+                </div>
+
+
+                <p class="lead">
+
+                    You wandered a little too far.
+
+                </p>
+
+
+                <div class="secondary">
+
+                    <span>
+                        This page doesn't exist
+                    </span>
+
+                    <span>
+                        Or it escaped.
+                    </span>
+
+                    <span>
+                        We honestly don't know.
+                    </span>
+
+                </div>
+
+
+                <!-- ACTUAL NAVIGATION LINK -->
+
+                <a
+                    href="index.html"
+                    class="home-link">
+
+                    <span class="home-arrow">
+                        ←
+                    </span>
+
+                    <span>
+                        Take me home
+                    </span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             SECRET GIFT
+        ====================================== -->
+
+        <div
+            class="gift-reveal"
+            id="giftReveal"
+            aria-hidden="true">
+
+            <div class="gift-card">
+
+                <div class="gift-code">
+
+                    TTM / SECRET FRAME 07
+
+                </div>
+
+
+                <img
+                    src="images/image.jpg"
+                    class="gift-image"
+                    alt="Secret frame">
+
+
+                <div class="gift-text">
+
+                    Screenshot this and send to someone
+                    from TTM for a gift.
+
+                </div>
+
+
+                <div class="gift-sub">
+
+                    you found something
+
+                </div>
+
+
+                <button
+                    class="gift-close"
+                    id="giftClose"
+                    type="button">
+
+                    ← click here to return
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================
+             METADATA
+        ====================================== -->
+
+        <div class="metadata">
+
+            <span>
+                TTM / 26—27
+            </span>
+
+            <span>
+                LOST FRAME
+            </span>
+
+        </div>
+
+
+        <!-- =====================================
+             VIGNETTE
+        ====================================== -->
+
+        <div class="vignette"></div>
+
+    </main>
+
+
+    <script>
+
+        /* =========================================
+           STAR FIELD
+        ========================================= */
+
+        const stars = document.getElementById("stars");
+
+        const starCount =
+            window.innerWidth < 600
+                ? 75
+                : 125;
+
+        for (let i = 0; i < starCount; i++) {
+
+            const star =
+                document.createElement("span");
+
+            star.className = "star";
+
+            star.style.left =
+                Math.random() * 100 + "%";
+
+            star.style.top =
+                Math.random() * 100 + "%";
+
+            const size =
+                Math.random() < .85
+                    ? 1
+                    : 2;
+
+            star.style.width =
+                size + "px";
+
+            star.style.height =
+                size + "px";
+
+            star.style.setProperty(
+                "--duration",
+                (3 + Math.random() * 7) + "s"
+            );
+
+            star.style.setProperty(
+                "--delay",
+                (-Math.random() * 8) + "s"
+            );
+
+            stars.appendChild(star);
+        }
+
+
+        /* =========================================
+           GIFT SECRET
+           7 CLICKS
+        ========================================= */
+
+        const universe =
+            document.getElementById("universe");
+
+        const giftReveal =
+            document.getElementById("giftReveal");
+
+        const giftClose =
+            document.getElementById("giftClose");
+
+        let clickCount = 0;
+        let giftFound = false;
+        let screensaverActive = false;
+
+
+        universe.addEventListener(
+            "click",
+            function (event) {
+
+                if (
+                    giftFound ||
+                    screensaverActive
+                ) {
+                    return;
+                }
+
+                /*
+                 * Don't count clicks on the gift itself.
+                 */
+                if (
+                    giftReveal.contains(event.target)
+                ) {
+                    return;
+                }
+
+                /*
+                 * Don't count clicks on
+                 * the actual navigation link.
+                 */
+                if (
+                    event.target.closest(".home-link")
+                ) {
+                    return;
+                }
+
+                clickCount++;
+
+                if (clickCount >= 7) {
+
+                    giftFound = true;
+
+                    giftReveal.classList.add("show");
+
+                    giftReveal.setAttribute(
+                        "aria-hidden",
+                        "false"
+                    );
+                }
+
+            }
+        );
+
+
+        /* =========================================
+           CLOSE GIFT
+        ========================================= */
+
+        function closeGift() {
+
+            giftReveal.classList.remove("show");
+
+            giftReveal.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+            setTimeout(
+                () => {
+
+                    giftFound = false;
+                    clickCount = 0;
+
+                },
+                700
+            );
+        }
+
+
+        giftClose.addEventListener(
+            "click",
+            closeGift
+        );
+
+
+        /* =========================================
+           ESCAPE CLOSES GIFT
+        ========================================= */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Escape" &&
+                    giftReveal.classList.contains("show")
+                ) {
+
+                    closeGift();
+
+                }
+
+            }
+        );
+
+
+        /* =========================================
+           SCREENSAVER
+           
+           TEST:
+           30 seconds
+
+           FINAL:
+           300000
+        ========================================= */
+
+        const SCREENSAVER_TIME =
+            300000;
+
+
+        setTimeout(
+            function () {
+
+                screensaverActive = true;
+
+                universe.classList.add(
+                    "screensaver"
+                );
+
+                /*
+                 * Secret gift is permanently
+                 * disabled after screensaver begins.
+                 */
+
+                giftFound = false;
+                clickCount = 0;
+
+                giftReveal.classList.remove(
+                    "show"
+                );
+
+                giftReveal.setAttribute(
+                    "aria-hidden",
+                    "true"
+                );
+
+            },
+            SCREENSAVER_TIME
+        );
+
+    </script>
+
+</body>
+
+</html>
