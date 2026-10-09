@@ -2,49 +2,37 @@
 <html lang="ta">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>எங்களைப் பற்றி · About | தென்றல் தமிழ்மன்றம்</title>
+
+    <meta name="description"
+          content="Meet the office-bearers of Thendral Tamizh Mandram, Sri Venkateswara College of Engineering, 2026–2027.">
+
     <link rel="icon" type="image/png" href="images/embelm.png">
 
-    <title>எங்களைப் பற்றி · தென்றல் தமிழ்மன்றம்</title>
-
     <style>
-
         /* =====================================================
-           ROOT
+           ROOT AND RESET
         ===================================================== */
 
         :root {
-
             --orange: #c85b2c;
             --orange-light: #d97745;
-
             --brick: #8f3428;
             --deep-brick: #64241f;
-
             --brown: #43251e;
             --dark-brown: #2d1713;
-
             --cream: #f7eee1;
             --paper: #fffaf2;
-
             --gold: #d3a34a;
-
             --text: #3c2923;
             --muted: #806d62;
 
             --max-width: 1440px;
-
-            --page-pad: clamp(18px, 3vw, 48px);
-            --section-space: clamp(72px, 8vw, 140px);
+            --page-pad: clamp(18px, 4vw, 55px);
         }
-
-
-        /* =====================================================
-           RESET
-        ===================================================== */
 
         *,
         *::before,
@@ -56,13 +44,12 @@
 
         html {
             scroll-behavior: smooth;
-            width: 100%;
+            scroll-padding-top: 90px;
         }
 
         body {
-            width: 100%;
             min-width: 0;
-
+            overflow-x: hidden;
             background: var(--cream);
             color: var(--text);
 
@@ -73,8 +60,11 @@
                 sans-serif;
 
             line-height: 1.7;
+        }
 
-            overflow-x: hidden;
+        img {
+            display: block;
+            max-width: 100%;
         }
 
         a {
@@ -82,141 +72,81 @@
             text-decoration: none;
         }
 
-        img,
-        video,
-        svg,
-        canvas {
-            display: block;
-            max-width: 100%;
-        }
-
         button {
-            font-family: inherit;
+            font: inherit;
         }
 
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
 
-        /* =====================================================
-           GLOBAL CONTAINERS
-        ===================================================== */
-
-        nav,
-        .about-hero-content,
-        .section-inner,
-        .footer-main,
-        .copyright {
-
-            width:
-                min(
-                    calc(100% - (var(--page-pad) * 2)),
-                    var(--max-width)
-                );
-
-            min-width: 0;
-
+        .container {
+            width: min(
+                calc(100% - var(--page-pad) * 2),
+                var(--max-width)
+            );
             margin-inline: auto;
         }
 
-
         /* =====================================================
-           NAVBAR
+           NAVIGATION
         ===================================================== */
 
-        header {
-
+        .site-header {
             position: fixed;
-
-            top: 0;
-            left: 0;
-
-            width: 100%;
-
+            inset: 0 0 auto;
             z-index: 1000;
 
-            background:
-                rgba(67, 37, 30, .88);
-
+            background: rgba(67, 37, 30, 0.92);
             backdrop-filter: blur(14px);
 
-            border-bottom:
-                1px solid rgba(255, 255, 255, .08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        nav {
+        .navbar {
+            width: min(
+                calc(100% - var(--page-pad) * 2),
+                var(--max-width)
+            );
 
-            position: relative;
-
-            min-height:
-                clamp(60px, 5vw, 78px);
-
-            padding: 0;
+            min-height: 72px;
+            margin-inline: auto;
 
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
-
-            gap:
-                clamp(12px, 2vw, 32px);
+            gap: 20px;
         }
 
         .brand {
-
-            flex: 0 1 auto;
-
             min-width: 0;
 
             color: #fff5e8;
-
-            font-size:
-                clamp(.82rem, 1.2vw, 1.15rem);
-
+            font-size: clamp(0.85rem, 1.4vw, 1.1rem);
             font-weight: 800;
-
-            letter-spacing: -.02em;
-
             white-space: nowrap;
-
-            overflow: hidden;
-
-            text-overflow: ellipsis;
         }
 
         .nav-links {
-
             display: flex;
-
             align-items: center;
-
-            gap:
-                clamp(16px, 2vw, 32px);
-
-            min-width: 0;
-
-            flex-shrink: 1;
+            gap: clamp(14px, 2.2vw, 32px);
         }
 
         .nav-links a {
-
             position: relative;
+            color: rgba(255, 245, 232, 0.76);
 
-            color:
-                rgba(255, 245, 232, .72);
-
-            font-size:
-                clamp(.72rem, .85vw, .92rem);
-
+            font-size: 0.85rem;
             white-space: nowrap;
 
-            transition: .25s ease;
+            transition: color 0.25s ease;
         }
 
         .nav-links a::after {
-
             content: "";
-
             position: absolute;
-
             left: 0;
             bottom: -8px;
 
@@ -224,13 +154,12 @@
             height: 2px;
 
             background: var(--gold);
-
-            transition: .25s ease;
+            transition: width 0.25s ease;
         }
 
         .nav-links a:hover,
         .nav-links a.active {
-            color: white;
+            color: #fff;
         }
 
         .nav-links a:hover::after,
@@ -239,750 +168,507 @@
         }
 
         .nav-actions {
-
             display: flex;
-
             align-items: center;
-
-            gap: 9px;
-
+            gap: 10px;
             flex-shrink: 0;
         }
 
-        .lang-toggle {
-
-            border:
-                1px solid rgba(255, 255, 255, .25);
-
-            background:
-                rgba(255, 255, 255, .08);
-
-            color: #fff5e8;
-
-            padding: 7px 12px;
-
+        .language-button {
+            border: 1px solid rgba(255, 255, 255, 0.25);
             border-radius: 999px;
 
-            font-size: .72rem;
+            padding: 7px 13px;
 
-            font-weight: 700;
+            color: #fff5e8;
+            background: rgba(255, 255, 255, 0.08);
 
-            letter-spacing: .08em;
+            font-size: 0.75rem;
+            font-weight: 800;
 
             cursor: pointer;
-
-            transition: .25s ease;
+            transition: 0.25s ease;
         }
 
-        .lang-toggle:hover {
-
+        .language-button:hover {
             background: var(--gold);
-
             border-color: var(--gold);
-
             color: var(--brown);
-
-            transform: translateY(-1px);
         }
-
-
-        /* =====================================================
-           HAMBURGER
-        ===================================================== */
 
         .hamburger {
-
             display: none;
 
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
 
-            padding: 0;
-
-            border:
-                1px solid rgba(255, 255, 255, .2);
-
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 10px;
 
-            background:
-                rgba(255, 255, 255, .07);
-
-            cursor: pointer;
+            background: rgba(255, 255, 255, 0.07);
 
             align-items: center;
-
             justify-content: center;
-
             flex-direction: column;
-
             gap: 5px;
 
-            flex-shrink: 0;
-
-            transition:
-                background .25s ease,
-                border-color .25s ease;
+            cursor: pointer;
         }
 
         .hamburger span {
-
-            display: block;
-
-            width: 17px;
-            height: 1.5px;
-
+            width: 18px;
+            height: 2px;
             border-radius: 10px;
-
             background: #fff5e8;
 
-            transition:
-                transform .25s ease,
-                opacity .2s ease;
+            transition: 0.25s ease;
         }
 
-        .hamburger:hover {
-
-            background:
-                rgba(255, 255, 255, .13);
-
-            border-color:
-                rgba(255, 255, 255, .35);
-        }
-
-        .hamburger.open span:nth-child(1) {
-            transform:
-                translateY(6.5px)
-                rotate(45deg);
+        .hamburger.open span:first-child {
+            transform: translateY(7px) rotate(45deg);
         }
 
         .hamburger.open span:nth-child(2) {
             opacity: 0;
         }
 
-        .hamburger.open span:nth-child(3) {
-            transform:
-                translateY(-6.5px)
-                rotate(-45deg);
+        .hamburger.open span:last-child {
+            transform: translateY(-7px) rotate(-45deg);
         }
 
-
-        /* =====================================================
-           MOBILE MENU
-        ===================================================== */
-
         .mobile-menu {
-
             display: none;
 
             position: absolute;
-
-            top: calc(100% + 1px);
-
+            top: 100%;
             left: 0;
             right: 0;
 
-            width: 100%;
+            padding: 12px var(--page-pad) 18px;
 
-            padding:
-                10px
-                var(--page-pad)
-                14px;
-
-            background:
-                rgba(67, 37, 30, .97);
-
-            backdrop-filter: blur(16px);
-
-            border-top:
-                1px solid rgba(255, 255, 255, .06);
-
-            box-shadow:
-                0 18px 35px rgba(0, 0, 0, .18);
+            background: rgba(67, 37, 30, 0.98);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .mobile-menu.open {
-
             display: flex;
-
             flex-direction: column;
-
-            gap: 3px;
         }
 
         .mobile-menu a {
-
-            display: flex;
-
-            align-items: center;
-
-            min-height: 48px;
-
-            padding: 0 14px;
-
+            padding: 12px 14px;
             border-radius: 9px;
 
-            color:
-                rgba(255, 245, 232, .72);
-
-            font-size: .82rem;
-
-            transition:
-                background .2s ease,
-                color .2s ease;
+            color: rgba(255, 245, 232, 0.78);
+            font-size: 0.9rem;
         }
 
         .mobile-menu a:hover,
         .mobile-menu a.active {
-
-            color: white;
-
-            background:
-                rgba(255, 255, 255, .07);
+            color: #fff;
+            background: rgba(255, 255, 255, 0.08);
         }
-
 
         /* =====================================================
            HERO
         ===================================================== */
 
-        .about-hero {
-
+        .hero {
             position: relative;
-
-            width: 100%;
-
-            min-height:
-                max(620px, 82dvh);
-
-            display: flex;
-
-            align-items: center;
-
+            isolation: isolate;
             overflow: hidden;
 
-            isolation: isolate;
+            min-height: min(760px, 88vh);
+            min-height: min(760px, 88dvh);
+
+            display: flex;
+            align-items: center;
+
+            color: #fff;
 
             background:
                 linear-gradient(
                     135deg,
                     #d46b38 0%,
-                    #8f3428 100%
+                    #a4452d 48%,
+                    #64241f 100%
                 );
-
-            color: white;
         }
 
-        .about-hero::before {
-
+        .hero::before {
             content: "தமிழ்";
 
             position: absolute;
+            z-index: -1;
 
-            right:
-                clamp(-120px, -5vw, -40px);
+            right: -35px;
+            bottom: -70px;
 
-            bottom:
-                clamp(-130px, -7vw, -60px);
+            color: rgba(255, 255, 255, 0.045);
 
             font-family: Georgia, serif;
-
-            font-size:
-                clamp(9rem, 22vw, 22rem);
-
+            font-size: clamp(9rem, 24vw, 22rem);
             font-weight: 900;
-
             line-height: 1;
-
-            color:
-                rgba(255, 255, 255, .045);
-
-            white-space: nowrap;
 
             pointer-events: none;
         }
 
-        .about-hero-content {
-
-            position: relative;
-
-            z-index: 2;
-
-            min-height:
-                max(620px, 82dvh);
-
-            display: flex;
-
-            flex-direction: column;
-
-            justify-content: center;
-
-            padding-top:
-                clamp(110px, 12vh, 180px);
-
-            padding-bottom:
-                clamp(70px, 9vh, 130px);
-        }
-
-        .hero-eyebrow {
-
-            display: block;
-
-            margin-bottom:
-                clamp(12px, 1.5vw, 20px);
-
-            color: #f5d890;
-
-            font-size:
-                clamp(.68rem, .8vw, .82rem);
-
-            font-weight: 800;
-
-            letter-spacing: .18em;
-        }
-
-        .about-hero h1 {
-
-            width: 100%;
-
-            max-width: 1050px;
-
-            font-size:
-                clamp(2.7rem, 7vw, 7.5rem);
-
-            line-height: .98;
-
-            letter-spacing: -.065em;
-        }
-
-        .about-hero-description {
-
-            width: 100%;
-
-            max-width: 650px;
-
-            margin-top:
-                clamp(20px, 2.5vw, 32px);
-
-            color:
-                rgba(255, 246, 233, .72);
-
-            font-size:
-                clamp(.9rem, 1.35vw, 1.2rem);
-        }
-
-        .hero-scroll {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 12px;
-
-            width: fit-content;
-
-            margin-top: 50px;
-
-            color: #fff5e8;
-
-            font-size: .78rem;
-
-            letter-spacing: .1em;
-        }
-
-        .hero-scroll span {
-
-            display: block;
-
-            width: 35px;
-            height: 1px;
-
-            background: #f0d08a;
-        }
-
-
-        /* =====================================================
-           COMMON SECTION
-        ===================================================== */
-
-        .section {
-
-            width: 100%;
-
-            padding:
-                var(--section-space)
-                var(--page-pad);
-        }
-
-        .section-inner {
-
-            margin-inline: auto;
+        .hero-content {
+            padding-top: 125px;
+            padding-bottom: 90px;
         }
 
         .eyebrow {
-
             display: block;
-
             margin-bottom: 15px;
 
             color: var(--orange);
 
-            font-size: .78rem;
-
+            font-size: 0.76rem;
             font-weight: 800;
+            letter-spacing: 0.14em;
+        }
 
-            letter-spacing: .14em;
+        .hero .eyebrow {
+            color: #f5d890;
+        }
+
+        .hero h1 {
+            max-width: 1050px;
+
+            font-size: clamp(2.7rem, 7vw, 7.2rem);
+            font-weight: 800;
+            line-height: 1.08;
+            letter-spacing: -0.055em;
+        }
+
+        .hero-description {
+            max-width: 650px;
+            margin-top: 25px;
+
+            color: rgba(255, 246, 233, 0.78);
+
+            font-size: clamp(0.95rem, 1.4vw, 1.2rem);
+        }
+
+        .hero-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+
+            margin-top: 38px;
+
+            color: #fff5e8;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+        }
+
+        .hero-link span {
+            width: 35px;
+            height: 1px;
+            background: var(--gold);
+        }
+    
+
+        /* =====================================================
+           SHARED SECTION STYLES
+        ===================================================== */
+
+        .section {
+            padding: clamp(75px, 9vw, 135px) var(--page-pad);
+        }
+
+        .section-inner {
+            width: min(100%, var(--max-width));
+            margin-inline: auto;
         }
 
         .section-title {
-
             color: var(--deep-brick);
 
-            font-size:
-                clamp(2rem, 4.5vw, 4.2rem);
-
-            line-height: 1.12;
-
-            letter-spacing: -.045em;
+            font-size: clamp(2rem, 4.5vw, 4.2rem);
+            line-height: 1.15;
+            letter-spacing: -0.045em;
         }
 
+        .section-description {
+            max-width: 680px;
+            margin-top: 20px;
+
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
 
         /* =====================================================
-           FEATURED OFFICE BEARER
+           FEATURED GROUP PHOTO
         ===================================================== */
 
         .featured-section {
-
             background: var(--paper);
-
-            padding-top:
-                clamp(70px, 7vw, 110px);
-
-            padding-bottom:
-                clamp(75px, 8vw, 120px);
         }
 
         .featured-heading {
-
             display: flex;
-
             justify-content: space-between;
-
             align-items: flex-end;
+            gap: 35px;
 
-            gap:
-                clamp(20px, 4vw, 60px);
-
-            margin-bottom:
-                clamp(30px, 4vw, 50px);
+            margin-bottom: 35px;
         }
 
         .featured-heading-copy {
-
-            min-width: 0;
-
-            max-width: 600px;
+            max-width: 650px;
         }
 
-        .featured-heading-note {
-
-            width: min(100%, 360px);
+        .featured-note {
+            max-width: 330px;
 
             color: var(--muted);
-
-            font-size:
-                clamp(.78rem, .85vw, .92rem);
-
+            font-size: 0.85rem;
             text-align: right;
         }
 
         .featured-card {
-
             position: relative;
 
-            width: 100%;
-
-            height:
-                clamp(420px, 58vw, 760px);
-
-            max-height: 760px;
+            min-height: 300px;
+            height: clamp(350px, 55vw, 720px);
 
             overflow: hidden;
-
             background: var(--brown);
-
-            cursor: pointer;
         }
 
         .featured-card img {
-
-            position: absolute;
-
-            inset: 0;
-
             width: 100%;
             height: 100%;
 
-            max-width: none;
-
-            object-fit: cover;
-
-            object-position: center;
-
-            transition:
-                transform .8s cubic-bezier(.2,.7,.2,1),
-                filter .8s ease;
-        }
-
-        .featured-card::before {
-
-            content: "";
-
             position: absolute;
-
             inset: 0;
 
-            z-index: 1;
+            object-fit: cover;
+            object-position: center;
 
-            background:
-                linear-gradient(
-                    to top,
-                    rgba(28, 10, 6, .9) 0%,
-                    rgba(28, 10, 6, .25) 45%,
-                    rgba(28, 10, 6, .02) 75%
-                );
-
-            transition:
-                background .5s ease;
+            transition: transform 0.8s ease;
         }
 
         .featured-card::after {
-
             content: "";
 
             position: absolute;
-
-            inset: 18px;
-
-            z-index: 2;
-
-            border:
-                1px solid rgba(255, 255, 255, .18);
-
-            opacity: .7;
-
-            transition:
-                inset .5s ease,
-                opacity .5s ease;
-        }
-
-        .featured-card:hover img {
-
-            transform: scale(1.055);
-
-            filter: saturate(1.08);
-        }
-
-        .featured-card:hover::before {
+            inset: 0;
 
             background:
                 linear-gradient(
                     to top,
-                    rgba(28, 10, 6, .96) 0%,
-                    rgba(143, 52, 40, .25) 55%,
-                    rgba(28, 10, 6, .08) 100%
+                    rgba(35, 12, 7, 0.75),
+                    transparent 65%
                 );
         }
 
-        .featured-card:hover::after {
-
-            inset: 26px;
-
-            opacity: 1;
+        .featured-card:hover img {
+            transform: scale(1.035);
         }
 
-        .featured-content {
-
+        .featured-caption {
             position: absolute;
+            z-index: 2;
 
-            z-index: 3;
-
-            left: 0;
-            bottom: 0;
-
-            width: 100%;
-
-            padding:
-                clamp(30px, 4vw, 65px)
-                clamp(22px, 5vw, 75px);
+            left: clamp(22px, 5vw, 70px);
+            right: 22px;
+            bottom: clamp(25px, 4vw, 55px);
 
             color: white;
         }
 
-        .featured-year {
-
-            display: block;
-
-            margin-bottom: 6px;
-
+        .featured-caption span {
             color: #f0d08a;
-
             font-family: Georgia, serif;
-
-            font-size: .95rem;
-
-            letter-spacing: .14em;
+            letter-spacing: 0.14em;
         }
 
-        .featured-content h2 {
+        .featured-caption h2 {
+            margin-top: 8px;
 
-            font-size:
-                clamp(1.5rem, 3.5vw, 3.5rem);
-
-            line-height: 1.15;
-
-            letter-spacing: -.04em;
-
-            font-weight: 700;
-
-            transition:
-                transform .45s ease;
+            font-size: clamp(1.6rem, 3.5vw, 3.3rem);
+            line-height: 1.2;
         }
-
-        .featured-card:hover .featured-content h2 {
-            transform: translateY(-4px);
-        }
-
-        .featured-action {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 10px;
-
-            margin-top: 20px;
-
-            color:
-                rgba(255, 246, 233, .7);
-
-            font-size: .8rem;
-
-            opacity: 0;
-
-            transform: translateY(12px);
-
-            transition:
-                opacity .4s ease,
-                transform .4s ease;
-        }
-
-        .featured-card:hover .featured-action {
-
-            opacity: 1;
-
-            transform: translateY(0);
-        }
-
-        .featured-action span {
-
-            color: #f0d08a;
-
-            font-size: 1.1rem;
-        }
-
 
         /* =====================================================
-           ABOUT INTRO
+           ABOUT INTRODUCTION
         ===================================================== */
 
         .about-section {
-
             background: var(--cream);
         }
 
         .about-layout {
-
             display: grid;
-
-            grid-template-columns:
-                minmax(0, .85fr)
-                minmax(0, 1.15fr);
-
-            gap:
-                clamp(40px, 7vw, 110px);
-
+            grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+            gap: clamp(35px, 7vw, 100px);
             align-items: start;
         }
 
         .about-intro {
-
             color: var(--brick);
 
-            font-size:
-                clamp(1.3rem, 2.5vw, 2.25rem);
-
-            line-height: 1.45;
-
+            font-size: clamp(1.35rem, 2.6vw, 2.3rem);
             font-weight: 700;
+            line-height: 1.5;
         }
 
         .about-copy {
-
-            width: 100%;
-
-            max-width: 700px;
-
             color: var(--muted);
-
-            font-size:
-                clamp(.88rem, 1vw, 1rem);
+            font-size: 0.95rem;
         }
 
         .about-copy p + p {
-            margin-top: 24px;
+            margin-top: 22px;
         }
 
         .ornament {
-
             display: flex;
-
             align-items: center;
-
             gap: 15px;
 
-            margin-top: 55px;
+            margin-top: 35px;
         }
 
         .ornament::before,
         .ornament::after {
-
             content: "";
-
             height: 1px;
-
             flex: 1;
-
-            background:
-                rgba(143, 52, 40, .18);
+            background: rgba(143, 52, 40, 0.2);
         }
 
         .ornament span {
-
             color: var(--gold);
-
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
 
+        /* =====================================================
+           FACULTY COORDINATOR
+        ===================================================== */
+
+        .coordinator-section {
+            background: var(--paper);
+        }
+
+        .coordinator-card {
+            display: grid;
+            grid-template-columns: minmax(180px, 0.65fr) minmax(0, 1.35fr);
+            align-items: stretch;
+
+            max-width: 1000px;
+            margin-top: 35px;
+
+            overflow: hidden;
+
+            background: white;
+            border: 1px solid rgba(100, 36, 31, 0.1);
+
+            box-shadow: 0 18px 45px rgba(67, 37, 30, 0.07);
+        }
+
+        .coordinator-photo {
+            min-height: 260px;
+            background:
+                linear-gradient(145deg, #d97745, #64241f);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #fff5e8;
+            text-align: center;
+        }
+
+        .coordinator-photo img {
+            width: 100%;
+            height: 100%;
+            min-height: 260px;
+            object-fit: cover;
+        }
+
+        .coordinator-placeholder {
+            padding: 25px;
+        }
+
+        .coordinator-placeholder span {
+            display: block;
+            margin-bottom: 8px;
+            color: #f5d890;
+            font-size: 2.5rem;
+        }
+
+        .coordinator-info {
+            padding: clamp(25px, 4vw, 55px);
+            align-self: center;
+        }
+
+        .coordinator-label {
+            color: var(--orange);
+
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+        }
+
+        .coordinator-name {
+            margin-top: 12px;
+
+            color: var(--deep-brick);
+            font-size: clamp(1.5rem, 3vw, 2.3rem);
+            line-height: 1.35;
+        }
+
+        .coordinator-designation {
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .coordinator-divider {
+            width: 55px;
+            height: 2px;
+
+            margin: 23px 0;
+
+            border: 0;
+            background: var(--gold);
+        }
+
+        .coordinator-note {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
 
         /* =====================================================
-           PEOPLE
+           OFFICE-BEARERS GRID
         ===================================================== */
 
         .people-section {
-
             background: var(--brown);
-
             color: white;
+        }
+        /* Rotate Manooj's photo clockwise by 90 degrees */
+        .person-card img[src*="manooj-kumar.jpg"] {
+            transform: rotate(90deg) scale(1.35);
+        }
+
+        /* Rotate Lokhith's photo clockwise by 90 degrees */
+        .person-card img[src*="lokhith.jpg"] {
+            transform: rotate(90deg) scale(1.35);
+        }
+        .person-card img[src*="karthik-singaram.jpg"] {
+            transform: rotate(90deg) scale(1.35);
+        }
+        /* Preserve the corrected orientation when hovering */
+        .person-card:hover img[src*="manooj-kumar.jpg"],
+        .person-card:hover img[src*="lokhith.jpg"],
+        .person-card:hover img[src*="karthik-singaram.jpg"] {
+            transform: rotate(90deg) scale(1.42);
         }
 
         .people-section .eyebrow {
@@ -994,1125 +680,555 @@
         }
 
         .people-intro {
+            max-width: 720px;
+            margin-top: 20px;
 
-            width: 100%;
-
-            max-width: 700px;
-
-            margin-top: 22px;
-
-            color:
-                rgba(255, 246, 233, .62);
-
-            font-size:
-                clamp(.85rem, 1vw, 1rem);
-        }
-
-        .people-header {
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: flex-end;
-
-            gap:
-                clamp(20px, 4vw, 50px);
+            color: rgba(255, 246, 233, 0.68);
+            font-size: 0.95rem;
         }
 
         .people-count {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
 
-            color:
-                rgba(255, 246, 233, .45);
+            margin-top: 25px;
 
-            font-family: Georgia, serif;
-
-            font-size: .9rem;
-
-            letter-spacing: .08em;
-
-            white-space: nowrap;
+            color: #f0d08a;
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
         }
 
-        .team-grid {
+        .people-count::before {
+            content: "";
+            width: 28px;
+            height: 1px;
+            background: var(--gold);
+        }
 
-            width: 100%;
-
+        .people-grid {
             display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 22px;
 
-            grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(
-                        min(100%, 210px),
-                        1fr
-                    )
-                );
-
-            gap:
-                clamp(12px, 1.5vw, 22px);
-
-            margin-top:
-                clamp(35px, 5vw, 65px);
+            margin-top: 55px;
         }
 
-        .member-card {
-
-            position: relative;
-
-            width: 100%;
-
+        .person-card {
             min-width: 0;
-
-            background:
-                rgba(255, 255, 255, .055);
-
-            border:
-                1px solid rgba(255, 255, 255, .09);
-
             overflow: hidden;
+
+            background: #fffaf2;
+            color: var(--text);
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
 
             transition:
-                transform .35s ease,
-                border-color .35s ease,
-                box-shadow .35s ease;
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
         }
 
-        .member-card:hover {
-
-            transform: translateY(-8px);
-
-            border-color:
-                rgba(211, 163, 74, .45);
-
-            box-shadow:
-                0 25px 55px
-                rgba(0, 0, 0, .18);
+        .person-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.18);
         }
 
-        .member-photo {
-
+        .person-photo-wrap {
             position: relative;
 
-            aspect-ratio: 1 / 1;
+            width: 100%;
+            aspect-ratio: 4 / 4.5;
 
             overflow: hidden;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #b86a48,
-                    #71352d
-                );
+            background: #e7d4be;
         }
 
-        .member-photo img {
-
+        .person-photo {
             width: 100%;
             height: 100%;
 
             object-fit: cover;
+            object-position: center top;
 
-            transition:
-                transform .55s ease;
+            transition: transform 0.5s ease;
         }
 
-        .member-card:hover .member-photo img {
+        .person-card:hover .person-photo {
             transform: scale(1.045);
         }
 
-        .member-number {
-
-            position: absolute;
-
-            top: 14px;
-            left: 14px;
-
-            z-index: 2;
-
-            color:
-                rgba(255, 255, 255, .78);
-
-            font-family: Georgia, serif;
-
-            font-size: .75rem;
-
-            letter-spacing: .08em;
-
-            background:
-                rgba(45, 23, 19, .65);
-
-            padding: 4px 8px;
-
-            backdrop-filter: blur(5px);
+        .person-info {
+            padding: 21px 18px 24px;
         }
 
-        .member-info {
-
-            padding:
-                clamp(14px, 1.5vw, 22px);
-        }
-
-        .member-info h3 {
-
-            color: #fff6e9;
-
-            font-size:
-                clamp(.82rem, 1vw, 1.05rem);
-
-            line-height: 1.3;
-
-            overflow-wrap: anywhere;
-        }
-
-        .member-info p {
-
-            margin-top: 4px;
-
-            color: var(--gold);
-
-            font-size:
-                clamp(.68rem, .8vw, .82rem);
-
-            font-weight: 600;
-
-            overflow-wrap: anywhere;
-        }
-
-        .member-info small {
-
+        .person-role {
             display: block;
+            min-height: 2.5em;
 
-            margin-top: 8px;
+            color: var(--orange);
 
-            color:
-                rgba(255, 246, 233, .5);
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.025em;
+            line-height: 1.5;
+        }
 
-            font-size:
-                clamp(.62rem, .72vw, .75rem);
+        .person-name {
+            margin-top: 10px;
 
+            color: var(--deep-brick);
+
+            font-size: clamp(0.98rem, 1.2vw, 1.13rem);
+            font-weight: 800;
             line-height: 1.5;
 
             overflow-wrap: anywhere;
         }
 
-
-        /* =====================================================
-           PURPOSE
-        ===================================================== */
-
-        .purpose-section {
-
-            background: var(--paper);
-        }
-
-        .purpose-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(
-                        min(100%, 360px),
-                        1fr
-                    )
-                );
-
-            gap:
-                clamp(15px, 2vw, 28px);
-
-            margin-top:
-                clamp(35px, 4vw, 60px);
-        }
-
-        .purpose-card {
-
-            width: 100%;
-
-            padding:
-                clamp(28px, 3.5vw, 52px);
-
-            background: var(--cream);
-
-            border:
-                1px solid rgba(100, 36, 31, .10);
-
-            transition:
-                transform .3s ease,
-                box-shadow .3s ease;
-        }
-
-        .purpose-card:hover {
-
-            transform: translateY(-6px);
-
-            box-shadow:
-                0 20px 50px
-                rgba(100, 36, 31, .09);
-        }
-
-        .purpose-number {
-
-            margin-bottom: 25px;
-
-            color: var(--gold);
-
-            font-family: Georgia, serif;
-
-            font-size: 2.4rem;
-        }
-
-        .purpose-card h3 {
-
-            margin-bottom: 12px;
-
-            color: var(--deep-brick);
-
-            font-size:
-                clamp(1.2rem, 1.5vw, 1.5rem);
-        }
-
-        .purpose-card p {
+        .person-year {
+            margin-top: 8px;
 
             color: var(--muted);
-
-            font-size:
-                clamp(.82rem, .9vw, .95rem);
+            font-size: 0.78rem;
         }
 
-
-        /* =====================================================
-           ACTIVITIES
-        ===================================================== */
-
-        .activities-section {
-
-            background: var(--cream);
-        }
-
-        .activities-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(
-                        min(100%, 250px),
-                        1fr
-                    )
-                );
-
-            margin-top:
-                clamp(35px, 4vw, 60px);
-
-            border:
-                1px solid rgba(100, 36, 31, .12);
-        }
-
-        .activity {
-
-            min-height:
-                clamp(200px, 18vw, 270px);
-
-            padding:
-                clamp(25px, 2.5vw, 38px);
-
-            border-right:
-                1px solid rgba(100, 36, 31, .12);
-
-            transition:
-                background .25s ease;
-        }
-
-        .activity:last-child {
-            border-right: none;
-        }
-
-        .activity:hover {
-            background: var(--paper);
-        }
-
-        .activity-number {
-
-            margin-bottom: 30px;
-
-            color: var(--gold);
-
-            font-family: Georgia, serif;
-
-            font-size: 1.7rem;
-        }
-
-        .activity h3 {
-
-            margin-bottom: 10px;
-
-            color: var(--deep-brick);
-
-            font-size:
-                clamp(1rem, 1.1vw, 1.2rem);
-        }
-
-        .activity p {
+        .person-department {
+            margin-top: 5px;
 
             color: var(--muted);
-
-            font-size:
-                clamp(.78rem, .85vw, .9rem);
+            font-size: 0.76rem;
+            line-height: 1.65;
         }
 
+        .person-divider {
+            width: 35px;
+            height: 2px;
+
+            margin-top: 17px;
+
+            border: 0;
+            background: var(--gold);
+        }
+
+        /* Sanjeevan's image remains an ordinary card photo.
+           Only this photo has the Easter egg click handler. */
+
+        .easter-egg-trigger {
+            cursor: pointer;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        .easter-egg-trigger:focus-visible {
+            outline: 3px solid var(--gold);
+            outline-offset: -4px;
+        }
 
         /* =====================================================
-           CLOSING
+           CLOSING SECTION
         ===================================================== */
 
-        .closing {
-
-            position: relative;
-
-            width: 100%;
-
-            padding:
-                clamp(90px, 11vw, 180px)
-                var(--page-pad);
-
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--orange),
-                    var(--brick)
-                );
-
+        .closing-section {
+            background: var(--cream);
             text-align: center;
-
-            color: white;
-
-            overflow: hidden;
         }
 
-        .closing::before {
-
-            content: "தமிழ்";
-
-            position: absolute;
-
-            left: 50%;
-            top: 50%;
-
-            transform:
-                translate(-50%, -50%);
-
-            font-family: Georgia, serif;
-
-            font-size:
-                clamp(8rem, 20vw, 20rem);
-
-            font-weight: 900;
-
-            color:
-                rgba(255, 255, 255, .035);
-
-            white-space: nowrap;
+        .closing-inner {
+            max-width: 850px;
+            margin-inline: auto;
         }
 
-        .closing-content {
+        .closing-symbol {
+            margin-bottom: 22px;
 
-            position: relative;
-
-            z-index: 2;
-
-            width: 100%;
-
-            max-width: 900px;
-
-            margin: auto;
+            color: var(--gold);
+            font-size: 2rem;
         }
 
-        .closing-content p {
+        .closing-title {
+            color: var(--deep-brick);
 
-            margin-bottom: 15px;
-
-            color: #f5d890;
-
-            font-size:
-                clamp(.82rem, 1vw, 1rem);
-        }
-
-        .closing-content h2 {
-
-            font-size:
-                clamp(2rem, 5vw, 4.5rem);
-
+            font-size: clamp(2rem, 4.5vw, 4rem);
             line-height: 1.2;
-
-            letter-spacing: -.04em;
         }
 
+        .closing-text {
+            max-width: 650px;
+            margin: 22px auto 0;
+
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
 
         /* =====================================================
            FOOTER
         ===================================================== */
 
-        footer {
-
-            width: 100%;
-
-            padding:
-                clamp(45px, 5vw, 70px)
-                var(--page-pad)
-                25px;
+        .site-footer {
+            padding: 55px var(--page-pad) 22px;
 
             background: var(--dark-brown);
-
-            color: white;
+            color: #fff5e8;
         }
 
         .footer-main {
+            width: min(100%, var(--max-width));
+            margin-inline: auto;
 
             display: flex;
-
             justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
 
-            gap: 40px;
+            padding-bottom: 35px;
         }
 
-        .footer-brand h2 {
-
-            color: #f0d08a;
-
-            font-size: 1.2rem;
+        .footer-brand {
+            font-size: 1.1rem;
+            font-weight: 800;
         }
 
-        .footer-brand p {
+        .footer-description {
+            max-width: 430px;
+            margin-top: 9px;
 
-            margin-top: 5px;
-
-            color:
-                rgba(255, 255, 255, .5);
-
-            font-size: .78rem;
+            color: rgba(255, 245, 232, 0.6);
+            font-size: 0.82rem;
         }
 
         .footer-links {
-
             display: flex;
-
-            align-items: center;
-
-            gap:
-                clamp(14px, 2vw, 28px);
-
             flex-wrap: wrap;
+            gap: 20px;
         }
 
         .footer-links a {
-
-            color:
-                rgba(255, 255, 255, .55);
-
-            font-size: .82rem;
-
-            transition: .2s ease;
+            color: rgba(255, 245, 232, 0.75);
+            font-size: 0.8rem;
         }
 
         .footer-links a:hover {
-            color: #f0d08a;
+            color: var(--gold);
         }
 
         .copyright {
-
-            margin-top: 45px;
+            width: min(100%, var(--max-width));
+            margin-inline: auto;
 
             padding-top: 20px;
 
-            border-top:
-                1px solid rgba(255, 255, 255, .08);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
 
-            color:
-                rgba(255, 255, 255, .3);
-
-            font-size: .72rem;
+            color: rgba(255, 245, 232, 0.48);
+            font-size: 0.73rem;
         }
 
-
         /* =====================================================
-           TABLETS / SMALL LAPTOPS
+           EASTER EGG MODAL
         ===================================================== */
 
-        @media (max-width: 1050px) {
+        .easter-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
 
-            .about-layout {
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-                grid-template-columns: 1fr;
+            padding: 22px;
 
-                gap: 40px;
+            background: rgba(28, 13, 10, 0.72);
+            backdrop-filter: blur(7px);
+
+            opacity: 0;
+            visibility: hidden;
+
+            transition:
+                opacity 0.35s ease,
+                visibility 0.35s ease;
+        }
+
+        .easter-modal.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .easter-dialog {
+            position: relative;
+
+            width: min(100%, 470px);
+
+            padding: clamp(30px, 6vw, 48px);
+
+            background: var(--paper);
+            color: var(--text);
+
+            border: 1px solid rgba(211, 163, 74, 0.6);
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.3);
+
+            text-align: center;
+
+            transform: translateY(16px) scale(0.98);
+
+            transition: transform 0.35s ease;
+        }
+
+        .easter-modal.open .easter-dialog {
+            transform: translateY(0) scale(1);
+        }
+
+        .easter-close {
+            position: absolute;
+            top: 12px;
+            right: 14px;
+
+            width: 36px;
+            height: 36px;
+
+            border: 0;
+            border-radius: 50%;
+
+            background: rgba(100, 36, 31, 0.07);
+            color: var(--deep-brick);
+
+            font-size: 1.35rem;
+
+            cursor: pointer;
+        }
+
+        .easter-close:hover {
+            background: rgba(100, 36, 31, 0.13);
+        }
+
+        .easter-symbol {
+            margin-bottom: 17px;
+
+            color: var(--gold);
+            font-size: 2.5rem;
+        }
+
+        .easter-eyebrow {
+            color: var(--orange);
+
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+        }
+
+        .easter-message {
+            margin-top: 18px;
+
+            color: var(--deep-brick);
+
+            font-size: clamp(1.15rem, 3vw, 1.5rem);
+            font-weight: 700;
+            line-height: 1.65;
+        }
+
+        .easter-footnote {
+            margin-top: 18px;
+
+            color: var(--muted);
+            font-size: 0.78rem;
+        }
+
+        /* =====================================================
+           RESPONSIVE LAYOUT
+        ===================================================== */
+
+        @media (max-width: 1100px) {
+            .people-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
             }
 
-            .about-copy {
-                max-width: 800px;
-            }
-
-            .team-grid {
-
-                grid-template-columns:
-                    repeat(3, minmax(0, 1fr));
-            }
-
-            .activities-grid {
-
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
-            }
-
-            .activity:nth-child(2) {
-                border-right: none;
-            }
-
-            .activity:nth-child(-n + 2) {
-
-                border-bottom:
-                    1px solid rgba(100, 36, 31, .12);
-            }
-
-            .featured-heading {
-
-                align-items: flex-start;
-
-                flex-direction: column;
-            }
-
-            .featured-heading-note {
-
-                width: 100%;
-
-                max-width: 650px;
-
-                text-align: left;
+            .navbar {
+                gap: 12px;
             }
 
             .nav-links {
-                gap: 18px;
+                gap: 16px;
             }
         }
 
-
-        /* =====================================================
-           PHONES
-        ===================================================== */
-
-        @media (max-width: 700px) {
-
-            :root {
-
-                --page-pad:
-                    clamp(16px, 5vw, 24px);
-
-                --section-space:
-                    clamp(65px, 16vw, 95px);
-            }
-
-
-            /* NAV */
-
-            nav {
-
-                width: 100%;
-
-                min-height: 62px;
-
-                padding-inline:
-                    var(--page-pad);
+        @media (max-width: 780px) {
+            .navbar {
+                min-height: 66px;
             }
 
             .nav-links {
                 display: none;
             }
 
-            .nav-actions {
-
-                display: flex;
-
-                align-items: center;
-
-                gap: 6px;
-            }
-
             .hamburger {
-
                 display: flex;
-
-                width:
-                    clamp(36px, 10vw, 40px);
-
-                height:
-                    clamp(36px, 10vw, 40px);
             }
 
-            .lang-toggle {
-
-                min-width: 38px;
-
-                padding:
-                    6px 9px;
-
-                font-size: .6rem;
+            .hero,
+            .hero-content {
+                min-height: 620px;
             }
 
-
-            /* MOBILE MENU */
-
-            .mobile-menu {
-
-                left: 0;
-                right: 0;
-
-                width: 100%;
-
-                padding:
-                    8px
-                    var(--page-pad)
-                    12px;
+            .featured-heading {
+                display: block;
             }
 
-            .mobile-menu a {
-
-                min-height: 46px;
-
-                font-size: .78rem;
+            .featured-note {
+                margin-top: 18px;
+                text-align: left;
             }
-
-
-            /* HERO */
-
-            .about-hero {
-
-                min-height:
-                    max(600px, 100dvh);
-            }
-
-            .about-hero-content {
-
-                width: 100%;
-
-                min-height:
-                    max(600px, 100dvh);
-
-                padding:
-                    110px
-                    var(--page-pad)
-                    70px;
-            }
-
-            .about-hero h1 {
-
-                font-size:
-                    clamp(2.5rem, 14vw, 5rem);
-
-                overflow-wrap: anywhere;
-            }
-
-            .about-hero-description {
-
-                max-width: 100%;
-
-                font-size:
-                    clamp(.86rem, 3.5vw, 1rem);
-            }
-
-            .hero-scroll {
-                margin-top: 35px;
-            }
-
-
-            /* FEATURED */
-
-            .featured-card {
-
-                height: auto;
-
-                min-height: 0;
-
-                max-height: none;
-
-                aspect-ratio: 4 / 3;
-            }
-
-            .featured-card img {
-
-                position: absolute;
-
-                inset: 0;
-
-                width: 100%;
-                height: 100%;
-
-                object-fit: cover;
-            }
-
-            .featured-content {
-
-                padding:
-                    30px
-                    clamp(18px, 5vw, 28px);
-            }
-
-            .featured-content h2 {
-
-                font-size:
-                    clamp(1.35rem, 6vw, 1.8rem);
-            }
-
-            .featured-action {
-
-                opacity: 1;
-
-                transform: none;
-            }
-
-
-            /* ABOUT */
 
             .about-layout {
-
                 grid-template-columns: 1fr;
-
-                gap: 35px;
+                gap: 25px;
             }
 
+            .coordinator-card {
+                grid-template-columns: 1fr;
+            }
 
-            /* PEOPLE */
+            .coordinator-photo,
+            .coordinator-photo img {
+                min-height: 260px;
+                max-height: 380px;
+            }
+            /* Faculty Coordinator photo alignment */
+            .faculty-coordinator img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                object-fit: cover;
+                object-position: center;
+            }
 
-            .people-header {
-
-                align-items: flex-start;
-
-                flex-direction: column;
-
+            .people-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
                 gap: 15px;
+                margin-top: 38px;
             }
 
-            .team-grid {
-
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
-
-                gap:
-                    clamp(10px, 3vw, 15px);
+            .person-info {
+                padding: 17px 14px 20px;
             }
 
-
-            /* PURPOSE */
-
-            .purpose-grid {
-
-                grid-template-columns: 1fr;
-            }
-
-
-            /* ACTIVITIES */
-
-            .activities-grid {
-
-                grid-template-columns: 1fr;
-            }
-
-            .activity {
-
+            .person-role {
                 min-height: 0;
-
-                border-right: none;
-
-                border-bottom:
-                    1px solid rgba(100, 36, 31, .12);
             }
-
-            .activity:last-child {
-                border-bottom: none;
-            }
-
-
-            /* FOOTER */
 
             .footer-main {
-
                 flex-direction: column;
-
-                gap: 28px;
-            }
-
-            .footer-links {
-                flex-wrap: wrap;
             }
         }
 
-
-        /* =====================================================
-           VERY SMALL PHONES
-        ===================================================== */
-
-        @media (max-width: 360px) {
+        @media (max-width: 420px) {
+            :root {
+                --page-pad: 16px;
+            }
 
             .brand {
-                font-size: .76rem;
+                font-size: 0.8rem;
             }
 
-            .nav-actions {
-                gap: 4px;
+            .language-button {
+                padding: 7px 10px;
+                font-size: 0.68rem;
             }
 
-            .lang-toggle {
-
-                min-width: 35px;
-
-                padding-inline: 7px;
+            .hero,
+            .hero-content {
+                min-height: 590px;
             }
 
-            .hamburger {
-
-                width: 36px;
-                height: 36px;
-            }
-
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-hero h1 {
-
-                font-size:
-                    clamp(2.35rem, 14vw, 3.5rem);
-            }
-        }
-
-
-        /* =====================================================
-           LANDSCAPE PHONES
-        ===================================================== */
-
-        @media (max-width: 900px) and (orientation: landscape) {
-
-            .about-hero,
-            .about-hero-content {
-
-                min-height: 100dvh;
-            }
-
-            .about-hero-content {
-
-                padding-top: 90px;
-
-                padding-bottom: 45px;
-            }
-
-            .about-hero h1 {
-
-                font-size:
-                    clamp(2.2rem, 8vw, 4.5rem);
-            }
-        }
-
-
-        /* =====================================================
-           LARGE DISPLAYS
-        ===================================================== */
-
-        @media (min-width: 1600px) {
-
-            :root {
-                --max-width: 1600px;
-            }
-
-            .team-grid {
-
-                grid-template-columns:
-                    repeat(4, minmax(0, 1fr));
-            }
-
-            .section-title {
-
-                font-size:
-                    clamp(3rem, 3.5vw, 4.5rem);
-            }
-
-            .about-hero h1 {
-
-                font-size:
-                    clamp(5rem, 7vw, 8rem);
+            .hero h1 {
+                font-size: clamp(2.55rem, 12vw, 3.5rem);
             }
 
             .featured-card {
+                height: 350px;
+            }
 
-                height:
-                    min(58vw, 800px);
+            .people-grid {
+                gap: 11px;
+            }
+
+            .person-info {
+                padding: 14px 11px 17px;
+            }
+
+            .person-name {
+                font-size: 0.92rem;
+            }
+
+            .person-role,
+            .person-year,
+            .person-department {
+                font-size: 0.7rem;
+            }
+
+            .person-photo-wrap {
+                aspect-ratio: 4 / 4.8;
+            }
+
+            .easter-dialog {
+                padding: 34px 23px;
             }
         }
-
-
-        /* =====================================================
-           ULTRA-WIDE / 4K / 8K
-        ===================================================== */
-
-        @media (min-width: 2200px) {
-
-            :root {
-                --max-width: 1800px;
-            }
-
-            .about-hero-content {
-
-                padding-top: 180px;
-
-                padding-bottom: 150px;
-            }
-
-            .team-grid {
-
-                grid-template-columns:
-                    repeat(5, minmax(0, 1fr));
-            }
-
-            .activities-grid {
-
-                grid-template-columns:
-                    repeat(4, minmax(0, 1fr));
-            }
-
-            .featured-card {
-
-                height:
-                    min(52vw, 900px);
-            }
-        }
-
-
-        /* =====================================================
-           TOUCH DEVICES
-        ===================================================== */
-
-        @media (hover: none) {
-
-            .member-card:hover {
-
-                transform: none;
-
-                box-shadow: none;
-            }
-
-            .featured-card:hover img {
-
-                transform: none;
-
-                filter: none;
-            }
-
-            .featured-card:hover::after {
-
-                inset: 18px;
-            }
-
-            .featured-card:hover .featured-content h2 {
-
-                transform: none;
-            }
-
-            .featured-action {
-
-                opacity: 1;
-
-                transform: none;
-            }
-        }
-
-
-        /* =====================================================
-           REDUCED MOTION
-        ===================================================== */
 
         @media (prefers-reduced-motion: reduce) {
-
             *,
             *::before,
             *::after {
-
                 scroll-behavior: auto !important;
-
-                animation-duration: .01ms !important;
-
-                animation-iteration-count: 1 !important;
-
-                transition-duration: .01ms !important;
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
             }
         }
-
     </style>
-
 </head>
-
 
 <body>
 
-
     <!-- =====================================================
-         NAVBAR
-    ===================================================== -->
+         NAVIGATION
+    ====================================================== -->
 
-    <header>
+    <header class="site-header">
 
-        <nav>
+        <nav class="navbar" aria-label="Main navigation">
 
-            <a
-                href="index.html"
-                class="brand"
-                data-ta="தென்றல் தமிழ்மன்றம்"
-                data-en="தென்றல் தமிழ்மன்றம்">
+            <a class="brand" href="index.html">
                 தென்றல் தமிழ்மன்றம்
             </a>
 
-
             <div class="nav-links">
+                <a href="index.html" data-ta="முகப்பு" data-en="Home">முகப்பு</a>
 
-                <a
-                    href="index.html"
-                    data-ta="முகப்பு"
-                    data-en="Home">
-                    முகப்பு
-                </a>
-
-                <a
-                    href="about.html"
-                    class="active"
-                    data-ta="எங்களைப் பற்றி"
-                    data-en="About Us">
+                <a href="about.html"
+                   class="active"
+                   aria-current="page"
+                   data-ta="எங்களைப் பற்றி"
+                   data-en="About">
                     எங்களைப் பற்றி
                 </a>
 
-                <a
-                    href="noevents.html"
-                    data-ta="நிகழ்வுகள்"
-                    data-en="Events">
-                    நிகழ்வுகள்
-                </a>
-
+                <a href="events.html" data-ta="நிகழ்வுகள்" data-en="Events">நிகழ்வுகள்</a>
             </div>
-
 
             <div class="nav-actions">
 
                 <button
-                    class="lang-toggle"
-                    id="langToggle"
-                    onclick="toggleLanguage()">
+                    class="language-button"
+                    id="languageToggle"
+                    type="button"
+                    aria-label="Switch language">
                     EN
                 </button>
-
 
                 <button
                     class="hamburger"
                     id="hamburger"
-                    onclick="toggleMenu()"
-                    aria-label="Open navigation"
+                    type="button"
+                    aria-label="Open navigation menu"
                     aria-expanded="false"
                     aria-controls="mobileMenu">
 
@@ -2124,32 +1240,19 @@
 
             </div>
 
+            <div class="mobile-menu" id="mobileMenu">
 
-            <div
-                class="mobile-menu"
-                id="mobileMenu">
+                <a href="index.html" data-ta="முகப்பு" data-en="Home">முகப்பு</a>
 
-                <a
-                    href="index.html"
-                    data-ta="முகப்பு"
-                    data-en="Home">
-                    முகப்பு
-                </a>
-
-                <a
-                    href="about.html"
-                    class="active"
-                    data-ta="எங்களைப் பற்றி"
-                    data-en="About Us">
+                <a href="about.html"
+                   class="active"
+                   aria-current="page"
+                   data-ta="எங்களைப் பற்றி"
+                   data-en="About">
                     எங்களைப் பற்றி
                 </a>
 
-                <a
-                    href="noevents.html"
-                    data-ta="நிகழ்வுகள்"
-                    data-en="Events">
-                    நிகழ்வுகள்
-                </a>
+                <a href="events.html" data-ta="நிகழ்வுகள்" data-en="Events">நிகழ்வுகள்</a>
 
             </div>
 
@@ -2158,58 +1261,46 @@
     </header>
 
 
-    <!-- =====================================================
-         HERO
-    ===================================================== -->
-
     <main>
 
-        <section class="about-hero">
+        <!-- =================================================
+             HERO
+        ================================================== -->
 
-            <div class="about-hero-content">
+        <section class="hero">
+
+            <div class="container hero-content">
 
                 <span
-                    class="hero-eyebrow"
-                    data-ta="எங்களைப் பற்றி"
-                    data-en="ABOUT US">
-                    எங்களைப் பற்றி
+                    class="eyebrow"
+                    data-ta="தென்றல் தமிழ்மன்றம் · 2026–2027"
+                    data-en="THENDRAL TAMIZH MANDRAM · 2026–2027">
+                    தென்றல் தமிழ்மன்றம் · 2026–2027
                 </span>
 
-
                 <h1
-                    data-ta="ஒரு மன்றம்.<br>பல குரல்கள்."
-                    data-en="One Mandram.<br>Many Voices.">
-                    ஒரு மன்றம்.<br>
-                    பல குரல்கள்.
+                    data-ta="எங்கள் அடையாளம். எங்கள் தமிழ்."
+                    data-en="Our Identity. Our Tamil.">
+                    எங்கள் அடையாளம். எங்கள் தமிழ்.
                 </h1>
 
-
                 <p
-                    class="about-hero-description"
-                    data-ta="தமிழின் அழகையும், எங்கள் மாணவர்களின் குரல்களையும் ஒன்றாகக் கொண்டாடும் ஒரு இடம்."
-                    data-en="A space where the beauty of Tamil meets the voices, ideas and memories of our students.">
-                    தமிழின் அழகையும்,
-                    எங்கள் மாணவர்களின் குரல்களையும்
-                    ஒன்றாகக் கொண்டாடும் ஒரு இடம்.
+                    class="hero-description"
+                    data-ta="மொழி, இலக்கியம், கலை மற்றும் பண்பாட்டை ஒன்றிணைக்கும் மாணவர் மன்றம். எங்களை உருவாக்கும் மனிதர்களையும் நோக்கத்தையும் அறிந்துகொள்ளுங்கள்."
+                    data-en="A student community bringing together language, literature, art and culture. Meet the people and purpose behind our mandram.">
+                    மொழி, இலக்கியம், கலை மற்றும் பண்பாட்டை ஒன்றிணைக்கும் மாணவர் மன்றம்.
+                    எங்களை உருவாக்கும் மனிதர்களையும் நோக்கத்தையும் அறிந்துகொள்ளுங்கள்.
                 </p>
 
-
-                <a
-                    href="#office-bearers"
-                    class="hero-scroll"
-                    data-ta="கீழே பார்க்க"
-                    data-en="SCROLL TO EXPLORE">
+                <a class="hero-link" href="#about">
 
                     <span></span>
 
                     <span
-                        style="
-                            width:auto;
-                            height:auto;
-                            background:none;
-                            color:inherit;
-                        ">
-                        கீழே பார்க்க
+                        style="width:auto;height:auto;background:none"
+                        data-ta="எங்களை அறிந்துகொள்ளுங்கள்"
+                        data-en="GET TO KNOW US">
+                        எங்களை அறிந்துகொள்ளுங்கள்
                     </span>
 
                 </a>
@@ -2220,8 +1311,8 @@
 
 
         <!-- =================================================
-             FEATURED
-        ================================================= -->
+             GROUP PHOTO
+        ================================================== -->
 
         <section class="section featured-section">
 
@@ -2233,70 +1324,46 @@
 
                         <span
                             class="eyebrow"
-                            data-ta="எங்கள் மக்கள்"
-                            data-en="OUR PEOPLE">
-                            எங்கள் மக்கள்
+                            data-ta="ஒரே குடும்பம்"
+                            data-en="ONE COMMUNITY">
+                            ஒரே குடும்பம்
                         </span>
 
                         <h2
                             class="section-title"
-                            data-ta="இந்த ஆண்டின் முகங்கள்."
-                            data-en="The faces behind this year.">
-                            இந்த ஆண்டின் முகங்கள்.
+                            data-ta="முகங்கள் பல. நோக்கம் ஒன்று."
+                            data-en="Many Faces. One Purpose.">
+                            முகங்கள் பல. நோக்கம் ஒன்று.
                         </h2>
 
                     </div>
 
-
                     <p
-                        class="featured-heading-note"
-                        data-ta="ஒரு வருடம் என்பது நிகழ்வுகளால் மட்டும் உருவாகாது. அதை உருவாக்கும் மனிதர்களாலும் உருவாகிறது."
-                        data-en="A year isn't defined only by its events. It is shaped by the people who make them happen.">
-                        ஒரு வருடம் என்பது நிகழ்வுகளால் மட்டும் உருவாகாது.
-                        அதை உருவாக்கும் மனிதர்களாலும் உருவாகிறது.
+                        class="featured-note"
+                        data-ta="2026–2027 ஆம் ஆண்டிற்கான தென்றல் தமிழ்மன்றத்தின் அலுவலகப் பொறுப்பாளர்கள்."
+                        data-en="The office-bearers of Thendral Tamizh Mandram for the 2026–2027 academic year.">
+                        2026–2027 ஆம் ஆண்டிற்கான தென்றல் தமிழ்மன்றத்தின்
+                        அலுவலகப் பொறுப்பாளர்கள்.
                     </p>
 
                 </div>
-
 
                 <div class="featured-card">
 
                     <img
                         src="images/office-bearers.JPG"
-                        alt="தென்றல் தமிழ்மன்றம் 2026–27 அலுவல் பொறுப்பாளர்கள்">
+                        alt="Thendral Tamizh Mandram office-bearers">
 
+                    <div class="featured-caption">
 
-                    <div class="featured-content">
-
-                        <span class="featured-year">
-                            2026 — 2027
-                        </span>
+                        <span>2026 — 2027</span>
 
                         <h2
-                            data-ta="எங்கள் பயணம் · எங்கள் மக்கள்"
-                            data-en="Our Journey · Our People">
-                            எங்கள் பயணம் · எங்கள் மக்கள்
+                            data-ta="தென்றல் தமிழ்மன்றம்"
+                            data-en="Thendral Tamizh Mandram">
+                            தென்றல் தமிழ்மன்றம்
                         </h2>
 
-                        <div
-                            class="featured-action"
-                            data-ta="அலுவல் பொறுப்பாளர்களைப் பார்க்க"
-                            data-en="MEET THE OFFICE BEARERS">
-
-                            <span>→</span>
-
-                            <span
-                                style="
-                                    width:auto;
-                                    height:auto;
-                                    background:none;
-                                    color:inherit;
-                                ">
-                                அலுவல் பொறுப்பாளர்களைப் பார்க்க
-                            </span>
-
-                        </div>
-
                     </div>
 
                 </div>
@@ -2307,64 +1374,60 @@
 
 
         <!-- =================================================
-             ABOUT
-        ================================================= -->
+             ABOUT INTRODUCTION
+        ================================================== -->
 
-        <section class="section about-section">
+        <section class="section about-section" id="about">
 
-            <div class="section-inner">
+            <div class="section-inner about-layout">
 
-                <div class="about-layout">
+                <div>
 
-                    <div>
+                    <span
+                        class="eyebrow"
+                        data-ta="எங்கள் நோக்கம்"
+                        data-en="OUR PURPOSE">
+                        எங்கள் நோக்கம்
+                    </span>
 
-                        <span
-                            class="eyebrow"
-                            data-ta="நாங்கள் யார்"
-                            data-en="WHO WE ARE">
-                            நாங்கள் யார்
-                        </span>
+                    <h2
+                        class="about-intro"
+                        data-ta="தமிழை ஒரு பாடமாக மட்டுமல்ல, வாழ்வின் ஒரு பகுதியாகக் கொண்டாடுகிறோம்."
+                        data-en="We celebrate Tamil not merely as a subject, but as a part of life.">
+                        தமிழை ஒரு பாடமாக மட்டுமல்ல,
+                        வாழ்வின் ஒரு பகுதியாகக் கொண்டாடுகிறோம்.
+                    </h2>
 
-                        <p
-                            class="about-intro"
-                            data-ta="தமிழை ரசிப்பவர்களும், உருவாக்குபவர்களும், கொண்டாடுபவர்களும் ஒன்றாகச் சேரும் இடம்."
-                            data-en="A place where people who love, create and celebrate Tamil come together.">
-                            தமிழை ரசிப்பவர்களும்,
-                            உருவாக்குபவர்களும்,
-                            கொண்டாடுபவர்களும்
-                            ஒன்றாகச் சேரும் இடம்.
-                        </p>
+                    <div class="ornament"><span>✦</span></div>
 
-                    </div>
+                </div>
 
+                <div class="about-copy">
 
-                    <div class="about-copy">
+                    <p
+                        data-ta="தென்றல் தமிழ்மன்றம் என்பது வெறும் ஒரு கல்லூரி மன்றம் அல்ல. தமிழ் மொழி, இலக்கியம், கலை மற்றும் கலாச்சாரத்தை மாணவர்களின் அன்றாட வாழ்க்கையோடு இணைக்கும் ஒரு முயற்சி."
+                        data-en="Thendral Tamizh Mandram is more than a college club. It is an effort to bring Tamil language, literature, art and culture closer to student life.">
+                        தென்றல் தமிழ்மன்றம் என்பது வெறும் ஒரு கல்லூரி மன்றம் அல்ல.
+                        தமிழ் மொழி, இலக்கியம், கலை மற்றும் கலாச்சாரத்தை மாணவர்களின்
+                        அன்றாட வாழ்க்கையோடு இணைக்கும் ஒரு முயற்சி.
+                    </p>
 
-                        <p
-                            data-ta="தென்றல் தமிழ்மன்றம் என்பது வெறும் ஒரு கல்லூரி மன்றம் அல்ல. தமிழ் மொழி, இலக்கியம், கலை மற்றும் கலாச்சாரத்தை மாணவர்களின் அன்றாட வாழ்க்கையோடு இணைக்கும் ஒரு முயற்சி."
-                            data-en="Thendral Tamizh Mandram is more than a college club. It is an effort to bring Tamil language, literature, art and culture closer to student life.">
-                            தென்றல் தமிழ்மன்றம் என்பது வெறும் ஒரு
-                            கல்லூரி மன்றம் அல்ல. தமிழ் மொழி,
-                            இலக்கியம், கலை மற்றும் கலாச்சாரத்தை
-                            மாணவர்களின் அன்றாட வாழ்க்கையோடு
-                            இணைக்கும் ஒரு முயற்சி.
-                        </p>
+                    <p
+                        data-ta="போட்டிகள், நிகழ்ச்சிகள், உரையாடல்கள் மற்றும் நினைவுகளின் வழியாக, ஒவ்வொரு ஆண்டும் ஒரு புதிய தலைமுறை தங்களுக்கான தமிழை உருவாக்குகிறது."
+                        data-en="Through competitions, events, conversations and memories, every year a new generation finds its own way of expressing Tamil.">
+                        போட்டிகள், நிகழ்ச்சிகள், உரையாடல்கள் மற்றும் நினைவுகளின்
+                        வழியாக, ஒவ்வொரு ஆண்டும் ஒரு புதிய தலைமுறை தங்களுக்கான
+                        தமிழை உருவாக்குகிறது.
+                    </p>
 
-                        <p
-                            data-ta="போட்டிகள், நிகழ்ச்சிகள், உரையாடல்கள் மற்றும் நினைவுகளின் வழியாக, ஒவ்வொரு ஆண்டும் ஒரு புதிய தலைமுறை தங்களுக்கான தமிழை உருவாக்குகிறது."
-                            data-en="Through competitions, events, conversations and memories, every year a new generation finds its own way of expressing Tamil.">
-                            போட்டிகள், நிகழ்ச்சிகள்,
-                            உரையாடல்கள் மற்றும் நினைவுகளின்
-                            வழியாக, ஒவ்வொரு ஆண்டும் ஒரு புதிய
-                            தலைமுறை தங்களுக்கான தமிழை உருவாக்குகிறது.
-                        </p>
-
-
-                        <div class="ornament">
-                            <span>✦</span>
-                        </div>
-
-                    </div>
+                    <p
+                        data-ta="இந்தப் பயணத்தில் ஒவ்வொரு பொறுப்பாளரும் உறுப்பினரும் பங்களிக்கிறார்கள். ஒன்றாகக் கற்றுக்கொள்வதும், படைப்பதும், நம் மொழியின் செழுமையை அடுத்த தலைமுறைக்குக் கொண்டு செல்வதுமே எங்கள் நோக்கம்."
+                        data-en="Every office-bearer and member contributes to this journey. We learn, create and work together to carry the richness of our language forward.">
+                        இந்தப் பயணத்தில் ஒவ்வொரு பொறுப்பாளரும் உறுப்பினரும்
+                        பங்களிக்கிறார்கள். ஒன்றாகக் கற்றுக்கொள்வதும், படைப்பதும்,
+                        நம் மொழியின் செழுமையை அடுத்த தலைமுறைக்குக் கொண்டு
+                        செல்வதுமே எங்கள் நோக்கம்.
+                    </p>
 
                 </div>
 
@@ -2374,960 +1437,190 @@
 
 
         <!-- =================================================
-             OFFICE BEARERS
-        ================================================= -->
+             FACULTY COORDINATOR
 
-        <section
-            class="section people-section"
-            id="office-bearers">
+             Replace the placeholder with the actual name,
+             designation and photo when available.
+        ================================================== -->
 
-            <div class="section-inner">
-
-                <div class="people-header">
-
-                    <div>
-
-                        <span
-                            class="eyebrow"
-                            data-ta="2026 — 27"
-                            data-en="2026 — 27">
-                            2026 — 27
-                        </span>
-
-                        <h2
-                            class="section-title"
-                            data-ta="அலுவல் பொறுப்பாளர்கள்"
-                            data-en="Office Bearers">
-                            அலுவல் பொறுப்பாளர்கள்
-                        </h2>
-
-                        <p
-                            class="people-intro"
-                            data-ta="இந்த ஆண்டின் நிகழ்வுகளுக்கும் நினைவுகளுக்கும் பின்னால் நிற்கும் குழு."
-                            data-en="The people behind this year's events, ideas and memories.">
-                            இந்த ஆண்டின் நிகழ்வுகளுக்கும்
-                            நினைவுகளுக்கும் பின்னால் நிற்கும் குழு.
-                        </p>
-
-                    </div>
-
-
-                    <div class="people-count">
-                        22 PEOPLE
-                    </div>
-
-                </div>
-
-
-                <div class="team-grid">
-
-
-                    <!-- MEMBER 01 -->
-
-                    <article class="member-card">
-
-                        <div class="member-photo">
-
-                            <img
-                                src="Images/member-1.jpg"
-                                alt="அலுவல் பொறுப்பாளர் 1">
-
-                            <span class="member-number">
-                                01
-                            </span>
-
-                        </div>
-
-                        <div class="member-info">
-
-                            <h3>பெயர்</h3>
-
-                            <p>பதவி</p>
-
-                            <small>
-                                துறை · ஒரு சிறிய வரி
-                            </small>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- MEMBER 02 -->
-
-                    <article class="member-card">
-
-                        <div class="member-photo">
-
-                            <img
-                                src="Images/member-2.jpg"
-                                alt="அலுவல் பொறுப்பாளர் 2">
-
-                            <span class="member-number">
-                                02
-                            </span>
-
-                        </div>
-
-                        <div class="member-info">
-
-                            <h3>பெயர்</h3>
-
-                            <p>பதவி</p>
-
-                            <small>
-                                துறை · ஒரு சிறிய வரி
-                            </small>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- MEMBER 03 -->
-
-                    <article class="member-card">
-
-                        <div class="member-photo">
-
-                            <img
-                                src="Images/member-3.jpg"
-                                alt="அலுவல் பொறுப்பாளர் 3">
-
-                            <span class="member-number">
-                                03
-                            </span>
-
-                        </div>
-
-                        <div class="member-info">
-
-                            <h3>பெயர்</h3>
-
-                            <p>பதவி</p>
-
-                            <small>
-                                துறை · ஒரு சிறிய வரி
-                            </small>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- MEMBER 04 -->
-
-                    <article class="member-card">
-
-                        <div class="member-photo">
-
-                            <img
-                                src="Images/member-4.jpg"
-                                alt="அலுவல் பொறுப்பாளர் 4">
-
-                            <span class="member-number">
-                                04
-                            </span>
-
-                        </div>
-
-                        <div class="member-info">
-
-                            <h3>பெயர்</h3>
-
-                            <p>பதவி</p>
-
-                            <small>
-                                துறை · ஒரு சிறிய வரி
-                            </small>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- MEMBER 05 -->
-
-                    <article class="member-card">
-
-                        <div class="member-photo">
-
-                            <img
-                                src="Images/member-5.jpg"
-                                alt="அலுவல் பொறுப்பாளர் 5">
-
-                            <span class="member-number">
-                                05
-                            </span>
-
-                        </div>
-
-                        <div class="member-info">
-
-                            <h3>பெயர்</h3>
-
-                            <p>பதவி</p>
-
-                            <small>
-                                துறை · ஒரு சிறிய வரி
-                            </small>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- MEMBER 06 -->
-
-                    <article class="member-card">
-
-                        <div class="member-photo">
-
-                            <img
-                                src="Images/member-6.jpg"
-                                alt="அலுவல் பொறுப்பாளர் 6">
-
-                            <span class="member-number">
-                                06
-                            </span>
-
-                        </div>
-
-                        <div class="member-info">
-
-                            <h3>பெயர்</h3>
-
-                            <p>பதவி</p>
-
-                            <small>
-                                துறை · ஒரு சிறிய வரி
-                            </small>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- MEMBER 07 -->
-
-                    <article class="member-card">
-
-                        <div class="member-photo">
-
-                            <img
-                                src="Images/member-7.jpg"
-                                alt="அலுவல் பொறுப்பாளர் 7">
-
-                            <span class="member-number">
-                                07
-                            </span>
-
-                        </div>
-
-                        <div class="member-info">
-
-                            <h3>பெயர்</h3>
-
-                            <p>பதவி</p>
-
-                            <small>
-                                துறை · ஒரு சிறிய வரி
-                            </small>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- MEMBER 08 -->
-
-                    <article class="member-card">
-
-                        <div class="member-photo">
-
-                            <img
-                                src="Images/member-8.jpg"
-                                alt="அலுவல் பொறுப்பாளர் 8">
-
-                            <span class="member-number">
-                                08
-                            </span>
-
-                        </div>
-
-                        <div class="member-info">
-
-                            <h3>பெயர்</h3>
-
-                            <p>பதவி</p>
-
-                            <small>
-                                துறை · ஒரு சிறிய வரி
-                            </small>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- MEMBER 09 -->
-
-                    <article class="member-card">
-
-                        <div class="member-photo">
-
-                            <img
-                                src="Images/member-9.jpg"
-                                alt="அலுவல் பொறுப்பாளர் 9">
-
-                            <span class="member-number">
-                                09
-                            </span>
-
-                        </div>
-
-                        <div class="member-info">
-
-                            <h3>பெயர்</h3>
-
-                            <p>பதவி</p>
-
-                            <small>
-                                துறை · ஒரு சிறிய வரி
-                            </small>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- MEMBER 10 -->
-
-                    <article class="member-card">
-
-                        <div class="member-photo">
-
-                            <img
-                                src="Images/member-10.jpg"
-                                alt="அலுவல் பொறுப்பாளர் 10">
-
-                            <span class="member-number">
-                                10
-                            </span>
-
-                        </div>
-
-                        <div class="member-info">
-
-                            <h3>பெயர்</h3>
-
-                            <p>பதவி</p>
-
-                            <small>
-                                துறை · ஒரு சிறிய வரி
-                            </small>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- MEMBER 11 -->
-
-                    <article class="member-card">
-
-                        <div class="member-photo">
-
-                            <img
-                                src="Images/member-11.jpg"
-                                alt="அலுவல் பொறுப்பாளர் 11">
-
-                            <span class="member-number">
-                                11
-                            </span>
-
-                        </div>
-
-                        <div class="member-info">
-
-                            <h3>பெயர்</h3>
-
-                            <p>பதவி</p>
-
-                            <small>
-                                துறை · ஒரு சிறிய வரி
-                            </small>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- MEMBER 12 -->
-
-                    <article class="member-card">
-
-                        <div class="member-photo">
-
-                            <img
-                                src="Images/member-12.jpg"
-                                alt="அலுவல் பொறுப்பாளர் 12">
-
-                            <span class="member-number">
-                                12
-                            </span>
-
-                        </div>
-
-                        <div class="member-info">
-
-                            <h3>பெயர்</h3>
-
-                            <p>பதவி</p>
-
-                            <small>
-                                துறை · ஒரு சிறிய வரி
-                            </small>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- MEMBER 13 -->
-
-                    <article class="member-card">
-
-                        <div class="member-photo">
-
-                            <img
-                                src="Images/member-13.jpg"
-                                alt="அலுவல் பொறுப்பாளர் 13">
-
-                            <span class="member-number">
-                                13
-                            </span>
-
-                        </div>
-
-                        <div class="member-info">
-
-                            <h3>பெயர்</h3>
-
-                            <p>பதவி</p>
-
-                            <small>
-                                துறை · ஒரு சிறிய வரி
-                            </small>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- MEMBER 14 -->
-
-                    <article class="member-card">
-
-                        <div class="member-photo">
-
-                            <img
-                                src="Images/member-14.jpg"
-                                alt="அலுவல் பொறுப்பாளர் 14">
-
-                            <span class="member-number">
-                                14
-                            </span>
-
-                        </div>
-
-                        <div class="member-info">
-
-                            <h3>பெயர்</h3>
-
-                            <p>பதவி</p>
-
-                            <small>
-                                துறை · ஒரு சிறிய வரி
-                            </small>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- MEMBER 15 -->
-
-                    <article class="member-card">
-
-                        <div class="member-photo">
-
-                            <img
-                                src="Images/member-15.jpg"
-                                alt="அலுவல் பொறுப்பாளர் 15">
-
-                            <span class="member-number">
-                                15
-                            </span>
-
-                        </div>
-
-                        <div class="member-info">
-
-                            <h3>பெயர்</h3>
-
-                            <p>பதவி</p>
-
-                            <small>
-                                துறை · ஒரு சிறிய வரி
-                            </small>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- MEMBER 16 -->
-
-                    <article class="member-card">
-
-                        <div class="member-photo">
-
-                            <img
-                                src="Images/member-16.jpg"
-                                alt="அலுவல் பொறுப்பாளர் 16">
-
-                            <span class="member-number">
-                                16
-                            </span>
-
-                        </div>
-
-                        <div class="member-info">
-
-                            <h3>பெயர்</h3>
-
-                            <p>பதவி</p>
-
-                            <small>
-                                துறை · ஒரு சிறிய வரி
-                            </small>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- MEMBER 17 -->
-
-                    <article class="member-card">
-
-                        <div class="member-photo">
-
-                            <img
-                                src="Images/member-17.jpg"
-                                alt="அலுவல் பொறுப்பாளர் 17">
-
-                            <span class="member-number">
-                                17
-                            </span>
-
-                        </div>
-
-                        <div class="member-info">
-
-                            <h3>பெயர்</h3>
-
-                            <p>பதவி</p>
-
-                            <small>
-                                துறை · ஒரு சிறிய வரி
-                            </small>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- MEMBER 18 -->
-
-                    <article class="member-card">
-
-                        <div class="member-photo">
-
-                            <img
-                                src="Images/member-18.jpg"
-                                alt="அலுவல் பொறுப்பாளர் 18">
-
-                            <span class="member-number">
-                                18
-                            </span>
-
-                        </div>
-
-                        <div class="member-info">
-
-                            <h3>பெயர்</h3>
-
-                            <p>பதவி</p>
-
-                            <small>
-                                துறை · ஒரு சிறிய வரி
-                            </small>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- MEMBER 19 -->
-
-                    <article class="member-card">
-
-                        <div class="member-photo">
-
-                            <img
-                                src="Images/member-19.jpg"
-                                alt="அலுவல் பொறுப்பாளர் 19">
-
-                            <span class="member-number">
-                                19
-                            </span>
-
-                        </div>
-
-                        <div class="member-info">
-
-                            <h3>பெயர்</h3>
-
-                            <p>பதவி</p>
-
-                            <small>
-                                துறை · ஒரு சிறிய வரி
-                            </small>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- MEMBER 20 -->
-
-                    <article class="member-card">
-
-                        <div class="member-photo">
-
-                            <img
-                                src="Images/member-20.jpg"
-                                alt="அலுவல் பொறுப்பாளர் 20">
-
-                            <span class="member-number">
-                                20
-                            </span>
-
-                        </div>
-
-                        <div class="member-info">
-
-                            <h3>பெயர்</h3>
-
-                            <p>பதவி</p>
-
-                            <small>
-                                துறை · ஒரு சிறிய வரி
-                            </small>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- MEMBER 21 -->
-
-                    <article class="member-card">
-
-                        <div class="member-photo">
-
-                            <img
-                                src="Images/member-21.jpg"
-                                alt="அலுவல் பொறுப்பாளர் 21">
-
-                            <span class="member-number">
-                                21
-                            </span>
-
-                        </div>
-
-                        <div class="member-info">
-
-                            <h3>பெயர்</h3>
-
-                            <p>பதவி</p>
-
-                            <small>
-                                துறை · ஒரு சிறிய வரி
-                            </small>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- MEMBER 22 -->
-
-                    <article class="member-card">
-
-                        <div class="member-photo">
-
-                            <img
-                                src="Images/member-22.jpg"
-                                alt="அலுவல் பொறுப்பாளர் 22">
-
-                            <span class="member-number">
-                                22
-                            </span>
-
-                        </div>
-
-                        <div class="member-info">
-
-                            <h3>பெயர்</h3>
-
-                            <p>பதவி</p>
-
-                            <small>
-                                துறை · ஒரு சிறிய வரி
-                            </small>
-
-                        </div>
-
-                    </article>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             PURPOSE
-        ================================================= -->
-
-        <section class="section purpose-section">
+        <section class="section coordinator-section">
 
             <div class="section-inner">
 
                 <span
                     class="eyebrow"
-                    data-ta="எங்கள் நோக்கம்"
-                    data-en="OUR PURPOSE">
-                    எங்கள் நோக்கம்
+                    data-ta="வழிகாட்டுதல்"
+                    data-en="GUIDANCE">
+                    வழிகாட்டுதல்
                 </span>
 
                 <h2
                     class="section-title"
-                    data-ta="ஏன் இதை செய்கிறோம்?"
-                    data-en="Why we do what we do.">
-                    ஏன் இதை செய்கிறோம்?
+                    data-ta="ஆசிரியர் வழிகாட்டி"
+                    data-en="Faculty Coordinator">
+                    ஆசிரியர் வழிகாட்டி
                 </h2>
-
-
-                <div class="purpose-grid">
-
-                    <article class="purpose-card">
-
-                        <div class="purpose-number">
-                            01
-                        </div>
-
-                        <h3
-                            data-ta="தமிழை வாழ்வாக்க"
-                            data-en="To make Tamil lived.">
-                            தமிழை வாழ்வாக்க
-                        </h3>
-
-                        <p
-                            data-ta="தமிழ் என்பது பாடப்புத்தகத்தில் மட்டும் இருக்க வேண்டிய ஒன்று அல்ல. அது நம்முடைய உரையாடலிலும், படைப்புகளிலும், நினைவுகளிலும் இருக்க வேண்டும்."
-                            data-en="Tamil shouldn't live only in textbooks. It should live in our conversations, creations and memories.">
-                            தமிழ் என்பது பாடப்புத்தகத்தில் மட்டும்
-                            இருக்க வேண்டிய ஒன்று அல்ல.
-                            அது நம்முடைய உரையாடலிலும்,
-                            படைப்புகளிலும், நினைவுகளிலும்
-                            இருக்க வேண்டும்.
-                        </p>
-
-                    </article>
-
-
-                    <article class="purpose-card">
-
-                        <div class="purpose-number">
-                            02
-                        </div>
-
-                        <h3
-                            data-ta="குரல்களை இணைக்க"
-                            data-en="To connect voices.">
-                            குரல்களை இணைக்க
-                        </h3>
-
-                        <p
-                            data-ta="ஒவ்வொரு மாணவருக்கும் சொல்ல ஏதோ ஒன்று இருக்கிறது. அந்த குரல்களை ஒரே இடத்தில் சந்திக்கச் செய்வதே எங்கள் முயற்சி."
-                            data-en="Every student has something to say. Our effort is to bring those voices together in one place.">
-                            ஒவ்வொரு மாணவருக்கும் சொல்ல ஏதோ ஒன்று
-                            இருக்கிறது. அந்த குரல்களை ஒரே இடத்தில்
-                            சந்திக்கச் செய்வதே எங்கள் முயற்சி.
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             ACTIVITIES
-        ================================================= -->
-
-        <section class="section activities-section">
-
-            <div class="section-inner">
-
-                <span
-                    class="eyebrow"
-                    data-ta="நாங்கள் செய்வது"
-                    data-en="WHAT WE DO">
-                    நாங்கள் செய்வது
-                </span>
-
-                <h2
-                    class="section-title"
-                    data-ta="ஒரு மன்றம். பல வழிகள்."
-                    data-en="One Mandram. Many ways.">
-                    ஒரு மன்றம். பல வழிகள்.
-                </h2>
-
-
-                <div class="activities-grid">
-
-                    <article class="activity">
-
-                        <div class="activity-number">
-                            01
-                        </div>
-
-                        <h3
-                            data-ta="போட்டிகள்"
-                            data-en="Competitions">
-                            போட்டிகள்
-                        </h3>
-
-                        <p
-                            data-ta="மொழி, இலக்கியம் மற்றும் படைப்பாற்றலை கொண்டாடும் போட்டிகள்."
-                            data-en="Competitions that celebrate language, literature and creativity.">
-                            மொழி, இலக்கியம் மற்றும்
-                            படைப்பாற்றலை கொண்டாடும் போட்டிகள்.
-                        </p>
-
-                    </article>
-
-
-                    <article class="activity">
-
-                        <div class="activity-number">
-                            02
-                        </div>
-
-                        <h3
-                            data-ta="நிகழ்ச்சிகள்"
-                            data-en="Events">
-                            நிகழ்ச்சிகள்
-                        </h3>
-
-                        <p
-                            data-ta="மாணவர்களை ஒன்றிணைக்கும் நிகழ்ச்சிகள் மற்றும் கொண்டாட்டங்கள்."
-                            data-en="Events and celebrations that bring students together.">
-                            மாணவர்களை ஒன்றிணைக்கும்
-                            நிகழ்ச்சிகள் மற்றும் கொண்டாட்டங்கள்.
-                        </p>
-
-                    </article>
-
-
-                    <article class="activity">
-
-                        <div class="activity-number">
-                            03
-                        </div>
-
-                        <h3
-                            data-ta="படைப்புகள்"
-                            data-en="Creations">
-                            படைப்புகள்
-                        </h3>
-
-                        <p
-                            data-ta="எழுத்து, கலை மற்றும் சிந்தனைகளுக்கான ஒரு மேடை."
-                            data-en="A platform for writing, art and ideas.">
-                            எழுத்து, கலை மற்றும்
-                            சிந்தனைகளுக்கான ஒரு மேடை.
-                        </p>
-
-                    </article>
-
-
-                    <article class="activity">
-
-                        <div class="activity-number">
-                            04
-                        </div>
-
-                        <h3
-                            data-ta="நினைவுகள்"
-                            data-en="Memories">
-                            நினைவுகள்
-                        </h3>
-
-                        <p
-                            data-ta="ஒரு வருடத்தை மீண்டும் நினைத்துப் பார்க்கச் செய்யும் தருணங்கள்."
-                            data-en="Moments worth looking back on long after the year ends.">
-                            ஒரு வருடத்தை மீண்டும்
-                            நினைத்துப் பார்க்கச் செய்யும் தருணங்கள்.
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             CLOSING
-        ================================================= -->
-
-        <section class="closing">
-
-            <div class="closing-content">
 
                 <p
-                    data-ta="ஒரு வருடம். ஒரு தலைமுறை."
-                    data-en="One year. One generation.">
-                    ஒரு வருடம். ஒரு தலைமுறை.
+                    class="section-description"
+                    data-ta="மன்றத்தின் செயல்பாடுகளுக்கு வழிகாட்டும் ஆசிரியர்."
+                    data-en="The faculty member who guides the mandram and its activities.">
+                    மன்றத்தின் செயல்பாடுகளுக்கு வழிகாட்டும் ஆசிரியர்.
                 </p>
 
+                <article class="coordinator-card">
+
+                    <div class="coordinator-photo">
+
+                        <!--
+                            When the actual photograph is available,
+                            place it at:
+                            images/faculty-coordinator.jpg
+
+                            Then uncomment the image element below
+                            and remove the placeholder.
+                        -->
+
+                        
+                        <img
+                            src="images/ttm_website_photos/Bhaskar-Sir.jpg"
+                            alt="Faculty Coordinator">
+                        
+
+                        <!--<div class="coordinator-placeholder">
+
+                            <span>✦</span>
+
+                            <p
+                                data-ta="ஆசிரியர் புகைப்படம்"
+                                data-en="Faculty Photograph">
+                                ஆசிரியர் புகைப்படம்
+                            </p>
+
+                        </div>-->
+
+                    </div>
+
+                    <div class="coordinator-info">
+
+                        <span
+                            class="coordinator-label"
+                            data-ta="ஆசிரியர் ஒருங்கிணைப்பாளர்"
+                            data-en="FACULTY COORDINATOR">
+                            ஆசிரியர் ஒருங்கிணைப்பாளர்
+                        </span>
+
+                        <h3
+                            class="coordinator-name"
+                            data-ta="ஆசிரியர் பெயர்"
+                            data-en="Faculty Coordinator Name">
+                            ஆசிரியர் பெயர்
+                        </h3>
+
+                        <p
+                            class="coordinator-designation"
+                            data-ta="ஸ்ரீ வெங்கடேஸ்வரா பொறியியல் கல்லூரி"
+                            data-en="Sri Venkateswara College of Engineering">
+                            ஸ்ரீ வெங்கடேஸ்வரா பொறியியல் கல்லூரி
+                        </p>
+
+                        <hr class="coordinator-divider">
+
+                        <p
+                            class="coordinator-note"
+                            data-ta="தென்றல் தமிழ்மன்றம் · 2026–2027"
+                            data-en="Thendral Tamizh Mandram · 2026–2027">
+                            தென்றல் தமிழ்மன்றம் · 2026–2027
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ALL 22 OFFICE-BEARERS
+
+             Both English and Tamil names, roles and departments
+             are provided for every office-bearer.
+        ================================================== -->
+
+        <section class="section people-section" id="office-bearers">
+
+            <div class="section-inner">
+
+                <span
+                    class="eyebrow"
+                    data-ta="2026–2027 அலுவலகப் பொறுப்பாளர்கள்"
+                    data-en="2026–2027 OFFICE-BEARERS">
+                    2026–2027 அலுவலகப் பொறுப்பாளர்கள்
+                </span>
+
                 <h2
-                    data-ta="நினைவுகளை உருவாக்குவோம்."
-                    data-en="Let's make memories worth keeping.">
-                    நினைவுகளை உருவாக்குவோம்.
+                    class="section-title"
+                    data-ta="எங்களை உருவாக்கும் மனிதர்கள்."
+                    data-en="The People Behind the Mandram.">
+                    எங்களை உருவாக்கும் மனிதர்கள்.
                 </h2>
+
+                <p
+                    class="people-intro"
+                    data-ta="ஒவ்வொரு பொறுப்பும் ஒரு பங்களிப்பு. எங்கள் மன்றத்தின் பல்வேறு துறைகளில் பணியாற்றும் மாணவர்களைச் சந்தியுங்கள்."
+                    data-en="Every role represents a contribution. Meet the students working across the different teams of our mandram.">
+                    ஒவ்வொரு பொறுப்பும் ஒரு பங்களிப்பு.
+                    எங்கள் மன்றத்தின் பல்வேறு துறைகளில் பணியாற்றும்
+                    மாணவர்களைச் சந்தியுங்கள்.
+                </p>
+
+                <div class="people-count">
+
+                    <span
+                        data-ta="22 பொறுப்பாளர்கள்"
+                        data-en="22 OFFICE-BEARERS">
+                        22 பொறுப்பாளர்கள்
+                    </span>
+
+                </div>
+
+                <div class="people-grid" id="peopleGrid">
+
+                    <!-- Generated from the bilingual data below -->
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CLOSING SECTION
+        ================================================== -->
+
+        <section class="section closing-section">
+
+            <div class="section-inner closing-inner">
+
+                <div class="closing-symbol">✦</div>
+
+                <h2
+                    class="closing-title"
+                    data-ta="தமிழோடு தொடரட்டும் பயணம்."
+                    data-en="May the Journey Continue with Tamil.">
+                    தமிழோடு தொடரட்டும் பயணம்.
+                </h2>
+
+                <p
+                    class="closing-text"
+                    data-ta="மொழியைக் கொண்டாடுவோம். பண்பாட்டைப் பாதுகாப்போம். ஒன்றாகப் புதிய நினைவுகளை உருவாக்குவோம்."
+                    data-en="Let us celebrate our language, preserve our culture and create new memories together.">
+                    மொழியைக் கொண்டாடுவோம். பண்பாட்டைப் பாதுகாப்போம்.
+                    ஒன்றாகப் புதிய நினைவுகளை உருவாக்குவோம்.
+                </p>
 
             </div>
 
@@ -3338,45 +1631,44 @@
 
     <!-- =====================================================
          FOOTER
-    ===================================================== -->
+    ====================================================== -->
 
-    <footer>
+    <footer class="site-footer">
 
         <div class="footer-main">
 
-            <div class="footer-brand">
+            <div>
 
-                <h2>
+                <a href="index.html" class="footer-brand">
                     தென்றல் தமிழ்மன்றம்
-                </h2>
+                </a>
 
-                <p>
-                    Sri Venkateswara College of Engineering
+                <p
+                    class="footer-description"
+                    data-ta="ஸ்ரீ வெங்கடேஸ்வரா பொறியியல் கல்லூரி · 2026–2027"
+                    data-en="Sri Venkateswara College of Engineering · 2026–2027">
+                    ஸ்ரீ வெங்கடேஸ்வரா பொறியியல் கல்லூரி · 2026–2027
                 </p>
 
             </div>
 
-
             <div class="footer-links">
 
-                <a
-                    href="index.html"
-                    data-ta="முகப்பு"
-                    data-en="Home">
+                <a href="index.html"
+                   data-ta="முகப்பு"
+                   data-en="Home">
                     முகப்பு
                 </a>
 
-                <a
-                    href="about.html"
-                    data-ta="எங்களைப் பற்றி"
-                    data-en="About">
+                <a href="about.html"
+                   data-ta="எங்களைப் பற்றி"
+                   data-en="About">
                     எங்களைப் பற்றி
                 </a>
 
-                <a
-                    href="noevents.html"
-                    data-ta="நிகழ்வுகள்"
-                    data-en="Events">
+                <a href="events.html"
+                   data-ta="நிகழ்வுகள்"
+                   data-en="Events">
                     நிகழ்வுகள்
                 </a>
 
@@ -3384,11 +1676,14 @@
 
         </div>
 
-
         <div class="copyright">
 
-            © 2026–27
-            தென்றல் தமிழ்மன்றம் · SVCE
+            <p
+                data-ta="© 2026–2027 தென்றல் தமிழ்மன்றம். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை."
+                data-en="© 2026–2027 Thendral Tamizh Mandram. All rights reserved.">
+                © 2026–2027 தென்றல் தமிழ்மன்றம்.
+                அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.
+            </p>
 
         </div>
 
@@ -3396,213 +1691,755 @@
 
 
     <!-- =====================================================
+         EASTER EGG MODAL
+    ====================================================== -->
+
+    <div
+        class="easter-modal"
+        id="easterModal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="easterMessage"
+        aria-hidden="true">
+
+        <div class="easter-dialog">
+
+            <button
+                class="easter-close"
+                id="easterClose"
+                type="button"
+                aria-label="Close message">
+                &times;
+            </button>
+
+            <div class="easter-symbol">✦</div>
+
+            <p class="easter-eyebrow">A LITTLE SECRET</p>
+
+            <p class="easter-message" id="easterMessage">
+                He is the developer and designer of the website you are currently viewing
+            </p>
+
+            <p class="easter-footnote">
+                Thendral Tamizh Mandram · 2026–2027
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
          JAVASCRIPT
-    ===================================================== -->
+    ====================================================== -->
 
     <script>
+        /* =====================================================
+           BILINGUAL OFFICE-BEARER DATA
+
+           The language toggle changes roles, names, years and
+           departments for every card.
+
+           Photo filenames match the prepared photo directory.
+        ===================================================== */
+
+        const officeBearers = [
+
+            {
+                roleTa: "தலைவர்",
+                roleEn: "President",
+
+                nameTa: "தர்சன் பி",
+                nameEn: "Dharsan P",
+
+                yearTa: "நான்காம் ஆண்டு",
+                yearEn: "Year IV",
+
+                departmentTa: "செயற்கை நுண்ணறிவு மற்றும் தரவு அறிவியல்",
+                departmentEn: "Artificial Intelligence and Data Science",
+
+                photo: "dharsan.jpg"
+            },
+
+            {
+                roleTa: "துணைத் தலைவர்",
+                roleEn: "Vice President",
+
+                nameTa: "ஷிவானி ஸ்ரீ ரா.தா",
+                nameEn: "Shivani Shri R D",
+
+                yearTa: "இரண்டாம் ஆண்டு",
+                yearEn: "Year II",
+
+                departmentTa: "மின் மற்றும் மின்னணு பொறியியல்",
+                departmentEn: "Electrical and Electronics Engineering",
+
+                photo: "shivani-shri.jpg"
+            },
+
+            {
+                roleTa: "செயலாளர்",
+                roleEn: "Secretary",
+
+                nameTa: "சுபாஷ் சந்திர போஸ் செ",
+                nameEn: "Subash Chandra Bose S",
+
+                yearTa: "நான்காம் ஆண்டு",
+                yearEn: "Year IV",
+
+                departmentTa: "செயற்கை நுண்ணறிவு மற்றும் தரவு அறிவியல்",
+                departmentEn: "Artificial Intelligence and Data Science",
+
+                photo: "subash.png"
+            },
+
+            {
+                roleTa: "துணைச் செயலாளர்",
+                roleEn: "Joint Secretary",
+
+                nameTa: "ச.அ. சன்சனா",
+                nameEn: "S A Sanjana",
+
+                yearTa: "இரண்டாம் ஆண்டு",
+                yearEn: "Year II",
+
+                departmentTa: "கணினி அறிவியல் மற்றும் பொறியியல்",
+                departmentEn: "Computer Science and Engineering",
+
+                photo: "sanjana.jpg"
+            },
+
+            {
+                roleTa: "நிர்வாகத் தலைவர்",
+                roleEn: "Administrative Head",
+
+                nameTa: "ஆதர்ஷ் சா",
+                nameEn: "Aadharsh S",
+
+                yearTa: "நான்காம் ஆண்டு",
+                yearEn: "Year IV",
+
+                departmentTa: "செயற்கை நுண்ணறிவு மற்றும் தரவு அறிவியல்",
+                departmentEn: "Artificial Intelligence and Data Science",
+
+                photo: "aadharsh.jpg"
+            },
+
+            {
+                roleTa: "பொருளாளர்",
+                roleEn: "Treasurer",
+
+                nameTa: "மு. நித்திக்",
+                nameEn: "M Nithick",
+
+                yearTa: "இரண்டாம் ஆண்டு",
+                yearEn: "Year II",
+
+                departmentTa: "மின் மற்றும் மின்னணு பொறியியல்",
+                departmentEn: "Electrical and Electronics Engineering",
+
+                photo: "nithick.jpg"
+            },
+
+            {
+                roleTa: "ஊடக ஒருங்கிணைப்பாளர்",
+                roleEn: "Media Coordinator",
+
+                nameTa: "கவிநிதி.இரா.பு",
+                nameEn: "Kavinidhi R B",
+
+                yearTa: "நான்காம் ஆண்டு",
+                yearEn: "Year IV",
+
+                departmentTa: "செயற்கை நுண்ணறிவு மற்றும் தரவு அறிவியல்",
+                departmentEn: "Artificial Intelligence and Data Science",
+
+                photo: "kavinidhi.png"
+            },
+
+            {
+                roleTa: "இலக்கியத்துறைத் தலைவர்",
+                roleEn: "Literary Team Lead",
+
+                nameTa: "ஶ்ரீவிகாசினி.வே",
+                nameEn: "Srivikasini V",
+
+                yearTa: "மூன்றாம் ஆண்டு",
+                yearEn: "Year III",
+
+                departmentTa: "செயற்கை நுண்ணறிவு மற்றும் தரவு அறிவியல்",
+                departmentEn: "Artificial Intelligence and Data Science",
+
+                photo: "srivikasini.jpg"
+            },
+
+            {
+                roleTa: "இலக்கியத்துறை உறுப்பினர்",
+                roleEn: "Literary Team Member",
+
+                nameTa: "ஹரிணி வ",
+                nameEn: "Harini V",
+
+                yearTa: "மூன்றாம் ஆண்டு",
+                yearEn: "Year III",
+
+                departmentTa: "குடிசார் பொறியியல்",
+                departmentEn: "Civil Engineering",
+
+                photo: "harini.jpg"
+            },
+
+            {
+                roleTa: "இலக்கியத்துறை உறுப்பினர்",
+                roleEn: "Literary Team Member",
+
+                nameTa: "மேதினி.பா",
+                nameEn: "Maydhini B",
+
+                yearTa: "இரண்டாம் ஆண்டு",
+                yearEn: "Year II",
+
+                departmentTa: "வேதிப் பொறியியல்",
+                departmentEn: "Chemical Engineering",
+
+                photo: "maydhini.jpg"
+            },
+
+            {
+                roleTa: "இலக்கியத்துறை உறுப்பினர்",
+                roleEn: "Literary Team Member",
+
+                nameTa: "கோகுல் ராஜ்",
+                nameEn: "Gokul Raj",
+
+                yearTa: "இரண்டாம் ஆண்டு",
+                yearEn: "Year II",
+
+                departmentTa: "கணினி அறிவியல் மற்றும் பொறியியல்",
+                departmentEn: "Computer Science and Engineering",
+
+                photo: "gokul-raj.png"
+            },
+
+            {
+                roleTa: "இலக்கியத்துறை உறுப்பினர்",
+                roleEn: "Literary Team Member",
+
+                nameTa: "ஷர்மிளா ம",
+                nameEn: "Sharmila M",
+
+                yearTa: "மூன்றாம் ஆண்டு",
+                yearEn: "Year III",
+
+                departmentTa: "கணினி அறிவியல் மற்றும் பொறியியல்",
+                departmentEn: "Computer Science and Engineering",
+
+                photo: "sharmila.jpg"
+            },
+
+            {
+                roleTa: "மேலாண்மைத்துறைத் தலைவர்",
+                roleEn: "Management Team Lead",
+
+                nameTa: "முத்துவீரன்.த",
+                nameEn: "Muthuveeran D",
+
+                yearTa: "நான்காம் ஆண்டு",
+                yearEn: "Year IV",
+
+                departmentTa: "கணினி அறிவியல் மற்றும் பொறியியல்",
+                departmentEn: "Computer Science and Engineering",
+
+                photo: "muthuveeran.jpg"
+            },
+
+            {
+                roleTa: "மேலாண்மைத்துறை உறுப்பினர்",
+                roleEn: "Management Team Member",
+
+                nameTa: "யூ. எஸ். சஞ்ஜீவன்",
+                nameEn: "U S Sanjeevan",
+
+                yearTa: "இரண்டாம் ஆண்டு",
+                yearEn: "Year II",
+
+                departmentTa: "மின் மற்றும் மின்னணு பொறியியல்",
+                departmentEn: "Electrical and Electronics Engineering",
+
+                photo: "sanjeevan.png",
+                easterEgg: true
+            },
+
+            {
+                roleTa: "மேலாண்மைத்துறை உறுப்பினர்",
+                roleEn: "Management Team Member",
+
+                nameTa: "மாரீஸ்வரி ம",
+                nameEn: "Mareeswari M",
+
+                yearTa: "மூன்றாம் ஆண்டு",
+                yearEn: "Year III",
+
+                departmentTa: "செயற்கை நுண்ணறிவு மற்றும் தரவு அறிவியல்",
+                departmentEn: "Artificial Intelligence and Data Science",
+
+                photo: "mareeswari.jpg"
+            },
+
+            {
+                roleTa: "மேலாண்மைத்துறை உறுப்பினர்",
+                roleEn: "Management Team Member",
+
+                nameTa: "பாவனா அ",
+                nameEn: "Bhavana A",
+
+                yearTa: "மூன்றாம் ஆண்டு",
+                yearEn: "Year III",
+
+                departmentTa: "தகவல் தொழில்நுட்பம்",
+                departmentEn: "Information Technology",
+
+                photo: "bhavana.webp"
+            },
+
+            {
+                roleTa: "மேலாண்மைத்துறை உறுப்பினர்",
+                roleEn: "Management Team Member",
+
+                nameTa: "சு ச லோக்ஹித்",
+                nameEn: "S S Lokhith",
+
+                yearTa: "இரண்டாம் ஆண்டு",
+                yearEn: "Year II",
+
+                departmentTa: "மின்னணுவியல் மற்றும் தகவல் தொடர்புப் பொறியியல்",
+                departmentEn: "Electronics and Communication Engineering",
+
+                photo: "lokhith.jpg"
+            },
+
+            {
+                roleTa: "ஊடகத்துறைத் தலைவர்",
+                roleEn: "Media Team Lead",
+
+                nameTa: "கார்த்திக் சிங்காரம்.MR",
+                nameEn: "Karthik Singaram M R",
+
+                yearTa: "நான்காம் ஆண்டு",
+                yearEn: "Year IV",
+
+                departmentTa: "செயற்கை நுண்ணறிவு மற்றும் தரவு அறிவியல்",
+                departmentEn: "Artificial Intelligence and Data Science",
+
+                photo: "karthik-singaram.jpg"
+            },
+
+            {
+                roleTa: "ஊடகத்துறை உறுப்பினர்",
+                roleEn: "Media Team Member",
+
+                nameTa: "ஜுவாலா ஷைனி இ",
+                nameEn: "Jwala Shiny E",
+
+                yearTa: "இரண்டாம் ஆண்டு",
+                yearEn: "Year II",
+
+                departmentTa: "மின் மற்றும் மின்னணு பொறியியல்",
+                departmentEn: "Electrical and Electronics Engineering",
+
+                photo: "jwala-shiny.jpg"
+            },
+
+            {
+                roleTa: "ஊடகத்துறை உறுப்பினர்",
+                roleEn: "Media Team Member",
+
+                nameTa: "ஆக்னஸ் எப்சிபா சௌ",
+                nameEn: "Agnes Hepsiba S",
+
+                yearTa: "இரண்டாம் ஆண்டு",
+                yearEn: "Year II",
+
+                departmentTa: "கணினி அறிவியல் மற்றும் பொறியியல்",
+                departmentEn: "Computer Science and Engineering",
+
+                photo: "agnes-hepsiba.jpg"
+            },
+
+            {
+                roleTa: "ஊடகத்துறை உறுப்பினர்",
+                roleEn: "Media Team Member",
+
+                nameTa: "மனோஜ் குமார்.ந",
+                nameEn: "Manooj Kumar N",
+
+                yearTa: "மூன்றாம் ஆண்டு",
+                yearEn: "Year III",
+
+                departmentTa: "மின்னணுவியல் மற்றும் தகவல் தொடர்புப் பொறியியல்",
+                departmentEn: "Electronics and Communication Engineering",
+
+                photo: "manooj-kumar.jpg"
+            },
+
+            {
+                roleTa: "ஊடகத்துறை உறுப்பினர்",
+                roleEn: "Media Team Member",
+
+                nameTa: "சிவரஞ்சனி சி",
+                nameEn: "Sivaranjani S",
+
+                yearTa: "மூன்றாம் ஆண்டு",
+                yearEn: "Year III",
+
+                departmentTa: "செயற்கை நுண்ணறிவு மற்றும் தரவு அறிவியல்",
+                departmentEn: "Artificial Intelligence and Data Science",
+
+                photo: "sivaranjani.jpg"
+            }
+
+        ];
+
 
         /* =====================================================
-           LANGUAGE
+           RENDER OFFICE-BEARERS
+
+           Every card stores both language versions.
+        ===================================================== */
+
+        const peopleGrid = document.getElementById("peopleGrid");
+
+        officeBearers.forEach((person, index) => {
+
+            const card = document.createElement("article");
+            card.className = "person-card";
+
+            const photoWrap = document.createElement("div");
+            photoWrap.className = "person-photo-wrap";
+
+            const photo = document.createElement("img");
+
+            photo.src = "images/ttm_website_photos/" + person.photo;
+
+            photo.alt = person.nameTa + " — " + person.roleTa;
+
+            photo.className = "person-photo";
+            photo.loading = index < 4 ? "eager" : "lazy";
+            photo.decoding = "async";
+
+            if (person.easterEgg) {
+
+                photo.classList.add("easter-egg-trigger");
+
+                photo.tabIndex = 0;
+                photo.setAttribute("role", "button");
+
+                photo.setAttribute(
+                    "aria-label",
+                    "A little hidden surprise"
+                );
+
+                photo.title = "";
+
+            }
+
+            photoWrap.appendChild(photo);
+
+            const info = document.createElement("div");
+            info.className = "person-info";
+
+            const role = document.createElement("span");
+            role.className = "person-role";
+
+            role.dataset.ta = person.roleTa;
+            role.dataset.en = person.roleEn;
+
+            role.textContent = person.roleTa;
+
+            const name = document.createElement("h3");
+            name.className = "person-name";
+
+            name.dataset.ta = person.nameTa;
+            name.dataset.en = person.nameEn;
+
+            name.textContent = person.nameTa;
+
+            const year = document.createElement("p");
+            year.className = "person-year";
+
+            year.dataset.ta = person.yearTa;
+            year.dataset.en = person.yearEn;
+
+            year.textContent = person.yearTa;
+
+            const department = document.createElement("p");
+            department.className = "person-department";
+
+            department.dataset.ta = person.departmentTa;
+            department.dataset.en = person.departmentEn;
+
+            department.textContent = person.departmentTa;
+
+            const divider = document.createElement("hr");
+            divider.className = "person-divider";
+
+            info.appendChild(role);
+            info.appendChild(name);
+            info.appendChild(year);
+            info.appendChild(department);
+            info.appendChild(divider);
+
+            card.appendChild(photoWrap);
+            card.appendChild(info);
+
+            peopleGrid.appendChild(card);
+
+        });
+
+
+        /* =====================================================
+           LANGUAGE TOGGLE
+
+           Starts in Tamil.
+           Every element with data-ta and data-en changes
+           between Tamil and English.
+
+           The office-bearer cards support both languages.
         ===================================================== */
 
         let currentLanguage = "ta";
 
+        const languageToggle = document.getElementById("languageToggle");
 
-        function toggleLanguage() {
+        function setLanguage(language) {
 
-            currentLanguage =
-                currentLanguage === "ta"
-                    ? "en"
-                    : "ta";
-
+            currentLanguage = language;
 
             document.documentElement.lang =
-                currentLanguage;
+                language === "ta" ? "ta" : "en";
 
+            document.querySelectorAll("[data-ta][data-en]").forEach(element => {
 
-            document
-                .querySelectorAll("[data-ta][data-en]")
-                .forEach(element => {
+                const text = element.dataset[language];
 
-                    element.innerHTML =
-                        element.dataset[currentLanguage];
+                if (text !== undefined) {
+                    element.textContent = text;
+                }
 
-                });
+            });
 
+            languageToggle.textContent =
+                language === "ta" ? "EN" : "தமிழ்";
 
-            document.getElementById("langToggle")
-                .textContent =
-                    currentLanguage === "ta"
-                        ? "EN"
-                        : "தமிழ்";
+            languageToggle.setAttribute(
+                "aria-label",
+                language === "ta"
+                    ? "Switch to English"
+                    : "தமிழுக்கு மாறவும்"
+            );
+
+            try {
+                localStorage.setItem("ttm-language", language);
+            } catch (error) {
+                // The page still works if storage is unavailable.
+            }
+
         }
+
+        languageToggle.addEventListener("click", () => {
+
+            setLanguage(
+                currentLanguage === "ta" ? "en" : "ta"
+            );
+
+        });
 
 
         /* =====================================================
-           MOBILE MENU
+           MOBILE NAVIGATION
         ===================================================== */
 
-        function toggleMenu() {
+        const hamburger = document.getElementById("hamburger");
+        const mobileMenu = document.getElementById("mobileMenu");
 
-            const hamburger =
-                document.getElementById("hamburger");
+        function closeMobileMenu() {
 
-            const mobileMenu =
-                document.getElementById("mobileMenu");
+            hamburger.classList.remove("open");
+            mobileMenu.classList.remove("open");
 
+            hamburger.setAttribute("aria-expanded", "false");
+            hamburger.setAttribute("aria-label", "Open navigation menu");
 
-            const isOpen =
-                mobileMenu.classList.toggle("open");
+        }
 
+        hamburger.addEventListener("click", () => {
 
-            hamburger.classList.toggle(
-                "open",
-                isOpen
-            );
+            const isOpen = mobileMenu.classList.toggle("open");
 
+            hamburger.classList.toggle("open", isOpen);
 
             hamburger.setAttribute(
                 "aria-expanded",
                 String(isOpen)
             );
 
-
             hamburger.setAttribute(
                 "aria-label",
                 isOpen
-                    ? "Close navigation"
-                    : "Open navigation"
-            );
-        }
-
-
-        function closeMenu() {
-
-            const hamburger =
-                document.getElementById("hamburger");
-
-            const mobileMenu =
-                document.getElementById("mobileMenu");
-
-
-            mobileMenu.classList.remove("open");
-
-            hamburger.classList.remove("open");
-
-
-            hamburger.setAttribute(
-                "aria-expanded",
-                "false"
+                    ? "Close navigation menu"
+                    : "Open navigation menu"
             );
 
+        });
 
-            hamburger.setAttribute(
-                "aria-label",
-                "Open navigation"
-            );
-        }
+        mobileMenu.querySelectorAll("a").forEach(link => {
+
+            link.addEventListener("click", closeMobileMenu);
+
+        });
+
+        window.addEventListener("resize", () => {
+
+            if (window.innerWidth > 780) {
+                closeMobileMenu();
+            }
+
+        });
 
 
         /* =====================================================
-           MOBILE LINK EVENTS
+           FIVE-CLICK EASTER EGG
+
+           Trigger: Sanjeevan's photograph only.
+
+           Five clicks within 3 seconds reveal the modal.
+           If clicks are too far apart, the counter resets.
+           No tracking, cookies or external scripts.
         ===================================================== */
 
-        document
-            .querySelectorAll(".mobile-menu a")
-            .forEach(link => {
+        const easterModal = document.getElementById("easterModal");
+        const easterClose = document.getElementById("easterClose");
+        const easterTrigger = document.querySelector(".easter-egg-trigger");
 
-                link.addEventListener(
-                    "click",
-                    closeMenu
-                );
+        let easterClickCount = 0;
+        let easterClickTimer = null;
+
+        function openEasterEgg() {
+
+            easterModal.classList.add("open");
+
+            easterModal.setAttribute("aria-hidden", "false");
+
+            document.body.style.overflow = "hidden";
+
+            easterClose.focus();
+
+        }
+
+        function closeEasterEgg() {
+
+            easterModal.classList.remove("open");
+
+            easterModal.setAttribute("aria-hidden", "true");
+
+            document.body.style.overflow = "";
+
+            if (easterTrigger) {
+                easterTrigger.focus();
+            }
+
+        }
+
+        function handleEasterEggClick() {
+
+            easterClickCount++;
+
+            clearTimeout(easterClickTimer);
+
+            if (easterClickCount >= 5) {
+
+                easterClickCount = 0;
+
+                clearTimeout(easterClickTimer);
+
+                openEasterEgg();
+
+                return;
+
+            }
+
+            easterClickTimer = setTimeout(() => {
+
+                easterClickCount = 0;
+
+            }, 3000);
+
+        }
+
+        if (easterTrigger) {
+
+            easterTrigger.addEventListener(
+                "click",
+                handleEasterEggClick
+            );
+
+            easterTrigger.addEventListener("keydown", event => {
+
+                if (event.key === "Enter" || event.key === " ") {
+
+                    event.preventDefault();
+
+                    handleEasterEggClick();
+
+                }
 
             });
 
+        }
 
-        /* =====================================================
-           CLOSE WHEN CLICKING OUTSIDE
-        ===================================================== */
+        easterClose.addEventListener("click", closeEasterEgg);
 
-        document.addEventListener(
-            "click",
-            event => {
+        easterModal.addEventListener("click", event => {
 
-                const hamburger =
-                    document.getElementById("hamburger");
-
-                const mobileMenu =
-                    document.getElementById("mobileMenu");
-
-
-                if (
-                    !mobileMenu.classList.contains("open")
-                ) {
-                    return;
-                }
-
-
-                if (
-                    !hamburger.contains(event.target) &&
-                    !mobileMenu.contains(event.target)
-                ) {
-
-                    closeMenu();
-
-                }
-
+            if (event.target === easterModal) {
+                closeEasterEgg();
             }
-        );
+
+        });
+
+        document.addEventListener("keydown", event => {
+
+            if (
+                event.key === "Escape" &&
+                easterModal.classList.contains("open")
+            ) {
+                closeEasterEgg();
+            }
+
+        });
 
 
         /* =====================================================
-           ESCAPE KEY
+           RESTORE LANGUAGE PREFERENCE
+
+           Defaults to Tamil if no saved preference exists.
         ===================================================== */
 
-        document.addEventListener(
-            "keydown",
-            event => {
+        try {
 
-                if (event.key === "Escape") {
+            const savedLanguage = localStorage.getItem("ttm-language");
 
-                    closeMenu();
-
-                }
-
+            if (savedLanguage === "en" || savedLanguage === "ta") {
+                setLanguage(savedLanguage);
             }
-        );
 
+        } catch (error) {
 
-        /* =====================================================
-           RESIZE SAFETY
-        ===================================================== */
+            setLanguage("ta");
 
-        let lastMobileState =
-            window.innerWidth <= 700;
-
-
-        window.addEventListener(
-            "resize",
-            () => {
-
-                const isMobile =
-                    window.innerWidth <= 700;
-
-
-                if (
-                    isMobile !== lastMobileState
-                ) {
-
-                    closeMenu();
-
-                    lastMobileState =
-                        isMobile;
-                }
-
-            }
-        );
+        }
 
     </script>
 
 </body>
-
 </html>
