@@ -1,0 +1,1 @@
+{"rewrites":[{"source":"/home","destination":"/index.html"},{"source":"/events","destination":"/events.html"},{"source":"/us","destination":"/about.html"},{"source":"/past","destination":"/pastevents.html"},{"source":"/you-werent-supposed-to-find-this","destination":"/404.html"}]}
