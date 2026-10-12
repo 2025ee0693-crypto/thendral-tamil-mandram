@@ -2419,20 +2419,6 @@
            Defaults to Tamil if no saved preference exists.
         ===================================================== */
 
-        try {
-
-            const savedLanguage = localStorage.getItem("ttm-language");
-
-            if (savedLanguage === "en" || savedLanguage === "ta") {
-                setLanguage(savedLanguage);
-            }
-
-        } catch (error) {
-
-            setLanguage("ta");
-
-        }
-
     </script>
 
 </body>
