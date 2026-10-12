@@ -1512,9 +1512,9 @@
 
                         <h3
                             class="coordinator-name"
-                            data-ta="ஆசிரியர் பெயர்"
-                            data-en="Faculty Coordinator Name">
-                            ஆசிரியர் பெயர்
+                            data-ta="முனைவர் திரு அ. பாஸ்கரன்"
+                            data-en="Dr. A Bhaskaran">
+                            முனைவர் திரு அ. பாஸ்கரன்
                         </h3>
 
                         <p
@@ -2238,14 +2238,6 @@
                     : "தமிழுக்கு மாறவும்"
             );
 
-            try {
-                localStorage.setItem("ttm-language", language);
-            } catch (error) {
-                // The page still works if storage is unavailable.
-            }
-
-        }
-
         languageToggle.addEventListener("click", () => {
 
             setLanguage(
@@ -2253,6 +2245,8 @@
             );
 
         });
+
+        setLanguage("ta");
 
 
         /* =====================================================
