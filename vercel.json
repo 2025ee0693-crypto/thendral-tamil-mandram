@@ -7,7 +7,7 @@
     },
     {
       "source": "/events",
-      "destination": "/events.html"
+      "destination": "/noevents.html"
     },
     {
       "source": "/us",
