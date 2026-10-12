@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#100d0b">
+  <title>Past Events — Thendral Tamizh Mandram</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+    :root {
+      --bg: #100d0b;
+      --surface: #1a1512;
+      --gold: #d9b779;
+      --cream: #f2e9dc;
+      --muted: #a79a8b;
+      --border: rgba(217, 183, 121, 0.17);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 50% 35%, rgba(130, 61, 34, 0.16), transparent 55%),
+        var(--bg);
+      color: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    nav {
+      width: 100%;
+      min-height: 82px;
+      padding: 20px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .brand img {
+      width: 43px;
+      height: 43px;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      font-size: 12px;
+      line-height: 1.6;
+      letter-spacing: 1.4px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .brand-name span {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 2px;
+      font-weight: 500;
+    }
+
+    .back-link {
+      color: var(--muted);
+      font-size: 13px;
+      transition: color 0.25s;
+    }
+
+    .back-link:hover {
+      color: var(--gold);
+    }
+
+    main {
+      flex: 1;
+      width: 100%;
+      padding: 70px 24px 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .content {
+      width: 100%;
+      max-width: 640px;
+      animation: enter 1s ease both;
+    }
+
+    .emblem-wrap {
+      width: 112px;
+      height: 112px;
+      margin: 0 auto 32px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.018);
+      box-shadow: 0 0 70px rgba(217, 183, 121, 0.055);
+    }
+
+    .emblem-wrap img {
+      width: 68px;
+      height: 68px;
+      object-fit: contain;
+      animation: simmer 4s ease-in-out infinite;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(38px, 7vw, 66px);
+      font-weight: 500;
+      letter-spacing: -1.7px;
+      line-height: 1.12;
+      margin-bottom: 23px;
+    }
+
+    h1 em {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .description {
+      max-width: 430px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 34px;
+      padding: 12px 17px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      background: rgba(217, 183, 121, 0.035);
+      color: var(--cream);
+      font-size: 11px;
+      letter-spacing: 0.5px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background: #d9b779;
+      border-radius: 50%;
+      box-shadow: 0 0 12px rgba(217, 183, 121, 0.6);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    .loading {
+      display: inline-block;
+      width: 20px;
+      text-align: left;
+    }
+
+    .note {
+      margin-top: 24px;
+      color: #71665a;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    footer {
+      padding: 22px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      color: #71665a;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    @keyframes enter {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes simmer {
+      0%, 100% { transform: translateY(0) rotate(-3deg); }
+      50% { transform: translateY(-5px) rotate(3deg); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        padding: 17px 6%;
+      }
+
+      .brand-name {
+        font-size: 10px;
+        letter-spacing: 1px;
+      }
+
+      .brand-name span {
+        font-size: 9px;
+      }
+
+      main {
+        padding: 55px 23px 65px;
+      }
+
+      .emblem-wrap {
+        width: 94px;
+        height: 94px;
+        margin-bottom: 28px;
+      }
+
+      .emblem-wrap img {
+        width: 58px;
+        height: 58px;
+      }
+
+      .eyebrow {
+        font-size: 9px;
+        letter-spacing: 3px;
+      }
+
+      h1 {
+        letter-spacing: -1px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a class="brand" href="/home" aria-label="Thendral Tamizh Mandram home">
+      <img src="images/embelm.png" alt="Thendral Tamizh Mandram emblem">
+      <div class="brand-name">
+        Thendral Tamizh Mandram
+        <span>SVCE · Chennai</span>
+      </div>
+    </a>
+
+    <a class="back-link" href="/home">← Back to home</a>
+  </nav>
+
+  <main>
+    <section class="content">
+      <div class="emblem-wrap">
+        <img src="images/embelm.png" alt="">
+      </div>
+
+      <p class="eyebrow">The archives are in the kitchen</p>
+
+      <h1>This page is<br>getting <em>cooked.</em></h1>
+
+      <p class="description">
+        The memories are real. The archive is still being prepared.
+        Give us a little time to get everything out of the oven.
+      </p>
+
+      <div class="status">
+        <span class="status-dot"></span>
+        Currently cooking<span class="loading" id="dots">...</span>
+      </div>
+
+      <p class="note">
+        Good things take time. Great throwbacks take a little longer.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    மொழிக்காக மொழி காக்க · Thendral Tamizh Mandram · SVCE
+  </footer>
+
+  <script>
+    const dots = document.getElementById('dots');
+    let count = 1;
+
+    setInterval(() => {
+      count = count % 3 + 1;
+      dots.textContent = '.'.repeat(count);
+    }, 600);
+  </script>
+</body>
+</html>
