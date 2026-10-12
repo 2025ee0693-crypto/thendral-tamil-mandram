@@ -1513,7 +1513,7 @@
                         <h3
                             class="coordinator-name"
                             data-ta="முனைவர் திரு அ. பாஸ்கரன்"
-                            data-en="Dr. A Bhaskaran">
+                            data-en="Dr. A. Bhaskaran">
                             முனைவர் திரு அ. பாஸ்கரன்
                         </h3>
 
@@ -2238,6 +2238,14 @@
                     : "தமிழுக்கு மாறவும்"
             );
 
+            try {
+                localStorage.setItem("ttm-language", language);
+            } catch (error) {
+                // The page still works if storage is unavailable.
+            }
+
+        }
+
         languageToggle.addEventListener("click", () => {
 
             setLanguage(
@@ -2245,8 +2253,6 @@
             );
 
         });
-
-        setLanguage("ta");
 
 
         /* =====================================================
@@ -2418,6 +2424,20 @@
 
            Defaults to Tamil if no saved preference exists.
         ===================================================== */
+
+        try {
+
+            const savedLanguage = localStorage.getItem("ttm-language");
+
+            if (savedLanguage === "en" || savedLanguage === "ta") {
+                setLanguage(savedLanguage);
+            }
+
+        } catch (error) {
+
+            setLanguage("ta");
+
+        }
 
     </script>
 
