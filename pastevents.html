@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
     <title>Past Events | Thendral Tamizh Mandram</title>
 
@@ -18,6 +18,10 @@
             --muted: #a79a8b;
             --curtain: #501b24;
             --curtain-dark: #260c12;
+
+            /* Fluid spacing scale */
+            --gutter-x: clamp(14px, 4vw, 56px);
+            --gutter-y: clamp(14px, 3vw, 34px);
         }
 
         * {
@@ -34,18 +38,23 @@
             background: var(--background);
             color: var(--cream);
             font-family: "DM Sans", sans-serif;
+            -webkit-text-size-adjust: 100%;
         }
 
         body {
             min-height: 100svh;
         }
 
+        /* =========================================
+           STAGE — fully fluid, never a fixed height
+        ========================================= */
+
         .stage {
             position: relative;
             isolation: isolate;
             width: 100%;
             height: 100svh;
-            min-height: 420px;
+            min-height: 100svh;
             overflow: hidden;
             background:
                 radial-gradient(
@@ -61,6 +70,13 @@
                 );
         }
 
+        @supports (height: 100dvh) {
+            .stage {
+                height: 100dvh;
+                min-height: 100dvh;
+            }
+        }
+
         /* =========================================
            TOP BAR
         ========================================= */
@@ -72,22 +88,21 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            gap: 20px;
-            padding: clamp(16px, 3vw, 34px)
-                     clamp(18px, 4vw, 56px);
+            gap: clamp(8px, 2vw, 20px);
+            padding: var(--gutter-y) var(--gutter-x);
             pointer-events: none;
         }
 
         .identity {
             display: flex;
             align-items: center;
-            gap: 13px;
+            gap: clamp(8px, 1.1vw, 13px);
             min-width: 0;
         }
 
         .emblem {
-            width: clamp(40px, 5vw, 58px);
-            height: clamp(40px, 5vw, 58px);
+            width: clamp(30px, 4.6vw, 58px);
+            height: clamp(30px, 4.6vw, 58px);
             flex: 0 0 auto;
             object-fit: contain;
             filter: drop-shadow(
@@ -102,17 +117,17 @@
         .identity-copy h1 {
             color: var(--cream);
             font-family: "Playfair Display", serif;
-            font-size: clamp(14px, 1.8vw, 21px);
+            font-size: clamp(11px, 1.55vw, 21px);
             line-height: 1.25;
             font-weight: 600;
             letter-spacing: 0.015em;
         }
 
         .identity-copy p {
-            margin-top: 5px;
+            margin-top: clamp(3px, 0.5vw, 5px);
             color: var(--gold);
-            font-size: clamp(8px, 0.85vw, 10px);
-            letter-spacing: 0.19em;
+            font-size: clamp(6px, 0.82vw, 10px);
+            letter-spacing: clamp(0.08em, 0.18vw, 0.19em);
             text-transform: uppercase;
         }
 
@@ -121,10 +136,10 @@
             padding-top: 3px;
             text-align: right;
             color: var(--cream);
-            font-size: clamp(10px, 1.2vw, 14px);
+            font-size: clamp(8px, 1.15vw, 14px);
             line-height: 1.65;
             font-weight: 600;
-            letter-spacing: 0.2em;
+            letter-spacing: clamp(0.08em, 0.2vw, 0.2em);
         }
 
         .development-label span {
@@ -252,15 +267,14 @@
             z-index: 2;
             top: 50%;
             left: 50%;
-            width: max-content;
-            max-width: 95%;
+            width: 92%;
             color: var(--gold);
             font-family: serif;
-            font-size: clamp(20px, 3vw, 38px);
+            font-size: clamp(15px, 3.2vw, 38px);
             font-weight: 600;
             letter-spacing: 0.06em;
             text-align: center;
-            white-space: nowrap;
+            line-height: 1.25;
             text-shadow:
                 0 2px 4px rgba(0, 0, 0, 0.8),
                 0 0 18px rgba(217, 183, 121, 0.15);
@@ -305,13 +319,13 @@
             position: absolute;
             z-index: 25;
             left: 50%;
-            bottom: clamp(22px, 5.5vh, 58px);
+            bottom: clamp(16px, 5vh, 58px);
             width: min(330px, 78vw);
-            min-height: 72px;
+            min-height: clamp(60px, 9vh, 72px);
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 17px 24px;
+            padding: clamp(12px, 1.8vh, 17px) clamp(16px, 3vw, 24px);
             transform: translate(-50%, 35px);
             opacity: 0;
             overflow: hidden;
@@ -357,17 +371,17 @@
 
         .barricade-text {
             display: block;
-            font-size: clamp(12px, 1.5vw, 15px);
+            font-size: clamp(11px, 1.4vw, 15px);
             font-weight: 700;
-            letter-spacing: 0.22em;
+            letter-spacing: clamp(0.12em, 0.22vw, 0.22em);
         }
 
         .barricade-subtitle {
             display: block;
-            margin-top: 6px;
+            margin-top: clamp(4px, 0.8vh, 6px);
             color: var(--gold);
-            font-size: 9px;
-            letter-spacing: 0.2em;
+            font-size: clamp(7px, 0.7vw, 9px);
+            letter-spacing: clamp(0.1em, 0.2vw, 0.2em);
         }
 
         @keyframes barricade-enter {
@@ -396,80 +410,95 @@
         }
 
         /* =========================================
-           RESPONSIVE
+           MOBILE SIMPLE FALLBACK
+           Hides the SVG scene on phones and shows
+           only a clean text message.
         ========================================= */
 
+        .mobile-simple {
+            display: none;
+            position: absolute;
+            inset: 0;
+            z-index: 20;          /* below .home-barricade (25) so the button stays clickable */
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: clamp(24px, 6vw, 48px);
+            background:
+                radial-gradient(
+                    ellipse at 50% 40%,
+                    rgba(127, 78, 42, 0.18),
+                    transparent 65%
+                ),
+                linear-gradient(
+                    180deg,
+                    #0c0a0a 0%,
+                    #1b110e 50%,
+                    #100b08 100%
+                );
+        }
+
+        .mobile-brand {
+            color: var(--gold);
+            font-size: clamp(10px, 2.8vw, 12px);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: clamp(14px, 3vh, 22px);
+        }
+
+        .mobile-simple h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(24px, 7vw, 42px);
+            font-weight: 600;
+            color: var(--cream);
+            margin-bottom: clamp(10px, 2vh, 16px);
+            line-height: 1.2;
+        }
+
+        .mobile-simple p {
+            max-width: 34ch;
+            color: var(--muted);
+            font-size: clamp(13px, 3.5vw, 16px);
+            line-height: 1.6;
+        }
+
+        /* =========================================
+           RESPONSIVE — typography tweaks
+        ========================================= */
+
+        @media (max-width: 700px) {
+            /* Hide the heavy scene and show the simple fallback */
+            .scene,
+            .curtains,
+            .ambient-glow,
+            .topbar,
+            .ground-vignette {
+                display: none !important;
+            }
+
+            .mobile-simple {
+                display: flex;
+            }
+        }
+
         @media (max-width: 600px) {
-            .topbar {
-                padding: 16px 15px;
-                gap: 10px;
-            }
-
-            .identity {
-                gap: 9px;
-            }
-
-            .emblem {
-                width: 36px;
-                height: 36px;
-            }
-
             .identity-copy h1 {
-                max-width: 175px;
-                font-size: 13px;
-            }
-
-            .identity-copy p {
-                font-size: 7px;
-                letter-spacing: 0.12em;
-            }
-
-            .development-label {
-                font-size: 9px;
-                letter-spacing: 0.12em;
-            }
-
-            .scene svg {
-                width: 145%;
-                max-width: none;
-                height: 100%;
-                margin-left: -22.5%;
-            }
-
-            .curtain-slogan {
-                font-size: clamp(19px, 4vw, 28px);
-            }
-
-            .home-barricade {
-                bottom: 24px;
-                min-height: 66px;
-                padding: 15px 18px;
+                max-width: 46vw;
             }
         }
 
         @media (max-width: 370px) {
-            .topbar {
-                padding: 13px 11px;
-                gap: 7px;
-            }
-
-            .emblem {
-                width: 31px;
-                height: 31px;
-            }
-
             .identity-copy h1 {
-                max-width: 145px;
-                font-size: 11px;
+                max-width: 42vw;
             }
+        }
 
-            .identity-copy p {
-                font-size: 6px;
-            }
-
-            .development-label {
-                font-size: 8px;
-                letter-spacing: 0.08em;
+        @media (max-height: 460px) {
+            .home-barricade {
+                bottom: 10px;
+                min-height: 52px;
+                padding: 8px 16px;
             }
         }
 
@@ -488,6 +517,19 @@
 <main class="stage">
 
     <div class="ambient-glow"></div>
+
+    <!-- =========================================
+         MOBILE SIMPLE FALLBACK (phones only)
+    ========================================== -->
+
+    <div class="mobile-simple" aria-hidden="false">
+        <p class="mobile-brand">Thendral Tamizh Mandram</p>
+        <h2>Past Events</h2>
+        <p>
+            This page is under development.
+            Do let us cook up something special for you. In the meantime, you can check out our past events on our social media pages.
+        </p>
+    </div>
 
     <!-- =========================================
          BRANDING
@@ -520,16 +562,24 @@
     <div class="scene" aria-hidden="true">
 
         <svg
+            id="sceneSvg"
             viewBox="0 0 1200 800"
             preserveAspectRatio="xMidYMid slice"
             xmlns="http://www.w3.org/2000/svg"
         >
             <defs>
-                <!-- Sky -->
-                <linearGradient id="nightSky" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0" stop-color="#0b090a"/>
-                    <stop offset="0.55" stop-color="#21130f"/>
-                    <stop offset="1" stop-color="#120d09"/>
+                <!-- Sky — userSpaceOnUse so it never stretches when the
+                     viewBox grows to fit ultra-wide / ultra-tall screens -->
+                <linearGradient
+                    id="nightSky"
+                    x1="0" y1="-500"
+                    x2="0" y2="800"
+                    gradientUnits="userSpaceOnUse"
+                >
+                    <stop offset="0"    stop-color="#08070a"/>
+                    <stop offset="0.42" stop-color="#150e0c"/>
+                    <stop offset="0.72" stop-color="#241611"/>
+                    <stop offset="1"    stop-color="#110c09"/>
                 </linearGradient>
 
                 <!-- Steel -->
@@ -623,10 +673,11 @@
             </defs>
 
             <!-- =====================================
-                 NIGHT SKY
+                 NIGHT SKY  (oversized — fills every
+                 aspect ratio the viewBox is given)
             ====================================== -->
 
-            <rect width="1200" height="800" fill="url(#nightSky)"/>
+            <rect x="-4000" y="-4000" width="9200" height="4800" fill="url(#nightSky)"/>
 
             <!-- Distant atmospheric glow -->
             <ellipse
@@ -639,7 +690,7 @@
                 filter="url(#blurGlow)"
             />
 
-            <!-- Sparse distant stars / worksite dust -->
+            <!-- Sparse distant stars / worksite dust (wide field) -->
             <g fill="#e7c993" opacity=".45">
                 <circle cx="96" cy="120" r="1.2"/>
                 <circle cx="182" cy="82" r=".9"/>
@@ -650,6 +701,23 @@
                 <circle cx="940" cy="235" r=".9"/>
                 <circle cx="255" cy="240" r=".8"/>
                 <circle cx="110" cy="310" r="1"/>
+                <!-- extra field for ultra-wide / tall screens -->
+                <circle cx="-320" cy="190" r="1"/>
+                <circle cx="-780" cy="120" r=".8"/>
+                <circle cx="-1180" cy="260" r="1.1"/>
+                <circle cx="-560" cy="330" r=".9"/>
+                <circle cx="-210" cy="95"  r=".8"/>
+                <circle cx="1380" cy="140" r="1"/>
+                <circle cx="1720" cy="230" r=".9"/>
+                <circle cx="2080" cy="110" r="1.1"/>
+                <circle cx="1520" cy="320" r=".8"/>
+                <circle cx="2400" cy="200" r="1"/>
+                <circle cx="60" cy="-140" r=".9"/>
+                <circle cx="700" cy="-260" r="1"/>
+                <circle cx="1240" cy="-120" r=".8"/>
+                <circle cx="480" cy="-420" r=".9"/>
+                <circle cx="1560" cy="-330" r="1"/>
+                <circle cx="-400" cy="-300" r=".8"/>
             </g>
 
             <!-- =====================================
@@ -721,6 +789,9 @@
             <g fill="#090807" opacity=".8">
                 <path d="M0 510 V445 H70 V402 H115 V470 H162 V425 H208 V493 H260 V448 H330 V510Z"/>
                 <path d="M900 510 V438 H950 V405 H1000 V470 H1050 V425 H1100 V468 H1150 V435 H1200 V520Z"/>
+                <!-- wide-screen fillers so silhouettes never end abruptly -->
+                <rect x="-4000" y="498" width="4000" height="14"/>
+                <rect x="1200" y="498" width="4000" height="22"/>
             </g>
 
             <!-- =====================================
@@ -1604,15 +1675,16 @@
 
             <!-- =====================================
                  GROUND + SITE SHADOWS
+                 (oversized horizontally)
             ====================================== -->
 
             <path
-                d="M0 650 Q300 622 600 643 T1200 630 V800 H0Z"
+                d="M-4000 648 Q300 622 600 643 T1200 630 L5200 652 V800 H-4000 Z"
                 fill="#0b0907"
             />
 
             <path
-                d="M0 665 Q300 642 600 659 T1200 650"
+                d="M-4000 668 Q300 642 600 659 T1200 650 L5200 668"
                 fill="none"
                 stroke="#614a31"
                 stroke-width="2"
@@ -1670,6 +1742,12 @@
                 <circle cx="1075" cy="545" r=".8"/>
                 <circle cx="840" cy="550" r=".9"/>
                 <circle cx="330" cy="570" r=".8"/>
+                <!-- wide field -->
+                <circle cx="-260" cy="540" r=".9"/>
+                <circle cx="-620" cy="470" r=".8"/>
+                <circle cx="1460" cy="500" r="1"/>
+                <circle cx="1880" cy="560" r=".8"/>
+                <circle cx="2320" cy="480" r=".9"/>
             </g>
 
         </svg>
@@ -1677,6 +1755,7 @@
 
     <!-- Ground vignette -->
     <div
+        class="ground-vignette"
         style="
             position:absolute;
             z-index:3;
@@ -1719,5 +1798,97 @@
     </a>
 
 </main>
+
+<script>
+/* =========================================================
+   FLUID STAGE FITTER
+   ---------------------------------------------------------
+   The illustration has a "core" area (0..1200 x 60..800).
+   Instead of cropping it (slice) or letterboxing it, we grow
+   the SVG viewBox outward so it always matches the exact
+   aspect ratio of the viewport:
+
+     • wider than the core  -> viewBox grows left + right
+     • taller than the core -> viewBox grows upward (sky),
+                               ground stays pinned to the bottom
+
+   Result: nothing is ever cut off, nothing is ever distorted,
+   and the artwork is perfectly fluid on every screen.
+   ========================================================= */
+
+(function () {
+    "use strict";
+
+    var stage = document.querySelector(".stage");
+    var svg   = document.getElementById("sceneSvg");
+
+    if (!stage || !svg) return;
+
+    /* Core artwork box — the region that must always be visible */
+    var CORE = { x: 0, y: 60, w: 1200, h: 740 };
+    var CORE_RATIO = CORE.w / CORE.h;
+
+    var rafId = null;
+    var lastW = 0;
+    var lastH = 0;
+
+    function fit() {
+        rafId = null;
+
+        var rect = stage.getBoundingClientRect();
+        var cw = rect.width  || window.innerWidth  || 1;
+        var ch = rect.height || window.innerHeight || 1;
+
+        if (cw === lastW && ch === lastH) return;
+        lastW = cw;
+        lastH = ch;
+
+        var ratio = cw / ch;
+
+        var vx, vy, vw, vh;
+
+        if (ratio >= CORE_RATIO) {
+            /* Wider than the artwork: extend horizontally, keep height */
+            vh = CORE.h;
+            vw = vh * ratio;
+            vx = CORE.x + (CORE.w - vw) / 2;
+            vy = CORE.y;
+        } else {
+            /* Taller than the artwork: extend the sky upward,
+               pin the ground line to the bottom of the viewport */
+            vw = CORE.w;
+            vh = vw / ratio;
+            vx = CORE.x;
+            vy = CORE.y + CORE.h - vh;
+        }
+
+        svg.setAttribute(
+            "viewBox",
+            vx.toFixed(2) + " " + vy.toFixed(2) + " " +
+            vw.toFixed(2) + " " + vh.toFixed(2)
+        );
+    }
+
+    function schedule() {
+        if (rafId !== null) return;
+        rafId = window.requestAnimationFrame(fit);
+    }
+
+    fit();
+
+    if ("ResizeObserver" in window) {
+        new ResizeObserver(schedule).observe(stage);
+    } else {
+        window.addEventListener("resize", schedule, { passive: true });
+    }
+
+    window.addEventListener("orientationchange", schedule, { passive: true });
+
+    /* Some mobile browsers fire a late resize after the URL bar
+       settles — re-run once everything has painted. */
+    window.addEventListener("load", schedule);
+    setTimeout(schedule, 250);
+})();
+</script>
 </body>
 </html>
