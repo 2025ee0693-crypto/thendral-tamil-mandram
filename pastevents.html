@@ -1,326 +1,1723 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#100d0b">
-  <title>Past Events — Thendral Tamizh Mandram</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+    <title>Past Events | Thendral Tamizh Mandram</title>
 
-    :root {
-      --bg: #100d0b;
-      --surface: #1a1512;
-      --gold: #d9b779;
-      --cream: #f2e9dc;
-      --muted: #a79a8b;
-      --border: rgba(217, 183, 121, 0.17);
-    }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <style>
+        :root {
+            --background: #100d0b;
+            --gold: #d9b779;
+            --cream: #f2e9dc;
+            --muted: #a79a8b;
+            --curtain: #501b24;
+            --curtain-dark: #260c12;
+        }
 
-    body {
-      min-height: 100vh;
-      background:
-        radial-gradient(ellipse at 50% 35%, rgba(130, 61, 34, 0.16), transparent 55%),
-        var(--bg);
-      color: var(--cream);
-      font-family: 'DM Sans', sans-serif;
-      display: flex;
-      flex-direction: column;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: var(--background);
+            color: var(--cream);
+            font-family: "DM Sans", sans-serif;
+        }
 
-    nav {
-      width: 100%;
-      min-height: 82px;
-      padding: 20px 7%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--border);
-    }
+        body {
+            min-height: 100svh;
+        }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-    }
+        .stage {
+            position: relative;
+            isolation: isolate;
+            width: 100%;
+            height: 100svh;
+            min-height: 420px;
+            overflow: hidden;
+            background:
+                radial-gradient(
+                    ellipse at 50% 55%,
+                    rgba(127, 78, 42, 0.17),
+                    transparent 62%
+                ),
+                linear-gradient(
+                    180deg,
+                    #0c0a0a 0%,
+                    #1b110e 48%,
+                    #100b08 100%
+                );
+        }
 
-    .brand img {
-      width: 43px;
-      height: 43px;
-      object-fit: contain;
-    }
+        /* =========================================
+           TOP BAR
+        ========================================= */
 
-    .brand-name {
-      font-size: 12px;
-      line-height: 1.6;
-      letter-spacing: 1.4px;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
+        .topbar {
+            position: absolute;
+            z-index: 30;
+            inset: 0 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            padding: clamp(16px, 3vw, 34px)
+                     clamp(18px, 4vw, 56px);
+            pointer-events: none;
+        }
 
-    .brand-name span {
-      display: block;
-      color: var(--muted);
-      font-size: 10px;
-      letter-spacing: 2px;
-      font-weight: 500;
-    }
+        .identity {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            min-width: 0;
+        }
 
-    .back-link {
-      color: var(--muted);
-      font-size: 13px;
-      transition: color 0.25s;
-    }
+        .emblem {
+            width: clamp(40px, 5vw, 58px);
+            height: clamp(40px, 5vw, 58px);
+            flex: 0 0 auto;
+            object-fit: contain;
+            filter: drop-shadow(
+                0 0 12px rgba(217, 183, 121, 0.14)
+            );
+        }
 
-    .back-link:hover {
-      color: var(--gold);
-    }
+        .identity-copy {
+            min-width: 0;
+        }
 
-    main {
-      flex: 1;
-      width: 100%;
-      padding: 70px 24px 90px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
+        .identity-copy h1 {
+            color: var(--cream);
+            font-family: "Playfair Display", serif;
+            font-size: clamp(14px, 1.8vw, 21px);
+            line-height: 1.25;
+            font-weight: 600;
+            letter-spacing: 0.015em;
+        }
 
-    .content {
-      width: 100%;
-      max-width: 640px;
-      animation: enter 1s ease both;
-    }
+        .identity-copy p {
+            margin-top: 5px;
+            color: var(--gold);
+            font-size: clamp(8px, 0.85vw, 10px);
+            letter-spacing: 0.19em;
+            text-transform: uppercase;
+        }
 
-    .emblem-wrap {
-      width: 112px;
-      height: 112px;
-      margin: 0 auto 32px;
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.018);
-      box-shadow: 0 0 70px rgba(217, 183, 121, 0.055);
-    }
+        .development-label {
+            flex: 0 0 auto;
+            padding-top: 3px;
+            text-align: right;
+            color: var(--cream);
+            font-size: clamp(10px, 1.2vw, 14px);
+            line-height: 1.65;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+        }
 
-    .emblem-wrap img {
-      width: 68px;
-      height: 68px;
-      object-fit: contain;
-      animation: simmer 4s ease-in-out infinite;
-    }
+        .development-label span {
+            display: block;
+            color: var(--gold);
+        }
 
-    .eyebrow {
-      color: var(--gold);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      margin-bottom: 22px;
-    }
+        /* =========================================
+           ATMOSPHERE
+        ========================================= */
 
-    h1 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(38px, 7vw, 66px);
-      font-weight: 500;
-      letter-spacing: -1.7px;
-      line-height: 1.12;
-      margin-bottom: 23px;
-    }
+        .ambient-glow {
+            position: absolute;
+            z-index: 0;
+            left: 50%;
+            top: 52%;
+            width: 85vw;
+            height: 70vh;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(
+                ellipse,
+                rgba(188, 124, 58, 0.13),
+                transparent 70%
+            );
+            pointer-events: none;
+        }
 
-    h1 em {
-      color: var(--gold);
-      font-weight: 500;
-    }
+        .scene {
+            position: absolute;
+            z-index: 2;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
 
-    .description {
-      max-width: 430px;
-      margin: 0 auto;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.9;
-    }
+        .scene svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
 
-    .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 34px;
-      padding: 12px 17px;
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      background: rgba(217, 183, 121, 0.035);
-      color: var(--cream);
-      font-size: 11px;
-      letter-spacing: 0.5px;
-    }
+        /* The crane, load, truck and building never animate. */
+        .crane-structure,
+        .hoist-cable,
+        .hoist-load,
+        .banner-group,
+        .truck,
+        .code-building {
+            animation: none !important;
+            transition: none !important;
+        }
 
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      background: #d9b779;
-      border-radius: 50%;
-      box-shadow: 0 0 12px rgba(217, 183, 121, 0.6);
-      animation: pulse 1.8s ease-in-out infinite;
-    }
+        /* =========================================
+           CURTAINS
+        ========================================= */
 
-    .loading {
-      display: inline-block;
-      width: 20px;
-      text-align: left;
-    }
+        .curtains {
+            position: absolute;
+            z-index: 15;
+            inset: 0;
+            display: flex;
+            pointer-events: none;
+        }
 
-    .note {
-      margin-top: 24px;
-      color: #71665a;
-      font-size: 12px;
-      line-height: 1.8;
-    }
+        .curtain {
+            position: relative;
+            flex: 0 0 50%;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+            background:
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(0, 0, 0, 0.23) 0,
+                    rgba(0, 0, 0, 0.23) 5px,
+                    rgba(255, 224, 193, 0.035) 13px,
+                    transparent 24px,
+                    rgba(0, 0, 0, 0.16) 42px
+                ),
+                linear-gradient(
+                    90deg,
+                    var(--curtain-dark),
+                    var(--curtain) 24%,
+                    #682733 48%,
+                    #43151d 76%,
+                    var(--curtain-dark)
+                );
+            box-shadow:
+                inset -14px 0 25px rgba(0, 0, 0, 0.28),
+                inset 0 0 45px rgba(0, 0, 0, 0.28);
+            will-change: transform;
+        }
 
-    footer {
-      padding: 22px;
-      text-align: center;
-      border-top: 1px solid var(--border);
-      color: #71665a;
-      font-size: 10px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
+        .curtain::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            opacity: 0.55;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent 0,
+                transparent 28px,
+                rgba(0, 0, 0, 0.25) 32px,
+                rgba(0, 0, 0, 0.25) 36px,
+                rgba(255, 230, 203, 0.06) 41px,
+                transparent 48px
+            );
+        }
 
-    @keyframes enter {
-      from {
-        opacity: 0;
-        transform: translateY(15px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+        .curtain::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0.32),
+                transparent 22%,
+                transparent 72%,
+                rgba(0, 0, 0, 0.45)
+            );
+        }
 
-    @keyframes simmer {
-      0%, 100% { transform: translateY(0) rotate(-3deg); }
-      50% { transform: translateY(-5px) rotate(3deg); }
-    }
+        .curtain-slogan {
+            position: absolute;
+            z-index: 2;
+            top: 50%;
+            left: 50%;
+            width: max-content;
+            max-width: 95%;
+            color: var(--gold);
+            font-family: serif;
+            font-size: clamp(20px, 3vw, 38px);
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-align: center;
+            white-space: nowrap;
+            text-shadow:
+                0 2px 4px rgba(0, 0, 0, 0.8),
+                0 0 18px rgba(217, 183, 121, 0.15);
+            transform: translate(-50%, -50%);
+        }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.35; }
-    }
+        .curtain-left {
+            transform: translateX(0);
+            animation:
+                curtain-open-left
+                1.6s
+                0.4s
+                cubic-bezier(.77, 0, .18, 1)
+                forwards;
+        }
 
-    @media (max-width: 480px) {
-      nav {
-        padding: 17px 6%;
-      }
+        .curtain-right {
+            transform: translateX(0);
+            animation:
+                curtain-open-right
+                1.6s
+                0.4s
+                cubic-bezier(.77, 0, .18, 1)
+                forwards;
+        }
 
-      .brand-name {
-        font-size: 10px;
-        letter-spacing: 1px;
-      }
+        @keyframes curtain-open-left {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-102%); }
+        }
 
-      .brand-name span {
-        font-size: 9px;
-      }
+        @keyframes curtain-open-right {
+            from { transform: translateX(0); }
+            to   { transform: translateX(102%); }
+        }
 
-      main {
-        padding: 55px 23px 65px;
-      }
+        /* =========================================
+           TAKE ME HOME BARRICADE
+        ========================================= */
 
-      .emblem-wrap {
-        width: 94px;
-        height: 94px;
-        margin-bottom: 28px;
-      }
+        .home-barricade {
+            position: absolute;
+            z-index: 25;
+            left: 50%;
+            bottom: clamp(22px, 5.5vh, 58px);
+            width: min(330px, 78vw);
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 17px 24px;
+            transform: translate(-50%, 35px);
+            opacity: 0;
+            overflow: hidden;
+            border: 1px solid rgba(217, 183, 121, 0.72);
+            background:
+                repeating-linear-gradient(
+                    135deg,
+                    rgba(217, 183, 121, 0.08) 0,
+                    rgba(217, 183, 121, 0.08) 9px,
+                    transparent 9px,
+                    transparent 18px
+                ),
+                linear-gradient(180deg, #29211a, #110e0b);
+            box-shadow:
+                0 12px 32px rgba(0, 0, 0, 0.55),
+                inset 0 0 0 4px rgba(0, 0, 0, 0.22);
+            color: var(--cream);
+            text-decoration: none;
+            text-align: center;
+            animation:
+                barricade-enter
+                0.8s
+                1.45s
+                cubic-bezier(.2, .75, .25, 1)
+                forwards;
+            transition:
+                border-color 180ms ease,
+                box-shadow 180ms ease;
+        }
 
-      .emblem-wrap img {
-        width: 58px;
-        height: 58px;
-      }
+        .home-barricade::before,
+        .home-barricade::after {
+            content: "";
+            position: absolute;
+            left: 12px;
+            right: 12px;
+            height: 1px;
+            background: rgba(217, 183, 121, 0.55);
+        }
 
-      .eyebrow {
-        font-size: 9px;
-        letter-spacing: 3px;
-      }
+        .home-barricade::before { top: 8px; }
+        .home-barricade::after  { bottom: 8px; }
 
-      h1 {
-        letter-spacing: -1px;
-      }
-    }
+        .barricade-text {
+            display: block;
+            font-size: clamp(12px, 1.5vw, 15px);
+            font-weight: 700;
+            letter-spacing: 0.22em;
+        }
 
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-      }
-    }
-  </style>
+        .barricade-subtitle {
+            display: block;
+            margin-top: 6px;
+            color: var(--gold);
+            font-size: 9px;
+            letter-spacing: 0.2em;
+        }
+
+        @keyframes barricade-enter {
+            from {
+                opacity: 0;
+                transform: translate(-50%, 35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+
+        .home-barricade:hover {
+            border-color: var(--cream);
+            box-shadow:
+                0 14px 40px rgba(0, 0, 0, 0.65),
+                0 0 25px rgba(217, 183, 121, 0.12),
+                inset 0 0 0 4px rgba(0, 0, 0, 0.22);
+        }
+
+        .home-barricade:focus-visible {
+            outline: 2px solid var(--cream);
+            outline-offset: 5px;
+        }
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 600px) {
+            .topbar {
+                padding: 16px 15px;
+                gap: 10px;
+            }
+
+            .identity {
+                gap: 9px;
+            }
+
+            .emblem {
+                width: 36px;
+                height: 36px;
+            }
+
+            .identity-copy h1 {
+                max-width: 175px;
+                font-size: 13px;
+            }
+
+            .identity-copy p {
+                font-size: 7px;
+                letter-spacing: 0.12em;
+            }
+
+            .development-label {
+                font-size: 9px;
+                letter-spacing: 0.12em;
+            }
+
+            .scene svg {
+                width: 145%;
+                max-width: none;
+                height: 100%;
+                margin-left: -22.5%;
+            }
+
+            .curtain-slogan {
+                font-size: clamp(19px, 4vw, 28px);
+            }
+
+            .home-barricade {
+                bottom: 24px;
+                min-height: 66px;
+                padding: 15px 18px;
+            }
+        }
+
+        @media (max-width: 370px) {
+            .topbar {
+                padding: 13px 11px;
+                gap: 7px;
+            }
+
+            .emblem {
+                width: 31px;
+                height: 31px;
+            }
+
+            .identity-copy h1 {
+                max-width: 145px;
+                font-size: 11px;
+            }
+
+            .identity-copy p {
+                font-size: 6px;
+            }
+
+            .development-label {
+                font-size: 8px;
+                letter-spacing: 0.08em;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .curtain-left,
+            .curtain-right,
+            .home-barricade {
+                animation-duration: 0.01ms;
+                animation-delay: 0ms;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <nav>
-    <a class="brand" href="/home" aria-label="Thendral Tamizh Mandram home">
-      <img src="images/embelm.png" alt="Thendral Tamizh Mandram emblem">
-      <div class="brand-name">
-        Thendral Tamizh Mandram
-        <span>SVCE · Chennai</span>
-      </div>
+<main class="stage">
+
+    <div class="ambient-glow"></div>
+
+    <!-- =========================================
+         BRANDING
+    ========================================== -->
+
+    <header class="topbar">
+        <div class="identity">
+            <img
+                class="emblem"
+                src="images/embelm.png"
+                alt="Thendral Tamizh Mandram emblem"
+            >
+
+            <div class="identity-copy">
+                <h1>Thendral Tamizh Mandram</h1>
+                <p>Sri Venkateswara College of Engineering</p>
+            </div>
+        </div>
+
+        <div class="development-label">
+            PAGE UNDER
+            <span>DEVELOPMENT</span>
+        </div>
+    </header>
+
+    <!-- =========================================
+         ENTIRE STATIC CONSTRUCTION SITE
+    ========================================== -->
+
+    <div class="scene" aria-hidden="true">
+
+        <svg
+            viewBox="0 0 1200 800"
+            preserveAspectRatio="xMidYMid slice"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <defs>
+                <!-- Sky -->
+                <linearGradient id="nightSky" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#0b090a"/>
+                    <stop offset="0.55" stop-color="#21130f"/>
+                    <stop offset="1" stop-color="#120d09"/>
+                </linearGradient>
+
+                <!-- Steel -->
+                <linearGradient id="steel" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0" stop-color="#453d35"/>
+                    <stop offset=".22" stop-color="#b2a18a"/>
+                    <stop offset=".45" stop-color="#65584a"/>
+                    <stop offset=".7" stop-color="#d1bea1"/>
+                    <stop offset="1" stop-color="#51453a"/>
+                </linearGradient>
+
+                <linearGradient id="steelDark" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0" stop-color="#28231e"/>
+                    <stop offset=".5" stop-color="#786958"/>
+                    <stop offset="1" stop-color="#302821"/>
+                </linearGradient>
+
+                <linearGradient id="bannerFabric" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#f0d9a6"/>
+                    <stop offset=".48" stop-color="#d4b77f"/>
+                    <stop offset="1" stop-color="#a18452"/>
+                </linearGradient>
+
+                <linearGradient id="truckPaint" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#786b57"/>
+                    <stop offset=".5" stop-color="#39332b"/>
+                    <stop offset="1" stop-color="#191613"/>
+                </linearGradient>
+
+                <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#bda67b" stop-opacity=".7"/>
+                    <stop offset=".5" stop-color="#50463a" stop-opacity=".65"/>
+                    <stop offset="1" stop-color="#171412" stop-opacity=".9"/>
+                </linearGradient>
+
+                <linearGradient id="spotlightBeam" x1="0" y1="1" x2="0" y2="0">
+                    <stop offset="0" stop-color="#f7c778" stop-opacity=".24"/>
+                    <stop offset=".6" stop-color="#edbd72" stop-opacity=".08"/>
+                    <stop offset="1" stop-color="#edbd72" stop-opacity="0"/>
+                </linearGradient>
+
+                <linearGradient id="codePanel" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#211d19"/>
+                    <stop offset="1" stop-color="#0c0c0c"/>
+                </linearGradient>
+
+                <pattern id="bannerPattern" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <path
+                        d="M0 20 L20 0"
+                        stroke="#725a37"
+                        stroke-width="1"
+                        opacity=".18"
+                    />
+                </pattern>
+
+                <pattern id="concretePattern" width="26" height="26" patternUnits="userSpaceOnUse">
+                    <path d="M0 25 H26 M25 0 V26"
+                        fill="none"
+                        stroke="#b6a18a"
+                        stroke-width=".5"
+                        opacity=".18"
+                    />
+                </pattern>
+
+                <filter id="blurGlow" x="-100%" y="-100%" width="300%" height="300%">
+                    <feGaussianBlur stdDeviation="12"/>
+                </filter>
+
+                <filter id="smallGlow" x="-100%" y="-100%" width="300%" height="300%">
+                    <feGaussianBlur stdDeviation="4"/>
+                </filter>
+
+                <g id="pulleyWheel">
+                    <circle r="12" fill="#211b16" stroke="#d0b98d" stroke-width="2"/>
+                    <circle r="6" fill="#89775d" stroke="#ead8b5" stroke-width="1.5"/>
+                    <circle r="2.5" fill="#201a14"/>
+                </g>
+
+                <g id="workLight">
+                    <path
+                        d="M-10 0 L-14 -16 H14 L10 0Z"
+                        fill="#27221b"
+                        stroke="#b69a6e"
+                        stroke-width="1.5"
+                    />
+                    <rect x="-8" y="-13" width="16" height="8" fill="#fff0bd"/>
+                    <rect x="-8" y="-13" width="16" height="8" fill="#ffd27c" opacity=".8" filter="url(#smallGlow)"/>
+                    <path d="M-13 1 H13 L18 5 H-18Z" fill="#554630"/>
+                    <path d="M0 5 V24 M-12 24 H12" fill="none" stroke="#74634b" stroke-width="3"/>
+                </g>
+            </defs>
+
+            <!-- =====================================
+                 NIGHT SKY
+            ====================================== -->
+
+            <rect width="1200" height="800" fill="url(#nightSky)"/>
+
+            <!-- Distant atmospheric glow -->
+            <ellipse
+                cx="620"
+                cy="440"
+                rx="490"
+                ry="310"
+                fill="#ad6938"
+                opacity=".065"
+                filter="url(#blurGlow)"
+            />
+
+            <!-- Sparse distant stars / worksite dust -->
+            <g fill="#e7c993" opacity=".45">
+                <circle cx="96" cy="120" r="1.2"/>
+                <circle cx="182" cy="82" r=".9"/>
+                <circle cx="326" cy="134" r="1"/>
+                <circle cx="620" cy="82" r="1.1"/>
+                <circle cx="1010" cy="105" r="1"/>
+                <circle cx="1120" cy="165" r="1.2"/>
+                <circle cx="940" cy="235" r=".9"/>
+                <circle cx="255" cy="240" r=".8"/>
+                <circle cx="110" cy="310" r="1"/>
+            </g>
+
+            <!-- =====================================
+                 MASSIVE FLOODLIGHT BEAMS
+                 Behind all objects
+            ====================================== -->
+
+            <g>
+                <!-- Left outward beam -->
+                <path
+                    d="M88 635 L220 100 L455 100 L147 635Z"
+                    fill="url(#spotlightBeam)"
+                />
+
+                <path
+                    d="M88 635 L220 100"
+                    stroke="#f5c879"
+                    stroke-width="1.4"
+                    opacity=".16"
+                />
+
+                <!-- Central-left beam -->
+                <path
+                    d="M220 652 L380 105 L540 105 L286 652Z"
+                    fill="url(#spotlightBeam)"
+                    opacity=".8"
+                />
+
+                <path
+                    d="M220 652 L380 105"
+                    stroke="#f5c879"
+                    stroke-width="1.5"
+                    opacity=".15"
+                />
+
+                <!-- Right outward beam -->
+                <path
+                    d="M1090 636 L1005 96 L1165 96 L1150 636Z"
+                    fill="url(#spotlightBeam)"
+                    opacity=".8"
+                />
+
+                <path
+                    d="M1090 636 L1005 96"
+                    stroke="#f5c879"
+                    stroke-width="1.4"
+                    opacity=".17"
+                />
+
+                <!-- Wide beam behind the code building -->
+                <path
+                    d="M930 652 L820 120 L1030 120 L1060 652Z"
+                    fill="url(#spotlightBeam)"
+                    opacity=".55"
+                />
+
+                <path
+                    d="M930 652 L820 120"
+                    stroke="#f5c879"
+                    stroke-width="1.2"
+                    opacity=".1"
+                />
+            </g>
+
+            <!-- =====================================
+                 DISTANT SITE SILHOUETTES
+            ====================================== -->
+
+            <g fill="#090807" opacity=".8">
+                <path d="M0 510 V445 H70 V402 H115 V470 H162 V425 H208 V493 H260 V448 H330 V510Z"/>
+                <path d="M900 510 V438 H950 V405 H1000 V470 H1050 V425 H1100 V468 H1150 V435 H1200 V520Z"/>
+            </g>
+
+            <!-- =====================================
+                 RIGHT SIDE: THE WEBSITE AS A BUILDING
+
+                 Concrete structure mixed with code-editor
+                 panels and visible HTML/CSS source.
+            ====================================== -->
+
+            <g class="code-building">
+
+                <!-- Building back shadow -->
+                <path
+                    d="M891 624 L891 337 L1184 305 L1184 634Z"
+                    fill="#000"
+                    opacity=".42"
+                />
+
+                <!-- Rear concrete wall -->
+                <path
+                    d="M899 615 L899 353 L1168 326 L1168 615Z"
+                    fill="#39332b"
+                    stroke="#a28d70"
+                    stroke-width="2"
+                />
+
+                <path
+                    d="M899 615 L899 353 L1168 326 L1168 615Z"
+                    fill="url(#concretePattern)"
+                />
+
+                <!-- Incomplete upper floor slab -->
+                <path
+                    d="M880 355 L1147 321 L1182 333 L910 370Z"
+                    fill="#a2947e"
+                    stroke="#d0bba0"
+                    stroke-width="1.5"
+                />
+
+                <path
+                    d="M910 370 L1182 333 L1182 345 L910 382Z"
+                    fill="#51473b"
+                />
+
+                <!-- Exposed reinforcing rods -->
+                <g stroke="#b6a07c" stroke-width="3" fill="none">
+                    <path d="M917 355 V300"/>
+                    <path d="M929 353 V311"/>
+                    <path d="M1043 339 V285"/>
+                    <path d="M1055 337 V296"/>
+                    <path d="M1146 326 V277"/>
+                    <path d="M1158 325 V288"/>
+                </g>
+
+                <g stroke="#766348" stroke-width="2">
+                    <path d="M913 311 H934"/>
+                    <path d="M1039 297 H1060"/>
+                    <path d="M1142 289 H1163"/>
+                </g>
+
+                <!-- Concrete columns -->
+                <g fill="url(#steelDark)" stroke="#b19b7b" stroke-width="1.5">
+                    <path d="M910 370 L935 367 V610 L910 615Z"/>
+                    <path d="M1030 354 L1052 351 V610 L1030 613Z"/>
+                    <path d="M1146 339 L1168 336 V610 L1146 613Z"/>
+                </g>
+
+                <!-- Lower floor slab -->
+                <path
+                    d="M887 486 L1179 453 L1195 466 L899 502Z"
+                    fill="#91816a"
+                    stroke="#c2ad8e"
+                    stroke-width="1.5"
+                />
+
+                <path
+                    d="M899 502 L1195 466 L1195 478 L899 514Z"
+                    fill="#40372c"
+                />
+
+                <!-- Half-built floor opening -->
+                <path
+                    d="M940 484 L1028 474 L1028 489 L940 500Z"
+                    fill="#15110e"
+                    stroke="#a58f6e"
+                    stroke-width="1"
+                />
+
+                <!-- Scaffolding -->
+                <g
+                    stroke="#9f8a6b"
+                    stroke-width="2"
+                    fill="none"
+                    opacity=".9"
+                >
+                    <path d="M1177 365 L1197 365 V604"/>
+                    <path d="M1187 365 V602"/>
+                    <path d="M1177 412 H1197"/>
+                    <path d="M1177 465 H1197"/>
+                    <path d="M1177 518 H1197"/>
+                    <path d="M1177 571 H1197"/>
+                    <path d="M1177 412 L1197 465"/>
+                    <path d="M1197 412 L1177 465"/>
+                    <path d="M1177 465 L1197 518"/>
+                    <path d="M1197 465 L1177 518"/>
+                    <path d="M1177 518 L1197 571"/>
+                    <path d="M1197 518 L1177 571"/>
+                </g>
+
+                <!-- Code-editor panel mounted inside structure -->
+                <path
+                    d="M944 389 L1135 368 L1135 447 L944 469Z"
+                    fill="url(#codePanel)"
+                    stroke="#b59a70"
+                    stroke-width="1.5"
+                />
+
+                <!-- Editor title bar -->
+                <path
+                    d="M944 389 L1135 368 L1135 383 L944 404Z"
+                    fill="#4b3528"
+                />
+
+                <circle cx="954" cy="396" r="2.3" fill="#cf9272"/>
+                <circle cx="962" cy="395" r="2.3" fill="#d7b773"/>
+                <circle cx="970" cy="394" r="2.3" fill="#8aab7a"/>
+
+                <text
+                    x="982"
+                    y="394"
+                    fill="#dfc69a"
+                    font-family="DM Mono, monospace"
+                    font-size="7.5"
+                    transform="rotate(-6.2 982 394)"
+                >index.html</text>
+
+                <!-- Actual source-like lines -->
+                <g
+                    font-family="DM Mono, monospace"
+                    font-size="9.5"
+                    transform="rotate(-6.2 1040 420)"
+                >
+                    <text x="953" y="413" fill="#b6a3db">01</text>
+                    <text x="970" y="413" fill="#d9b779">&lt;section&gt;</text>
+
+                    <text x="953" y="425" fill="#b6a3db">02</text>
+                    <text x="978" y="425" fill="#91b9b3">class=</text>
+                    <text x="1012" y="425" fill="#c9a67a">"mandram"</text>
+
+                    <text x="953" y="437" fill="#b6a3db">03</text>
+                    <text x="970" y="437" fill="#d9b779">&lt;h1&gt;</text>
+                    <text x="1002" y="437" fill="#e7dfd0">தமிழ்</text>
+                    <text x="1034" y="437" fill="#d9b779">&lt;/h1&gt;</text>
+
+                    <text x="953" y="449" fill="#b6a3db">04</text>
+                    <text x="970" y="449" fill="#d9b779">&lt;/section&gt;</text>
+                </g>
+
+                <!-- CSS code on the next unfinished floor -->
+                <path
+                    d="M944 521 L1129 500 L1129 572 L944 593Z"
+                    fill="#111211"
+                    stroke="#a58f6e"
+                    stroke-width="1.5"
+                />
+
+                <path
+                    d="M944 521 L1129 500 L1129 513 L944 534Z"
+                    fill="#34352e"
+                />
+
+                <text
+                    x="954"
+                    y="530"
+                    fill="#c9b17f"
+                    font-family="DM Mono, monospace"
+                    font-size="8"
+                    transform="rotate(-6.4 954 530)"
+                >styles.css</text>
+
+                <g
+                    font-family="DM Mono, monospace"
+                    font-size="9.5"
+                    transform="rotate(-6.4 1040 550)"
+                >
+                    <text x="954" y="548" fill="#d6b8a1">.site {</text>
+                    <text x="963" y="561" fill="#8dbdb4">display:</text>
+                    <text x="1009" y="561" fill="#c4a6da">flex;</text>
+                    <text x="954" y="574" fill="#d6b8a1">}</text>
+                </g>
+
+                <!-- Loose code tags on the unfinished wall -->
+                <g
+                    font-family="DM Mono, monospace"
+                    font-size="10"
+                    font-weight="500"
+                    fill="#d7b879"
+                    opacity=".85"
+                >
+                    <text x="918" y="326" transform="rotate(-7 918 326)">&lt;html&gt;</text>
+                    <text x="1065" y="312" transform="rotate(-7 1065 312)">&lt;/div&gt;</text>
+                    <text x="1085" y="487" transform="rotate(-7 1085 487)">CSS { }</text>
+                </g>
+
+                <!-- Hanging cable / construction hook -->
+                <path
+                    d="M1101 274 V310"
+                    stroke="#bba27e"
+                    stroke-width="2"
+                />
+
+                <path
+                    d="M1093 310 Q1101 323 1109 310"
+                    fill="none"
+                    stroke="#d1b58a"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                />
+
+                <!-- Building ground supports -->
+                <path
+                    d="M899 615 L1168 615"
+                    stroke="#d1b58a"
+                    stroke-width="3"
+                />
+
+                <path
+                    d="M913 615 L907 638 M1040 615 L1036 636 M1156 615 L1152 635"
+                    stroke="#73614a"
+                    stroke-width="4"
+                />
+
+            </g>
+
+            <!-- =====================================
+                 LEFT: PARKED FLATBED TRUCK
+            ====================================== -->
+
+            <g class="truck">
+
+                <!-- Ground shadow -->
+                <ellipse
+                    cx="226"
+                    cy="659"
+                    rx="205"
+                    ry="17"
+                    fill="#000"
+                    opacity=".65"
+                />
+
+                <!-- Chassis -->
+                <path
+                    d="M36 603 L383 603 L398 622 L36 622Z"
+                    fill="#211c17"
+                    stroke="#9a8260"
+                    stroke-width="1.5"
+                />
+
+                <path
+                    d="M45 616 H388"
+                    stroke="#6f5c43"
+                    stroke-width="4"
+                />
+
+                <!-- Rear bed -->
+                <path
+                    d="M43 540 L272 540 L286 552 L286 600 L43 600Z"
+                    fill="url(#truckPaint)"
+                    stroke="#c0a57c"
+                    stroke-width="2"
+                />
+
+                <path
+                    d="M43 540 L272 540 L286 552 L58 552Z"
+                    fill="#a48c68"
+                    stroke="#d1b58a"
+                    stroke-width="1.5"
+                />
+
+                <!-- Flatbed rails -->
+                <path
+                    d="M43 552 H285"
+                    stroke="#d0b58b"
+                    stroke-width="3"
+                />
+
+                <path
+                    d="M50 559 H278"
+                    stroke="#514535"
+                    stroke-width="2"
+                />
+
+                <g stroke="#9f8968" stroke-width="2">
+                    <path d="M61 542 V600"/>
+                    <path d="M94 542 V600"/>
+                    <path d="M127 542 V600"/>
+                    <path d="M160 542 V600"/>
+                    <path d="M193 542 V600"/>
+                    <path d="M226 542 V600"/>
+                    <path d="M259 542 V600"/>
+                </g>
+
+                <!-- Timber / construction materials -->
+                <g stroke="#b99a6c" stroke-width="1.3">
+                    <path d="M58 515 L237 515 L252 526 L73 526Z" fill="#695039"/>
+                    <path d="M65 505 L230 505 L243 515 L78 515Z" fill="#98744b"/>
+                    <path d="M71 496 L222 496 L234 505 L83 505Z" fill="#6d5238"/>
+                    <path d="M75 486 L214 486 L226 496 L87 496Z" fill="#8e6d45"/>
+                </g>
+
+                <!-- Steel rods on truck -->
+                <g
+                    stroke="#a9a091"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                >
+                    <path d="M70 483 L252 480"/>
+                    <path d="M72 487 L255 484"/>
+                    <path d="M74 491 L258 488"/>
+                </g>
+
+                <!-- Truck cabin -->
+                <path
+                    d="M286 555 L303 520 L348 520 L374 552 L374 603 L286 603Z"
+                    fill="url(#truckPaint)"
+                    stroke="#c0a57c"
+                    stroke-width="2"
+                />
+
+                <!-- Cabin roof -->
+                <path
+                    d="M303 520 L348 520 L358 533 L295 533Z"
+                    fill="#a08a69"
+                    stroke="#d2b88c"
+                    stroke-width="1.5"
+                />
+
+                <!-- Windshield -->
+                <path
+                    d="M306 536 L344 536 L359 553 L297 553Z"
+                    fill="url(#glass)"
+                    stroke="#bba17b"
+                    stroke-width="1.5"
+                />
+
+                <!-- Side window -->
+                <path
+                    d="M307 559 H356 V581 H307Z"
+                    fill="url(#glass)"
+                    stroke="#aa9270"
+                    stroke-width="1.5"
+                />
+
+                <path
+                    d="M331 559 V581"
+                    stroke="#a18a68"
+                    stroke-width="1.5"
+                />
+
+                <!-- Door -->
+                <path
+                    d="M294 558 V601 H333 V586"
+                    fill="none"
+                    stroke="#a38b68"
+                    stroke-width="1.5"
+                />
+
+                <rect
+                    x="320"
+                    y="587"
+                    width="8"
+                    height="2"
+                    rx="1"
+                    fill="#e0c18b"
+                />
+
+                <!-- Bumper -->
+                <path
+                    d="M285 601 H376 L382 610 H282Z"
+                    fill="#8e785b"
+                    stroke="#cbb38d"
+                    stroke-width="1.5"
+                />
+
+                <!-- Headlight -->
+                <path
+                    d="M367 574 H376 V588 H367Z"
+                    fill="#f8d99a"
+                />
+
+                <path
+                    d="M370 576 L395 588 L370 589Z"
+                    fill="#ffd889"
+                    opacity=".12"
+                />
+
+                <!-- Rear lights -->
+                <rect x="39" y="579" width="8" height="17" fill="#8d3d2f"/>
+                <rect x="39" y="579" width="8" height="6" fill="#d36b47"/>
+
+                <!-- Wheels -->
+                <g>
+                    <g transform="translate(98 613)">
+                        <circle r="25" fill="#0b0a09" stroke="#706354" stroke-width="3"/>
+                        <circle r="15" fill="#403930" stroke="#b4a184" stroke-width="2"/>
+                        <circle r="6" fill="#171411" stroke="#c8b28e" stroke-width="1.5"/>
+                        <path d="M0 -13 V-6 M13 0 H6 M0 13 V6 M-13 0 H-6"
+                            stroke="#9d8a6d" stroke-width="2"/>
+                    </g>
+
+                    <g transform="translate(243 613)">
+                        <circle r="25" fill="#0b0a09" stroke="#706354" stroke-width="3"/>
+                        <circle r="15" fill="#403930" stroke="#b4a184" stroke-width="2"/>
+                        <circle r="6" fill="#171411" stroke="#c8b28e" stroke-width="1.5"/>
+                        <path d="M0 -13 V-6 M13 0 H6 M0 13 V6 M-13 0 H-6"
+                            stroke="#9d8a6d" stroke-width="2"/>
+                    </g>
+
+                    <g transform="translate(352 613)">
+                        <circle r="25" fill="#0b0a09" stroke="#706354" stroke-width="3"/>
+                        <circle r="15" fill="#403930" stroke="#b4a184" stroke-width="2"/>
+                        <circle r="6" fill="#171411" stroke="#c8b28e" stroke-width="1.5"/>
+                        <path d="M0 -13 V-6 M13 0 H6 M0 13 V6 M-13 0 H-6"
+                            stroke="#9d8a6d" stroke-width="2"/>
+                    </g>
+                </g>
+
+                <!-- Door insignia -->
+                <text
+                    x="311"
+                    y="578"
+                    fill="#d9b779"
+                    font-family="DM Sans, sans-serif"
+                    font-size="7"
+                    font-weight="700"
+                    letter-spacing=".8"
+                >TTM WEBSITE</text>
+
+            </g>
+
+            <!-- =====================================
+                 CRANE
+                 STATIC — NO HOIST / CRANE ANIMATION
+            ====================================== -->
+
+            <g class="crane-structure">
+
+                <!-- Counterweight platform -->
+                <path
+                    d="M282 176 L475 176 L490 190 L274 190Z"
+                    fill="url(#steelDark)"
+                    stroke="#a89578"
+                    stroke-width="1.5"
+                />
+
+                <!-- Counterweights -->
+                <g fill="#4b4136" stroke="#b4a084" stroke-width="1.5">
+                    <path d="M300 145 H350 L360 176 H295Z"/>
+                    <path d="M355 138 H405 L415 176 H350Z"/>
+                    <path d="M410 145 H455 L465 176 H405Z"/>
+                </g>
+
+                <g stroke="#c4b093" stroke-width="1" opacity=".45">
+                    <path d="M305 153 H352"/>
+                    <path d="M360 147 H407"/>
+                    <path d="M415 153 H459"/>
+                </g>
+
+                <!-- Turntable -->
+                <path
+                    d="M455 173 H532 L548 190 H439Z"
+                    fill="url(#steel)"
+                    stroke="#c8b18b"
+                    stroke-width="1.5"
+                />
+
+                <rect
+                    x="468"
+                    y="190"
+                    width="50"
+                    height="19"
+                    fill="#514638"
+                    stroke="#bba27f"
+                    stroke-width="1.5"
+                />
+
+                <!-- Mast -->
+                <rect
+                    x="475"
+                    y="205"
+                    width="38"
+                    height="445"
+                    fill="url(#steelDark)"
+                    stroke="#a38e6c"
+                    stroke-width="2"
+                />
+
+                <!-- Mast lattice -->
+                <g stroke="#b8a180" stroke-width="2" fill="none" opacity=".85">
+                    <path d="M475 225 L513 270 M513 225 L475 270"/>
+                    <path d="M475 270 L513 315 M513 270 L475 315"/>
+                    <path d="M475 315 L513 360 M513 315 L475 360"/>
+                    <path d="M475 360 L513 405 M513 360 L475 405"/>
+                    <path d="M475 405 L513 450 M513 405 L475 450"/>
+                    <path d="M475 450 L513 495 M513 450 L475 495"/>
+                    <path d="M475 495 L513 540 M513 495 L475 540"/>
+                    <path d="M475 540 L513 585 M513 540 L475 585"/>
+                    <path d="M475 585 L513 630 M513 585 L475 630"/>
+                </g>
+
+                <g stroke="#d0ba96" stroke-width="1.2" opacity=".65">
+                    <path d="M475 248 H513"/>
+                    <path d="M475 293 H513"/>
+                    <path d="M475 338 H513"/>
+                    <path d="M475 383 H513"/>
+                    <path d="M475 428 H513"/>
+                    <path d="M475 473 H513"/>
+                    <path d="M475 518 H513"/>
+                    <path d="M475 563 H513"/>
+                    <path d="M475 608 H513"/>
+                </g>
+
+                <!-- Counter-jib -->
+                <path
+                    d="M483 192 L365 124 L354 136 L471 208Z"
+                    fill="url(#steelDark)"
+                    stroke="#bca582"
+                    stroke-width="1.5"
+                />
+
+                <path
+                    d="M369 132 L400 158 L426 150 L455 183"
+                    fill="none"
+                    stroke="#c3ad8a"
+                    stroke-width="2"
+                />
+
+                <!-- Main jib -->
+                <path
+                    d="M492 191 L1020 150 L1020 168 L492 207Z"
+                    fill="url(#steelDark)"
+                    stroke="#c3ad8a"
+                    stroke-width="1.8"
+                />
+
+                <!-- Jib lattice -->
+                <g stroke="#b9a180" stroke-width="1.5" fill="none" opacity=".9">
+                    <path d="M520 194 L548 203 L574 188 L602 198 L630 184 L658 195 L687 180 L715 191 L743 176 L772 187 L801 172 L829 183 L858 169 L887 180 L916 165 L944 176 L973 161 L1001 170"/>
+                    <path d="M520 198 L548 184 L574 200 L602 181 L630 196 L658 177 L687 192 L715 173 L743 188 L772 169 L801 184 L829 165 L858 180 L887 161 L916 176 L944 157 L973 172 L1001 154"/>
+                </g>
+
+                <!-- A-frame -->
+                <path
+                    d="M465 190 L490 105 L515 190"
+                    fill="none"
+                    stroke="url(#steel)"
+                    stroke-width="10"
+                    stroke-linejoin="round"
+                />
+
+                <path
+                    d="M468 178 L490 112 L512 178"
+                    fill="none"
+                    stroke="#b7a080"
+                    stroke-width="2"
+                />
+
+                <!-- Tension cables -->
+                <g stroke="#bca987" stroke-width="2" fill="none">
+                    <path d="M490 108 L365 130"/>
+                    <path d="M490 108 L575 183"/>
+                    <path d="M490 108 L710 177"/>
+                    <path d="M490 108 L850 166"/>
+                    <path d="M490 108 L1000 154"/>
+                </g>
+
+                <!-- Motor housing -->
+                <g>
+                    <path
+                        d="M532 178 H584 L595 191 H530Z"
+                        fill="#29231c"
+                        stroke="#bca27d"
+                        stroke-width="1.5"
+                    />
+
+                    <rect
+                        x="541"
+                        y="157"
+                        width="36"
+                        height="21"
+                        rx="2"
+                        fill="#544536"
+                        stroke="#c8b08b"
+                        stroke-width="1.5"
+                    />
+
+                    <path
+                        d="M546 162 H571 V172 H546Z"
+                        fill="#a38a64"
+                        opacity=".7"
+                    />
+
+                    <circle cx="550" cy="185" r="5" fill="#1a1510" stroke="#c7ad84" stroke-width="1.5"/>
+                    <circle cx="576" cy="185" r="5" fill="#1a1510" stroke="#c7ad84" stroke-width="1.5"/>
+                </g>
+
+                <!-- Jib tip -->
+                <path
+                    d="M1018 150 L1035 147 L1035 171 L1018 168Z"
+                    fill="url(#steel)"
+                    stroke="#c7b08c"
+                    stroke-width="1.5"
+                />
+
+                <!-- Trolley -->
+                <g>
+                    <rect
+                        x="782"
+                        y="151"
+                        width="37"
+                        height="13"
+                        rx="2"
+                        fill="#3b3126"
+                        stroke="#d0b58a"
+                        stroke-width="1.5"
+                    />
+
+                    <circle cx="790" cy="150" r="5" fill="#211a14" stroke="#d0b58a" stroke-width="1.5"/>
+                    <circle cx="811" cy="150" r="5" fill="#211a14" stroke="#d0b58a" stroke-width="1.5"/>
+
+                    <rect
+                        x="795"
+                        y="163"
+                        width="11"
+                        height="12"
+                        fill="#8b7556"
+                        stroke="#d2bb93"
+                        stroke-width="1"
+                    />
+                </g>
+
+            </g>
+
+            <!-- =====================================
+                 FIXED HOIST CABLE
+            ====================================== -->
+
+            <g class="hoist-cable">
+                <path
+                    d="M800 174 V305"
+                    stroke="#1b1712"
+                    stroke-width="7"
+                    fill="none"
+                />
+
+                <path
+                    d="M800 174 V305"
+                    stroke="#c9b38e"
+                    stroke-width="2"
+                    fill="none"
+                />
+
+                <path
+                    d="M796 180 V302"
+                    stroke="#f2e4c8"
+                    stroke-width=".7"
+                    opacity=".55"
+                    fill="none"
+                />
+            </g>
+
+            <!-- =====================================
+                 FIXED PULLEY + ENLARGED BANNER
+            ====================================== -->
+
+            <g class="hoist-load">
+
+                <!-- Pulley block -->
+                <g transform="translate(800 307)">
+                    <path
+                        d="M-20 -8 H20 L15 16 H-15Z"
+                        fill="url(#steelDark)"
+                        stroke="#d2b98e"
+                        stroke-width="1.5"
+                    />
+
+                    <use href="#pulleyWheel" x="0" y="0"/>
+
+                    <path
+                        d="M-11 16 V24 H11 V16"
+                        fill="#6c5a42"
+                        stroke="#cdb58b"
+                        stroke-width="1.5"
+                    />
+
+                    <!-- Hook -->
+                    <path
+                        d="M0 24 V32 C0 41 15 41 15 32"
+                        fill="none"
+                        stroke="#d5bd94"
+                        stroke-width="4"
+                        stroke-linecap="round"
+                    />
+
+                    <path
+                        d="M15 32 L12 27"
+                        fill="none"
+                        stroke="#d5bd94"
+                        stroke-width="4"
+                        stroke-linecap="round"
+                    />
+                </g>
+
+                <!-- Banner suspension + body -->
+                <g class="banner-group">
+
+                    <path
+                        d="M665 347 H935"
+                        stroke="#221a12"
+                        stroke-width="11"
+                        stroke-linecap="round"
+                    />
+
+                    <path
+                        d="M665 345 H935"
+                        stroke="#d3b984"
+                        stroke-width="5"
+                        stroke-linecap="round"
+                    />
+
+                    <!-- Suspension lines -->
+                    <path
+                        d="M685 347 V365 M915 347 V365"
+                        stroke="#cbb38b"
+                        stroke-width="4"
+                    />
+
+                    <!-- Large banner -->
+                    <path
+                        d="M680 365 L920 365 L906 510 L694 510Z"
+                        fill="url(#bannerFabric)"
+                        stroke="#e4cea3"
+                        stroke-width="3"
+                    />
+
+                    <path
+                        d="M680 365 L920 365 L906 510 L694 510Z"
+                        fill="url(#bannerPattern)"
+                    />
+
+                    <!-- Inner border -->
+                    <path
+                        d="M695 378 L905 378 L893 497 L707 497Z"
+                        fill="none"
+                        stroke="#70552f"
+                        stroke-width="2"
+                    />
+
+                    <path d="M715 391 H885" stroke="#876b40" stroke-width="1.5"/>
+                    <path d="M715 482 H885" stroke="#876b40" stroke-width="1.5"/>
+
+                    <!-- Ornament -->
+                    <path
+                        d="M800 388 L807 399 L800 410 L793 399Z"
+                        fill="#70552f"
+                    />
+
+                    <!-- Banner lettering -->
+                    <text
+                        x="800"
+                        y="432"
+                        fill="#332516"
+                        font-family="Playfair Display, Georgia, serif"
+                        font-size="28"
+                        font-weight="700"
+                        text-anchor="middle"
+                        letter-spacing="1"
+                    >PAGE UNDER</text>
+
+                    <text
+                        x="800"
+                        y="458"
+                        fill="#332516"
+                        font-family="DM Sans, sans-serif"
+                        font-size="15"
+                        font-weight="700"
+                        text-anchor="middle"
+                        letter-spacing="2"
+                    >CONSTRUCTION</text>
+
+                    <text
+                        x="800"
+                        y="476"
+                        fill="#70552f"
+                        font-family="serif"
+                        font-size="13"
+                        text-anchor="middle"
+                    >தென்றல் தமிழ் மன்றம்</text>
+
+                    <!-- Bottom weight -->
+                    <path
+                        d="M694 510 H906"
+                        stroke="#4a3520"
+                        stroke-width="7"
+                    />
+
+                    <circle cx="705" cy="510" r="4" fill="#e5cf9f"/>
+                    <circle cx="895" cy="510" r="4" fill="#e5cf9f"/>
+
+                </g>
+            </g>
+
+            <!-- =====================================
+                 FOREGROUND FLOODLIGHTS
+            ====================================== -->
+
+            <g>
+                <!-- Far left light -->
+                <g transform="translate(70 627)">
+                    <use href="#workLight"/>
+
+                    <path
+                        d="M-8 -15 L-65 -330 L35 -330 L8 -15Z"
+                        fill="#f1bd70"
+                        opacity=".035"
+                    />
+
+                    <ellipse
+                        cx="0"
+                        cy="-12"
+                        rx="22"
+                        ry="14"
+                        fill="#ffd27c"
+                        opacity=".14"
+                        filter="url(#smallGlow)"
+                    />
+                </g>
+
+                <!-- Left-center light -->
+                <g transform="translate(414 641)">
+                    <use href="#workLight"/>
+
+                    <path
+                        d="M-8 -15 L-115 -425 L95 -425 L8 -15Z"
+                        fill="#f1bd70"
+                        opacity=".05"
+                    />
+
+                    <ellipse
+                        cx="0"
+                        cy="-12"
+                        rx="24"
+                        ry="14"
+                        fill="#ffd27c"
+                        opacity=".14"
+                        filter="url(#smallGlow)"
+                    />
+                </g>
+
+                <!-- Right light -->
+                <g transform="translate(1112 625)">
+                    <use href="#workLight"/>
+
+                    <path
+                        d="M-8 -15 L-140 -400 L65 -400 L8 -15Z"
+                        fill="#f1bd70"
+                        opacity=".05"
+                    />
+
+                    <ellipse
+                        cx="0"
+                        cy="-12"
+                        rx="24"
+                        ry="14"
+                        fill="#ffd27c"
+                        opacity=".14"
+                        filter="url(#smallGlow)"
+                    />
+                </g>
+            </g>
+
+            <!-- =====================================
+                 GROUND + SITE SHADOWS
+            ====================================== -->
+
+            <path
+                d="M0 650 Q300 622 600 643 T1200 630 V800 H0Z"
+                fill="#0b0907"
+            />
+
+            <path
+                d="M0 665 Q300 642 600 659 T1200 650"
+                fill="none"
+                stroke="#614a31"
+                stroke-width="2"
+                opacity=".38"
+            />
+
+            <!-- Crane base -->
+            <g>
+                <path
+                    d="M455 650 H535 L559 676 H432Z"
+                    fill="url(#steelDark)"
+                    stroke="#bba17b"
+                    stroke-width="2"
+                />
+
+                <path
+                    d="M442 676 H548"
+                    stroke="#8f795b"
+                    stroke-width="5"
+                />
+
+                <path
+                    d="M455 650 L443 671 M535 650 L547 671"
+                    stroke="#c3ad8a"
+                    stroke-width="3"
+                />
+            </g>
+
+            <!-- Ground reflections -->
+            <ellipse
+                cx="600"
+                cy="691"
+                rx="430"
+                ry="19"
+                fill="#000"
+                opacity=".45"
+            />
+
+            <ellipse
+                cx="410"
+                cy="682"
+                rx="180"
+                ry="8"
+                fill="#e6a75c"
+                opacity=".055"
+            />
+
+            <!-- Static dust particles -->
+            <g fill="#e8c38b" opacity=".32">
+                <circle cx="130" cy="520" r="1.2"/>
+                <circle cx="170" cy="460" r=".8"/>
+                <circle cx="400" cy="430" r="1.1"/>
+                <circle cx="565" cy="490" r=".8"/>
+                <circle cx="940" cy="590" r="1.1"/>
+                <circle cx="1075" cy="545" r=".8"/>
+                <circle cx="840" cy="550" r=".9"/>
+                <circle cx="330" cy="570" r=".8"/>
+            </g>
+
+        </svg>
+    </div>
+
+    <!-- Ground vignette -->
+    <div
+        style="
+            position:absolute;
+            z-index:3;
+            inset:55% 0 0;
+            background:linear-gradient(
+                180deg,
+                transparent,
+                rgba(7,6,5,.28) 45%,
+                rgba(7,6,5,.68)
+            );
+            pointer-events:none;
+        "
+    ></div>
+
+    <!-- =========================================
+         CURTAINS WITH TAMIL SLOGAN
+    ========================================== -->
+
+    <div class="curtains" aria-hidden="true">
+
+        <div class="curtain curtain-left">
+            <span class="curtain-slogan">மொழிக்காக</span>
+        </div>
+
+        <div class="curtain curtain-right">
+            <span class="curtain-slogan">மொழி காக்க</span>
+        </div>
+
+    </div>
+
+    <!-- =========================================
+         ONLY NAVIGATION: HOME
+    ========================================== -->
+
+    <a class="home-barricade" href="/home">
+        <span>
+            <span class="barricade-text">TAKE ME HOME</span>
+            <span class="barricade-subtitle">RETURN TO THE MAIN STAGE</span>
+        </span>
     </a>
 
-    <a class="back-link" href="/home">← Back to home</a>
-  </nav>
-
-  <main>
-    <section class="content">
-      <div class="emblem-wrap">
-        <img src="images/embelm.png" alt="">
-      </div>
-
-      <p class="eyebrow">The archives are in the kitchen</p>
-
-      <h1>This page is<br>getting <em>cooked.</em></h1>
-
-      <p class="description">
-        The memories are real. The archive is still being prepared.
-        Give us a little time to get everything out of the oven.
-      </p>
-
-      <div class="status">
-        <span class="status-dot"></span>
-        Currently cooking<span class="loading" id="dots">...</span>
-      </div>
-
-      <p class="note">
-        Good things take time. Great throwbacks take a little longer.
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    மொழிக்காக மொழி காக்க · Thendral Tamizh Mandram · SVCE
-  </footer>
-
-  <script>
-    const dots = document.getElementById('dots');
-    let count = 1;
-
-    setInterval(() => {
-      count = count % 3 + 1;
-      dots.textContent = '.'.repeat(count);
-    }, 600);
-  </script>
+</main>
 </body>
 </html>
