@@ -21,5 +21,6 @@
       "source": "/you-werent-supposed-to-find-this",
       "destination": "/404.html"
     }
+    { "source": "/vj", "destination": "/Wall.html" }
   ]
 }
