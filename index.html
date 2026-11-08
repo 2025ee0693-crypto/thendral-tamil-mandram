@@ -4,34 +4,15 @@
 <head>
 
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <link rel="icon" type="image/png" href="images/embelm.png">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>தென்றல் தமிழ் மன்றம் | SVCE</title>
 
-
-    <!-- =========================================================
-         GOOGLE FONTS
-    ========================================================== -->
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
         rel="stylesheet"
     >
-
 
     <style>
 
@@ -40,2226 +21,1116 @@
         ========================================================== */
 
         :root {
-
             --orange: #F47B20;
             --orange-bright: #FF9A3D;
-
             --brick: #A94728;
             --brick-dark: #7E321F;
             --terracotta: #C85D32;
-
             --brown: #603522;
             --brown-dark: #40251A;
             --brown-deep: #241610;
             --cocoa: #513020;
-
             --blue: #315C72;
             --blue-dark: #234555;
             --blue-light: #668B9B;
-
             --parchment: #EED9B7;
             --cream: #F6E8CF;
             --ivory: #FFF7E7;
-
             --gold: #D49A43;
 
-            /* Responsive system */
-
             --max-width: 1440px;
-
-            --page-pad:
-                clamp(18px, 5vw, 72px);
-
-            --section-space:
-                clamp(72px, 8vw, 140px);
+            --page-pad: clamp(18px, 5vw, 72px);
+            --section-space: clamp(72px, 8vw, 140px);
         }
 
-
-        /* =========================================================
-           RESET
-        ========================================================== */
-
-        *,
-        *::before,
-        *::after {
-
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
-
             box-sizing: border-box;
         }
 
-
         html {
-
             scroll-behavior: smooth;
-
             width: 100%;
-
             overflow-x: hidden;
         }
-
 
         body {
-
             width: 100%;
-
             min-width: 0;
-
-            font-family:
-                "Noto Sans Tamil",
-                sans-serif;
-
-            background:
-                var(--brown-dark);
-
-            color:
-                var(--ivory);
-
+            font-family: "Noto Sans Tamil", sans-serif;
+            background: var(--brown-dark);
+            color: var(--ivory);
             line-height: 1.7;
-
             overflow-x: hidden;
         }
 
-
         body.booting {
-
             overflow: hidden;
-
             height: 100vh;
             height: 100svh;
         }
 
-
-        a {
-
-            color: inherit;
-
-            text-decoration: none;
-        }
-
-
-        button {
-
-            font-family: inherit;
-        }
-
-
-        img,
-        video,
-        svg,
-        canvas {
-
-            display: block;
-
-            max-width: 100%;
-        }
-
-
-        /* =========================================================
-           RESPONSIVE CONTAINERS
-        ========================================================== */
+        a { color: inherit; text-decoration: none; }
+        button { font-family: inherit; }
+        img, video, svg, canvas { display: block; max-width: 100%; }
 
         .section-inner {
-
-            width:
-                min(
-                    calc(100% - (var(--page-pad) * 2)),
-                    var(--max-width)
-                );
-
+            width: min(calc(100% - (var(--page-pad) * 2)), var(--max-width));
             min-width: 0;
-
             margin-inline: auto;
         }
 
-
         /* =========================================================
-           DEVELOPMENT TICKER
+           DEV TICKER
         ========================================================== */
 
         .dev-ticker {
-
             position: fixed;
-
             top: 76px;
             left: 0;
-
             width: 100%;
-
             height: 32px;
-
             overflow: hidden;
-
-            background:
-                var(--brown-deep);
-
-            border-bottom:
-                1px solid
-                rgba(212, 154, 67, 0.35);
-
+            background: var(--brown-deep);
+            border-bottom: 1px solid rgba(212, 154, 67, 0.35);
             white-space: nowrap;
-
             z-index: 999;
         }
 
-
         .dev-track {
-
             display: flex;
-
             width: max-content;
-
-            animation:
-                devScroll 24s linear infinite;
+            animation: devScroll 24s linear infinite;
         }
-
 
         .dev-track span {
-
             display: block;
-
-            padding:
-                7px 40px;
-
-            font-size:
-                0.68rem;
-
-            letter-spacing:
-                0.14em;
-
-            font-weight:
-                600;
-
-            color:
-                var(--parchment);
+            padding: 7px 40px;
+            font-size: 0.68rem;
+            letter-spacing: 0.14em;
+            font-weight: 600;
+            color: var(--parchment);
         }
-
 
         @keyframes devScroll {
-
-            from {
-
-                transform:
-                    translateX(0);
-            }
-
-            to {
-
-                transform:
-                    translateX(-50%);
-            }
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
         }
 
-
         /* =========================================================
-           BOOT / INTRO SCREEN
+           INTRO SCREEN (unchanged)
         ========================================================== */
 
         .intro-screen {
-
             position: fixed;
-
             inset: 0;
-
             width: 100%;
-
             height: 100vh;
             height: 100svh;
-
             display: flex;
-
             align-items: center;
             justify-content: center;
-
             background:
-
-                radial-gradient(
-                    circle at center,
-                    rgba(126, 50, 31, 0.18),
-                    transparent 42%
-                ),
-
+                radial-gradient(circle at center, rgba(126, 50, 31, 0.18), transparent 42%),
                 var(--brown-deep);
-
             z-index: 9999;
-
             opacity: 1;
-
             visibility: visible;
-
-            transition:
-                opacity 0.8s ease,
-                visibility 0.8s ease;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
         }
 
-
         .intro-screen.hide {
-
             opacity: 0;
-
             visibility: hidden;
-
             pointer-events: none;
         }
 
-
         .intro-content {
-
-            width:
-                min(90vw, 600px);
-
+            width: min(90vw, 600px);
             display: flex;
-
             flex-direction: column;
-
             align-items: center;
             justify-content: center;
-
             text-align: center;
-
-            animation:
-                introAppear 1.1s ease forwards;
+            animation: introAppear 1.1s ease forwards;
         }
-
 
         .intro-emblem-wrap {
-
             position: relative;
-
-            width:
-                clamp(145px, 16vw, 170px);
-
-            height:
-                clamp(145px, 16vw, 170px);
-
+            width: clamp(145px, 16vw, 170px);
+            height: clamp(145px, 16vw, 170px);
             display: flex;
-
             align-items: center;
             justify-content: center;
-
-            margin-bottom:
-                clamp(20px, 3vw, 28px);
+            margin-bottom: clamp(20px, 3vw, 28px);
         }
 
-
         .intro-emblem {
-
             position: relative;
-
             z-index: 2;
-
-            width:
-                clamp(95px, 11vw, 115px);
-
-            height:
-                clamp(95px, 11vw, 115px);
-
+            width: clamp(95px, 11vw, 115px);
+            height: clamp(95px, 11vw, 115px);
             object-fit: contain;
-
             opacity: 0;
-
             animation:
                 emblemAppear 0.9s ease 0.15s forwards,
                 emblemFloat 3s ease-in-out 1.1s infinite;
         }
 
-
         .intro-ring {
-
             position: absolute;
-
             inset: 5px;
-
-            border:
-                1px solid
-                rgba(212, 154, 67, 0.6);
-
+            border: 1px solid rgba(212, 154, 67, 0.6);
             border-radius: 50%;
-
-            transform:
-                rotate(-45deg);
-
+            transform: rotate(-45deg);
             opacity: 0;
-
-            animation:
-                ringDraw 1.2s ease 0.25s forwards;
+            animation: ringDraw 1.2s ease 0.25s forwards;
         }
-
 
         .intro-ring::after {
-
             content: "";
-
             position: absolute;
-
             width: 7px;
             height: 7px;
-
             top: -4px;
-
             left: 50%;
-
-            transform:
-                translateX(-50%);
-
-            background:
-                var(--orange);
-
+            transform: translateX(-50%);
+            background: var(--orange);
             border-radius: 50%;
-
-            box-shadow:
-                0 0 14px
-                rgba(244, 123, 32, 0.7);
+            box-shadow: 0 0 14px rgba(244, 123, 32, 0.7);
         }
-
 
         .intro-title {
-
-            font-size:
-                clamp(1.65rem, 4vw, 2.7rem);
-
-            font-weight:
-                600;
-
-            letter-spacing:
-                0.02em;
-
-            color:
-                var(--parchment);
-
+            font-size: clamp(1.65rem, 4vw, 2.7rem);
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: var(--parchment);
             opacity: 0;
-
-            animation:
-                textAppear 0.8s ease 0.75s forwards;
+            animation: textAppear 0.8s ease 0.75s forwards;
         }
-
 
         .intro-subtitle {
-
             margin-top: 8px;
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                clamp(0.62rem, 2vw, 0.95rem);
-
-            letter-spacing:
-                0.18em;
-
-            text-transform:
-                uppercase;
-
-            color:
-                var(--orange-bright);
-
+            font-family: "Playfair Display", serif;
+            font-size: clamp(0.62rem, 2vw, 0.95rem);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--orange-bright);
             opacity: 0;
-
-            animation:
-                textAppear 0.8s ease 0.95s forwards;
+            animation: textAppear 0.8s ease 0.95s forwards;
         }
-
 
         .intro-line {
-
             width: 0;
-
             height: 1px;
-
             margin-top: 22px;
-
-            background:
-                var(--gold);
-
+            background: var(--gold);
             opacity: 0.7;
-
-            animation:
-                lineExpand 0.8s ease 1.15s forwards;
+            animation: lineExpand 0.8s ease 1.15s forwards;
         }
-
-
-        /* =========================================================
-           BOOT ANIMATIONS
-        ========================================================== */
 
         @keyframes introAppear {
-
-            from {
-
-                opacity: 0;
-
-                transform:
-                    translateY(10px);
-            }
-
-            to {
-
-                opacity: 1;
-
-                transform:
-                    translateY(0);
-            }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
 
         @keyframes emblemAppear {
-
-            from {
-
-                opacity: 0;
-
-                transform:
-                    scale(0.75);
-            }
-
-            to {
-
-                opacity: 1;
-
-                transform:
-                    scale(1);
-            }
+            from { opacity: 0; transform: scale(0.75); }
+            to { opacity: 1; transform: scale(1); }
         }
-
 
         @keyframes emblemFloat {
-
-            0%,
-            100% {
-
-                transform:
-                    translateY(0);
-            }
-
-            50% {
-
-                transform:
-                    translateY(-4px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
         }
-
 
         @keyframes ringDraw {
-
-            from {
-
-                opacity: 0;
-
-                transform:
-                    rotate(-45deg)
-                    scale(0.75);
-            }
-
-            to {
-
-                opacity: 1;
-
-                transform:
-                    rotate(0deg)
-                    scale(1);
-            }
+            from { opacity: 0; transform: rotate(-45deg) scale(0.75); }
+            to { opacity: 1; transform: rotate(0deg) scale(1); }
         }
-
 
         @keyframes textAppear {
-
-            from {
-
-                opacity: 0;
-
-                transform:
-                    translateY(12px);
-            }
-
-            to {
-
-                opacity: 1;
-
-                transform:
-                    translateY(0);
-            }
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
 
         @keyframes lineExpand {
-
-            from {
-
-                width: 0;
-            }
-
-            to {
-
-                width: 90px;
-            }
+            from { width: 0; }
+            to { width: 90px; }
         }
-
 
         /* =========================================================
            NAVBAR
         ========================================================== */
 
         .navbar {
-
             position: fixed;
-
             top: 0;
             left: 0;
-
             width: 100%;
-
             min-height: 76px;
-
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
-
-            padding:
-                14px var(--page-pad);
-
-            background:
-                rgba(36, 22, 16, 0.76);
-
-            border-bottom:
-                1px solid
-                rgba(238, 217, 183, 0.12);
-
-            backdrop-filter:
-                blur(12px);
-
-            -webkit-backdrop-filter:
-                blur(12px);
-
+            padding: 14px var(--page-pad);
+            background: rgba(36, 22, 16, 0.76);
+            border-bottom: 1px solid rgba(238, 217, 183, 0.12);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             z-index: 1000;
         }
 
-
         .brand {
-
             display: flex;
-
             align-items: center;
-
-            gap:
-                clamp(9px, 1vw, 13px);
-
+            gap: clamp(9px, 1vw, 13px);
             min-width: 0;
         }
 
-
         .brand img {
-
-            width:
-                clamp(38px, 3vw, 48px);
-
-            height:
-                clamp(38px, 3vw, 48px);
-
+            width: clamp(38px, 3vw, 48px);
+            height: clamp(38px, 3vw, 48px);
             object-fit: contain;
-
             flex-shrink: 0;
         }
 
-
         .brand-text {
-
             display: flex;
-
             flex-direction: column;
-
             line-height: 1.2;
-
             min-width: 0;
         }
 
-
         .brand-tamil {
-
-            font-size:
-                clamp(0.82rem, 1.2vw, 1rem);
-
-            font-weight:
-                600;
-
-            color:
-                var(--parchment);
-
+            font-size: clamp(0.82rem, 1.2vw, 1rem);
+            font-weight: 600;
+            color: var(--parchment);
             white-space: nowrap;
         }
-
 
         .brand-english {
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                clamp(0.48rem, 0.7vw, 0.62rem);
-
-            letter-spacing:
-                0.08em;
-
-            color:
-                var(--orange-bright);
-
+            font-family: "Playfair Display", serif;
+            font-size: clamp(0.48rem, 0.7vw, 0.62rem);
+            letter-spacing: 0.08em;
+            color: var(--orange-bright);
             white-space: nowrap;
         }
-
 
         .nav-right {
-
             display: flex;
-
             align-items: center;
-
-            gap:
-                clamp(14px, 2vw, 32px);
+            gap: clamp(14px, 2vw, 32px);
         }
-
 
         .nav-links {
-
             display: flex;
-
             align-items: center;
-
-            gap:
-                clamp(18px, 2vw, 30px);
+            gap: clamp(18px, 2vw, 30px);
         }
-
 
         .nav-links a {
-
             position: relative;
-
-            font-size:
-                clamp(0.78rem, 1vw, 0.9rem);
-
-            color:
-                var(--parchment);
-
-            transition:
-                color 0.25s ease,
-                transform 0.25s ease;
+            font-size: clamp(0.78rem, 1vw, 0.9rem);
+            color: var(--parchment);
+            transition: color 0.25s ease, transform 0.25s ease;
         }
-
 
         .nav-links a::after {
-
             content: "";
-
             position: absolute;
-
-            left: 0;
-            bottom: -6px;
-
-            width: 0;
-            height: 1px;
-
-            background:
-                var(--orange);
-
-            transition:
-                width 0.25s ease;
+            left: 0; bottom: -6px;
+            width: 0; height: 1px;
+            background: var(--orange);
+            transition: width 0.25s ease;
         }
 
-
-        .nav-links a:hover {
-
-            color:
-                var(--orange-bright);
-
-            transform:
-                translateY(-1px);
-        }
-
-
-        .nav-links a:hover::after {
-
-            width: 100%;
-        }
-
+        .nav-links a:hover { color: var(--orange-bright); transform: translateY(-1px); }
+        .nav-links a:hover::after { width: 100%; }
 
         .language-toggle {
-
             cursor: pointer;
-
-            font-size:
-                clamp(0.68rem, 0.8vw, 0.75rem);
-
-            font-weight:
-                600;
-
-            color:
-                var(--orange-bright);
-
-            background:
-                transparent;
-
-            border:
-                1px solid
-                rgba(244, 123, 32, 0.45);
-
-            padding:
-                6px 10px;
-
-            border-radius:
-                20px;
-
+            font-size: clamp(0.68rem, 0.8vw, 0.75rem);
+            font-weight: 600;
+            color: var(--orange-bright);
+            background: transparent;
+            border: 1px solid rgba(244, 123, 32, 0.45);
+            padding: 6px 10px;
+            border-radius: 20px;
             white-space: nowrap;
-
-            transition:
-                background 0.25s ease,
-                color 0.25s ease;
+            transition: background 0.25s ease, color 0.25s ease;
         }
 
-
-        .language-toggle:hover {
-
-            background:
-                var(--orange);
-
-            color:
-                var(--brown-deep);
-        }
-
-
-        /* =========================================================
-           HAMBURGER
-        ========================================================== */
+        .language-toggle:hover { background: var(--orange); color: var(--brown-deep); }
 
         .hamburger {
-
             display: none;
-
-            width: 42px;
-            height: 42px;
-
-            align-items: center;
-            justify-content: center;
-
-            flex-direction: column;
-
-            gap: 5px;
-
+            width: 42px; height: 42px;
+            align-items: center; justify-content: center;
+            flex-direction: column; gap: 5px;
             cursor: pointer;
-
-            border:
-                1px solid
-                rgba(238, 217, 183, 0.16);
-
+            border: 1px solid rgba(238, 217, 183, 0.16);
             border-radius: 50%;
-
-            background:
-                rgba(255,255,255,0.03);
+            background: rgba(255, 255, 255, 0.03);
         }
-
 
         .hamburger span {
-
-            width: 17px;
-            height: 1.5px;
-
-            background:
-                var(--parchment);
-
-            transition:
-                transform 0.25s ease,
-                opacity 0.25s ease;
+            width: 17px; height: 1.5px;
+            background: var(--parchment);
+            transition: transform 0.25s ease, opacity 0.25s ease;
         }
 
-
-        .hamburger.open span:nth-child(1) {
-
-            transform:
-                translateY(6.5px)
-                rotate(45deg);
-        }
-
-
-        .hamburger.open span:nth-child(2) {
-
-            opacity: 0;
-        }
-
-
-        .hamburger.open span:nth-child(3) {
-
-            transform:
-                translateY(-6.5px)
-                rotate(-45deg);
-        }
-
+        .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
         .mobile-menu {
-
             display: none;
-
             position: absolute;
-
             top: calc(100% + 1px);
-
-            left: 0;
-            right: 0;
-
-            padding:
-                12px var(--page-pad) 18px;
-
-            background:
-                rgba(36, 22, 16, 0.97);
-
-            border-bottom:
-                1px solid
-                rgba(238, 217, 183, 0.12);
-
-            backdrop-filter:
-                blur(16px);
-
-            -webkit-backdrop-filter:
-                blur(16px);
+            left: 0; right: 0;
+            padding: 12px var(--page-pad) 18px;
+            background: rgba(36, 22, 16, 0.97);
+            border-bottom: 1px solid rgba(238, 217, 183, 0.12);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
         }
 
-
-        .mobile-menu.open {
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 4px;
-        }
-
-
+        .mobile-menu.open { display: flex; flex-direction: column; gap: 4px; }
         .mobile-menu a {
-
-            padding:
-                13px 8px;
-
-            color:
-                var(--parchment);
-
-            border-bottom:
-                1px solid
-                rgba(238, 217, 183, 0.07);
+            padding: 13px 8px;
+            color: var(--parchment);
+            border-bottom: 1px solid rgba(238, 217, 183, 0.07);
         }
-
-
-        .mobile-menu a:last-child {
-
-            border-bottom: none;
-        }
-
+        .mobile-menu a:last-child { border-bottom: none; }
 
         /* =========================================================
            HERO
         ========================================================== */
 
         .hero {
-
             position: relative;
-
             width: 100%;
-
-            min-height:
-                max(680px, 100dvh);
-
+            min-height: max(680px, 100dvh);
             display: flex;
-
             align-items: center;
             justify-content: center;
-
             text-align: center;
-
             background:
-
-                linear-gradient(
-                    to bottom,
-                    rgba(36, 22, 16, 0.48),
-                    rgba(36, 22, 16, 0.65)
-                ),
-
+                linear-gradient(to bottom, rgba(36, 22, 16, 0.48), rgba(36, 22, 16, 0.65)),
                 url("images/office-bearers.JPG");
-
-            background-size:
-                cover;
-
-            background-position:
-                center;
-
-            isolation:
-                isolate;
-
-            overflow:
-                hidden;
+            background-size: cover;
+            background-position: center;
+            isolation: isolate;
+            overflow: hidden;
         }
-
 
         .hero::after {
-
             content: "";
-
             position: absolute;
-
             inset: 0;
-
-            background:
-
-                linear-gradient(
-                    to top,
-                    rgba(36, 22, 16, 0.92),
-                    transparent 35%
-                );
-
-            z-index:
-                -1;
+            background: linear-gradient(to top, rgba(36, 22, 16, 0.92), transparent 35%);
+            z-index: -1;
         }
-
 
         .hero-content {
-
-            width:
-                min(
-                    calc(100% - (var(--page-pad) * 2)),
-                    1000px
-                );
-
-            padding-top:
-                clamp(100px, 13vh, 170px);
-
-            padding-bottom:
-                clamp(100px, 12vh, 150px);
+            width: min(calc(100% - (var(--page-pad) * 2)), 1000px);
+            padding-top: clamp(100px, 13vh, 170px);
+            padding-bottom: clamp(100px, 12vh, 150px);
         }
-
 
         .hero-emblem {
-
-            width:
-                clamp(78px, 9vw, 115px);
-
-            height:
-                clamp(78px, 9vw, 115px);
-
-            object-fit:
-                contain;
-
-            margin:
-                0 auto clamp(20px, 2.5vw, 25px);
-
-            filter:
-                drop-shadow(
-                    0 8px 20px
-                    rgba(36, 22, 16, 0.45)
-                );
+            width: clamp(78px, 9vw, 115px);
+            height: clamp(78px, 9vw, 115px);
+            object-fit: contain;
+            margin: 0 auto clamp(20px, 2.5vw, 25px);
+            filter: drop-shadow(0 8px 20px rgba(36, 22, 16, 0.45));
         }
-
 
         .hero-title {
-
-            font-size:
-                clamp(2.3rem, 6vw, 6rem);
-
-            line-height:
-                1.08;
-
-            font-weight:
-                700;
-
-            color:
-                var(--ivory);
-
-            text-shadow:
-                0 4px 25px
-                rgba(36, 22, 16, 0.6);
+            font-size: clamp(2.3rem, 6vw, 6rem);
+            line-height: 1.08;
+            font-weight: 700;
+            color: var(--ivory);
+            text-shadow: 0 4px 25px rgba(36, 22, 16, 0.6);
         }
-
 
         .hero-subtitle {
-
-            margin-top:
-                clamp(12px, 1.5vw, 16px);
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                clamp(0.72rem, 1.7vw, 1.1rem);
-
-            letter-spacing:
-                clamp(0.08em, 0.15vw, 0.15em);
-
-            text-transform:
-                uppercase;
-
-            color:
-                var(--orange-bright);
+            margin-top: clamp(12px, 1.5vw, 16px);
+            font-family: "Playfair Display", serif;
+            font-size: clamp(0.72rem, 1.7vw, 1.1rem);
+            letter-spacing: clamp(0.08em, 0.15vw, 0.15em);
+            text-transform: uppercase;
+            color: var(--orange-bright);
         }
-
 
         .hero-year {
-
             margin-top: 9px;
-
-            font-size:
-                clamp(0.78rem, 1.2vw, 0.95rem);
-
-            color:
-                var(--parchment);
-
-            opacity:
-                0.9;
+            font-size: clamp(0.78rem, 1.2vw, 0.95rem);
+            color: var(--parchment);
+            opacity: 0.9;
         }
-
 
         .hero-scroll {
-
             position: absolute;
-
-            bottom:
-                clamp(22px, 4vh, 40px);
-
+            bottom: clamp(22px, 4vh, 40px);
             left: 50%;
-
-            transform:
-                translateX(-50%);
-
-            font-size:
-                clamp(0.62rem, 0.8vw, 0.7rem);
-
-            letter-spacing:
-                0.18em;
-
-            text-transform:
-                uppercase;
-
-            color:
-                var(--parchment);
-
-            opacity:
-                0.65;
-
-            white-space:
-                nowrap;
+            transform: translateX(-50%);
+            font-size: clamp(0.62rem, 0.8vw, 0.7rem);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--parchment);
+            opacity: 0.65;
+            white-space: nowrap;
         }
-
 
         .hero-scroll::after {
-
             content: "";
-
             display: block;
-
             width: 1px;
-
-            height:
-                clamp(28px, 4vh, 35px);
-
-            margin:
-                9px auto 0;
-
-            background:
-                var(--orange);
+            height: clamp(28px, 4vh, 35px);
+            margin: 9px auto 0;
+            background: var(--orange);
         }
 
-
         /* =========================================================
-           GENERAL SECTIONS
+           SECTIONS
         ========================================================== */
 
         section {
-
             position: relative;
-
-            padding:
-                var(--section-space)
-                var(--page-pad);
-
-            overflow:
-                hidden;
+            padding: var(--section-space) var(--page-pad);
+            overflow: hidden;
         }
-
 
         .section-label {
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                clamp(0.7rem, 0.9vw, 0.8rem);
-
-            letter-spacing:
-                0.2em;
-
-            text-transform:
-                uppercase;
-
-            color:
-                var(--orange-bright);
-
-            margin-bottom:
-                clamp(12px, 1.5vw, 15px);
+            font-family: "Playfair Display", serif;
+            font-size: clamp(0.7rem, 0.9vw, 0.8rem);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--orange-bright);
+            margin-bottom: clamp(12px, 1.5vw, 15px);
         }
-
 
         .section-title {
-
-            font-size:
-                clamp(2rem, 4vw, 4rem);
-
-            line-height:
-                1.15;
-
-            margin-bottom:
-                clamp(18px, 2vw, 25px);
+            font-size: clamp(2rem, 4vw, 4rem);
+            line-height: 1.15;
+            margin-bottom: clamp(18px, 2vw, 25px);
         }
-
 
         .section-text {
-
-            width:
-                min(100%, 750px);
-
-            font-size:
-                clamp(0.92rem, 1.2vw, 1rem);
-
-            line-height:
-                1.9;
-
-            opacity:
-                0.9;
+            width: min(100%, 750px);
+            font-size: clamp(0.92rem, 1.2vw, 1rem);
+            line-height: 1.9;
+            opacity: 0.9;
         }
 
-
-        /* =========================================================
-           ABOUT PREVIEW
-        ========================================================== */
-
-        .about-preview {
-
-            background:
-                var(--parchment);
-
-            color:
-                var(--brown-dark);
-        }
-
-
-        .about-preview .section-label {
-
-            color:
-                var(--brick);
-        }
-
-
-        .about-preview .section-title {
-
-            color:
-                var(--brown-dark);
-        }
-
-
-        .about-preview .section-text {
-
-            color:
-                var(--cocoa);
-        }
-
+        .about-preview { background: var(--parchment); color: var(--brown-dark); }
+        .about-preview .section-label { color: var(--brick); }
+        .about-preview .section-title { color: var(--brown-dark); }
+        .about-preview .section-text { color: var(--cocoa); }
 
         .about-link {
-
-            display:
-                inline-block;
-
-            margin-top:
-                clamp(22px, 3vw, 28px);
-
-            padding-bottom:
-                6px;
-
-            border-bottom:
-                1px solid
-                var(--brick);
-
-            color:
-                var(--brick);
-
-            font-weight:
-                600;
-
-            transition:
-                color 0.25s ease,
-                border-color 0.25s ease;
+            display: inline-block;
+            margin-top: clamp(22px, 3vw, 28px);
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--brick);
+            color: var(--brick);
+            font-weight: 600;
+            transition: color 0.25s ease, border-color 0.25s ease;
         }
 
+        .about-link:hover { color: var(--orange); border-color: var(--orange); }
 
-        .about-link:hover {
-
-            color:
-                var(--orange);
-
-            border-color:
-                var(--orange);
-        }
-
-
-        /* =========================================================
-           IDENTITY
-        ========================================================== */
-
-        .identity {
-
-            background:
-                var(--blue-dark);
-        }
-
+        .identity { background: var(--blue-dark); }
 
         .identity::before,
         .identity::after {
-
             content: "";
-
             position: absolute;
-
-            border:
-                1px solid
-                rgba(238, 217, 183, 0.08);
-
-            transform:
-                rotate(45deg);
-
-            pointer-events:
-                none;
+            border: 1px solid rgba(238, 217, 183, 0.08);
+            transform: rotate(45deg);
+            pointer-events: none;
         }
-
 
         .identity::before {
-
-            width:
-                clamp(200px, 18vw, 280px);
-
-            height:
-                clamp(200px, 18vw, 280px);
-
-            top:
-                clamp(-130px, -8vw, -80px);
-
-            right:
-                clamp(-100px, -6vw, -50px);
+            width: clamp(200px, 18vw, 280px);
+            height: clamp(200px, 18vw, 280px);
+            top: clamp(-130px, -8vw, -80px);
+            right: clamp(-100px, -6vw, -50px);
         }
-
 
         .identity::after {
-
-            width:
-                clamp(140px, 13vw, 180px);
-
-            height:
-                clamp(140px, 13vw, 180px);
-
-            bottom:
-                clamp(-90px, -6vw, -50px);
-
-            left:
-                clamp(-80px, -5vw, -40px);
+            width: clamp(140px, 13vw, 180px);
+            height: clamp(140px, 13vw, 180px);
+            bottom: clamp(-90px, -6vw, -50px);
+            left: clamp(-80px, -5vw, -40px);
         }
 
-
-        .identity-content {
-
-            position:
-                relative;
-
-            z-index:
-                2;
-        }
-
+        .identity-content { position: relative; z-index: 2; }
 
         .identity-quote {
-
-            width:
-                min(100%, 900px);
-
-            font-size:
-                clamp(1.5rem, 3vw, 3rem);
-
-            line-height:
-                1.45;
-
-            color:
-                var(--ivory);
+            width: min(100%, 900px);
+            font-size: clamp(1.5rem, 3vw, 3rem);
+            line-height: 1.45;
+            color: var(--ivory);
         }
 
+        .identity-accent { color: var(--orange-bright); }
 
-        .identity-accent {
-
-            color:
-                var(--orange-bright);
-        }
-
-
-        /* =========================================================
-           OUR YEAR
-        ========================================================== */
-
-        .our-year {
-
-            background:
-                var(--brick-dark);
-        }
-
+        .our-year { background: var(--brick-dark); }
 
         .year-layout {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(2, minmax(0, 1fr));
-
-            gap:
-                clamp(40px, 7vw, 100px);
-
-            align-items:
-                center;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: clamp(40px, 7vw, 100px);
+            align-items: center;
         }
-
 
         .year-heading .section-title {
-
-            width:
-                min(100%, 600px);
-
-            color:
-                var(--ivory);
+            width: min(100%, 600px);
+            color: var(--ivory);
         }
-
 
         .year-description {
-
-            width:
-                min(100%, 560px);
-
-            justify-self:
-                end;
+            width: min(100%, 560px);
+            justify-self: end;
         }
-
 
         .year-description p {
-
-            font-size:
-                clamp(0.95rem, 1.25vw, 1.05rem);
-
-            line-height:
-                1.9;
-
-            color:
-                var(--parchment);
-
-            opacity:
-                0.9;
+            font-size: clamp(0.95rem, 1.25vw, 1.05rem);
+            line-height: 1.9;
+            color: var(--parchment);
+            opacity: 0.9;
         }
-
 
         .year-description .about-link {
-
-            color:
-                var(--orange-bright);
-
-            border-color:
-                rgba(255, 154, 61, 0.55);
+            color: var(--orange-bright);
+            border-color: rgba(255, 154, 61, 0.55);
         }
 
+        .year-description .about-link:hover { color: var(--ivory); border-color: var(--ivory); }
 
-        .year-description .about-link:hover {
-
-            color:
-                var(--ivory);
-
-            border-color:
-                var(--ivory);
-        }
-
-
-        /* =========================================================
-           FIND US
-        ========================================================== */
-
-        .find-us {
-
-            background:
-                var(--brown);
-        }
-
+        .find-us { background: var(--brown); }
 
         .social-links {
-
-            display:
-                flex;
-
-            flex-wrap:
-                wrap;
-
-            gap:
-                clamp(18px, 3vw, 28px);
-
-            margin-top:
-                clamp(26px, 3vw, 35px);
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(18px, 3vw, 28px);
+            margin-top: clamp(26px, 3vw, 35px);
         }
-
 
         .social-links a {
-
-            padding-bottom:
-                5px;
-
-            border-bottom:
-                1px solid
-                rgba(255, 154, 61, 0.55);
-
-            color:
-                var(--parchment);
-
-            transition:
-                color 0.25s ease,
-                border-color 0.25s ease;
+            padding-bottom: 5px;
+            border-bottom: 1px solid rgba(255, 154, 61, 0.55);
+            color: var(--parchment);
+            transition: color 0.25s ease, border-color 0.25s ease;
         }
-
 
         .social-links a:hover {
-
-            color:
-                var(--orange-bright);
-
-            border-color:
-                var(--orange-bright);
+            color: var(--orange-bright);
+            border-color: var(--orange-bright);
         }
-
-
-        /* =========================================================
-           FOOTER
-        ========================================================== */
 
         footer {
-
-            padding:
-                clamp(35px, 5vw, 55px)
-                var(--page-pad);
-
-            background:
-                var(--brown-deep);
-
-            border-top:
-                1px solid
-                rgba(238, 217, 183, 0.1);
-
-            text-align:
-                center;
+            padding: clamp(35px, 5vw, 55px) var(--page-pad);
+            background: var(--brown-deep);
+            border-top: 1px solid rgba(238, 217, 183, 0.1);
+            text-align: center;
         }
 
-
-        .footer-brand {
-
-            font-size:
-                clamp(0.9rem, 1.2vw, 1rem);
-
-            color:
-                var(--parchment);
-        }
-
+        .footer-brand { font-size: clamp(0.9rem, 1.2vw, 1rem); color: var(--parchment); }
 
         .footer-sub {
-
             margin-top: 8px;
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                clamp(0.58rem, 0.8vw, 0.7rem);
-
-            letter-spacing:
-                0.12em;
-
-            color:
-                var(--orange-bright);
+            font-family: "Playfair Display", serif;
+            font-size: clamp(0.58rem, 0.8vw, 0.7rem);
+            letter-spacing: 0.12em;
+            color: var(--orange-bright);
         }
-
 
         .footer-copy {
-
-            margin-top:
-                22px;
-
-            font-size:
-                clamp(0.62rem, 0.8vw, 0.7rem);
-
-            color:
-                var(--blue-light);
-
-            opacity:
-                0.75;
+            margin-top: 22px;
+            font-size: clamp(0.62rem, 0.8vw, 0.7rem);
+            color: var(--blue-light);
+            opacity: 0.75;
         }
 
-
         /* =========================================================
-           TABLET / SMALL LAPTOP
+           RESPONSIVE
         ========================================================== */
 
         @media (max-width: 900px) {
-
-            .nav-links {
-
-                gap:
-                    16px;
-            }
-
-
-            .year-layout {
-
-                grid-template-columns:
-                    1fr;
-
-                gap:
-                    35px;
-            }
-
-
-            .year-description {
-
-                justify-self:
-                    start;
-            }
-
+            .nav-links { gap: 16px; }
+            .year-layout { grid-template-columns: 1fr; gap: 35px; }
+            .year-description { justify-self: start; }
         }
-
-
-        /* =========================================================
-           MOBILE NAVIGATION
-        ========================================================== */
 
         @media (max-width: 700px) {
-
             :root {
-
-                --page-pad:
-                    clamp(18px, 5vw, 28px);
-
-                --section-space:
-                    clamp(68px, 12vw, 90px);
+                --page-pad: clamp(18px, 5vw, 28px);
+                --section-space: clamp(68px, 12vw, 90px);
             }
 
+            .navbar { min-height: 64px; padding: 10px var(--page-pad); }
+            .brand img { width: 38px; height: 38px; }
+            .brand-tamil { font-size: 0.86rem; }
+            .brand-english { font-size: 0.48rem; }
+            .nav-links { display: none; }
+            .nav-right { gap: 8px; }
+            .hamburger { display: flex; }
+            .dev-ticker { top: 64px; height: 30px; }
+            .dev-track span { padding: 6px 30px; font-size: 0.58rem; }
 
-            .navbar {
+            .hero { min-height: max(620px, 100dvh); background-position: center center; }
+            .hero-content { padding-top: 115px; padding-bottom: 110px; }
+            .hero-title { font-size: clamp(2.2rem, 10vw, 3.5rem); }
+            .hero-subtitle { max-width: 90%; margin-inline: auto; }
+            .hero-scroll { bottom: 20px; }
 
-                min-height:
-                    64px;
-
-                padding:
-                    10px var(--page-pad);
-            }
-
-
-            .brand img {
-
-                width:
-                    38px;
-
-                height:
-                    38px;
-            }
-
-
-            .brand-tamil {
-
-                font-size:
-                    0.86rem;
-            }
-
-
-            .brand-english {
-
-                font-size:
-                    0.48rem;
-            }
-
-
-            .nav-links {
-
-                display:
-                    none;
-            }
-
-
-            .nav-right {
-
-                gap:
-                    8px;
-            }
-
-
-            .hamburger {
-
-                display:
-                    flex;
-            }
-
-
-            .dev-ticker {
-
-                top:
-                    64px;
-
-                height:
-                    30px;
-            }
-
-
-            .dev-track span {
-
-                padding:
-                    6px 30px;
-
-                font-size:
-                    0.58rem;
-            }
-
-
-            .hero {
-
-                min-height:
-                    max(620px, 100dvh);
-
-                background-position:
-                    center center;
-            }
-
-
-            .hero-content {
-
-                padding-top:
-                    115px;
-
-                padding-bottom:
-                    110px;
-            }
-
-
-            .hero-title {
-
-                font-size:
-                    clamp(2.2rem, 10vw, 3.5rem);
-            }
-
-
-            .hero-subtitle {
-
-                max-width:
-                    90%;
-
-                margin-inline:
-                    auto;
-            }
-
-
-            .hero-scroll {
-
-                bottom:
-                    20px;
-            }
-
-
-            .social-links {
-
-                flex-direction:
-                    column;
-
-                align-items:
-                    flex-start;
-
-                gap:
-                    16px;
-            }
-
+            .social-links { flex-direction: column; align-items: flex-start; gap: 16px; }
         }
-
-
-        /* =========================================================
-           VERY SMALL PHONES
-        ========================================================== */
 
         @media (max-width: 360px) {
-
-            :root {
-
-                --page-pad:
-                    16px;
-            }
-
-
-            .brand {
-
-                gap:
-                    7px;
-            }
-
-
-            .brand img {
-
-                width:
-                    34px;
-
-                height:
-                    34px;
-            }
-
-
-            .brand-tamil {
-
-                font-size:
-                    0.76rem;
-            }
-
-
-            .brand-english {
-
-                font-size:
-                    0.42rem;
-            }
-
-
-            .language-toggle {
-
-                padding:
-                    5px 8px;
-
-                font-size:
-                    0.62rem;
-            }
-
-
-            .hamburger {
-
-                width:
-                    38px;
-
-                height:
-                    38px;
-            }
-
-
-            .hero-title {
-
-                font-size:
-                    2rem;
-            }
-
-
-            .hero-subtitle {
-
-                font-size:
-                    0.66rem;
-
-                letter-spacing:
-                    0.08em;
-            }
-
-
-            .hero-year {
-
-                font-size:
-                    0.76rem;
-            }
-
-
-            .section-title {
-
-                font-size:
-                    1.85rem;
-            }
-
-
-            .identity-quote {
-
-                font-size:
-                    1.4rem;
-            }
-
+            :root { --page-pad: 16px; }
+            .brand { gap: 7px; }
+            .brand img { width: 34px; height: 34px; }
+            .brand-tamil { font-size: 0.76rem; }
+            .brand-english { font-size: 0.42rem; }
+            .language-toggle { padding: 5px 8px; font-size: 0.62rem; }
+            .hamburger { width: 38px; height: 38px; }
+            .hero-title { font-size: 2rem; }
+            .hero-subtitle { font-size: 0.66rem; letter-spacing: 0.08em; }
+            .hero-year { font-size: 0.76rem; }
+            .section-title { font-size: 1.85rem; }
+            .identity-quote { font-size: 1.4rem; }
         }
-
-
-        /* =========================================================
-           LANDSCAPE PHONES
-        ========================================================== */
 
         @media (max-width: 900px) and (orientation: landscape) {
-
-            .hero {
-
-                min-height:
-                    620px;
-            }
-
-
-            .hero-content {
-
-                padding-top:
-                    110px;
-
-                padding-bottom:
-                    100px;
-            }
-
-
-            .hero-emblem {
-
-                width:
-                    70px;
-
-                height:
-                    70px;
-
-                margin-bottom:
-                    14px;
-            }
-
-
-            .hero-scroll {
-
-                display:
-                    none;
-            }
-
+            .hero { min-height: 620px; }
+            .hero-content { padding-top: 110px; padding-bottom: 100px; }
+            .hero-emblem { width: 70px; height: 70px; margin-bottom: 14px; }
+            .hero-scroll { display: none; }
         }
-
-
-        /* =========================================================
-           LARGE DISPLAYS
-        ========================================================== */
 
         @media (min-width: 1600px) {
-
-            :root {
-
-                --max-width:
-                    1600px;
-            }
-
-
+            :root { --max-width: 1600px; }
             .navbar {
-
-                padding-left:
-                    max(
-                        var(--page-pad),
-                        calc((100vw - 1600px) / 2)
-                    );
-
-                padding-right:
-                    max(
-                        var(--page-pad),
-                        calc((100vw - 1600px) / 2)
-                    );
+                padding-left: max(var(--page-pad), calc((100vw - 1600px) / 2));
+                padding-right: max(var(--page-pad), calc((100vw - 1600px) / 2));
             }
-
-
-            .hero-title {
-
-                font-size:
-                    clamp(5rem, 6vw, 7rem);
-            }
-
-
-            .hero-content {
-
-                width:
-                    min(1100px, 80vw);
-            }
-
-
-            .section-title {
-
-                font-size:
-                    clamp(3rem, 3.5vw, 4.5rem);
-            }
-
-
-            .identity-quote {
-
-                font-size:
-                    clamp(2.7rem, 3vw, 4rem);
-            }
-
-
-            .dev-track span {
-
-                font-size:
-                    0.72rem;
-            }
-
+            .hero-title { font-size: clamp(5rem, 6vw, 7rem); }
+            .hero-content { width: min(1100px, 80vw); }
+            .section-title { font-size: clamp(3rem, 3.5vw, 4.5rem); }
+            .identity-quote { font-size: clamp(2.7rem, 3vw, 4rem); }
+            .dev-track span { font-size: 0.72rem; }
         }
-
-
-        /* =========================================================
-           HUGE DISPLAYS / TV
-        ========================================================== */
 
         @media (min-width: 2200px) {
-
             :root {
-
-                --max-width:
-                    1800px;
-
-                --page-pad:
-                    clamp(50px, 4vw, 90px);
-
-                --section-space:
-                    clamp(110px, 8vw, 180px);
+                --max-width: 1800px;
+                --page-pad: clamp(50px, 4vw, 90px);
+                --section-space: clamp(110px, 8vw, 180px);
             }
-
-
             .navbar {
-
-                min-height:
-                    90px;
-
-                padding-left:
-                    max(
-                        var(--page-pad),
-                        calc((100vw - 1800px) / 2)
-                    );
-
-                padding-right:
-                    max(
-                        var(--page-pad),
-                        calc((100vw - 1800px) / 2)
-                    );
+                min-height: 90px;
+                padding-left: max(var(--page-pad), calc((100vw - 1800px) / 2));
+                padding-right: max(var(--page-pad), calc((100vw - 1800px) / 2));
             }
-
-
-            .brand img {
-
-                width:
-                    55px;
-
-                height:
-                    55px;
-            }
-
-
-            .brand-tamil {
-
-                font-size:
-                    1.2rem;
-            }
-
-
-            .brand-english {
-
-                font-size:
-                    0.72rem;
-            }
-
-
-            .nav-links a {
-
-                font-size:
-                    1rem;
-            }
-
-
-            .hero {
-
-                min-height:
-                    100dvh;
-            }
-
-
-            .hero-title {
-
-                font-size:
-                    clamp(6rem, 6vw, 8.5rem);
-            }
-
-
-            .hero-emblem {
-
-                width:
-                    135px;
-
-                height:
-                    135px;
-            }
-
-
-            .section-title {
-
-                font-size:
-                    clamp(3.5rem, 3.5vw, 5rem);
-            }
-
-
-            .section-text {
-
-                font-size:
-                    1.15rem;
-            }
-
-
-            .identity-quote {
-
-                font-size:
-                    clamp(3rem, 3vw, 4.5rem);
-            }
-
-
-            .year-description p {
-
-                font-size:
-                    1.2rem;
-            }
-
-
-            .footer-brand {
-
-                font-size:
-                    1.15rem;
-            }
-
+            .brand img { width: 55px; height: 55px; }
+            .brand-tamil { font-size: 1.2rem; }
+            .brand-english { font-size: 0.72rem; }
+            .nav-links a { font-size: 1rem; }
+            .hero { min-height: 100dvh; }
+            .hero-title { font-size: clamp(6rem, 6vw, 8.5rem); }
+            .hero-emblem { width: 135px; height: 135px; }
+            .section-title { font-size: clamp(3.5rem, 3.5vw, 5rem); }
+            .section-text { font-size: 1.15rem; }
+            .identity-quote { font-size: clamp(3rem, 3vw, 4.5rem); }
+            .year-description p { font-size: 1.2rem; }
+            .footer-brand { font-size: 1.15rem; }
         }
-
-
-        /* =========================================================
-           TOUCH DEVICES
-        ========================================================== */
 
         @media (hover: none) and (pointer: coarse) {
-
-            .nav-links a:hover {
-
-                color:
-                    var(--parchment);
-
-                transform:
-                    none;
-            }
-
-
-            .nav-links a:hover::after {
-
-                width:
-                    0;
-            }
-
-
-            .language-toggle:hover {
-
-                background:
-                    transparent;
-
-                color:
-                    var(--orange-bright);
-            }
-
-
-            .about-link:hover {
-
-                color:
-                    var(--brick);
-
-                border-color:
-                    var(--brick);
-            }
-
-
-            .social-links a:hover {
-
-                color:
-                    var(--parchment);
-
-                border-color:
-                    rgba(255, 154, 61, 0.55);
-            }
-
+            .nav-links a:hover { color: var(--parchment); transform: none; }
+            .nav-links a:hover::after { width: 0; }
+            .language-toggle:hover { background: transparent; color: var(--orange-bright); }
+            .about-link:hover { color: var(--brick); border-color: var(--brick); }
+            .social-links a:hover { color: var(--parchment); border-color: rgba(255, 154, 61, 0.55); }
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
 
         /* =========================================================
-           REDUCED MOTION
+           🪔 DIWALI SCENE
         ========================================================== */
 
+        .diwali-scene {
+            position: fixed;
+            inset: 0;
+            z-index: 9998;
+            background: radial-gradient(ellipse at 50% 100%, #3a1a10 0%, #1a0e22 40%, #0a0510 100%);
+            overflow: hidden;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.9s ease, visibility 0.9s ease;
+            cursor: pointer;
+        }
+
+        .diwali-scene.hide {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .diwali-sky {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        #stars span {
+            position: absolute;
+            width: var(--size, 2px);
+            height: var(--size, 2px);
+            background: #FFF7E7;
+            border-radius: 50%;
+            opacity: var(--bright, 0.7);
+            animation: starTwinkle 3s ease-in-out infinite;
+            box-shadow: 0 0 4px rgba(255, 247, 231, 0.6);
+        }
+
+        @keyframes starTwinkle {
+            0%, 100% { opacity: var(--bright, 0.7); transform: scale(1); }
+            50% { opacity: 0.15; transform: scale(0.55); }
+        }
+
+        .diwali-ground {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 22vh;
+            min-height: 120px;
+            pointer-events: none;
+        }
+
+        .diwali-ground svg { width: 100%; height: 100%; display: block; }
+
+        /* ---- ANAAR (flowerpot cracker) ---- */
+        .fountain {
+            position: absolute;
+            bottom: clamp(30px, 8vh, 90px);
+            width: clamp(70px, 9vw, 130px);
+            aspect-ratio: 120 / 140;
+            pointer-events: none;
+            z-index: 4;
+            filter: drop-shadow(0 0 18px rgba(255, 154, 61, 0.35));
+        }
+
+        .fountain-left  { left: clamp(6%, 18vw, 24%); }
+        .fountain-right { right: clamp(6%, 18vw, 24%); }
+
+        .fountain svg { width: 100%; height: 100%; display: block; }
+
+        .sparks {
+            position: absolute;
+            left: 50%;
+            top: 26%;
+            width: 0;
+            height: 0;
+            pointer-events: none;
+        }
+
+        .spark {
+            position: absolute;
+            left: 0; top: 0;
+            width: 4px; height: 4px;
+            margin: -2px 0 0 -2px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #fff 0%, #FFD54A 45%, #F47B20 85%, transparent 100%);
+            opacity: 0;
+            animation: fountainSpark 1.4s ease-out infinite;
+            filter: blur(0.2px);
+            pointer-events: none;
+            will-change: transform, opacity;
+        }
+
+        @keyframes fountainSpark {
+            0%   { transform: translate(0, 0) scale(1); opacity: 1; }
+            55%  { transform: translate(calc(var(--x) * 2.2), -520px) scale(0.7); opacity: 1; }
+            100% { transform: translate(calc(var(--x) * 3.2), 30px) scale(0.2); opacity: 0; }
+        }
+
+        /* ---- Rocket stage ---- */
+        .rocket-stage {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .rocket {
+            position: absolute;
+            bottom: 0;
+            width: 26px;
+            height: auto;
+            transform-origin: center bottom;
+            animation: rocketFly 1.25s cubic-bezier(0.35, 0.02, 0.75, 1) forwards;
+            pointer-events: none;
+            will-change: transform, opacity;
+        }
+
+        .rocket svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 0 8px rgba(255, 213, 74, 0.65));
+        }
+
+        .rocket::after {
+            content: "";
+            position: absolute;
+            left: 50%; bottom: -34px;
+            width: 6px; height: 34px;
+            transform: translateX(-50%);
+            background: linear-gradient(to bottom, rgba(255, 213, 74, 0.9), rgba(244, 123, 32, 0.4), transparent);
+            border-radius: 50%;
+            filter: blur(2px);
+        }
+
+        @keyframes rocketFly {
+            0%   { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+            15%  { opacity: 1; }
+            100% { transform: translate(var(--drift, 0), calc(-1 * var(--peak, 55vh))) rotate(var(--rot, 0deg)); opacity: 0.95; }
+        }
+
+        .burst {
+            position: absolute;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 6;
+        }
+
+        .burst-flash {
+            position: absolute;
+            width: 90px; height: 90px;
+            left: 50%; top: 50%;
+            border-radius: 50%;
+            background: radial-gradient(circle, #fff 0%, var(--color, #FFD54A) 40%, transparent 72%);
+            animation: burstFlash 0.55s ease-out forwards;
+        }
+
+        @keyframes burstFlash {
+            0%   { transform: translate(-50%, -50%) scale(0.1); opacity: 1; }
+            60%  { transform: translate(-50%, -50%) scale(1.2); opacity: 0.85; }
+            100% { transform: translate(-50%, -50%) scale(1.8); opacity: 0; }
+        }
+
+        .burst i {
+            position: absolute;
+            left: 50%; top: 50%;
+            width: var(--size, 3px);
+            height: var(--size, 3px);
+            border-radius: 50%;
+            background: var(--color, #FFD54A);
+            box-shadow: 0 0 6px var(--color, #FFD54A);
+            transform: translate(-50%, -50%);
+            animation: burstParticle var(--dur, 1s) ease-out forwards;
+        }
+
+        @keyframes burstParticle {
+            0%   { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            100% { transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(0.15); opacity: 0; }
+        }
+
+        .diwali-greeting {
+            position: absolute;
+            left: 50%; top: 48%;
+            transform: translate(-50%, -50%);
+            width: min(92%, 1000px);
+            text-align: center;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .greet-tamil {
+            font-family: "Noto Sans Tamil", sans-serif;
+            font-size: clamp(2rem, 5.5vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.25;
+            color: #FFF7E7;
+            opacity: 0;
+            text-shadow:
+                0 0 20px rgba(255, 154, 61, 0.6),
+                0 0 45px rgba(244, 123, 32, 0.45),
+                0 4px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .greet-english {
+            margin-top: clamp(12px, 1.6vw, 20px);
+            font-family: "Playfair Display", serif;
+            font-size: clamp(0.95rem, 1.9vw, 1.55rem);
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #FFD54A;
+            opacity: 0;
+            text-shadow:
+                0 0 14px rgba(255, 213, 74, 0.55),
+                0 4px 16px rgba(0, 0, 0, 0.6);
+        }
+
+        .greet-tamil.show {
+            animation:
+                greetIn 0.9s ease forwards,
+                greetGlow 2.4s ease-in-out 0.9s infinite;
+        }
+
+        .greet-english.show { animation: greetIn 0.9s ease 0.35s forwards; }
+
+        @keyframes greetIn {
+            from { opacity: 0; transform: translateY(18px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes greetGlow {
+            0%, 100% {
+                text-shadow:
+                    0 0 20px rgba(255, 154, 61, 0.6),
+                    0 0 45px rgba(244, 123, 32, 0.45),
+                    0 4px 20px rgba(0, 0, 0, 0.6);
+            }
+            50% {
+                text-shadow:
+                    0 0 30px rgba(255, 213, 74, 0.9),
+                    0 0 65px rgba(244, 123, 32, 0.75),
+                    0 4px 22px rgba(0, 0, 0, 0.7);
+            }
+        }
+
+        /* =========================================================
+           FESTIVE HANG UNDER TICKER
+        ========================================================== */
+
+        .festive-hang {
+            position: fixed;
+            top: 108px;
+            left: 0; right: 0;
+            pointer-events: none;
+            z-index: 998;
+        }
+
+        .bunting {
+            display: block;
+            width: 100%;
+            height: 50px;
+        }
+
+        .marigold-cluster {
+            position: absolute;
+            top: 0;
+            width: 60px; height: 200px;
+            transform-origin: top center;
+            animation: garlandSway 4s ease-in-out infinite;
+            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.25));
+        }
+
+        .marigold-cluster.left  { left: 0; }
+        .marigold-cluster.right { right: 0; animation-delay: -1.5s; }
+
+        .marigold-garland {
+            width: 100%; height: 100%;
+            display: block;
+            overflow: visible;
+        }
+
+        @keyframes garlandSway {
+            0%, 100% { transform: rotate(0deg); }
+            50%      { transform: rotate(2.5deg); }
+        }
+
+        @media (max-width: 700px) {
+            .festive-hang { top: 94px; }
+            .bunting { height: 42px; }
+            .marigold-cluster { width: 46px; height: 165px; }
+        }
+
+        @media (max-width: 360px) {
+            .marigold-cluster { width: 40px; height: 145px; }
+            .bunting { height: 38px; }
+        }
+
+        /* =========================================================
+           RESIDUAL SECTION ROCKETS
+        ========================================================== */
+
+        .section-rocket {
+            position: absolute;
+            width: 34px; height: 76px;
+            pointer-events: none;
+            z-index: -1;
+            transform: scale(var(--scale, 1)) rotate(var(--rot, 0deg));
+            animation: sectionRocketDrift var(--dur, 5s) ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 213, 74, 0.35));
+        }
+
+        .section-rocket svg { width: 100%; height: 100%; display: block; }
+
+        @keyframes sectionRocketDrift {
+            0%, 100% {
+                transform: scale(var(--scale, 1)) rotate(var(--rot, 0deg));
+                filter: drop-shadow(0 0 8px rgba(255, 213, 74, 0.3));
+            }
+            50% {
+                transform: scale(var(--scale, 1)) rotate(calc(var(--rot, 0deg) + 4deg));
+                filter: drop-shadow(0 0 16px rgba(255, 213, 74, 0.55));
+            }
+        }
+
+        @media (max-width: 700px) {
+            .section-rocket { width: 24px; height: 54px; }
+        }
+
         @media (prefers-reduced-motion: reduce) {
-
-            html {
-
-                scroll-behavior:
-                    auto;
+            .spark,
+            .rocket,
+            .burst i,
+            .burst-flash,
+            .marigold-cluster,
+            .section-rocket {
+                animation: none !important;
             }
-
-
-            *,
-            *::before,
-            *::after {
-
-                animation-duration:
-                    0.01ms !important;
-
-                animation-iteration-count:
-                    1 !important;
-
-                transition-duration:
-                    0.01ms !important;
-            }
-
+            .spark { opacity: 0.4; }
         }
 
     </style>
 
 </head>
 
-
 <body class="booting">
 
-
     <!-- =========================================================
-         BOOT SCREEN
+         INTRO SCREEN (unchanged)
     ========================================================== -->
 
-    <div
-        class="intro-screen"
-        id="introScreen"
-    >
-
+    <div class="intro-screen" id="introScreen">
         <div class="intro-content">
-
             <div class="intro-emblem-wrap">
-
                 <div class="intro-ring"></div>
-
                 <img
                     src="images/embelm.png"
                     alt="Thendral Tamizh Mandram emblem"
                     class="intro-emblem"
                 >
-
             </div>
-
-
-            <h1
-                class="intro-title"
-                data-ta="தென்றல் தமிழ் மன்றம்"
-                data-en="தென்றல் தமிழ் மன்றம்"
-            >
+            <h1 class="intro-title" data-ta="தென்றல் தமிழ் மன்றம்" data-en="தென்றல் தமிழ் மன்றம்">
                 தென்றல் தமிழ் மன்றம்
             </h1>
-
-
             <p
                 class="intro-subtitle"
                 data-ta="ஸ்ரீ வெங்கடேஸ்வரா பொறியியல் கல்லூரி"
@@ -2267,95 +1138,100 @@
             >
                 ஸ்ரீ வெங்கடேஸ்வரா பொறியியல் கல்லூரி
             </p>
-
-
             <div class="intro-line"></div>
+        </div>
+    </div>
 
+    <!-- =========================================================
+         DIWALI SCENE
+    ========================================================== -->
+
+    <div class="diwali-scene" id="diwaliScene" role="dialog" aria-label="Diwali greeting">
+
+        <div class="diwali-sky"><div id="stars"></div></div>
+
+        <div class="diwali-ground" aria-hidden="true">
+            <svg viewBox="0 0 1440 200" preserveAspectRatio="none">
+                <path d="M 0 120 Q 180 80 360 110 Q 540 140 720 100 Q 900 60 1080 105 Q 1260 145 1440 95 L 1440 200 L 0 200 Z" fill="#0a0510"/>
+                <path d="M 0 150 Q 180 130 360 145 Q 540 165 720 140 Q 900 115 1080 140 Q 1260 165 1440 135 L 1440 200 L 0 200 Z" fill="#050208"/>
+            </svg>
+        </div>
+
+        <!-- ANAAR (left) -->
+        <div class="fountain fountain-left" id="fountainLeft" aria-hidden="true">
+            <div class="sparks"></div>
+            <svg viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="60" cy="130" rx="44" ry="6" fill="#000" opacity="0.55"/>
+                <path d="M 16 126 L 104 126 L 72 36 L 48 36 Z" fill="#C85D32"/>
+                <path d="M 16 126 L 60 126 L 60 36 L 48 36 Z" fill="#7E321F" opacity="0.45"/>
+                <path d="M 56 36 L 64 36 L 66 126 L 54 126 Z" fill="#A94728" opacity="0.35"/>
+                <path d="M 48 44 L 72 44 L 71 56 L 49 56 Z" fill="#D49A43"/>
+                <path d="M 38 84 L 82 84 L 81 96 L 39 96 Z" fill="#D49A43"/>
+                <path d="M 22 118 L 98 118 L 97 126 L 23 126 Z" fill="#D49A43"/>
+                <polygon points="60,46 63,50 60,54 57,50" fill="#7E321F"/>
+                <polygon points="60,86 63,90 60,94 57,90" fill="#7E321F"/>
+                <polygon points="45,87 47,90 45,93 43,90" fill="#7E321F"/>
+                <polygon points="75,87 77,90 75,93 73,90" fill="#7E321F"/>
+                <ellipse cx="60" cy="36" rx="14" ry="4" fill="#7E321F"/>
+                <ellipse cx="60" cy="36" rx="10" ry="2.5" fill="#241610"/>
+                <ellipse cx="60" cy="36" rx="8" ry="2" fill="#FF9A3D" opacity="0.75"/>
+                <path d="M 68 34 Q 78 26 86 22" stroke="#3A7D44" stroke-width="2" stroke-linecap="round" fill="none"/>
+            </svg>
+        </div>
+
+        <!-- ANAAR (right) -->
+        <div class="fountain fountain-right" id="fountainRight" aria-hidden="true">
+            <div class="sparks"></div>
+            <svg viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="60" cy="130" rx="44" ry="6" fill="#000" opacity="0.55"/>
+                <path d="M 16 126 L 104 126 L 72 36 L 48 36 Z" fill="#C85D32"/>
+                <path d="M 16 126 L 60 126 L 60 36 L 48 36 Z" fill="#7E321F" opacity="0.45"/>
+                <path d="M 56 36 L 64 36 L 66 126 L 54 126 Z" fill="#A94728" opacity="0.35"/>
+                <path d="M 48 44 L 72 44 L 71 56 L 49 56 Z" fill="#D49A43"/>
+                <path d="M 38 84 L 82 84 L 81 96 L 39 96 Z" fill="#D49A43"/>
+                <path d="M 22 118 L 98 118 L 97 126 L 23 126 Z" fill="#D49A43"/>
+                <polygon points="60,46 63,50 60,54 57,50" fill="#7E321F"/>
+                <polygon points="60,86 63,90 60,94 57,90" fill="#7E321F"/>
+                <polygon points="45,87 47,90 45,93 43,90" fill="#7E321F"/>
+                <polygon points="75,87 77,90 75,93 73,90" fill="#7E321F"/>
+                <ellipse cx="60" cy="36" rx="14" ry="4" fill="#7E321F"/>
+                <ellipse cx="60" cy="36" rx="10" ry="2.5" fill="#241610"/>
+                <ellipse cx="60" cy="36" rx="8" ry="2" fill="#FF9A3D" opacity="0.75"/>
+                <path d="M 68 34 Q 78 26 86 22" stroke="#3A7D44" stroke-width="2" stroke-linecap="round" fill="none"/>
+            </svg>
+        </div>
+
+        <div class="rocket-stage" id="rocketStage"></div>
+
+        <div class="diwali-greeting" id="diwaliGreeting">
+            <h1 class="greet-tamil" lang="ta" id="greetTamil">இனிய தீபாவளி நல்வாழ்த்துக்கள்</h1>
+            <p class="greet-english" lang="en" id="greetEnglish">Happy Diwali</p>
         </div>
 
     </div>
 
-
-
     <!-- =========================================================
-         NAVIGATION
+         NAVIGATION (unchanged)
     ========================================================== -->
 
     <nav class="navbar">
-
-        <a
-            href="/home"
-            class="brand"
-        >
-
-            <img
-                src="images/embelm.png"
-                alt="Thendral Tamizh Mandram"
-            >
-
-
+        <a href="/home" class="brand">
+            <img src="images/embelm.png" alt="Thendral Tamizh Mandram">
             <div class="brand-text">
-
-                <span
-                    class="brand-tamil"
-                    data-ta="தென்றல் தமிழ் மன்றம்"
-                    data-en="தென்றல் தமிழ் மன்றம்"
-                >
+                <span class="brand-tamil" data-ta="தென்றல் தமிழ் மன்றம்" data-en="தென்றல் தமிழ் மன்றம்">
                     தென்றல் தமிழ் மன்றம்
                 </span>
-
-
-                <span class="brand-english">
-                    THENDRAL TAMIZH MANDRAM
-                </span>
-
+                <span class="brand-english">THENDRAL TAMIZH MANDRAM</span>
             </div>
-
         </a>
 
-
         <div class="nav-right">
-
             <div class="nav-links">
-
-                <a
-                    href="/home"
-                    data-ta="முகப்பு"
-                    data-en="Home"
-                >
-                    முகப்பு
-                </a>
-
-
-                <a
-                    href="/us"
-                    data-ta="எங்களைப் பற்றி"
-                    data-en="About"
-                >
-                    எங்களைப் பற்றி
-                </a>
-
-
-                <a
-                    href="/events"
-                    data-ta="நிகழ்வுகள்"
-                    data-en="Events"
-                >
-                    நிகழ்வுகள்
-                </a>
-
+                <a href="/home" data-ta="முகப்பு" data-en="Home">முகப்பு</a>
+                <a href="/us" data-ta="எங்களைப் பற்றி" data-en="About">எங்களைப் பற்றி</a>
+                <a href="/events" data-ta="நிகழ்வுகள்" data-en="Events">நிகழ்வுகள்</a>
             </div>
-
-
-            <button
-                class="language-toggle"
-                id="languageToggle"
-                onclick="toggleLanguage()"
-            >
-                EN
-            </button>
-
-
+            <button class="language-toggle" id="languageToggle" onclick="toggleLanguage()">EN</button>
             <button
                 class="hamburger"
                 id="hamburger"
@@ -2364,109 +1240,106 @@
                 aria-expanded="false"
                 type="button"
             >
-
-                <span></span>
-                <span></span>
-                <span></span>
-
+                <span></span><span></span><span></span>
             </button>
-
         </div>
 
-
-        <div
-            class="mobile-menu"
-            id="mobileMenu"
-        >
-
-            <a
-                href="/home"
-                data-ta="முகப்பு"
-                data-en="Home"
-            >
-                முகப்பு
-            </a>
-
-
-            <a
-                href="/us"
-                data-ta="எங்களைப் பற்றி"
-                data-en="About"
-            >
-                எங்களைப் பற்றி
-            </a>
-
-
-            <a
-                href="/events"
-                data-ta="நிகழ்வுகள்"
-                data-en="Events"
-            >
-                நிகழ்வுகள்
-            </a>
-
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="/home" data-ta="முகப்பு" data-en="Home">முகப்பு</a>
+            <a href="/us" data-ta="எங்களைப் பற்றி" data-en="About">எங்களைப் பற்றி</a>
+            <a href="/events" data-ta="நிகழ்வுகள்" data-en="Events">நிகழ்வுகள்</a>
         </div>
-
     </nav>
 
-
     <!-- =========================================================
-         DEVELOPMENT TICKER
+         DEV TICKER (unchanged)
     ========================================================== -->
 
-    <div
-        class="dev-ticker"
-        aria-label="Website under development"
-    >
-
+    <div class="dev-ticker" aria-label="Website under development">
         <div class="dev-track">
-
             <span>
                 ✦ மொழிக்காக மொழி காக்க ✦ மொழிக்காக மொழி காக்க ✦ மொழிக்காக மொழி காக்க ✦ மொழிக்காக மொழி காக்க ✦ மொழிக்காக மொழி காக்க ✦ மொழிக்காக மொழி காக்க ✦ மொழிக்காக மொழி காக்க ✦ 
             </span>
-
             <span>
-                ✦ மொழிக்காக மொழி காக்க ✦ மொழிக்காக மொழி காக்க ✦ மொழிக்காக மொழி காக்க ✦ மொழிக்காக மொழி காக்க ✦ மொழிக்காக மொழி காக்க ✦ மொழிக்காக மொழி காக்க ✦ மொழிக்காக மொழி காக்க ✦ 
+                ✦ மொழிக்காக மொழி காக்க ✦ மொழிக்காக மொழி காக்க ✦ மொழிக்காக மொழி காக்க ✦ மொழிக்காக மொழி காக்க ✦ மொழிக்காக மொழி காக்க ✦ மொழிக்காக மொழி காக்க ✦ மொழிக்காக மொழி காக்க ✦
             </span>
-
         </div>
-
     </div>
 
+    <!-- =========================================================
+         FESTIVE HANG
+    ========================================================== -->
 
+    <div class="festive-hang" id="festiveHang" aria-hidden="true">
+        <svg class="bunting" viewBox="0 0 1440 50" preserveAspectRatio="none"></svg>
+
+        <div class="marigold-cluster left">
+            <svg class="marigold-garland" viewBox="0 0 60 200" xmlns="http://www.w3.org/2000/svg">
+                <line x1="30" y1="0" x2="30" y2="30" stroke="#D49A43" stroke-width="1.2"/>
+                <use href="#marigold-flower" x="30" y="45"/>
+                <line x1="30" y1="60" x2="30" y2="75" stroke="#D49A43" stroke-width="1.2"/>
+                <use href="#marigold-flower" x="30" y="90"/>
+                <line x1="30" y1="105" x2="30" y2="120" stroke="#D49A43" stroke-width="1.2"/>
+                <use href="#marigold-flower" x="30" y="135"/>
+                <line x1="30" y1="150" x2="30" y2="168" stroke="#D49A43" stroke-width="1.2"/>
+                <ellipse cx="44" cy="158" rx="9" ry="4.5" fill="#3A7D44" transform="rotate(25 44 158)"/>
+                <ellipse cx="16" cy="176" rx="9" ry="4.5" fill="#3A7D44" transform="rotate(-25 16 176)"/>
+            </svg>
+        </div>
+
+        <div class="marigold-cluster right">
+            <svg class="marigold-garland" viewBox="0 0 60 200" xmlns="http://www.w3.org/2000/svg">
+                <line x1="30" y1="0" x2="30" y2="30" stroke="#D49A43" stroke-width="1.2"/>
+                <use href="#marigold-flower" x="30" y="45"/>
+                <line x1="30" y1="60" x2="30" y2="75" stroke="#D49A43" stroke-width="1.2"/>
+                <use href="#marigold-flower" x="30" y="90"/>
+                <line x1="30" y1="105" x2="30" y2="120" stroke="#D49A43" stroke-width="1.2"/>
+                <use href="#marigold-flower" x="30" y="135"/>
+                <line x1="30" y1="150" x2="30" y2="168" stroke="#D49A43" stroke-width="1.2"/>
+                <ellipse cx="44" cy="158" rx="9" ry="4.5" fill="#3A7D44" transform="rotate(25 44 158)"/>
+                <ellipse cx="16" cy="176" rx="9" ry="4.5" fill="#3A7D44" transform="rotate(-25 16 176)"/>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Reusable marigold def -->
+    <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
+        <defs>
+            <g id="marigold-flower">
+                <circle cx="0" cy="-12" r="6" fill="#F9C33C"/>
+                <circle cx="6" cy="-10.4" r="6" fill="#F9C33C"/>
+                <circle cx="10.4" cy="-6" r="6" fill="#F9C33C"/>
+                <circle cx="12" cy="0" r="6" fill="#F9C33C"/>
+                <circle cx="10.4" cy="6" r="6" fill="#F9C33C"/>
+                <circle cx="6" cy="10.4" r="6" fill="#F9C33C"/>
+                <circle cx="0" cy="12" r="6" fill="#F9C33C"/>
+                <circle cx="-6" cy="10.4" r="6" fill="#F9C33C"/>
+                <circle cx="-10.4" cy="6" r="6" fill="#F9C33C"/>
+                <circle cx="-12" cy="0" r="6" fill="#F9C33C"/>
+                <circle cx="-10.4" cy="-6" r="6" fill="#F9C33C"/>
+                <circle cx="-6" cy="-10.4" r="6" fill="#F9C33C"/>
+                <circle cx="0" cy="-6" r="5" fill="#F47B20"/>
+                <circle cx="5.2" cy="-3" r="5" fill="#F47B20"/>
+                <circle cx="5.2" cy="3" r="5" fill="#F47B20"/>
+                <circle cx="0" cy="6" r="5" fill="#F47B20"/>
+                <circle cx="-5.2" cy="3" r="5" fill="#F47B20"/>
+                <circle cx="-5.2" cy="-3" r="5" fill="#F47B20"/>
+                <circle cx="0" cy="0" r="4" fill="#C85D32"/>
+            </g>
+        </defs>
+    </svg>
 
     <!-- =========================================================
-         MAIN
+         MAIN (unchanged content)
     ========================================================== -->
 
     <main>
-
-
-        <!-- =====================================================
-             HERO
-        ====================================================== -->
-
         <section class="hero">
-
             <div class="hero-content">
-
-
-                <img
-                    src="images/embelm.png"
-                    alt="Thendral Tamizh Mandram emblem"
-                    class="hero-emblem"
-                >
-
-
-                <h1
-                    class="hero-title"
-                    data-ta="தென்றல் தமிழ் மன்றம்"
-                    data-en="தென்றல் தமிழ் மன்றம்"
-                >
+                <img src="images/embelm.png" alt="Thendral Tamizh Mandram emblem" class="hero-emblem">
+                <h1 class="hero-title" data-ta="தென்றல் தமிழ் மன்றம்" data-en="தென்றல் தமிழ் மன்றம்">
                     தென்றல் தமிழ் மன்றம்
                 </h1>
-
-
                 <p
                     class="hero-subtitle"
                     data-ta="ஸ்ரீ வெங்கடேஸ்வரா பொறியியல் கல்லூரி"
@@ -2474,8 +1347,6 @@
                 >
                     ஸ்ரீ வெங்கடேஸ்வரா பொறியியல் கல்லூரி
                 </p>
-
-
                 <p
                     class="hero-year"
                     data-ta="அலுவலர் குழு — 2026–27"
@@ -2483,176 +1354,56 @@
                 >
                     அலுவலர் குழு — 2026–27
                 </p>
-
             </div>
-
-
-            <div
-                class="hero-scroll"
-                data-ta="கீழே தொடர்க"
-                data-en="Scroll"
-            >
-                கீழே தொடர்க
-            </div>
-
+            <div class="hero-scroll" data-ta="கீழே தொடர்க" data-en="Scroll">கீழே தொடர்க</div>
         </section>
 
-
-
-        <!-- =====================================================
-             ABOUT PREVIEW
-        ====================================================== -->
-
         <section class="about-preview">
-
             <div class="section-inner">
-
-
-                <p
-                    class="section-label"
-                    data-ta="நாங்கள் யார்?"
-                    data-en="Who we are"
-                >
-                    நாங்கள் யார்?
-                </p>
-
-
+                <p class="section-label" data-ta="நாங்கள் யார்?" data-en="Who we are">நாங்கள் யார்?</p>
                 <h2
                     class="section-title"
                     data-ta="தமிழை வாழ்வில் கொண்டாடும் ஒரு மாணவர் சமூகமாம்."
                     data-en="A student community that celebrates Tamil."
                 >
-                    தமிழை வாழ்வில் கொண்டாடும்
-                    ஒரு மாணவர் சமூகமாம்.
+                    தமிழை வாழ்வில் கொண்டாடும் ஒரு மாணவர் சமூகமாம்.
                 </h2>
-
-
                 <p
                     class="section-text"
                     data-ta="தென்றல் தமிழ் மன்றம் என்பது மொழியை மட்டும் கொண்டாடும் இடமல்ல. இலக்கியம், கலை, இசை, பாரம்பரியம் மற்றும் மாணவர்களின் படைப்பாற்றல் ஆகியவற்றை ஒன்றிணைக்கும் ஒரு சமூகமாகும்."
                     data-en="Thendral Tamizh Mandram is more than a space for language. It brings together literature, art, music, heritage and the creativity of students."
                 >
-                    தென்றல் தமிழ் மன்றம் என்பது மொழியை மட்டும்
-                    கொண்டாடும் இடமல்ல. இலக்கியம், கலை, இசை,
-                    பாரம்பரியம் மற்றும் மாணவர்களின் படைப்பாற்றல்
-                    ஆகியவற்றை ஒன்றிணைக்கும் ஒரு சமூகமாகும்.
+                    தென்றல் தமிழ் மன்றம் என்பது மொழியை மட்டும் கொண்டாடும் இடமல்ல. இலக்கியம், கலை, இசை, பாரம்பரியம் மற்றும் மாணவர்களின் படைப்பாற்றல் ஆகியவற்றை ஒன்றிணைக்கும் ஒரு சமூகமாகும்.
                 </p>
-
-
-                <a
-                    href="/home"
-                    class="about-link"
-                    data-ta="மேலும் அறிய →"
-                    data-en="Discover more →"
-                >
-                    மேலும் அறிய →
-                </a>
-
+                <a href="/us" class="about-link" data-ta="மேலும் அறிய →" data-en="Discover more →">மேலும் அறிய →</a>
             </div>
-
         </section>
-
-
-
-        <!-- =====================================================
-             IDENTITY
-        ====================================================== -->
 
         <section class="identity">
-
             <div class="section-inner identity-content">
-
-
-                <p
-                    class="section-label"
-                    data-ta="எங்கள் அடையாளம்"
-                    data-en="Our identity"
-                >
-                    எங்கள் அடையாளம்
-                </p>
-
-
+                <p class="section-label" data-ta="எங்கள் அடையாளம்" data-en="Our identity">எங்கள் அடையாளம்</p>
                 <p class="identity-quote">
-
-                    <span
-                        data-ta="மொழி என்பது "
-                        data-en="Language is "
-                    >
-                        மொழி என்பது
-                    </span>
-
-
-                    <span
-                        class="identity-accent"
-                        data-ta="வார்த்தைகள் மட்டும் அல்ல."
-                        data-en="more than words."
-                    >
-                        வார்த்தைகள் மட்டும் அல்ல.
-                    </span>
-
-
+                    <span data-ta="மொழி என்பது " data-en="Language is ">மொழி என்பது</span>
+                    <span class="identity-accent" data-ta="வார்த்தைகள் மட்டும் அல்ல." data-en="more than words.">வார்த்தைகள் மட்டும் அல்ல.</span>
                     <br>
-
-
-                    <span
-                        data-ta="அது நினைவுகள், கலை, மக்கள் மற்றும் நாம்."
-                        data-en="It is memory, art, people, and us."
-                    >
-                        அது நினைவுகள், கலை, மக்கள் மற்றும் நாம்.
-                    </span>
-
+                    <span data-ta="அது நினைவுகள், கலை, மக்கள் மற்றும் நாம்." data-en="It is memory, art, people, and us.">அது நினைவுகள், கலை, மக்கள் மற்றும் நாம்.</span>
                 </p>
-
             </div>
-
         </section>
 
-
-
-        <!-- =====================================================
-             OUR YEAR
-        ====================================================== -->
-
         <section class="our-year">
-
             <div class="section-inner year-layout">
-
-
                 <div class="year-heading">
-
-                    <p
-                        class="section-label"
-                        data-ta="2026–27"
-                        data-en="2026–27"
-                    >
-                        2026–27
-                    </p>
-
-
-                    <h2
-                        class="section-title"
-                        data-ta="ஒரு புதிய அத்தியாயம்."
-                        data-en="A new chapter."
-                    >
-                        ஒரு புதிய அத்தியாயம்.
-                    </h2>
-
+                    <p class="section-label" data-ta="2026–27" data-en="2026–27">2026–27</p>
+                    <h2 class="section-title" data-ta="ஒரு புதிய அத்தியாயம்." data-en="A new chapter.">ஒரு புதிய அத்தியாயம்.</h2>
                 </div>
-
-
                 <div class="year-description">
-
                     <p
                         data-ta="தென்றல் தமிழ் மன்றத்தின் 2026–27 பயணம் இங்கிருந்து தொடங்குகிறது — மொழி, கலை, கலாச்சாரம் மற்றும் மாணவர் சமூகத்தை ஒன்றிணைக்கும் ஒரு வருடம்."
                         data-en="The 2026–27 journey of Thendral Tamizh Mandram begins here — a year bringing together language, art, culture and student community."
                     >
-                        தென்றல் தமிழ் மன்றத்தின் 2026–27 பயணம்
-                        இங்கிருந்து தொடங்குகிறது — மொழி, கலை,
-                        கலாச்சாரம் மற்றும் மாணவர் சமூகத்தை
-                        ஒன்றிணைக்கும் ஒரு வருடம்.
+                        தென்றல் தமிழ் மன்றத்தின் 2026–27 பயணம் இங்கிருந்து தொடங்குகிறது — மொழி, கலை, கலாச்சாரம் மற்றும் மாணவர் சமூகத்தை ஒன்றிணைக்கும் ஒரு வருடம்.
                     </p>
-
-
                     <a
                         href="/events"
                         class="about-link"
@@ -2661,124 +1412,35 @@
                     >
                         இந்த ஆண்டின் நிகழ்வுகளைப் பார்க்க →
                     </a>
-
                 </div>
-
             </div>
-
         </section>
 
-
-
-        <!-- =====================================================
-             FIND US
-        ====================================================== -->
-
         <section class="find-us">
-
             <div class="section-inner">
-
-
-                <p
-                    class="section-label"
-                    data-ta="எங்களைக் கண்டுபிடிக்க"
-                    data-en="Find us"
-                >
-                    எங்களைக் கண்டுபிடிக்க
-                </p>
-
-
-                <h2
-                    class="section-title"
-                    data-ta="இணைந்திருங்கள்."
-                    data-en="Stay connected."
-                >
-                    இணைந்திருங்கள்.
-                </h2>
-
-
+                <p class="section-label" data-ta="எங்களைக் கண்டுபிடிக்க" data-en="Find us">எங்களைக் கண்டுபிடிக்க</p>
+                <h2 class="section-title" data-ta="இணைந்திருங்கள்." data-en="Stay connected.">இணைந்திருங்கள்.</h2>
                 <p
                     class="section-text"
                     data-ta="நிகழ்வுகள், அறிவிப்புகள் மற்றும் எங்கள் பயணத்தின் தருணங்களைத் தொடர்ந்து அறிந்துகொள்ளுங்கள்."
                     data-en="Follow our events, announcements and moments from the journey."
                 >
-                    நிகழ்வுகள், அறிவிப்புகள் மற்றும் எங்கள்
-                    பயணத்தின் தருணங்களைத் தொடர்ந்து அறிந்துகொள்ளுங்கள்.
+                    நிகழ்வுகள், அறிவிப்புகள் மற்றும் எங்கள் பயணத்தின் தருணங்களைத் தொடர்ந்து அறிந்துகொள்ளுங்கள்.
                 </p>
-
-
                 <div class="social-links">
-
-
-                    <a
-                        href="https://www.instagram.com/svce_tamil_mandram/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Instagram →
-                    </a>
-
-
-                    <a
-                        href="https://www.linkedin.com/company/thendral-tamil-mandram/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        LinkedIn →
-                    </a>
-
-                    <a
-                        href="mailto:thendraltamizhmandram@svce.ac.in"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Mail →
-                    </a>
-
-
+                    <a href="https://www.instagram.com/svce_tamil_mandram/" target="_blank" rel="noopener noreferrer">Instagram →</a>
+                    <a href="https://www.linkedin.com/company/thendral-tamil-mandram/" target="_blank" rel="noopener noreferrer">LinkedIn →</a>
+                    <a href="mailto:thendraltamizhmandram@svce.ac.in" target="_blank" rel="noopener noreferrer">Mail →</a>
                 </div>
-
             </div>
-
         </section>
-
     </main>
 
-
-
-    <!-- =========================================================
-         FOOTER
-    ========================================================== -->
-
     <footer>
-
-
-        <div
-            class="footer-brand"
-            data-ta="தென்றல் தமிழ் மன்றம்"
-            data-en="தென்றல் தமிழ் மன்றம்"
-        >
-            தென்றல் தமிழ் மன்றம்
-        </div>
-
-
-        <div class="footer-sub">
-            SRI VENKATESWARA COLLEGE OF ENGINEERING
-        </div>
-
-
-        <div
-            class="footer-copy"
-            data-ta="2026–27 அலுவலர் குழு"
-            data-en="2026–27 Office Bearers"
-        >
-            2026–27 அலுவலர் குழு
-        </div>
-
-
+        <div class="footer-brand" data-ta="தென்றல் தமிழ் மன்றம்" data-en="தென்றல் தமிழ் மன்றம்">தென்றல் தமிழ் மன்றம்</div>
+        <div class="footer-sub">SRI VENKATESWARA COLLEGE OF ENGINEERING</div>
+        <div class="footer-copy" data-ta="2026–27 அலுவலர் குழு" data-en="2026–27 Office Bearers">2026–27 அலுவலர் குழு</div>
     </footer>
-
-
 
     <!-- =========================================================
          JAVASCRIPT
@@ -2786,249 +1448,305 @@
 
     <script>
 
-
-        /* =========================================================
-           BOOT SCREEN
-        ========================================================== */
-
         window.addEventListener("load", () => {
-
-            const intro =
-                document.getElementById("introScreen");
-
 
             document.body.classList.add("booting");
 
+            const intro = document.getElementById("introScreen");
+
+            buildStars();
+            buildSparks(document.querySelector("#fountainLeft .sparks"), 54);
+            buildSparks(document.querySelector("#fountainRight .sparks"), 54);
+            buildBunting();
 
             setTimeout(() => {
-
                 intro.classList.add("hide");
-
-
-                setTimeout(() => {
-
-                    document.body.classList.remove("booting");
-
-                }, 800);
-
+                startDiwaliSequence();
             }, 2400);
 
         });
 
+        const diwaliTimers = [];
+        let diwaliSkipped = false;
 
+        function schedule(fn, delay) {
+            const id = setTimeout(fn, delay);
+            diwaliTimers.push(id);
+            return id;
+        }
 
-        /* =========================================================
-           LANGUAGE TOGGLE
-        ========================================================== */
+        function clearDiwaliTimers() {
+            diwaliTimers.forEach(id => clearTimeout(id));
+            diwaliTimers.length = 0;
+        }
+
+        function startDiwaliSequence() {
+
+            const scene = document.getElementById("diwaliScene");
+            const tamil = document.getElementById("greetTamil");
+            const english = document.getElementById("greetEnglish");
+
+            schedule(() => tamil.classList.add("show"), 1000);
+            schedule(() => english.classList.add("show"), 1400);
+
+            schedule(() => launchRocket({ x: 28, peak: "60vh", drift: "6vw",  rot: "-8deg", color: "#FFD54A", dur: 1.25 }), 200);
+            schedule(() => launchRocket({ x: 68, peak: "52vh", drift: "-5vw", rot: "7deg",  color: "#FF6B4A", dur: 1.25 }), 500);
+            schedule(() => launchRocket({ x: 50, peak: "68vh", drift: "2vw",  rot: "0deg",  color: "#8AE05C", dur: 1.3  }), 800);
+            schedule(() => launchRocket({ x: 22, peak: "58vh", drift: "5vw",  rot: "-6deg", color: "#FFB74D", dur: 1.25 }), 1400);
+            schedule(() => launchRocket({ x: 76, peak: "66vh", drift: "-4vw", rot: "6deg",  color: "#E14CD1", dur: 1.3  }), 1700);
+            schedule(() => launchRocket({ x: 50, peak: "72vh", drift: "0vw",  rot: "0deg",  color: "#FFF7E7", dur: 1.4  }), 2400);
+
+            schedule(() => scene.classList.add("hide"), 5500);
+            schedule(() => finishDiwali(false), 6400);
+        }
+
+        function finishDiwali(skipped) {
+            if (diwaliSkipped) return;
+            diwaliSkipped = true;
+            clearDiwaliTimers();
+
+            const scene = document.getElementById("diwaliScene");
+            scene.classList.add("hide");
+            scene.style.pointerEvents = "none";
+
+            setTimeout(() => {
+                document.body.classList.remove("booting");
+                spawnSectionRockets();
+            }, 900);
+        }
+
+        function buildStars() {
+            const container = document.getElementById("stars");
+            if (!container) return;
+            const frag = document.createDocumentFragment();
+            for (let i = 0; i < 70; i++) {
+                const star = document.createElement("span");
+                star.style.left = Math.random() * 100 + "%";
+                star.style.top = Math.random() * 80 + "%";
+                star.style.setProperty("--size", (1 + Math.random() * 2).toFixed(2) + "px");
+                star.style.setProperty("--bright", (0.3 + Math.random() * 0.7).toFixed(2));
+                star.style.animationDelay = (Math.random() * 3).toFixed(2) + "s";
+                star.style.animationDuration = (2.5 + Math.random() * 2).toFixed(2) + "s";
+                frag.appendChild(star);
+            }
+            container.appendChild(frag);
+        }
+
+        function buildSparks(container, count) {
+            if (!container) return;
+            for (let i = 0; i < count; i++) {
+                const s = document.createElement("span");
+                s.className = "spark";
+                const x = (Math.random() * 2 - 1) * 46;
+                s.style.setProperty("--x", x.toFixed(1) + "px");
+                s.style.animationDelay = (Math.random() * 1.4).toFixed(2) + "s";
+                s.style.animationDuration = (1.2 + Math.random() * 0.7).toFixed(2) + "s";
+                const tint = ["#FFD54A", "#FF9A3D", "#F47B20", "#FFF7E7"][Math.floor(Math.random() * 4)];
+                s.style.background = `radial-gradient(circle, #fff 0%, ${tint} 45%, ${tint} 80%, transparent 100%)`;
+                container.appendChild(s);
+            }
+        }
+
+        function buildBunting() {
+            const svg = document.querySelector(".bunting");
+            if (!svg) return;
+            const W = 1440, H = 50;
+            const flagCount = 26;
+            const colors = ["#F47B20", "#D49A43", "#A94728", "#315C72", "#C85D32", "#FFD54A"];
+            let html = `<path d="M 0 8 Q ${W/4} 34 ${W/2} 8 Q ${W*3/4} 34 ${W} 8" stroke="#D49A43" stroke-width="1.5" fill="none"/>`;
+
+            function sagY(t) {
+                if (t < 0.5) {
+                    const tt = t * 2;
+                    return (1-tt)*(1-tt)*8 + 2*(1-tt)*tt*34 + tt*tt*8;
+                }
+                const tt = (t - 0.5) * 2;
+                return (1-tt)*(1-tt)*8 + 2*(1-tt)*tt*34 + tt*tt*8;
+            }
+
+            for (let i = 0; i < flagCount; i++) {
+                const t = (i + 0.5) / flagCount;
+                const cx = t * W;
+                const cy = sagY(t);
+                const flagW = 16, flagH = 18;
+                const color = colors[i % colors.length];
+                html += `<polygon points="${cx-flagW/2},${cy} ${cx+flagW/2},${cy} ${cx},${cy+flagH}" fill="${color}"/>`;
+                html += `<circle cx="${cx}" cy="${cy+flagH+3}" r="2.5" fill="#D49A43"/>`;
+            }
+
+            svg.innerHTML = html;
+        }
+
+        function rocketSvg(color) {
+            return `
+                <svg viewBox="0 0 40 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                    <path d="M 20 2 Q 10 25 8 40 L 32 40 Q 30 25 20 2 Z" fill="#C85D32"/>
+                    <rect x="8" y="40" width="24" height="38" rx="2" fill="${color}"/>
+                    <rect x="8" y="50" width="24" height="4" fill="#FFF7E7" opacity="0.75"/>
+                    <rect x="8" y="60" width="24" height="4" fill="#FFF7E7" opacity="0.75"/>
+                    <circle cx="20" cy="55" r="3" fill="#FFF7E7"/>
+                    <path d="M 8 60 L 0 82 L 8 78 Z" fill="#7E321F"/>
+                    <path d="M 32 60 L 40 82 L 32 78 Z" fill="#7E321F"/>
+                    <path d="M 12 78 Q 20 100 28 78 Z" fill="#FFD54A" opacity="0.85"/>
+                    <path d="M 15 78 Q 20 92 25 78 Z" fill="#F47B20"/>
+                </svg>
+            `;
+        }
+
+        function launchRocket(opts) {
+            const stage = document.getElementById("rocketStage");
+            if (!stage) return;
+
+            const rocket = document.createElement("div");
+            rocket.className = "rocket";
+            rocket.style.left = opts.x + "%";
+            rocket.style.setProperty("--peak", opts.peak);
+            rocket.style.setProperty("--drift", opts.drift);
+            rocket.style.setProperty("--rot", opts.rot);
+            rocket.style.animationDuration = opts.dur + "s";
+            rocket.innerHTML = rocketSvg(opts.color);
+
+            stage.appendChild(rocket);
+
+            const onEnd = () => {
+                rocket.removeEventListener("animationend", onEnd);
+                const stageRect = stage.getBoundingClientRect();
+                const rRect = rocket.getBoundingClientRect();
+                const bx = rRect.left - stageRect.left + rRect.width / 2;
+                const by = rRect.top - stageRect.top + rRect.height / 2;
+                rocket.remove();
+                createBurst(bx, by, opts.color);
+            };
+
+            rocket.addEventListener("animationend", onEnd);
+        }
+
+        function createBurst(x, y, color) {
+            const stage = document.getElementById("rocketStage");
+            if (!stage) return;
+
+            const burst = document.createElement("div");
+            burst.className = "burst";
+            burst.style.left = x + "px";
+            burst.style.top = y + "px";
+            burst.style.setProperty("--color", color);
+
+            const flash = document.createElement("span");
+            flash.className = "burst-flash";
+            burst.appendChild(flash);
+
+            const count = 18;
+            for (let i = 0; i < count; i++) {
+                const p = document.createElement("i");
+                const angle = (Math.PI * 2 * i / count) + (Math.random() * 0.3 - 0.15);
+                const dist = 55 + Math.random() * 80;
+                p.style.setProperty("--tx", (Math.cos(angle) * dist).toFixed(1) + "px");
+                p.style.setProperty("--ty", (Math.sin(angle) * dist).toFixed(1) + "px");
+                p.style.setProperty("--size", (2 + Math.random() * 3).toFixed(1) + "px");
+                p.style.setProperty("--dur", (0.85 + Math.random() * 0.5).toFixed(2) + "s");
+                burst.appendChild(p);
+            }
+
+            stage.appendChild(burst);
+            setTimeout(() => burst.remove(), 2000);
+        }
+
+        function spawnSectionRockets() {
+            const sections = document.querySelectorAll("main > section");
+            if (!sections.length) return;
+
+            const configs = [
+                { idx: 0, opacity: 0.34, scale: 1.00 },
+                { idx: 1, opacity: 0.14, scale: 0.90 },
+                { idx: 2, opacity: 0.18, scale: 0.95 },
+                { idx: 3, opacity: 0.24, scale: 0.88 },
+                { idx: 4, opacity: 0.26, scale: 0.92 }
+            ];
+
+            const colors = ["#FFD54A", "#FF9A3D", "#FFF7E7", "#F47B20"];
+
+            configs.forEach(cfg => {
+                const sec = sections[cfg.idx];
+                if (!sec) return;
+                if (sec.querySelector(".section-rocket")) return;
+
+                const rocket = document.createElement("div");
+                rocket.className = "section-rocket";
+                const sideRoll = Math.random();
+                const leftPct = sideRoll < 0.5
+                    ? 4 + Math.random() * 20
+                    : 74 + Math.random() * 22;
+                const topPct = 12 + Math.random() * 60;
+
+                rocket.style.left = leftPct.toFixed(1) + "%";
+                rocket.style.top = topPct.toFixed(1) + "%";
+                rocket.style.opacity = cfg.opacity;
+                rocket.style.setProperty("--scale", cfg.scale);
+                rocket.style.setProperty("--rot", (Math.random() * 30 - 15).toFixed(1) + "deg");
+                rocket.style.setProperty("--dur", (4 + Math.random() * 3).toFixed(2) + "s");
+                rocket.innerHTML = rocketSvg(colors[Math.floor(Math.random() * colors.length)]);
+
+                sec.appendChild(rocket);
+            });
+        }
 
         let currentLanguage = "ta";
 
-
         function toggleLanguage() {
-
-            currentLanguage =
-                currentLanguage === "ta"
-                    ? "en"
-                    : "ta";
-
-
-            document.documentElement.lang =
-                currentLanguage;
-
-
-            document
-                .querySelectorAll("[data-ta][data-en]")
-                .forEach(element => {
-
-                    element.textContent =
-                        element.getAttribute(
-                            `data-${currentLanguage}`
-                        );
-
-                });
-
-
-            const toggle =
-                document.getElementById(
-                    "languageToggle"
-                );
-
-
-            toggle.textContent =
-                currentLanguage === "ta"
-                    ? "EN"
-                    : "தமிழ்";
-
+            currentLanguage = currentLanguage === "ta" ? "en" : "ta";
+            document.documentElement.lang = currentLanguage;
+            document.querySelectorAll("[data-ta][data-en]").forEach(element => {
+                element.textContent = element.getAttribute(`data-${currentLanguage}`);
+            });
+            const toggle = document.getElementById("languageToggle");
+            toggle.textContent = currentLanguage === "ta" ? "EN" : "தமிழ்";
         }
-
-
-
-        /* =========================================================
-           MOBILE MENU
-        ========================================================== */
 
         function toggleMenu() {
-
-            const hamburger =
-                document.getElementById("hamburger");
-
-            const mobileMenu =
-                document.getElementById("mobileMenu");
-
-
-            const isOpen =
-                mobileMenu.classList.toggle("open");
-
-
-            hamburger.classList.toggle(
-                "open",
-                isOpen
-            );
-
-
-            hamburger.setAttribute(
-                "aria-expanded",
-                String(isOpen)
-            );
-
-
-            hamburger.setAttribute(
-                "aria-label",
-                isOpen
-                    ? "Close navigation"
-                    : "Open navigation"
-            );
-
+            const hamburger = document.getElementById("hamburger");
+            const mobileMenu = document.getElementById("mobileMenu");
+            const isOpen = mobileMenu.classList.toggle("open");
+            hamburger.classList.toggle("open", isOpen);
+            hamburger.setAttribute("aria-expanded", String(isOpen));
+            hamburger.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
         }
-
 
         function closeMenu() {
-
-            const hamburger =
-                document.getElementById("hamburger");
-
-            const mobileMenu =
-                document.getElementById("mobileMenu");
-
-
+            const hamburger = document.getElementById("hamburger");
+            const mobileMenu = document.getElementById("mobileMenu");
             mobileMenu.classList.remove("open");
-
             hamburger.classList.remove("open");
-
-
-            hamburger.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-
-            hamburger.setAttribute(
-                "aria-label",
-                "Open navigation"
-            );
-
+            hamburger.setAttribute("aria-expanded", "false");
+            hamburger.setAttribute("aria-label", "Open navigation");
         }
 
+        document.querySelectorAll(".mobile-menu a").forEach(link => {
+            link.addEventListener("click", closeMenu);
+        });
 
-        /* Close menu after navigation */
-
-        document
-            .querySelectorAll(".mobile-menu a")
-            .forEach(link => {
-
-                link.addEventListener(
-                    "click",
-                    closeMenu
-                );
-
-            });
-
-
-        /* Close when clicking outside */
-
-        document.addEventListener(
-            "click",
-            event => {
-
-                const hamburger =
-                    document.getElementById(
-                        "hamburger"
-                    );
-
-                const mobileMenu =
-                    document.getElementById(
-                        "mobileMenu"
-                    );
-
-
-                if (
-                    !mobileMenu.classList.contains("open")
-                ) {
-
-                    return;
-
-                }
-
-
-                if (
-                    !hamburger.contains(event.target) &&
-                    !mobileMenu.contains(event.target)
-                ) {
-
-                    closeMenu();
-
-                }
-
+        document.addEventListener("click", event => {
+            const hamburger = document.getElementById("hamburger");
+            const mobileMenu = document.getElementById("mobileMenu");
+            if (!mobileMenu.classList.contains("open")) return;
+            if (!hamburger.contains(event.target) && !mobileMenu.contains(event.target)) {
+                closeMenu();
             }
-        );
+        });
 
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape") closeMenu();
+        });
 
-        /* Escape closes menu */
-
-        document.addEventListener(
-            "keydown",
-            event => {
-
-                if (event.key === "Escape") {
-
-                    closeMenu();
-
-                }
-
+        let lastMobileState = window.innerWidth <= 700;
+        window.addEventListener("resize", () => {
+            const isMobile = window.innerWidth <= 700;
+            if (isMobile !== lastMobileState) {
+                closeMenu();
+                lastMobileState = isMobile;
             }
-        );
-
-
-        /* Close menu when crossing mobile breakpoint */
-
-        let lastMobileState =
-            window.innerWidth <= 700;
-
-
-        window.addEventListener(
-            "resize",
-            () => {
-
-                const isMobile =
-                    window.innerWidth <= 700;
-
-
-                if (
-                    isMobile !== lastMobileState
-                ) {
-
-                    closeMenu();
-
-                    lastMobileState =
-                        isMobile;
-
-                }
-
-            }
-        );
+        });
 
     </script>
-
 
 </body>
 
